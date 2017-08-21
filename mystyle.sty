@@ -1,0 +1,175 @@
+\ProvidesPackage{mystyle}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{epstopdf} % To include images with extension .eps
+\usepackage[justification=centering]{caption}
+\usepackage{subcaption}
+\setlength{\parskip}{\baselineskip} % Set the space between paragraphs (\parskip) to be the length between two normal lines plus a parameter, that in this case is also the length between two normal lines (\baselineskip).
+
+\usepackage{placeins} % Use the command \FloatBarrier to prevent floats to appear beyond some point in your document
+
+\usepackage{titlesec}
+%\newcommand{\sectionbreak}{\clearpage} % New section, new page
+
+\usepackage[bookmarks=true,pdfborder={0 0 0}, breaklinks=true, hidelinks, backref=page]{hyperref}
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{
+    \ifcase #1 (No cited.)
+          \or (Cited in page~#2.)
+          \else (Cited in pages #2.)
+    \fi%
+}
+\renewcommand*{\backrefsep}{, }
+\renewcommand*{\backreftwosep}{ and~}
+\renewcommand*{\backreflastsep}{ and~}
+
+\usepackage[numbered]{bookmark}
+
+\usepackage{mathabx}
+
+% So amsmath doesn't produce errors
+\let\iint\undefined 
+\let\iiint\undefined 
+\let\dddot\undefined 
+\let\ddddot\undefined
+\let\underleftarrow\undefined
+\let\underrightarrow\undefined 
+\let\underleftrightarrow\undefined 
+\let\overleftrightarrow\undefined 
+\let\ulcorner\undefined 
+\let\urcorner\undefined 
+\let\llcorner\undefined 
+\let\lrcorner\undefined 
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{indentfirst} % Indent after section headings
+
+\newcommand{\Expect}{{\rm I\kern-.3em E}}
+
+%\usepackage[nottoc,numbib]{tocbibind} % So the bibliography appears in the table of contents with numbering as a chapter
+\usepackage[nottoc]{tocbibind} % So the bibliography appears in the table of contents, withoug number
+\renewcommand{\contentsname}{Table of contents}
+\setcounter{secnumdepth}{2} % Numbering only until subsections, not subsubsections or inferior divisions
+\setcounter{tocdepth}{2} % In the Table of Contents appear until subsections
+
+\usepackage{color}
+\definecolor{ULAcolor}{rgb}{0,0,0}
+\definecolor{SparseRulerColor}{rgb}{0.85,0.325,0.098}
+\definecolor{NestedColor}{rgb}{0,0.447,0.741}
+\definecolor{CoprimeColor}{rgb}{0,1,0}
+
+\usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry} % For margins
+
+\usepackage{xparse,nameref}
+\NewDocumentCommand{\chapref}{s m}{\emph{Chapter~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}}} % http://tex.stackexchange.com/questions/178720/reference-chapter-number
+
+% List of figures and list of tables as non-numbered sections, not chapters
+\makeatletter
+\renewcommand\listoftables{%
+    \section*{\listtablename}%
+    \@mkboth{\MakeUppercase\listtablename}%
+        {\MakeUppercase\listtablename}%
+    \@starttoc{lot}%
+}
+\renewcommand\listoffigures{%
+    \section*{\listfigurename}%
+    \@mkboth{\MakeUppercase\listfigurename}%
+        {\MakeUppercase\listfigurename}%
+    \@starttoc{lof}%
+}
+\makeatother
+
+% List of abbreviations and tables
+% http://tex.stackexchange.com/questions/86666/how-to-create-both-list-of-abbreviations-and-list-of-nomenclature-using-nomencl
+%\usepackage{longtable}
+%\usepackage[acronym]{glossaries}
+%\usepackage{acro}
+
+% El primer método no va, probemos con el segundo
+%\usepackage{acro}
+%\acsetup{first-style=short}
+
+% El segundo tampoco me va porque no encuentra un paquete .sty, aquí hay un tercero:
+%http://tex.stackexchange.com/questions/179631/list-of-symbols-and-abbreviations-just-as-two-columns
+\usepackage{enumitem}
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
+
+% To sort items in the list of abbreviations: http://tex.stackexchange.com/questions/121489/alphabetically-display-the-items-in-itemize... No me ha funcionado
+
+
+% To make figures and chapters be numbered as a continous list of natural numbers, without the chapter and section numbering
+\usepackage{chngcntr} 
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+% So the name of figures is Fig.
+\renewcommand{\figurename}{Fig.}
+
+% So the numeration of the sections is for example 1.2. and not 1.2 (there is a dot at the end)
+%\renewcommand\thesection{\thechapter.\arabic{section}}
+% Other way, slithgly different effects, but it doesn't change it in the table of contents. It affects all sections and subsections
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+% Other way. This way also changes the numbering in the TOC, including chapters
+%\makeatletter
+%    \renewcommand\@seccntformat[1]{\csname the#1\endcsname.\quad}
+%    \renewcommand\numberline[1]{#1.\hskip0.7em}
+%\makeatother
+
+% So the text in the list of figures and tables appears aligned
+\usepackage{titletoc}
+% It continues a few lines beneath
+
+% So the name Chapter appears before the number in the TOC
+\usepackage[titles]{tocloft}
+\newlength\mylength
+\renewcommand\cftchappresnum{\chaptername~}
+\settowidth\mylength{\cftchappresnum\cftchapaftersnum\quad}
+\addtolength\cftchapnumwidth{\mylength}
+
+% So the text in the list of figures and tables appears aligned (continuation)
+\titlecontents{figure}
+[1.7cm]
+{}
+{\makebox[0pt][r]{%
+		\makebox[1.7cm][l]{Fig.~\thecontentslabel:}%
+	}%
+}
+{\hspace{-1.7cm}}
+{\titlerule*[6pt]{.}\contentspage} 
+
+% So there is a dot after section and subsection in TOC
+\renewcommand\cftsecaftersnum{.}
+\renewcommand\cftsubsecaftersnum{.}
+
+\usepackage{array} % For alignment in tables
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% For proper writing of numbers and units
+\usepackage{siunitx}
+
+% For centering figures in tables
+\usepackage{graphbox} 
+
+% For flexibility in formatting the dates
+\usepackage{datetime}
+
+% So the ulr appear with the same font as the rest of the text
+\usepackage{url}
+\urlstyle{same}
+
+% For font types
+%\usepackage{tgbonum}
+
+\newtheorem{theorem}{Theorem}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\norm}[1]{|| #1 ||}
+\newcommand{\variable}[1]{{\fontfamily{pcr}\selectfont #1}}
+\newcommand{\class}[1]{\textit{#1}}
+\newcommand{\refeq}[1]{Eq.\ref{#1}}
+\newcommand{\reffig}[1]{Fig.\ref{#1}}

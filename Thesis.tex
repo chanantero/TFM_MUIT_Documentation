@@ -1,0 +1,27 @@
+\documentclass[10pt]{report}
+\usepackage{mystyle}
+
+
+\begin{document}
+
+\chapter[Introduction and State of the Art]{Introduction and State of the Art.\\What is wave field synthesis, active control noise, and why should we care?}
+\input{Tex/Introduction.tex}
+
+\chapter[Theoretical Basis]{Theoretical Basis.\\From Wave Equation and Kirchhoff's Integral to Arrays of Loudspeakers.}
+\input{Tex/Kirchhoff.tex}
+\input{Tex/TheoreticalModel.tex}
+
+\chapter{Real system in UPV iTEAM Lab and How It Works.}
+\input{Tex/FunctioningTool.tex}
+\input{Tex/Program.tex}
+
+
+\chapter{Experiments in the Lab for Improvement of Previous Results.}
+
+\chapter{Conclusions and Future Work}
+
+%\nocite{*} % Para que aparezcan sí o sí referencias que no han sido citadas explícitamente en el texto. El asterisco hace que aparezcan todas las referencias.
+\bibliographystyle{unsrt} % Aparecen listados por orden de citación.
+\bibliography{Tex/bibliography}
+
+\end{document}          

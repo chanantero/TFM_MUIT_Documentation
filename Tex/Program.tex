@@ -1,0 +1,82 @@
+\section{Overview of the system}
+The program WFSTool was develop as a GUI that helps to use WFS in the lab. It was developed in its original version by YU Bofei as part of her undergraduate project, and has been modified by me.
+
+The last version of the program is developed using the object-oriented programming capability of Matlab. The architecture is modular. There is the parent object, which contains all the other objects as properties. In the next sections a detailed explanation of each of the objects will be given.
+
+\section{Reproductor}
+The class \textit{reproductor} is the core of the whole system. It is a system object that interacts with the audio card of the computer and controls the processing and reproduction of the audio files.
+
+It has no public properties, so every property must be set using the public functions. The properties that allow the user to configure the object are the next nontunnable properties:
+
+\begin{enumerate}
+	\item 'audioFileName'. Use the function \textit{executeOrder(order)}. \textit{order} is a structure where the field \textit{action} 'assignTrack' and the field \textit{fileName} is the name of the audio track.
+	\item 'frameSize'. Use the function \textit{setFrameSize(frameSize)}.
+	\item 'driver'. Use the function \textit{setDriver(driver)}.
+	\item 'device'. Use the function \textit{setDevice(device)}.
+	\item 'getDelayFun'. Use the function \textit{set\_getDelayFun(getDelayFun)}.
+	\item 'getAttenFun'. Use the function \textit{set\_getAttenFun(getAttenFun)}.
+\end{enumerate}
+
+There are two properties that the user cannot change, but are informative about the current state of the object and can be used during the interaction with other objects.
+
+\begin{enumerate}
+	\item 'playingState'. It can have 3 values: \textit{playing}, \textit{paused} and \textit{stopped}.
+	\item 'numChannels'. Number of output channels, this is, the number of channels of the output buffer. The delay and attenuation returned by the getDelayFun and getAttenFun must match this number. It is not necessarily the real number of output channels of the output audio device, but the number of channels that the object is feeding to the driver, this is, the number of channels the object believes there are.
+\end{enumerate}
+
+Finally, there are internal properties to which the user has no access.
+
+The rest of the interaction that the user or other objects can have with an object of the class \textit{reproductor} are the construction with the function \textit{reproductor} and the reproduction control by means of the function \textit{executeOrder(order)}.
+
+The constructor doesn't admit any input arguments, so there is not much to say about it.
+
+The reproduction control is more complex though. The function \textit{executeOrder(order)} accepts one parameter (\textit{order}) that must be a structure with at least one field called \textit{action} and, optionally, another one called \textit{fileName}. The field \textit{action} defines the action that it is required to execute, but the taken steps vary depending on the \textit{playingState}:
+
+
+\subsection*{\textit{playingState} = 'playing'}
+\begin{description}
+	\item[play] The required action is to start reproducing an audio track. If the field \textit{fileName} exists, it will become the new \textit{audioFileName}. If not, the song that will start to reproduce is the current \textit{audioFileName}.
+	\item[stop] Stop the reproduction of any song and release the object.
+	\item[pause] Pause the reproduction of the audio track, but don't release the object, so the nontunable properties are still nontunable.
+	\item[resume] Do nothing.
+	\item[assignTrack] The same as \textit{play}.
+\end{description}
+
+\subsection*{\textit{playingState} = 'paused'}
+\begin{description}
+	\item[play] The same as in the 'playing' state.
+	\item[stop] Stop the reproduction of any song and release the object.
+	\item[pause] Do nothing since the object is already paused.
+	\item[resume] Resume the reproduction of the audio track.
+	\item[assignTrack] Stops the reproduction and then updates the property \textit{audioFileName}.
+\end{description}
+
+\subsection*{\textit{playingState} = 'stopped'}
+\begin{description}
+	\item[play] The same as in the 'playing' state.
+	\item[stop] Do nothing as the object is already stopped.
+	\item[pause] Do nothing, it makes no sense since nothing is being reproduced.
+	\item[resume] The same as \textit{play} if there was no \textit{fileName} specified, i.e., just start reproducing the current \textit{audioFileName}.
+	\item[assignTrack] It updates the property \textit{audioFileName}.
+\end{description}
+
+Additionally, the content of the field \textit{action} can be an empty string, in which case no action is performed. Any other content of the field will throw an error.
+
+\section{Reproduction panel}
+The reproduction panel consists of a panel like the one in Fig.\ref{}. Each time the user interacts with it, the object executes a callback externally specified with an order structure as the first argument. There are also public functions for updating the state of the panel.
+
+The panel stores a list of audio tracks, and the selected audio track and the active audio track.
+
+The order structure has two fields:
+\begin{enumerate}
+	\item 'action'. It is the action. It can be of the type:
+	\begin{enumerate}
+		\item 'play'
+		\item 'stop'
+		\item 'pause'
+		\item 'next'
+		\item 'previous'
+		\item 'doubleClick'
+	\end{enumerate}
+	\item 'fileName'. In case it is needed, it is the name of the audio file associated with the action. It can be the file that is currently active, or the one that is selected.
+\end{enumerate}
