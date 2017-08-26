@@ -1,6 +1,13 @@
 \documentclass[10pt]{report}
 \usepackage{mystyle}
 
+%% For extracting only equations, use the next package
+%\usepackage[active,generate=equations,extract-env={equation,align}]{extract}
+%% In the new edocument created, called equations.tex, use the next package
+%\usepackage[active,tightpage,displaymath]{preview}
+%\PreviewBorder=12pt\relax
+%% Then, to convert the created pdf into images, use in the windows comand line the next command (it uses the program imagemagick):
+% convert -verbose -density 600 -trim file.pdf -quality 100 -sharpen 0x1.0 Img/Equations/equation.png
 
 \begin{document}
 

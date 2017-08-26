@@ -104,8 +104,8 @@
 
 % To make figures and chapters be numbered as a continous list of natural numbers, without the chapter and section numbering
 \usepackage{chngcntr} 
-\counterwithout{figure}{chapter}
-\counterwithout{table}{chapter}
+%\counterwithout{figure}{chapter}
+%\counterwithout{table}{chapter}
 
 % So the name of figures is Fig.
 \renewcommand{\figurename}{Fig.}
@@ -128,9 +128,9 @@
 % So the name Chapter appears before the number in the TOC
 \usepackage[titles]{tocloft}
 \newlength\mylength
-\renewcommand\cftchappresnum{\chaptername~}
-\settowidth\mylength{\cftchappresnum\cftchapaftersnum\quad}
-\addtolength\cftchapnumwidth{\mylength}
+%\renewcommand\cftchappresnum{\chaptername~}
+%\settowidth\mylength{\cftchappresnum\cftchapaftersnum\quad}
+%\addtolength\cftchapnumwidth{\mylength}
 
 % So the text in the list of figures and tables appears aligned (continuation)
 \titlecontents{figure}
