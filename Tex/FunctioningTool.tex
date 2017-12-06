@@ -33,7 +33,33 @@ This step is delicate because the software must use the audio driver and several
 
 Although the class ReproductorRecorder is able to play many types of signals on multiple devices simultaneously, apply real-time processing, and other features, the use that is given in the program is relatively simple. In the program we work with sinusoidal pulses. Each pulse is defined by its duration, frequency and complex coefficient (amplitude and phase).
 
-Then, a signal is perfectly defined by a 3D array \variable{pulseCoefMat}, a 2D array \variable{pulseLimits}, and 2 vectors (\variable{channels} and \variable{frequencies}). The size of the matrix is ($numPulses$, $numChannels$, $numFrequencies$), and the ($i$, $j$, $k$)-th element is the complex coefficient of the $i$-th pulse, reproduced by the \variable{channels[j]} channel in the playing device, with frequency \variable{frequencies[k]}. The starting end ending time of the pulses are contained in \variable{pulseLimits[i, 1]} and \variable{pulseLimits[i, 2]} respectively.
+Then, a signal is perfectly defined by a 3D array \variable{pulseCoefMat}, a 2D array \variable{pulseLimits}, and 2 vectors (\variable{channels} and \variable{frequencies}). The size of the matrix is ($numPulses$, $numChannels$, $numFrequencies$), and the ($p$, $ch$, $f$)-th element is the complex coefficient of the $p$-th pulse, reproduced by the \variable{channels[ch]} channel in the playing device, with frequency \variable{frequencies[f]}. The starting end ending time of the pulses are \variable{pulseLimits[p, 1]} and \variable{pulseLimits[p, 2]} respectively.
+
+A way of expressing it is that the signal of the $j$-th channel is:
+\begin{equation}
+x_{ch}(t) = \sum_{f = 1}^{F} \sum_{p = 1}^{P} W\left(\frac{t - \tau_p}{T_p}\right)
+\Re \left\{ \myMatrix{C}_{(p,ch,f)} e^{j 2 \pi \vec{F}_f t} \right\}
+\end{equation}
+
+\begin{description}
+	\item[$\myMatrix{C}$] Pulse coefficient matrix \variable{pulseCoefMat}
+	\item[$\vec{F}$] Frequency vector \variable{frequencies}
+	\item[$W(t)$] Window function
+	\item[$numF$] Number of frequencies $numFrequencies$
+	\item[$numP$] Number of pulses $numPulses$
+	\item[$\tau_p$] Delay of the midpoint $p$-th pulse: $\frac{\text{\variable{pulseLimits[p, 1] + pulseLimits[p, 2]}}}{2}$
+	\item[$T_p$] Duration of the $p$-th pulse: $\text{\variable{pulseLimits[p, 2] - pulseLimits[p, 1]}}$
+\end{description}
+
+The window $W$ can be a rectangular function as defined in \refeq{rectFunc}. However, other functions with a different spectrum can be used in order facilitate the detection. During the experiments we have used a modification of the Hanning window to reduce the magnitude of side lobes (\reffig{HanningSpectrumComparison}).
+\begin{equation}
+\Pi(t) = \left\{ \begin{array}{lcc}
+0 &   if  & |t| > 1/2 \\
+1 &  if & |t| \leq 1/2 \\
+\end{array} \right.
+\label{rectFunc}
+\end{equation}
+
 
 For example, the next configuration
 \begin{gather*}
@@ -82,8 +108,6 @@ gives as a result the signal in the \reffig{examplePulseSignal}.
 	\label{examplePulseSignal}
 \end{figure}
 
-% Let's notice that the pulses are not completely rectangular, but they have been multiplied by a window function. In particular, it is a modification of a Hanning window. The purpose of the window has to do with the detection.
-
 Once the signal has been defined and constructed, it is played and recorded by the class \class{ReproductorRecorder}. The recorded signal is of course different from the transmitted one. It has been modified by the response of loudspeakers and microphones, the noise, the directivity, position of objects, etc. However, we must detect the pulses in order to calculate how the amplitude and phase has been modified. So, how is the detection performed?
 
 \subsection{Detection of pulses}
@@ -101,8 +125,6 @@ It can be done by applying a band-pass filter around the desired frequency and d
 	\caption[Detection Scheme]{Scheme of the detection}
 	\label{detectionScheme}
 \end{figure}
-
-Given that we want to use narrowband signals, we use a Hanning window to reduce the magnitude of side lobes (\reffig{HanningSpectrumComparison}).
 
 Now that we have the modulating signal $x_{IQ}(t)$, we need to detect where the pulses are. Their amplitude and phase can change, and they can be distorted by noise and non-linear effects, but the duration and delay between them is going to be approximately the same. Hence, we can generate a mask that is set to one when there is a pulse in the original signal and to zero otherwise, cross-correlate it by $x_{IQ}(t)$, and find the lag that returns the maximum value of correlation. To find the complex coefficients of pulses (amplitude and phase), we just perform the mean of each pulse.
 
