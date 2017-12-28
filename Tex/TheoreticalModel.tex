@@ -19,42 +19,36 @@ In order to reproduce a signal through a loudspeaker, it must be created in the 
 
 It is not possible to know the acoustic field at one point directly, we need to use a microphone that will transform the pressure to voltage, and then it will be digitized. The microphone will be modelled as a punctual receiver with a given radiation pattern and a calibration coefficient too.
 
-%\begin{multline}
-%x_{m,n}(f) = s_{m}(f) D_{s,m}(\mathbf{r}_{s,m}, \mathbf{r}_{r,n}, f) G(\mathbf{r}_{s,m}, \mathbf{r}_{r,n}, f) D_{r,n}(\mathbf{r}_{s,m}, \mathbf{r}_{r,n}, f) \\
-%x_{n}(f) = \sum_{m = 1}^{M} \left( s_{m}(f) D_{s,m}(\mathbf{r}_{s,m}, \mathbf{r}_{r,n}, f) G(\mathbf{r}_{s,m}, \mathbf{r}_{r,n}, f) D_{r,n}(\mathbf{r}_{s,m}, \mathbf{r}_{r,n}, f) \right) + x_{noise}(f)
-%\label{transFunctionComplete}
-%\end{multline}
-%
-%Particularising for just one frequency the contribution of a loudspeaker to a point in space, in the absence of noise, is:
-
 %\begin{equation}
-%x_{l,m} = s_{l} D_{loud,l}(\mathbf{r}_{micro,m} - \mathbf{r}_{loud,l}) G(\mathbf{r}_{micro,m} - \mathbf{r}_{loud,l}) D_{micro,m}(\mathbf{r}_{micro,m} - \mathbf{r}_{loud,l})
-%\label{transFunction}
+%	x_{l,m} = c_{l}^d \alpha_l D_{loud(l)}(\mathbf{r}_{loud(l)}, \mathbf{r}_{micro(m)}) G(\mathbf{r}_{loud(l)}, \mathbf{r}_{micro(m)}) D_{micro(m)}(\mathbf{r}_{loud(l)}, \mathbf{r}_{micro(m)}) \beta_m
+%	\label{transEquationCalibration}
 %\end{equation}
 %
 %\begin{description}
 %	\item[$x_{(l,m)}$] Complex contribution of the $l$-th loudspeaker to the signal received by the $m$-th microphone
-%	\item[$s_{l}$] Complex coefficient of the signal transmitted by the $l$-th loudspeaker
+%	\item[$c_{l}^d$] Complex coefficient of the digital signal sent to the $l$-th loudspeaker
+%	\item[$\alpha_m$] Calibration coefficient for the $m$-th source (loudspeaker)
 %	\item[$D_{loud(l)}$] Radiation pattern of the $l$-th loudspeaker
-%	\item[$D_{micro(m)}$] Radiation pattern of the $m$-th microphone
 %	\item[$\mathbf{r}_{loud(l)}$] Position of the $l$-th loudspeaker
-%	\item[$\mathbf{r}_{micro(m)}$] Position of the $m$-th microphone
 %	\item[G] Green's function in 3D
+%	\item[$\mathbf{r}_{micro(m)}$] Position of the $m$-th microphone
+%	\item[$D_{micro(m)}$] Radiation pattern of the $m$-th microphone
+%	\item[$\beta_n$] Calibration coefficient for the $m$-th microphone
 %\end{description}
 
 \begin{equation}
-x_{l,m} = c_{l}^d \alpha_l D_{loud(l)}(\mathbf{r}_{loud(l)}, \mathbf{r}_{micro(m)}) G(\mathbf{r}_{loud(l)}, \mathbf{r}_{micro(m)}) D_{micro(m)}(\mathbf{r}_{loud(l)}, \mathbf{r}_{micro(m)}) \beta_m
+x = c_d \alpha D_{loud}(\vec{r}_{loud}, \vec{r}_{micro}) G(\vec{r}_{loud}, \vec{r}_{micro}) D_{micro}(\vec{r}_{loud}, \vec{r}_{micro}) \beta
 \label{transEquationCalibration}
 \end{equation}
 
 \begin{description}
-	\item[$x_{(l,m)}$] Complex contribution of the $l$-th loudspeaker to the signal received by the $m$-th microphone
-	\item[$c_{l}^d$] Complex coefficient of the digital signal sent to the $l$-th loudspeaker
-	\item[$\alpha_m$] Calibration coefficient for the $m$-th source (loudspeaker)
-	\item[$D_{loud(l)}$] Radiation pattern of the $l$-th loudspeaker
-	\item[$\mathbf{r}_{loud(l)}$] Position of the $l$-th loudspeaker
+	\item[$x$] Complex coefficient of the signal received by the microphone
+	\item[$c_d$] Complex coefficient of the digital signal sent to the loudspeaker
+	\item[$\alpha$] Calibration coefficient for the loudspeaker
+	\item[$D_{loud}$] Radiation pattern of the loudspeaker
+	\item[$\vec{r}_{loud}$] Position of the loudspeaker
 	\item[G] Green's function in 3D
-	\item[$\mathbf{r}_{micro(m)}$] Position of the $m$-th microphone
-	\item[$D_{micro(m)}$] Radiation pattern of the $m$-th microphone
-	\item[$\beta_n$] Calibration coefficient for the $m$-th microphone
+	\item[$\vec{r}_{micro}$] Position of the microphone
+	\item[$D_{micro}$] Radiation pattern of the microphone
+	\item[$\beta$] Calibration coefficient for the microphone
 \end{description}
