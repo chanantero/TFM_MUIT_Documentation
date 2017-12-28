@@ -37,13 +37,14 @@ It is not possible to know the acoustic field at one point directly, we need to 
 %\end{description}
 
 \begin{equation}
-x = c_d \alpha D_{loud}(\vec{r}_{loud}, \vec{r}_{micro}) G(\vec{r}_{loud}, \vec{r}_{micro}) D_{micro}(\vec{r}_{loud}, \vec{r}_{micro}) \beta
+c_\mathit{micro} = c_\mathit{loud} \alpha D_{loud}(\vec{r}_{loud}, \vec{r}_{micro}) G(\vec{r}_{loud}, \vec{r}_{micro}) D_{micro}(\vec{r}_{loud}, \vec{r}_{\mathit{micro}}) \beta = a \, c_\mathit{loud}
 \label{transEquationCalibration}
 \end{equation}
 
 \begin{description}
-	\item[$x$] Complex coefficient of the signal received by the microphone
-	\item[$c_d$] Complex coefficient of the digital signal sent to the loudspeaker
+	\item[$c_\mathit{micro}$] Complex coefficient of the signal received by the microphone
+	\item[$c_\mathit{loud}$] Complex coefficient of the digital signal sent to the loudspeaker
+	\item[$a$] Acoustic path
 	\item[$\alpha$] Calibration coefficient for the loudspeaker
 	\item[$D_{loud}$] Radiation pattern of the loudspeaker
 	\item[$\vec{r}_{loud}$] Position of the loudspeaker
@@ -52,3 +53,21 @@ x = c_d \alpha D_{loud}(\vec{r}_{loud}, \vec{r}_{micro}) G(\vec{r}_{loud}, \vec{
 	\item[$D_{micro}$] Radiation pattern of the microphone
 	\item[$\beta$] Calibration coefficient for the microphone
 \end{description}
+
+If there are multiple microphones and loudspeakers, the relation between the transmitted and received signals for each combination of loudspeaker and microphone is characterized by an acoustic path. Let $L$ and $M$ be the number of loudspeakers and microphones respectively, then there are $L \dot M$ combinations.
+
+\begin{gather}
+c_{\mathit{micro} (m)} = \sum_{l = 1}^{L} a_{m,l} c_{\mathit{loud} (l)} \label{transEquationCalibrationConcrete} \\
+a_{m,l} = \alpha_l D_{loud (l)}(\vec{r}_{loud (l)}, \vec{r}_{micro (m)}) G(\vec{r}_{loud (l)}, \vec{r}_{micro (m)}) D_{micro (m)}(\vec{r}_{loud (l)}, \vec{r}_{micro (m)}) \beta_m
+\label{acPathTheoric}
+\end{gather}
+
+Previous equation can be expressed as a matrix operation:
+
+\begin{equation}
+\vec{c_\mathit{micro}} = \myMatrix{A} \vec{c_\mathit{louds}}
+\label{transEqMatrix}
+\end{equation}
+
+
+

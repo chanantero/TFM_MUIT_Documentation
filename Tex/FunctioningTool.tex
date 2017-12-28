@@ -10,18 +10,23 @@ Once we have modelled the WFS array, we need to set the properties of the noise 
 The same must be done with the microphones, that will also have a position, orientation and radiation pattern. It is also needed to specify the channel number of the recording device to which each microphone is connected.
  
 \subsection{WFS calculation}
-Now the scenario is theoretically defined. The next step is the application of the WFS calculations in order to generate the appropriate complex coefficients that will create a field for the noise cancellation. They take in account the position of the noise source and loudspeakers, and the orientation of the latter. The information about the radiation patterns set by the user are not used. However, in future modifications of the software a more sophisticated WFS calculation that uses more information could be used. The calculations are particularized for the loudspeaker array in the anechoic chamber. These calculations were provided by the professors and require much professional knowledge in the physic area, which is not an important section of the project.
+\label{WFScalculation}
+
+Now the scenario is theoretically defined. The next step is the application of the WFS calculations in order to generate the appropriate complex coefficients that will create a field for the noise cancellation. Actually, it consists in generating the field that an hypothetical noise source (virtual noise source) equal to the real one but with opposite sign would produce. This way, both fields would cancel each other (the sum will be $0$). It takes in account the position of the noise source and loudspeakers, and the orientation of the latter. The information about the radiation patterns set by the user are not used. However, in future modifications of the software a more sophisticated WFS calculation that uses more information could be used. The calculations are particularized for the loudspeaker array in the anechoic chamber. These calculations were provided by the professors and require much professional knowledge in the physic area, which is not an important section of the project.
 
 The original noise signal will be scaled by an attenuation coefficient and delayed a certain amount of time. The attenuation is calculated by determining the distance between the source and the loudspeaker $d$ and the angle $\alpha$ between the vector that goes from the source to the loudspeaker and the loudspeaker's broadside direction.
-\begin{align}
-r_0 = \frac{1.44}{2} + 1.44 \cos\left( \frac{\pi}{4} \right)\\
-A = \sqrt{\frac{r_0}{r_0 + d}}\\
-a = A\frac{\cos\alpha}{\sqrt{d}}
-\end{align}
+\begin{equation}
+\begin{aligned}
+a &= A\frac{\cos\alpha}{\sqrt{d}} \\
+A &= \sqrt{\frac{r_0}{r_0 + d}}\\
+r_0 &= \frac{1.44}{2} + 1.44 \cos\left( \frac{\pi}{4} \right)
+\end{aligned}
+\label{WFScalcEq}
+\end{equation}
 
 The delay time is actually the time it takes for the sound transmitted by the noise source to reach the loudspeaker. It is related to the distance $d$ and the propagation velocity of acoustic waves in air $c = 343 (m/s)$.
 \begin{equation}
-\tau = \frac{d}{c}
+\tau = \frac{d}{c} \label{WFScalcEqDelay}
 \end{equation}
 
 Finally, there is a condition that must be met in order to activate a loudspeaker. If the angle $\alpha$ is smaller than $90^\circ$, then the loudspeaker is active. In other case, is not enabled.
