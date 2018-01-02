@@ -1,4 +1,4 @@
-\section{Theoretical Modelling of lab scenario}
+\section{Lab experiment model}
 As expressed in \refeq{transEqMatrix}, the relation between the transmitted and received signals is:
 
 \begin{gather}
@@ -11,7 +11,7 @@ As expressed in \refeq{transEqMatrix}, the relation between the transmitted and 
 \label{transEqMatrixRep1}
 \end{gather}
 
-Matrix $\myMatrix{A}$ can be calculated from theoretical parameters or from experimental results. The first case was already expressed in \refeq{acPathTheoric}:
+Matrix of acoustic paths $\myMatrix{A}$ can be calculated from theoretical parameters or from experimental results. The first case was already expressed in \refeq{acPathTheoric}:
 
 \begin{gather}
 a_{m,l} = \alpha_l D_{loud (l)}(\vec{r}_{loud (l)}, \vec{r}_{micro (m)}) G(\vec{r}_{loud (l)}, \vec{r}_{micro (m)}) D_{micro (m)}(\vec{r}_{loud (l)}, \vec{r}_{micro (m)}) \beta_m 
@@ -43,14 +43,14 @@ a_{m, l} = \frac{c_{\mathit{micro} (m)}}{c_{\mathit{loud} (l)}}
 
 We are interested in cancellation, this is, in reducing the magnitude of received signals $\vec{c_\mathit{micro}}$. That must be achieved through the manipulation of transmitted signals by the WFS array $\vec{c_\mathit{WFS}}$. There are two main ways of doing this.
 
-The first one is using WFS (section \ref{WFScalculation}). Simplifying Kirchhoff's integral to fit the scenario that is presented in the lab (a finite number of discrete sources distributed as an octagon in a particular plane), some equations are deduced (\refeq{WFScalcEq} and \refeq{WFScalcEqDelay}). They use some of the theoretical parameters (position and coefficient of the virtual noise source, position and orientation of the loudspeakers used for WFS) to calculate the transmitted coefficients of the solution. If loudspeakers can be modelled as monopoles and we assume free-space conditions, we will achieve cancellation over the whole area.
+The first one is using WFS (section \ref{WFScalculation}). Simplifying Kirchhoff's integral to fit the scenario that is presented in the lab (a finite number of discrete sources distributed as an octagon on a horizontal plane), some equations are deduced (\refeq{WFScalcEq} and \refeq{WFScalcEqDelay}). They use some of the theoretical parameters (position and coefficient of the virtual noise source, position and orientation of the loudspeakers used for WFS) to calculate the transmitted coefficients of the solution. If loudspeakers can be modelled as monopoles and we assume free-space conditions, we will achieve cancellation over the whole area.
 
 However, the real scenario is not ideal. The coefficients calculated with the previous method don't always produce a good enough cancellation when the acoustic paths are not the ideal ones. Then, some form of numerical optimisation can be useful.
 
 In order to perform the optimisation, we've followed the usual concept of defining an objective function that returns a number depending on some of inputs, and then finding the inputs that minimize the function.
 
 \begin{equation}
-[x_{\mathit{opt} (1)}, x_{\mathit{opt} (1)}, ..., x_{\mathit{opt} (N)}] = \argmin_{x_1, x_2, ..., x_N} f(x_1, x_2, ..., x_N)
+[x_{\mathit{opt} (1)}, x_{\mathit{opt} (2)}, ..., x_{\mathit{opt} (N)}] = \argmin_{x_1, x_2, ..., x_N} f(x_1, x_2, ..., x_N)
 \label{optimisationGeneral}
 \end{equation}
 
@@ -94,3 +94,39 @@ This solution doesn't take in account any physical knowledge of the scenario, no
 	\end{bmatrix}
 }
 \end{equation}
+
+It could be that the cancellation at some points was more of a priority than at some others. For example, achieving cancellation in the centre of the area is more important than the region near the border, or it could be that we wanted to compensate for the difference in the response of microphones. In those cases we can just multiply each row of $\myMatrix{A}$ by a correction coefficient.
+
+Evaluating the result consists of calculating the power of the received signals in the optimized case.
+\begin{gather}
+	\vec{p_\mathit{micro,opt}} = \frac{\abs{\vec{c_{\mathit{micro,opt}}}}^{\circ 2}}{2}
+	\\
+	\vec{c_\mathit{\mathit{micro,opt}}} = \myMatrix{A}
+	\begin{bmatrix}
+	\vec{c_\mathit{WFS,opt}} \\
+	\vec{c_{\mathit{NS}}}
+	\end{bmatrix}
+\end{gather}
+
+However, that result makes not much sense if we don't compare it to the power of noise we would have if there was no cancellation. So, interesting results are the signal power and the cancellation $\vec{C}$ defined as:
+
+\begin{gather}
+\vec{C} = \vec{p_\mathit{micro,opt}} \oslash \vec{p_\mathit{micro,NS}} \\
+\vec{p_\mathit{micro,NS}} = \frac{\abs{\vec{c_{\mathit{micro,NS}}}}^{\circ 2}}{2}\\
+\vec{c_{\mathit{micro,NS}}} = \myMatrix{A} 
+\begin{bmatrix}
+	\vec{0} \\
+	\vec{c_{\mathit{NS}}}
+\end{bmatrix}
+\end{gather}
+
+Another interesting result comes from comparing the sum of the power of all received signals with and without cancellation, like some sort of global cancellation $C_\mathit{global}$:
+\begin{equation}
+C_\mathit{global} = \frac{\norm{\vec{p_\mathit{micro,opt}}}_1}{\norm{\vec{p_\mathit{micro,NS}}}_1}
+\end{equation}
+
+\subsection{Visualizing of results}
+In order to visualize the results, two ways have been used. The first one uses two histograms with logarithmic scale that shows how the power and cancellation of the different received signals are distributed. It also returns parameters as the mean, maximum, minimum, standard deviation. In addition, it shows the global cancellation.
+
+The second way is by using a 2D map of the lab scenario. The points were the microphones are located appear as circles filled with a colour that depends on the power or cancellation levels.
+
