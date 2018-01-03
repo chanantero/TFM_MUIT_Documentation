@@ -1,4 +1,4 @@
-\section{Lab experiment model}
+\section{Lab experiment model} \label{optimization}
 As expressed in \refeq{transEqMatrix}, the relation between the transmitted and received signals is:
 
 \begin{gather}
@@ -128,5 +128,16 @@ C_\mathit{global} = \frac{\norm{\vec{p_\mathit{micro,opt}}}_1}{\norm{\vec{p_\mat
 \subsection{Visualizing of results}
 In order to visualize the results, two ways have been used. The first one uses two histograms with logarithmic scale that shows how the power and cancellation of the different received signals are distributed. It also returns parameters as the mean, maximum, minimum, standard deviation. In addition, it shows the global cancellation.
 
-The second way is by using a 2D map of the lab scenario. The points were the microphones are located appear as circles filled with a colour that depends on the power or cancellation levels.
+The second way is by using a 2D map of the lab scenario. The points were the microphones are located appear as circles filled with a colour that depends on the power or cancellation levels. Loudspeakers also appear with some colour depending on the power of the transmitted signals.
+
+\section{Experiment 1}
+The first experiment is a completely theoretical one, although it uses results from previous measures. The acoustic responses in the GTAC laboratory for different points was measured with high precision previously, and the results are published in the website. In total, the measures were done in 360 points distributed in a rectangular grid with 15 rows and 24 columns and separation of $20 \si{cm}$ between adjacent nodes.
+
+We could apply the optimization already described in \autoref{optimization}, but there is a problem. GTAC responses are measured for loudspeakers in the WFS array, but of course, not for loudspeakers outside the array in arbitrary positions. Hence, we can only guess the acoustic paths by applying the theoretical model (\refeq{acPathTheoric}), in which case we assume that the noise source is isotropic.
+
+Two approaches can be applied. The first one is to estimate the position of the loudspeaker . The second one is more interesting. In consists of having 
+
+Then, we apply the optimization process and see how far we can go in the cancellation. Only the first type is interesting since the position of the noise loudspeaker is known. The results are shown in \reffig{}.
+
+
 
