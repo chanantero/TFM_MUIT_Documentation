@@ -10,19 +10,6 @@ In the GTAC laboratory there is a 96-loudspeaker array distributed as an irregul
 	\label{WFSdistribution}
 \end{figure}
 
-Then, previous \refeq{transEqMatrix} can be particularized to differentiate between loudspeakers that belong to the WFS array and the ones that produce noise:
-
-\begin{gather}
-\vec{c_\mathit{micro}} = \myMatrix{A} \vec{c_\mathit{louds}} \\
-\vec{c_\mathit{louds}} = 
-\begin{bmatrix}
-	\vec{c_\mathit{WFS}} \\
-	\vec{c_\mathit{NS}}
-\end{bmatrix}
-\label{transEqMatrixRep1}
-\end{gather}
-
-
 %Matrix of acoustic paths $\myMatrix{A}$ can be calculated from theoretical parameters or from experimental results. The first case was already expressed in \refeq{acPathTheoric}:
 %
 %\begin{gather}
@@ -55,12 +42,56 @@ Then, previous \refeq{transEqMatrix} can be particularized to differentiate betw
 
 Cancellation must be achieved through the manipulation of transmitted signals by the WFS array $\vec{c}_\mathit{WFS}$, since the noise signals $\vec{c}_{\mathit{NS}}$ are a given. A perfect cancellation would mean that the acoustic field inside the area is null. This is of course impossible in practice, not only because the chosen model is a simplification of the real scenario, but also because, even in ideal simplified conditions, an infinite number of infinitesimal sources would be required, as the theory states. However, we can aim to good enough cancellation levels. This means that the magnitude of the field would be reduced enough in most of the area inside the array. That would be reflected in the signals received by microphones placed inside the area ($\vec{c_\mathit{micro}}$). There are two main ways of doing it.
 
-\subsection{Wave Field Synthesis in GTAC}
+\subsection{Wave Field Synthesis in GTAC anechoic chamber}
 Cancellation can be achieved by means of using Wave Field Synthesis. This consists in generating the field that an hypothetical noise source (virtual noise source) equal to the real one but with opposite sign would produce. This way, both fields would cancel each other (the sum will be $0$).
 
-WFS uses Kirchhoff integral as its mathematical principle. When Kirchhoff's integral is simplified to fit the scenario presented in the lab (a finite number of discrete sources distributed as an octagon on a horizontal plane), some equations are deduced (\autoref{WFScalcEq} and \autoref{WFScalcEqDelay}). They use some of the theoretical parameters (position and coefficient of the noise source, position and orientation of the loudspeakers used for WFS) to calculate the transmitted coefficients ($\vec{c}_\mathit{WFS}$) of the solution. If loudspeakers can be modelled as monopoles and free-space conditions are guaranteed, we will achieve cancellation over the whole area.
+WFS uses Kirchhoff integral as its mathematical principle. When Kirchhoff's integral is simplified and particularized to fit the scenario presented in the chamber (a finite number of discrete sources distributed as an octagon on a horizontal plane), some equations are deduced (\autoref{WFScalcEq} and \autoref{WFScalcEqDelay}). They use some of the theoretical parameters (position and coefficient of the noise source, position and orientation of the loudspeakers used for WFS) to calculate the transmitted coefficients ($\vec{c}_\mathit{WFS}$) of the solution. If loudspeakers can be modelled as monopoles and free-space conditions are guaranteed, we will achieve cancellation over the whole area. These calculations were provided by the professors and require much professional knowledge in the physic area, which is not an important section of the project.
+
+The original noise signal will be scaled by an attenuation coefficient and delayed a certain amount of time. The attenuation calculation requires the knowledge of the distance between the source and the loudspeaker $d$ and the angle $\alpha$ between the vector that goes from the source to the loudspeaker and the loudspeaker's broadside direction.
+\begin{equation}
+	\begin{aligned}
+		a = 
+		&\begin{cases}
+		A\frac{\cos\alpha}{\sqrt{d}} & \alpha \leq 90^\circ \\
+		0 & \alpha > 90^\circ
+		\end{cases}
+		\\
+		A &= \sqrt{\frac{r_0}{r_0 + d}}\\
+		r_0 &= \frac{1.44}{2} + 1.44 \cos\left( \frac{\pi}{4} \right)
+	\end{aligned}
+	\label{WFScalcEq}
+\end{equation}
+Beware there is a condition that must be fulfilled for a loudspeaker to be active: if the angle $\alpha$ is smaller than $90^\circ$ (\autoref{figAngleCondition}), then the loudspeaker is active. In other case, is not enabled.
+
+%	\input{./Img/pruebaSVGLatex.pdf_tex}
+\begin{figure}
+	\centering
+	\def\svgwidth{\columnwidth}
+	\graphicspath{{Img/}}
+	\input{Img/WFSCalculationParameters.pdf_tex}
+	\caption[WFS calculation parameters]{WFS calculation parameters}
+	\label{figAngleCondition}
+\end{figure}
+
+The delay time is actually the time it takes for the sound transmitted by the noise source to reach the loudspeaker. It is related to the distance $d$ and the propagation velocity of acoustic waves in air $c = 343 (m/s)$.
+\begin{equation}
+	\tau = \frac{d}{c} \label{WFScalcEqDelay}
+\end{equation}
 
 However, the real scenario is not ideal. The coefficients calculated with the previous method don't always produce a good enough cancellation when the acoustic paths are not the ideal ones. Then, some form of numerical optimisation can be useful.
+
+\subsection{Optimization}
+Previous \refeq{transEqMatrix} can be particularized to differentiate between loudspeakers that belong to the WFS array and the ones that produce noise:
+
+\begin{gather}
+	\vec{c_\mathit{micro}} = \myMatrix{A} \vec{c_\mathit{louds}} \\
+	\vec{c_\mathit{louds}} = 
+	\begin{bmatrix}
+		\vec{c_\mathit{WFS}} \\
+		\vec{c_\mathit{NS}}
+	\end{bmatrix}
+	\label{transEqMatrixRep1}
+\end{gather}
 
 In order to perform the optimisation, we've followed the usual concept of defining an objective function that returns a number depending on some of inputs, and then finding the inputs that minimize the function.
 
@@ -84,7 +115,6 @@ A simple and useful objective function is the norm of the vector of received sig
 \left | \vec{c_{\mathit{WFS}}} \right | <= 1
 \label{OptConstraint}
 \end{gather}
-
 
 The solution could easily be calculated by solving the overdetermined linear system. However, the constraint (\refeq{OptConstraint}) forces us to use some form of numeric non-linear optimisation. In this case, we used the interior point algorithm. The constraint is necessary since a digital signal that exceeds an amplitude of $1$ would produce saturation.
 
