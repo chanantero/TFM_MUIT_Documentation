@@ -9,3 +9,5 @@ Thesis.synctex.gz
 *.pdf
 *.xtr
 *.gz
+*.lof
+*.toc

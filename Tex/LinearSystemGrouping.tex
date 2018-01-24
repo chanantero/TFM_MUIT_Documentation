@@ -1,0 +1,50 @@
+\chapter{Linear System Grouping}
+
+Let's say we have an linear system (\autoref{normalLinearSystem}) and we are trying to find the solution $\vec{x}$:
+
+\begin{equation}
+\myMatrix{A}_{MxL} \vec{x}_{Lx1} = \vec{y}_{Mx1}
+\label{normalLinearSystem}
+\end{equation}
+
+We divide the columns into $N$ different groups. Each one of them is defined by a set of indices $I$ that map onto the indices of the columns of $\myMatrix{A}$ ($I \subseteq \{1, \ldots, L\}$). In other words, the n-th group contains the columns with indices $i \in I_n$. For example, if we define two groups of columns, $I_1 = \{1, 3, 4\}$ and $I_2 = \{2, 5\}$, the first group will contain the \nth{1}, \nth{3} and \nth{4} columns, and the second group the \nth{2} and \nth{5} columns. Each column can only be included in one group, this is, there isn't a column index that is contained in more than one set $I_n$ ($\bigcap_{n = 1}^{N} I_{n} = \emptyset$).
+
+Now, we transform the left side of previous linear system to the next one with a new unknown $\vec{x}'$:
+
+Corregir primera ecuación. Quiero considerar el caso de que, si hay columnas que no están incluídas en ningún grupo, se dejarán los valores iniciales por defecto, y por tanto pasarán al otro lado
+
+\begin{gather}
+\myMatrix{A}'_{MxN} \vec{x}'_{Nx1} = \vec{y}_{Mx1} - \myMatrix{A}_{P'} \vec{x}_0\\
+\myMatrix{A}' = [\vec{a}'_1,\ldots, \vec{a}'_n, \ldots, \vec{a}'_N] \\
+\vec{a}'_n = \sum_{i \in I_n} x_{0(i)} \vec{a}_i
+\end{gather}
+
+where $\vec{x}_0$ is a initial estimation of the solution.
+
+One way of interpreting this is that 
+
+$P = \{I_1, I_2, ..., I_n,... I_N\}$ is an indexed family of sets. % https://www.whitman.edu/mathematics/higher_math_online/section01.06.html
+In case all columns are included in the union of the sets of $P$ ($\bigcup_{n = 1}^{N} I_{n} = S$), we can say that $P$ is a partition of $S$.
+
+%% Complete version, only for the author
+%\begin{itemize}
+%	\item $I_n$ is a set of indices that map onto the columns of $\myMatrix{A}$ ($i \in \{1, ..., L\}, \forall i \in I_n$).
+%\end{itemize}
+%
+%\begin{equation}
+%\bigcup_{n = 1}^{N} I_{n} \subseteq S
+%\end{equation}
+%
+%\begin{itemize}
+%	\item A given column is only contained in one group.
+%	\item Each element of $S = \{1,\ldots,L\}$ belongs to, at most, only one set $I_n$.
+%	\item All index groups $I_n$ are disjoint (their intersection is the empty space)
+%	\item There isn't a column index that is present in more than one set $I_n$.
+%	\item There aren't two sets $I_n$ that have elements in common.
+%\end{itemize}
+%
+%\begin{equation}
+%\bigcap_{n = 1}^{N} I_{n} = \emptyset
+%\end{equation}
+%
+%

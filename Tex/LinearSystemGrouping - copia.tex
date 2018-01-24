@@ -1,0 +1,50 @@
+%\chapter{Linear System Grouping}
+
+%Grouping a linear system is an operation that consists of solving it with a restriction. It consists in that the unknowns aren't the coefficients anymore, but a series of parameters that multiply groups of the default coefficients.
+%
+%Let's say we have an linear system \aurtoref{normalLinearSystem}.
+
+%\begin{equation}
+%\myMatrix{A} \vec{x} = \vec{y}
+%\end{equation}
+
+%Now we modify it by defining an initial solution $\vec{x}_0$ and generating the next equation:
+%
+%\begin{equation}
+%\myMatrix{A'} \vec{x'} = \vec{y}
+%\end{equation}
+%
+%\begin{equation}
+%\myMatrix{A'} = [\vec{a_1^'}, \vec{a_n^'}, \vec{a_N^'}]
+%\end{equation}
+%
+%where
+%
+%\begin{equation}
+%\vec{a_n^'} = \sum_{i \in I_n} x_i \vec{a}_i
+%\end{equation}
+%
+%and $I_n$ is a set of indices.
+%Each index $i$ maps onto the columns of $A$, hence $i \in \{1, ..., L\}$.
+%
+%Every element of $I_n$ is a partition of the set of the indices of the columns of $\myMatrix{A}$ ($S = \{1, ..., L\}$).
+%In other words, each element of $S$/column index belongs to, at most, only one set $I_n$ / one group.
+%
+%$P = {I_1, I_2, ..., I_n,... I_N}$ is an indexed family of sets. % https://www.whitman.edu/mathematics/higher_math_online/section01.06.html
+%
+%All sets $I_n$ are disjoint, 
+%
+%the intersection of any two different sets is the empty space
+%
+%Two sets $I_{n_1}$ and $I_{n_2}$ don't have any element in common.
+%
+%\begin{equation}
+%	I_{i} \cup I_{j}
+%\end{equation}
+%
+%\begin{equation}
+%\left( \bigcup_{n \in } I_{n} \right) \in S
+%\end{equation}
+%
+%
+%

@@ -75,12 +75,12 @@
         {\MakeUppercase\listtablename}%
     \@starttoc{lot}%
 }
-\renewcommand\listoffigures{%
-    \section*{\listfigurename}%
-    \@mkboth{\MakeUppercase\listfigurename}%
-        {\MakeUppercase\listfigurename}%
-    \@starttoc{lof}%
-}
+%\renewcommand\listoffigures{%
+ %   \section*{\listfigurename}%
+  %  \@mkboth{\MakeUppercase\listfigurename}%
+   %     {\MakeUppercase\listfigurename}%
+  %  \@starttoc{lof}%
+%}
 \makeatother
 
 % List of abbreviations and tables
@@ -186,3 +186,9 @@
 %\usepackage{import} % Maybe I will need it
 %\usepackage{calc} % Maybe I will need it
 %\usepackage{transparent} % Maybe I will need it
+
+% Appendices
+\usepackage[toc,page]{appendix}
+
+% Ordinal numbers: 1st, 2nd, 3rd, 4th, 5th, etc.
+\usepackage{nth}
