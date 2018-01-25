@@ -7,24 +7,56 @@ Let's say we have an linear system (\autoref{normalLinearSystem}) and we are try
 \label{normalLinearSystem}
 \end{equation}
 
-We divide the columns into $N$ different groups. Each one of them is defined by a set of indices $I$ that map onto the indices of the columns of $\myMatrix{A}$ ($I \subseteq \{1, \ldots, L\}$). In other words, the n-th group contains the columns with indices $i \in I_n$. For example, if we define two groups of columns, $I_1 = \{1, 3, 4\}$ and $I_2 = \{2, 5\}$, the first group will contain the \nth{1}, \nth{3} and \nth{4} columns, and the second group the \nth{2} and \nth{5} columns. Each column can only be included in one group, this is, there isn't a column index that is contained in more than one set $I_n$ ($\bigcap_{n = 1}^{N} I_{n} = \emptyset$).
+We divide the columns into $N$ different groups. Each one of them is defined by a set of indices $I$ that map onto the indices of the columns of $\myMatrix{A}$ ($I \subseteq \{1, \ldots, L\}$). In other words, the n-th group contains the columns with the indices contained in $I_n$. For example, if we define two groups of columns, $I_1 = \{1, 3, 4\}$ and $I_2 = \{2, 5\}$, the first group will contain the \nth{1}, \nth{3} and \nth{4} columns, and the second group the \nth{2} and \nth{5} columns. Each column can only be included in one group, this is, there isn't a column index that is contained in more than one set $I_n$ ($I_p \cap I_q = \emptyset, \forall p, q \text{ such that } p \neq q \text{ and } \{p, q\} \subseteq \{1, \ldots, N\}$). We also define a vector of default values $\vec{x}_0$.
 
-Now, we transform the left side of previous linear system to the next one with a new unknown $\vec{x}'$:
+A new matrix $\myMatrix{A}'_{MxN}$ is created. The n-th column is the matrix multiplication of the columns of $\myMatrix{A}$ that belong to the n-th group by the correspondent elements of $\vec{x}_0$.
 
-Corregir primera ecuación. Quiero considerar el caso de que, si hay columnas que no están incluídas en ningún grupo, se dejarán los valores iniciales por defecto, y por tanto pasarán al otro lado
+\begin{equation}
+\begin{aligned}
+\myMatrix{A}' &= [\vec{a}'_1,\ldots, \vec{a}'_n, \ldots, \vec{a}'_N] \\
+\vec{a}'_n &=
+%\left. \begin{cases}
+%\myMatrix{A}_n = [\vec{a}_{I_{n(1)}}, \ldots, \vec{a}_{I_{n(|I_n|)}}] \\
+%\vec{x}_{0n} = [\vec{x}_{0(I_{n(1)})}, \ldots, \vec{x}_{0(I_{n(|I_n|)})}]
+%\end{cases} \right\} = \myMatrix{A}_n \vec{x}_{0n} =
+\sum_{i \in I_n} x_{0(i)} \vec{a}_i
+\end{aligned}
+\end{equation}
 
-\begin{gather}
-\myMatrix{A}'_{MxN} \vec{x}'_{Nx1} = \vec{y}_{Mx1} - \myMatrix{A}_{P'} \vec{x}_0\\
-\myMatrix{A}' = [\vec{a}'_1,\ldots, \vec{a}'_n, \ldots, \vec{a}'_N] \\
-\vec{a}'_n = \sum_{i \in I_n} x_{0(i)} \vec{a}_i
-\end{gather}
+Now, we transform the left side of previous linear system (\autoref{normalLinearSystem}) to the next one with a new unknown $\vec{x}'$:
 
-where $\vec{x}_0$ is a initial estimation of the solution.
+\begin{equation}
+\myMatrix{A}'_{MxN} \vec{x}'_{Nx1} = \vec{y}_{Mx1} - \vec{y}_c
+\label{modifiedLinearSystem}
+\end{equation}
 
-One way of interpreting this is that 
+We've introduced also the vector $\vec{y}_c$, which is the result of the matrix multiplication of the columns of $\myMatrix{A}$ that do not belong to any group by the correspondent elements of $\vec{x}_0$.
 
-$P = \{I_1, I_2, ..., I_n,... I_N\}$ is an indexed family of sets. % https://www.whitman.edu/mathematics/higher_math_online/section01.06.html
-In case all columns are included in the union of the sets of $P$ ($\bigcup_{n = 1}^{N} I_{n} = S$), we can say that $P$ is a partition of $S$.
+\begin{equation}
+\vec{y}_c = \sum_{i \in C} x_{0(i)} \vec{a}_i , \qquad
+C = \{1, \ldots, L\} \setminus \bigcup_{n=1}^N I_n
+\end{equation}
+
+When the system (\autoref{modifiedLinearSystem}) is solved, whether it is by finding the exact solution or by finding the least squares solution, it can be interpreted as
+
+we found the coefficients that multiply the default vector 
+
+we set the constraint that coefficients inside groups should maintain a relative relation between them, a relation described by $x_0$.
+
+So, we see that $x_0$ is useful when you want to establish a relative scale restriction between values of x
+
+
+When the system (\autoref{modifiedLinearSystem}) is solved, whether it is by getting the exact solution or by finding the least squares solution in case the system is inconsistent, it can be interpreted as
+
+we found the coefficients that multiply the default vector 
+
+It is as we set the constraint that the values of $\vec{x}_0$ inside a group should maintain a relative relation between them, a relation given by $x_0$.
+
+To map the solution to the solution of the original equation...
+
+So we found the solution given the constraint described above.
+
+A nomenclature one can use is...
 
 %% Complete version, only for the author
 %\begin{itemize}
@@ -44,7 +76,29 @@ In case all columns are included in the union of the sets of $P$ ($\bigcup_{n = 
 %\end{itemize}
 %
 %\begin{equation}
-%\bigcap_{n = 1}^{N} I_{n} = \emptyset
+%I_p \cap I_q = \emptyset, p \neq q, \{p, q\} \subseteq \{1, \ldots, N\}
 %\end{equation}
 %
+% $P = \{I_1, I_2, ..., I_n,... I_N\}$ is an indexed family of sets. % https://www.whitman.edu/mathematics/higher_math_online/section01.06.html
+% In case all columns are included in the union of the sets of $P$ ($\bigcup_{n = 1}^{N} I_{n} = S$), we can say that $P$ is a partition of $S$.
 %
+%\begin{equation}
+%\begin{aligned}
+%\myMatrix{A}' &= [\vec{a}'_1,\ldots, \vec{a}'_n, \ldots, \vec{a}'_N] \\
+%\vec{a}'_n &= \left. \begin{cases}
+%\myMatrix{A}_n = [\vec{a}_{I_{n(1)}}, \ldots, \vec{a}_{I_{n(|I_n|)}}] \\
+%\vec{x}_{0n} = [\vec{x}_{0(I_{n(1)})}, \ldots, \vec{x}_{0(I_{n(|I_n|)})}]
+%\end{cases} \right\} = \myMatrix{A}_n \vec{x}_{0n} = \sum_{i \in I_n} x_{0(i)} \vec{a}_i
+%\end{aligned}
+%\end{equation}
+%
+%\begin{gather}
+%	\myMatrix{A}'_{MxN} \vec{x}'_{Nx1} = \vec{y}_{Mx1} - \vec{y}_c\\
+%	\vec{y}_c = \left. \begin{cases}
+%		\myMatrix{A}_c = [\vec{a}_{C_1}, \ldots, \vec{a}_{C_{|C|}}] \\
+%		\vec{x}_c = [\vec{x}_{C_1}, \ldots, \vec{x}_{C_{|C|}}]
+%	\end{cases} \right\}
+%= \myMatrix{A}_c \vec{x}_c = 
+%\sum_{i \in C} x_{0(i)} \vec{a}_i , \qquad
+%	C = \{1, \ldots, L\} \setminus \bigcup_{n=1}^N I_n
+%\end{gather}

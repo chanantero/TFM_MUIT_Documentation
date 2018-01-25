@@ -175,7 +175,7 @@
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\variable}[1]{{\fontfamily{pcr}\selectfont #1}}
 \newcommand{\class}[1]{\textit{#1}}
-\newcommand{\refeq}[1]{Eq.\ref{#1}}
+%\newcommand{\refeq}[1]{Eq.\ref{#1}} % The mathtools package uses a command also named \refeq. Comment this line in order to avoid conflicts
 \newcommand{\reffig}[1]{Fig.\ref{#1}}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
@@ -192,3 +192,6 @@
 
 % Ordinal numbers: 1st, 2nd, 3rd, 4th, 5th, etc.
 \usepackage{nth}
+
+% For the rcases environment
+\usepackage{mathtools}
