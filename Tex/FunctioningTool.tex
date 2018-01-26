@@ -56,7 +56,7 @@ x_{ch}(t) = \sum_{f = 1}^{F} \sum_{p = 1}^{P} W\left(\frac{t - \tau_p}{T_p}\righ
 	\item[$T_p$] Duration of the $p$-th pulse: $\text{\variable{pulseLimits[p, 2] - pulseLimits[p, 1]}}$
 \end{description}
 
-The window $W$ can be a rectangular function as defined in \refeq{rectFunc}. However, other functions with a different spectrum can be used in order facilitate the detection. During the experiments we have used a modification of the Hanning window to reduce the magnitude of side lobes (\reffig{HanningSpectrumComparison}).
+The window $W$ can be a rectangular function as defined in \autoref{rectFunc}. However, other functions with a different spectrum can be used in order facilitate the detection. During the experiments we have used a modification of the Hanning window to reduce the magnitude of side lobes (\autoref{HanningSpectrumComparison}).
 \begin{equation}
 \Pi(t) = \left\{ \begin{array}{lcc}
 0 &   if  & |t| > 1/2 \\

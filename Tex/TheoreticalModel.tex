@@ -77,13 +77,13 @@ a_{m,l} = \alpha_l D_{loud(l,m)} G_{l,m} D_{micro(l,m)} \beta_m
 Previous equation can be expressed as a matrix operation:
 
 \begin{equation}
-\vec{c_\mathit{micro}} = \myMatrix{A} \vec{c_\mathit{loud}}
+\vec{c_\mathit{micro}} = \myMatrix{A} \vec{c_\mathit{louds}}
 \label{transEqMatrix}
 \end{equation}
 
 \begin{description}
-	\item[$\vec{c_\mathit{micro}}$] Column vector of signals transmitted by loudspeakers
-	\item[$\vec{c_\mathit{loud}}$] Column vector of signals received by microphones
+	\item[$\vec{c_\mathit{louds}}$] Column vector of signals transmitted by loudspeakers
+ 	\item[$\vec{c_\mathit{micro}}$] Column vector of signals received by microphones
 	\item[$\myMatrix{A}$] Acoustic path matrix. The element in the $m$-th row and $l$-th column is $a_{m,l}$
 \end{description}
 

@@ -22,11 +22,12 @@ A new matrix $\myMatrix{A}'_{MxN}$ is created. The n-th column is the matrix mul
 \sum_{i \in I_n} x_{0(i)} \vec{a}_i
 \end{aligned}
 \end{equation}
+where $\vec{a}_i$ is the i-th column of $\myMatrix{A}$.
 
 Now, we transform the left side of previous linear system (\autoref{normalLinearSystem}) to the next one with a new unknown $\vec{x}'$:
 
 \begin{equation}
-\myMatrix{A}'_{MxN} \vec{x}'_{Nx1} = \vec{y}_{Mx1} - \vec{y}_c
+\myMatrix{A}'_{MxN} \vec{x}'_{Nx1} = \vec{y}_{Mx1} - \vec{y}_{c \, Mx1}
 \label{modifiedLinearSystem}
 \end{equation}
 
@@ -37,26 +38,11 @@ We've introduced also the vector $\vec{y}_c$, which is the result of the matrix 
 C = \{1, \ldots, L\} \setminus \bigcup_{n=1}^N I_n
 \end{equation}
 
-When the system (\autoref{modifiedLinearSystem}) is solved, whether it is by finding the exact solution or by finding the least squares solution, it can be interpreted as
+When the system (\autoref{modifiedLinearSystem}) is solved, whether it is by getting the exact solution or by finding the least squares solution in case the system is inconsistent, it can be interpreted as solving the original one (\autoref{normalLinearSystem}) with the constraint that the values of $\vec{x}$ inside a group should keep a relative relation between them, a relation given by $\vec{x}_0$. In other words, the values of $\vec{x}$ in a given group must be equal to the correspondent values in $\vec{x}_0$ multiplied by a scalar $x'_n$. Therefore, the way of mapping the solution $\vec{x}'$ to the original unknown $\vec{x}$ is:
 
-we found the coefficients that multiply the default vector 
-
-we set the constraint that coefficients inside groups should maintain a relative relation between them, a relation described by $x_0$.
-
-So, we see that $x_0$ is useful when you want to establish a relative scale restriction between values of x
-
-
-When the system (\autoref{modifiedLinearSystem}) is solved, whether it is by getting the exact solution or by finding the least squares solution in case the system is inconsistent, it can be interpreted as
-
-we found the coefficients that multiply the default vector 
-
-It is as we set the constraint that the values of $\vec{x}_0$ inside a group should maintain a relative relation between them, a relation given by $x_0$.
-
-To map the solution to the solution of the original equation...
-
-So we found the solution given the constraint described above.
-
-A nomenclature one can use is...
+\begin{equation}
+(x_i)_{i \in I_n} = x'_n (x_{0(i)})_{i \in I_n}
+\end{equation}
 
 %% Complete version, only for the author
 %\begin{itemize}
@@ -81,13 +67,13 @@ A nomenclature one can use is...
 %
 % $P = \{I_1, I_2, ..., I_n,... I_N\}$ is an indexed family of sets. % https://www.whitman.edu/mathematics/higher_math_online/section01.06.html
 % In case all columns are included in the union of the sets of $P$ ($\bigcup_{n = 1}^{N} I_{n} = S$), we can say that $P$ is a partition of $S$.
-%
+%%%
 %\begin{equation}
 %\begin{aligned}
 %\myMatrix{A}' &= [\vec{a}'_1,\ldots, \vec{a}'_n, \ldots, \vec{a}'_N] \\
 %\vec{a}'_n &= \left. \begin{cases}
-%\myMatrix{A}_n = [\vec{a}_{I_{n(1)}}, \ldots, \vec{a}_{I_{n(|I_n|)}}] \\
-%\vec{x}_{0n} = [\vec{x}_{0(I_{n(1)})}, \ldots, \vec{x}_{0(I_{n(|I_n|)})}]
+%\myMatrix{A}_n = [\vec{a}_{I_{n(1)}}, \ldots, \vec{a}_{I_{n(|I_n|)}}] = (\vec{a}_i)_{i \in I_n}\\
+%\vec{x}_{0n} = [x_{0(I_{n(1)})}, \ldots, x_{0(I_{n(|I_n|)})}]^T
 %\end{cases} \right\} = \myMatrix{A}_n \vec{x}_{0n} = \sum_{i \in I_n} x_{0(i)} \vec{a}_i
 %\end{aligned}
 %\end{equation}
@@ -96,7 +82,7 @@ A nomenclature one can use is...
 %	\myMatrix{A}'_{MxN} \vec{x}'_{Nx1} = \vec{y}_{Mx1} - \vec{y}_c\\
 %	\vec{y}_c = \left. \begin{cases}
 %		\myMatrix{A}_c = [\vec{a}_{C_1}, \ldots, \vec{a}_{C_{|C|}}] \\
-%		\vec{x}_c = [\vec{x}_{C_1}, \ldots, \vec{x}_{C_{|C|}}]
+%		\vec{x}_c = [x_{C_1}, \ldots, x_{C_{|C|}}]^T
 %	\end{cases} \right\}
 %= \myMatrix{A}_c \vec{x}_c = 
 %\sum_{i \in C} x_{0(i)} \vec{a}_i , \qquad

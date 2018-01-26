@@ -1,0 +1,33 @@
+% Variables for the MUIT TFM
+
+% Sintax of \newcommand: https://tex.stackexchange.com/questions/117358/newcommand-argument-confusion
+
+\newcommand{\A}{\myMatrix{A}}
+\newcommand{\cwfsScalar}[1][]{c_{\mathit{WFS#1}}}
+\newcommand{\cnsScalar}[1][]{c_{\mathit{NS#1}}}
+\newcommand{\cns}{\vec{c}_{\mathit{NS}}} % vector of coefficients of noise sources
+\newcommand{\cwfs}{\vec{c}_{\mathit{WFS}}} % vector of coefficients of WFS array loudspeakers
+\newcommand{\numNS}{L_\mathit{NS}} % Number of noise sources
+\newcommand{\numWFS}{L_\mathit{WFS}} % Number of WFS array loudspeakers
+\newcommand{\wfsNormCoef}[1][vec]{ % Scaling coefficient of the virtual noise source signal(s)
+\IfStrEqCase{#1}{{scalar}{\gamma}
+    {vec}{\boldsymbol{\gamma}}
+    {mat}{\Gamma}}
+    [nada]
+}
+
+%% Example of use of \ifthenelse
+%\newcommand{\foo}[1]{%
+%  \ifthenelse{\equal{#1}{german}}
+%    {TRUE}
+%    {FALSE}%
+%}
+%
+%% Example of use of switch-case \IfStrEqCase
+%\newcommand{\dothis}[1]{%
+%\IfStrEqCase{#1}{{a}{so you typed a}
+%    {b}{now this is b}
+%    {c}{you want me to do c?}}
+%    [nada]
+%}
+

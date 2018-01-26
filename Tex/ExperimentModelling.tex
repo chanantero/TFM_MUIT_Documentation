@@ -10,17 +10,24 @@ In the GTAC laboratory there is a 96-loudspeaker array distributed as an irregul
 	\label{WFSdistribution}
 \end{figure}
 
-Previous \refeq{transEqMatrix} can be particularized to differentiate between loudspeakers that belong to the WFS array and the ones that produce noise:
+Previous \autoref{transEqMatrix} can be particularized to differentiate between loudspeakers that belong to the WFS array and the ones that produce noise:
 
-\begin{gather}
-	\vec{c_\mathit{micro}} = \myMatrix{A} \vec{c_\mathit{louds}} \\
+\begin{equation}
+	\vec{c_\mathit{micro}} = \myMatrix{A} \vec{c_\mathit{louds}} =
+	\left. \begin{cases}
 	\vec{c_\mathit{louds}} = 
 	\begin{bmatrix}
 		\vec{c_\mathit{WFS}} \\
 		\vec{c_\mathit{NS}}
+	\end{bmatrix} \\
+	\myMatrix{A} =
+	\begin{bmatrix}
+		\myMatrix{A}_{WFS} & \myMatrix{A}_{NS}
 	\end{bmatrix}
+	\end{cases} \right\} =
+	\myMatrix{A}_{\mathit{WFS}} \vec{c}_{\mathit{WFS}} + \myMatrix{A}_{\mathit{NS}} \vec{c}_{\mathit{NS}}
 	\label{transEqMatrixRep1}
-\end{gather}
+\end{equation}
 
 %Matrix of acoustic paths $\myMatrix{A}$ can be calculated from theoretical parameters or from experimental results. The first case was already expressed in \refeq{acPathTheoric}:
 %
@@ -90,7 +97,20 @@ The delay time is actually the time it takes for the sound transmitted by the no
 	\tau = \frac{d}{c} \label{WFScalcEqDelay}
 \end{equation}
 
-However, the real scenario is not ideal. The coefficients calculated with the previous method don't always produce a good enough cancellation when the acoustic paths are not the ideal ones. Then, some form of numerical optimisation can be useful.
+For a given distribution of loudspeakers, the coefficients of the signals that must be transmitted ($\cwfs$) depend only on the assumed characteristics of the virtual noise sources, this is, their position ($\vec{r}_{NS, n}^v,\, n = 1, \ldots, \numNS$) and the coefficients of the signals they transmit ($\cns^v$). If we call $a_{m,n}$ and $\tau_{m,n}$ to the attenuation and delay that the $m$-th loudspeaker applies to the $n$-th noise signal, and take into consideration only one frequency $f$:
+
+\begin{equation}
+\cwfs = 
+ \left\{ \wfsNormCoef[mat] = \begin{bmatrix}
+\wfsNormCoef[scalar]_{1,1} & \ldots & \wfsNormCoef[scalar]_{1,\numNS} \\
+\vdots & \ddots & \vdots \\
+\wfsNormCoef[scalar]_{\numWFS,1} & \ldots & \wfsNormCoef[scalar]_{\numWFS,\numNS}
+\end{bmatrix},\quad \wfsNormCoef_{n,m} = -a_{n,m} e^{-j 2 \pi f \tau_{m,n}} 
+\right\}
+= \wfsNormCoef[mat] \cns^v
+\end{equation}
+
+Nonetheless, the real scenario is not ideal. The coefficients calculated with the previous method don't always produce a good enough cancellation when the acoustic paths are not the ideal ones. Then, some form of numerical optimisation can be useful.
 
 \subsection{Optimization}
 In order to perform the optimisation, we've followed the usual concept of defining an objective function that returns a number depending on some of inputs, and then finding the inputs that minimize the function.
@@ -116,26 +136,26 @@ A simple and useful objective function is the norm of the vector of received sig
 \label{OptConstraint}
 \end{gather}
 
-The solution could easily be calculated by solving the linear system. In case there aren't more microphones than loudspeakers, perfect cancellation at those points will be achieved. In case there are more microphones than loudspeakers, we just use the Moore-–Penrose inverse to solve the overdetermined linear system. However, depending on the situation, we might want to set a constraint that limits the amplitude of coefficients to $1$ (\refeq{OptConstraint}), since a digital signal that exceed that value would produce audio clipping. This forces us to use some form of numeric non-linear optimisation, as the interior point algorithm.
+The solution could easily be calculated by solving the linear system. In case there aren't more microphones than loudspeakers, perfect cancellation at those points will be achieved. In case there are more microphones than loudspeakers, we just use the Moore-–Penrose inverse to solve the overdetermined linear system. However, depending on the situation, we might want to set a constraint that limits the amplitude of coefficients to $1$ (\autoref{OptConstraint}), since a digital signal that exceed that value would produce audio clipping. This forces us to use some form of numeric non-linear optimisation, as the interior point algorithm.
 
 It should be noted that, while the equations derivated from Kirchhoff's integral are intended to produce cancellation over the whole area, the optimisation is applied only to a finite number of discrete points. So, the spatial distribution of those points will affect the final result.
 
-This solution doesn't take in account any physical knowledge of the scenario, nor the WFS techniques. It's just a solution to a system of linear equations. A half way approach to this, is to minimize the same parameter $\norm{\vec{c_\mathit{micro}}}$, but not changing the transmitted coefficients $\vec{c_{\mathit{WFS}}}$ directly. Instead, we apply the constraint that they must be generated by the WFS calculation that we talked about previously (\autoref{WFSexplanation}). In other words, we find the virtual noise source parameters that would produce the greatest cancellation for a finite set of points. This can be useful to compare how much the real scenario can be approximated by an ideal one.
+This solution doesn't take in account any physical knowledge of the scenario, nor the WFS techniques. It's just a solution to a system of linear equations. A half way approach to this, is to minimize the same parameter $\norm{\vec{c_\mathit{micro}}}$, but not changing the transmitted coefficients $\vec{c_{\mathit{WFS}}}$ directly. Instead, we apply the constraint that they must be generated by the WFS calculation that we talked about previously (\autoref{WFSexplanation}). In other words, we find the virtual noise source parameters that would produce the greatest cancellation for a finite set of points. This can be useful to compare how much the real scenario can be approximated by an ideal one. For simplification, let's consider just one noise source:
 
 \begin{equation}
-\vec{c_{\mathit{WFS}, \mathit{opt}}} =
-\argmin_{\vec{c_\mathit{NS}^v}, \vec{r_{\mathit{NS}}^v}}
+[\cnsScalar^v, \vec{r_{\mathit{NS}}^v}] =
+\argmin_{\cnsScalar^v, \vec{r_{\mathit{NS}}^v}}
 \norm{\myMatrix{A}
 	\begin{bmatrix}
-	\vec{c_\mathit{WFS}}(\vec{c_\mathit{NS}^v}, \vec{r_{\mathit{NS}}^v})\\
-	\vec{c_\mathit{NS}}\\
+	\vec{c_\mathit{WFS}}(\cnsScalar^v, \vec{r_{\mathit{NS}}^v})\\
+	\cnsScalar\\
 	\end{bmatrix}
 } =
-\argmin_{\vec{c_\mathit{NS}^v}, \vec{r_{\mathit{NS}}^v}}
+\argmin_{\cnsScalar^v, \vec{r_{\mathit{NS}}^v}}
 \norm{\myMatrix{A}
 	\begin{bmatrix}
-	\mathit{WFS}(\vec{c_\mathit{NS}^v}, \vec{r_{\mathit{NS}}^v}, \vec{r}_\mathit{WFS}, \vec{o}_\mathit{WFS})\\
-	\vec{c_\mathit{NS}}\\
+	\wfsNormCoef[mat](\vec{r_{\mathit{NS}}^v})\cnsScalar^v\\
+	\cnsScalar\\
 	\end{bmatrix}
 }
 \end{equation}
