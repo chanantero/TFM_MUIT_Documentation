@@ -1,0 +1,38 @@
+\chapter{Field produced by infinite line source and infinite plane.}
+
+\section{Infinite line source}
+
+An infinite line source situated along the $z$ axes in coordinates $x = y = 0$ will produce a field that doesn't depend on $z$ or the angle $\phi$, only on the radius $r$. The field that it produces at a point situated a distance $r$ from it, the next integral must be solved.
+
+\begin{equation}
+\begin{aligned}
+&\int_{-\infty}^{+\infty} \frac{e^{-j k \sqrt{r^2 + z^2}}}{\sqrt{r^2 + z^2}} \mathrm{d}z = 
+\int_{-\pi/2}^{+\pi/2} \frac{e^{-j k r/cos{\alpha}}}{r/\cos{\alpha}} \mathrm{d}z = \\
+&= \left\{ z = r \tan{\alpha} \rightarrow \dv{z}{\alpha} = r\frac{1}{\cos^2{\alpha}} \right\} = \int_{-\pi/2}^{+\pi/2} \frac{e^{-j k r/cos{\alpha}}}{\cos{\alpha}} \mathrm{d}\alpha \\
+&= -\pi j \mathrm{H_0^{(2)}(k r)} = -\pi \left( \mathrm{Y}_0(k r) + j\mathrm{J}_0(k r)\right)
+\end{aligned}
+\end{equation}
+
+We see that the solution is a scaled version of the zero-th order of the Hankel function of second type.
+
+\section{Infinite plane}
+Let's assume that every surface differential in the plane XY ($z = 0$) is a monopole source. The measure point $\vec{p}$ is located at the axis Z ($x = y = 0$), at a distance $z$: $\vec{p} = [0\, 0\, z_p]^T$.
+
+The contribution of each monopole to the point $\vec{p}$ is:
+\begin{equation}
+f_{partial}(x, y, z_p) = \frac{e^{-j k \sqrt{x^2 + y^2 + z_p^2}}}{\sqrt{x^2 + y^2 + z_p^2}}
+\end{equation}
+
+The field in $\vec{p}$ is:
+\begin{equation}
+f(z_p) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \frac{e^{-j k \sqrt{x^2 + y^2 + z_p^2}}}{\sqrt{x^2 + y^2 + z_p^2}} \mathrm{d}x \mathrm{d}y
+\end{equation}
+
+This can actually be interpreted as many differential parallel line sources located one next to the other:
+
+\begin{equation}
+f(z_p) = \int_{-\infty}^{+\infty} -\pi j \mathrm{H_0^{(2)}(k \sqrt{z^2 + y^2})} \mathrm{d}y = \frac{-j 2\pi}{k} e^{-j k z}
+\end{equation}
+
+As we see, the generated field is a plane wave, and its amplitude is inversely proportional to the frequency.
+

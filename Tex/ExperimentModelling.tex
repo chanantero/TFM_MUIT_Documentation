@@ -69,7 +69,7 @@ WFS uses Kirchhoff integral as its mathematical principle. When Kirchhoff's inte
 The original noise signal is scaled by an attenuation coefficient and delayed a certain amount of time. The attenuation calculation requires the knowledge of the distance between the source and the loudspeaker $d$ and the angle $\alpha$ between the vector that goes from the source to the loudspeaker and the loudspeaker's broadside direction.
 \begin{equation}
 	\begin{aligned}
-		a = 
+		\mu = 
 		&\begin{cases}
 		A\frac{\cos\alpha}{\sqrt{d}} & \alpha \leq 90^\circ \\
 		0 & \alpha > 90^\circ
@@ -97,7 +97,7 @@ The delay time is actually the time it takes for the sound transmitted by the no
 	\tau = \frac{d}{c} \label{WFScalcEqDelay}
 \end{equation}
 
-For a given distribution of loudspeakers, the coefficients of the signals that must be transmitted ($\cwfs$) depend only on the assumed characteristics of the virtual noise sources, this is, their position ($\vec{r}_{NS, n}^v,\, n = 1, \ldots, \numNS$) and the coefficients of the signals they transmit ($\cns^v$). If we call $a_{m,n}$ and $\tau_{m,n}$ to the attenuation and delay that the $m$-th loudspeaker applies to the $n$-th noise signal, and take into consideration only one frequency $f$:
+For a given distribution of loudspeakers, the coefficients of the signals that must be transmitted ($\cwfs$) depend only on the assumed characteristics of the virtual noise sources, this is, their position ($\vec{r}_{NS, n}^v,\, n = 1, \ldots, \numNS$) and the coefficients of the signals they transmit ($\cns^v$). If we call $\mu_{m,n}$ and $\tau_{m,n}$ to the attenuation and delay that the $m$-th loudspeaker applies to the $n$-th noise signal, and take into consideration only one frequency $f$:
 
 \begin{equation}
 \cwfs = 
@@ -105,14 +105,14 @@ For a given distribution of loudspeakers, the coefficients of the signals that m
 \wfsNormCoef[scalar]_{1,1} & \ldots & \wfsNormCoef[scalar]_{1,\numNS} \\
 \vdots & \ddots & \vdots \\
 \wfsNormCoef[scalar]_{\numWFS,1} & \ldots & \wfsNormCoef[scalar]_{\numWFS,\numNS}
-\end{bmatrix},\quad \wfsNormCoef_{n,m} = -a_{n,m} e^{-j 2 \pi f \tau_{m,n}} 
+\end{bmatrix},\quad \wfsNormCoef_{n,m} = -\mu_{n,m} e^{-j 2 \pi f \tau_{m,n}} 
 \right\}
 = \wfsNormCoef[mat] \cns^v
 \end{equation}
 
 Nonetheless, the real scenario is not ideal. The coefficients calculated with the previous method don't always produce a good enough cancellation when the acoustic paths are not the ideal ones. Then, some form of numerical optimisation can be useful.
 
-\subsection{Optimization}
+\subsection{Optimization} \label{optimization}
 In order to perform the optimisation, we've followed the usual concept of defining an objective function that returns a number depending on some of inputs, and then finding the inputs that minimize the function.
 
 \begin{equation}
@@ -195,12 +195,28 @@ In order to visualize the results, two ways have been used. The first one uses t
 
 The second way is by using a 2D map of the lab scenario. The points were the microphones are located appear as circles filled with a colour that depends on the power or cancellation levels. Loudspeakers also appear with some colour depending on the power of the transmitted signals.
 
-\section{Experiment 1}
-The first experiment is a completely theoretical one, although it uses results from previous measures. The acoustic responses in the GTAC laboratory for different points was measured with high precision previously, and the results are published in the website. In total, the measures were done in 360 points distributed in a rectangular grid with 15 rows and 24 columns and separation of $20 \si{cm}$ between adjacent nodes.
+\section{Experiment 1: GTAC acoustic paths}
+The first experiment is a completely theoretical one, although it uses results from previous measures. The acoustic responses in the GTAC laboratory for different points was measured with high precision previously, and the results are published in the website. In total, the measures were done in 360 points distributed in a rectangular grid of size $24$x$15$ and separation of $20 \si{cm}$ between adjacent nodes (\autoref{GTAC360micro}).
 
-We could apply the optimization already described in \autoref{optimization}, but there is a problem. GTAC responses are measured for loudspeakers in the WFS array, but of course, not for loudspeakers outside the array in arbitrary positions. Hence, we can only guess the acoustic paths by applying the theoretical model (\autoref{acPathTheoric}), in which case we assume that the noise source is isotropic. We estimate the position of the loudspeaker visually. Then, we apply the optimization process and see how far we can go in the cancellation. Only the first type of optimization is interesting since the position of the noise loudspeaker is known.
+\begin{figure}
+	\centering
+	\reflectbox{\rotatebox[origin=c]{180}{
+			\includegraphics[height=0.3\textheight]{./Img/WFSGTAC360microphones.pdf}
+	}}	
+	\caption[Schematic of measures in GTAC anechoic chamber]{Schematic of measures in GTAC anechoic chamber}
+	\label{GTAC360micro}
+\end{figure}
 
-Results are shown in \reffig{}. Different positions have been used.
+%We could apply the optimization already described in \autoref{optimization}, but there is a problem. GTAC responses are measured for loudspeakers in the WFS array, but of course, not for loudspeakers outside the array in arbitrary positions. Hence, we can only guess the acoustic paths by applying the theoretical model (\autoref{acPathTheoric}), in which case we assume that the noise source is isotropic. Then, we apply the optimization process and see how far we can go in the cancellation. Only the first type of optimization is interesting since the position of the noise loudspeaker is known.
+
+GTAC responses are measured for loudspeakers in the WFS array, but of course, not for loudspeakers outside the array in arbitrary positions. Hence, we can only guess the acoustic paths by applying the theoretical model (\autoref{acPathTheoric}), in which case we assume that the noise source is isotropic.
+
+Results are shown in \reffig{}. Different positions have been used. As we can see, cancellations of X dB are easy to achieve.
+
+\section{Experiment 2: theoretical simulation}
+The
+
+\section{Experiment 3: lab recording}
 
 
 
