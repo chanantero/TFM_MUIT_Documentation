@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="8"
+   width="6"
+   version="1.1"
+   viewBox="-1.2618    -0.82177           6           8"
+   sodipodi:docname="WFSarrayScheme.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <defs>
+    <symbol
+       id="loudspeaker">
+      <!-- The center of the symbol will be the point (0, 0) -->
+      <use
+         xlink:href="loudspeakerIcon.svg#global" transform="scale(0.003) translate(-38.389 -27)" />
+    </symbol>
+
+    <symbol
+       id="loudspeakerActive">
+      <!-- The center of the symbol will be the point (0, 0) -->
+      <use
+         xlink:href="loudspeakerIconActive.svg#global" transform="scale(0.003) translate(-38.389 -27)" />
+    </symbol>
+
+    <symbol
+       id="loudspeakerSound">
+      <!-- The center of the symbol will be the point (0, 0) -->
+      <use
+         xlink:href="loudspeakerIcon_sound.svg#global" transform="scale(0.003) translate(-38.389 -27)" />
+    </symbol>
+
+    <symbol
+       id="loudspeakerSilence">
+      <!-- The center of the symbol will be the point (0, 0) -->
+      <use
+         xlink:href="loudspeakerIcon_silence.svg#global" transform="scale(0.003) translate(-38.389 -27)" />
+    </symbol>
+
+    <symbol
+       id="microphone">
+      <!-- The center of the symbol will be the point (0, 0) -->
+      <use
+         xlink:href="microphoneIcon.svg#global" transform="scale(0.0001 -0.0001) translate(-576 -832)" />
+    </symbol>
+
+    <symbol
+       id="diagramDipole">
+      <!-- The center of the symbol will be the point (0, 0) -->
+      <use
+         xlink:href="radiationPattern.svg#global" transform="scale(0.005) translate(-171.8 -171.8)" />
+    </symbol>
+
+    <symbol
+       id="diagramMonopoleNoise">
+      <!-- The center of the symbol will be the point (0, 0) -->
+      <use
+         xlink:href="radPatOmniNoise.svg#global" transform="scale(0.005) translate(-171.8 -171.8)" />
+    </symbol>
+
+    <symbol
+      id="leftBracket">
+      <use
+        xlink:href="BracketLeft.svg#global"/>
+    </symbol>
+
+    <symbol
+      id="rightBracket">
+      <use
+        xlink:href="BracketRight.svg#global"/>
+    </symbol>
+
+  </defs>
+
+</svg>

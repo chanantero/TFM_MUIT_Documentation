@@ -1,5 +1,5 @@
 Thesis.synctex.gz
-/Img
+/Img/*
 /PowerPoints
 *.aux
 *.bbl
@@ -11,3 +11,6 @@ Thesis.synctex.gz
 *.gz
 *.lof
 *.toc
+
+!/Img/symbolLibrary.svg
+!/Img/WFSarrayScheme_Template.svg
