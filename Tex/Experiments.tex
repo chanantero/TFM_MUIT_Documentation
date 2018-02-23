@@ -12,22 +12,34 @@ As an example, \autoref{figTheoCanc} shows the result for a noise source at posi
 	\label{figTheoCanc}
 \end{figure}
 
-To get a sense of what levels of cancellations we can achieve, we test it for different positions of the noise source (\autoref{figNoiseSourcePosTheo}), and the results are shown in \autoref{figCancelDiffNSpostheo}. We've used \autoref{globalCancEq} to calculate the cancellation. As we can see, the close
+To get a sense of what levels of cancellations we can achieve, we test it for different positions of the noise source (\autoref{figNoiseSourcePosTheo}), and the results are shown in \autoref{figCancelDiffNSpostheo}. We've used \autoref{globalCancEq} to calculate the cancellation. As we can see, the closer the noise source is to the centre of the silent area, the better the cancellation. The further it is located, the worse levels of cancellation achieved, but it seems it converges when $R\rightarrow\infty$ to cancellations over $11$ dB. As this is the ideal case, it's reasonable to don't expect better performance in real cases.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
-	\def\svgwidth{0.4\columnwidth}
-	\graphicspath{{Img/}}
-	\input{Img/Experiment1_differentNSpositions.pdf_tex}
-	\caption[Positions of noise source]{Positions of noise source}
-	\label{figNoiseSourcePosTheo}
+%	\raisebox{0.1\height}{
+	\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\def\svgwidth{\columnwidth}
+			\graphicspath{{Img/}}
+			\input{Img/Experiment1_differentNSpositions.pdf_tex}
+			\caption[Positions of noise source]{Positions of noise source}
+			\label{figNoiseSourcePosTheo}
+	\end{minipage}
+	\begin{minipage}[b]{0.49\textwidth}
+			\centering
+		\includegraphics[width=\textwidth]{Img/Experiment1_globalCancDifNSpos_definitive.pdf}
+		\caption[Global cancellation. Theoretical model.]{Global cancellation for different positions of the noise source.}
+		\label{figCancelDiffNSpostheo}
+	\end{minipage}
 \end{figure}
 
+Respect to the global correction factor (\autoref{OptScalation}), in \autoref{figGobalScalationScatter} we can see
+
 \begin{figure}
 	\centering
-	\includegraphics[height=0.6\textwidth]{Img/Experiment1_globalCancDifNSpos_definitive.pdf}
-	\caption[Global cancellation. Theoretical model.]{Global cancellation for different positions of the noise source.}
-	\label{figCancelDiffNSpostheo}
+	\includegraphics[height=0.3\textheight]{./Img/Experiment1_globalCancScaleFactor.eps}
+	\caption[Global correction factor]{Global correction factor}
+	\label{figGobalScalationScatter}
 \end{figure}
 
 \section{Experiment 2: GTAC acoustic paths}
