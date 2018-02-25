@@ -124,16 +124,16 @@ In order to perform the optimisation, we've followed the usual concept of defini
 The simplest form of optimization is the scalation of $\cwfs$, since the coefficients produced by \autoref{defaultWFScoeffGTAC} are not always properly scaled:
 \begin{equation}
 	\vec{c}_{\mathit{WFS}, \mathit{opt}} =
-	\min_{\alpha}
+	\min_{\Psi}
 	\norm{\myMatrix{A}
 		\begin{bmatrix}
-			\alpha \vec{c_\mathit{WFS}}\\
+			\Psi \vec{c_\mathit{WFS}}\\
 			\vec{c_\mathit{NS}}\\
 		\end{bmatrix}
-	} = \min_{\alpha}
+	} = \min_{\Psi}
 \norm{\myMatrix{A}
 \begin{bmatrix}
-	\alpha \wfsNormCoef[mat] \cns^v\\
+	\Psi \wfsNormCoef[mat] \cns^v\\
 	\vec{c_\mathit{NS}}\\
 \end{bmatrix}
 }\label{OptScalation}

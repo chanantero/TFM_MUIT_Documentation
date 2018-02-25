@@ -33,7 +33,7 @@ To get a sense of what levels of cancellations we can achieve, we test it for di
 	\end{minipage}
 \end{figure}
 
-Respect to the global correction factor (\autoref{OptScalation}), in \autoref{figGobalScalationScatter} we can see
+Respect to the global correction factor $\Psi$ (\autoref{OptScalation}), in \autoref{figGobalScalationScatter} we can see that, although it changes with distance $R$ and angle $\alpha$, the variation is very small. The mean absolute value is around $0.21$ and the mean phase is approximately $-137^\circ$. 
 
 \begin{figure}
 	\centering
@@ -41,6 +41,14 @@ Respect to the global correction factor (\autoref{OptScalation}), in \autoref{fi
 	\caption[Global correction factor]{Global correction factor}
 	\label{figGobalScalationScatter}
 \end{figure}
+
+One question that might arise is how much the election of microphones location can change the value of the optimal global scale factor $\Psi$ and so, the cancellation. In order to evaluate that change, we define a new magnitude. Let $\Psi_{\mathit{opt}, i}$ be the optimal global cancellation factor for a given microphone distribution $\pos[matMicro]{,i}$ (\autoref{corrFacti}). Let's define $\cmicro[(i,j)]$ as the received signals by a set of microphones located at $\pos[matMicro]{,i}$ and correction factor $\Psi_{\mathit{opt}, j}$ (\autoref{cmicroDifferentPsi}). Finally, for a given microphone position $\pos[matMicro]{,i}$, let's define the relative global cancellation $C_{\mathit{grel}(i,j)}$ (\autoref{relGlobCanc}) as the relation between the global cancellation achieved with the optimal correction factor for other microphone positions $\Psi_{\mathit{opt}, j}$, and the optimal correction factor for the actual microphone positions $\Psi_{\mathit{opt}, i}$.
+
+\begin{gather}
+\Psi_{\mathit{opt}, i} = \argmin_{\Psi} \norm{\Awfs(\pos[matMicro]{,i})\cwfs \Psi + \vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar} \label{corrFacti} \\
+\cmicro[(i,j)] = \norm{\Awfs(\pos[matMicro]{,i})\cwfs \Psi_{\mathit{opt}, j} + \vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar} \label{cmicroDifferentPsi} \\
+C_{\mathit{grel}(i,j)} = \frac{\norm{\cmicro[(i,j)]}^2}{\norm{\cmicro[(i,i)]}^2} \label{relGlobCanc}
+\end{gather}
 
 \section{Experiment 2: GTAC acoustic paths}
 The first experiment is a completely theoretical one, although it uses results from previous measures. The acoustic responses in the GTAC laboratory for different points was measured with high precision previously, and the results are published in the website. In total, the measures were done in 360 points distributed in a rectangular grid of size $24$x$15$ and separation of $20 \si{cm}$ between adjacent nodes (\autoref{GTAC360micro}).

@@ -3,19 +3,36 @@
 % Sintax of \newcommand: https://tex.stackexchange.com/questions/117358/newcommand-argument-confusion
 
 \newcommand{\A}{\myMatrix{A}}
+\newcommand{\Awfs}{\myMatrix{A}_\mathit{WFS}}
+\newcommand{\Ans}{\myMatrix{A}_\mathit{NS}}
 \newcommand{\cwfsScalar}[1][]{c_{\mathit{WFS#1}}}
 \newcommand{\cnsScalar}[1][]{c_{\mathit{NS#1}}}
 \newcommand{\cns}{\vec{c}_{\mathit{NS}}} % vector of coefficients of noise sources
 \newcommand{\cwfs}{\vec{c}_{\mathit{WFS}}} % vector of coefficients of WFS array loudspeakers
+\newcommand{\cmicro}[1][]{\vec{c}_{\mathit{micro}#1}} % vector of coefficients of microphone array
 \newcommand{\numNS}{L_\mathit{NS}} % Number of noise sources
 \newcommand{\numWFS}{L_\mathit{WFS}} % Number of WFS array loudspeakers
-\newcommand{\wfsNormCoef}[1][vec]{ % Scaling coefficient of the virtual noise source signal(s)
+\newcommand{\wfsNormCoef}[1][vec]{ % Scaling coefficient of the virtual noise source signal(s) in standard WFS calculation
 \IfStrEqCase{#1}{{scalar}{\gamma}
     {vec}{\boldsymbol{\gamma}}
     {mat}{\Gamma}}
     [nada]
 }
 \newcommand{\rns}{\vec{r}_{\mathit{NS}}}
+\newcommand{\Rmicro}{\myMatrix{R}_\mathit{micro}}
+\newcommand{\pos}[2][vec]{
+\IfStrEqCase{#1}{
+    {vec}{\vec{r}_{#2}}
+    {mat}{\myMatrix{R}_{#2}}
+    {vecNS}{\vec{r}_{\mathit{NS}#2}}
+    {vecWFS}{\vec{r}_{\mathit{WFS}#2}}
+    {vecMicro}{\vec{r}_{\mathit{micro}#2}}
+    {matNS}{\myMatrix{R}_{\mathit{NS}#2}}
+    {matWFS}{\myMatrix{R}_{\mathit{WFS}#2}}
+    {matMicro}{\myMatrix{R}_{\mathit{micro}#2}}
+}
+    [nada]
+}
 
 %% Example of use of \ifthenelse
 %\newcommand{\foo}[1]{%
