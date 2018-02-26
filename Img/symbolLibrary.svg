@@ -54,6 +54,12 @@
     </symbol>
 
     <symbol
+      id="dot">
+      <use
+        xlink:href="dot.svg#global"/>
+    </symbol>
+
+    <symbol
        id="diagramDipole">
       <!-- The center of the symbol will be the point (0, 0) -->
       <use
