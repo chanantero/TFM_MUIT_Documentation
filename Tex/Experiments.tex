@@ -164,7 +164,7 @@ The reason for this can be found when we take a look at the impulse response of 
 	\label{figGTAClouds20}
 \end{figure}
 
-In order to get a sense of how different the ideal and real cases are, in \autoref{figGTAClouds20Comparison} we have represented in a graph the amplitude and phase of the field as a function of the distance to the loudspeaker. For the theoretical case, the amplitude is inversely proportional to the distance, and the phase is linear. However, for the measured acoustic paths, there is a cloud of scattered points in both cases, being the scattering bigger as the distance increases. A similar behaviour is found for all the other loudspeakers.
+In order to get a sense of how different the ideal and real cases are, in \autoref{figGTAClouds20Comparison} we have represented in a graph the amplitude and phase shift (measured phase minus the theoretical one) of the field as a function of the distance to the loudspeaker. For the theoretical case, the amplitude is inversely proportional to the distance, and the phase is linear. However, for the measured acoustic paths, there is a cloud of scattered points in both cases, being the scattering bigger as the distance increases. A similar behaviour is found for all the other loudspeakers.
 
 \begin{figure}
 	\begin{subfigure}[b]{0.49\textwidth}
@@ -181,6 +181,13 @@ In order to get a sense of how different the ideal and real cases are, in \autor
 	\label{figGTAClouds20Comparison}
 \end{figure}
 
-A sim
+An upper bound to the global cancellation achievable can be calculated using the optimization without any constraints expressed in \autoref{optNoRestrictions}. Results are shown in \autoref{figGTACmaxGlobCancNoConst}. As we can see, the best cancellation levels we can achieve are not better than $7\si{dB}$ in most cases.
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.5\textwidth]{./Img/Experiment2_globalCancDifNSposNoConst_definitive.pdf}
+	\caption{Global cancellation for GTAC impulse responses. Optimization without constraints.}
+	\label{figGTACmaxGlobCancNoConst}
+\end{figure}
 
 \section{Experiment 3: lab recording}
