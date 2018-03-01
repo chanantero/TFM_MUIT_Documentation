@@ -1,0 +1,82 @@
+\documentclass[10pt]{report}
+\usepackage{mystyle}
+\usepackage{Tex/myVariables}
+%% For extracting only equations, use the next package
+%\usepackage[active,generate=equations2,extract-env={equation,align}]{extract}
+%% In the new edocument created, called equations.tex, use the next package
+%\usepackage[active,tightpage,displaymath]{preview}
+%\PreviewBorder=12pt\relax
+%% Then, to convert the created pdf into images, use in the windows comand line the next command (it uses the program imagemagick):
+% convert -verbose -density 600 -trim equations.pdf -quality 100 -sharpen 0x1.0 Img/Equations/equation.png
+
+
+% Imagínate que quisieses quitar el paquete {hyperref}. Solo con comentar la línea donde se carga ese paquete no sería suficiente. Porque también tendrías que buscar todas las líneas con el comando "\phantomsection" y quitarlas o comentarlas. Hay un truco para evitarlo. Y es añadir la siguiente línea de texto, antes de "\begin{document}". Ahora, aunque no cargues el paquete {hyperref}, LaTeX reconocerá las líneas "\phantomsection" (aunque no hagan nada).
+\providecommand\phantomsection{}
+
+\begin{document}
+\author{
+	Rub\'{e}n Chuli\'{a} Mena \\
+	Tutor: Mar\'ia de Diego Ant\'on \\
+	Co-tutor: Miguel Ferrer Contreras
+}
+\title{TFM MUIT}
+\newdate{date}{24}{01}{2018}
+\date{\displaydate{date}}
+\maketitle
+\pagenumbering{Roman}
+
+\phantomsection % So hyperlinks (hyperref package) work properly
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{Abstract}
+Completar
+
+\newpage
+
+\phantomsection
+%\addcontentsline{toc}{chapter}{List of figures}
+\listoffigures
+
+\newpage
+
+%\phantomsection
+%\addcontentsline{toc}{chapter}{List of abbreviations}
+%\chapter*{List of Abbreviations}
+%%http://tex.stackexchange.com/questions/179631/list-of-symbols-and-abbreviations-just-as-two-columns
+%\input{Tex/SymbolsAndAbbreviations.tex}
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\chapter[Introduction]{Introduction\\What is wave field synthesis and active control noise?}
+Completar
+%\input{Tex/Introduction.tex}
+
+\chapter[Theoretical Basis]{Theoretical Basis of WFS}
+\input{Tex/TheoreticalModel.tex}
+\input{Tex/ExperimentModelling.tex}
+
+\chapter{WFSTool}
+\input{Tex/FunctioningTool.tex}
+%\input{Tex/Program.tex}
+
+\chapter{Experiments}
+\input{Tex/Experiments.tex}
+
+%\appendix
+%\appendixpage
+%\input{Tex/Kirchhoff.tex}
+%\input{Tex/LinearSystemGrouping.tex}
+%\input{Tex/InfiniteLineSource.tex}
+%\input{Tex/Nomenclature.tex}
+
+%\nocite{*} % Para que aparezcan sí o sí referencias que no han sido citadas explícitamente en el texto. El asterisco hace que aparezcan todas las referencias.
+\bibliographystyle{unsrt} % Aparecen listados por orden de citación.
+\bibliography{Tex/bibliography}
+
+\end{document}          
