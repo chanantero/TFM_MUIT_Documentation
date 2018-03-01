@@ -33,6 +33,31 @@
     [nada]
 }
 
+\NewDocumentCommand{\AcPath}{O{vec} O{noValue} O{}  D<>{real}}{ % vec/mat, NS/WFS/nothing, subindex
+\IfStrEqCase{#1}{
+    {vec}{\IfStrEqCase{#2}{
+	{WFS}{\vec{a}_{\mathit{WFS}#3}}
+	{NS}{
+		\IfStrEqCase{#4}{
+		{real}{\vec{a}_{\mathit{NS}#3}}
+		{virtual}{\vec{a}_{\mathit{NS}#3}^v}
+		}
+	}
+	{noValue}{\vec{a}}
+	}}
+    {mat}{\IfStrEqCase{#2}{
+	{WFS}{\myMatrix{A}_{\mathit{WFS}#3}}
+	{NS}{
+		\IfStrEqCase{#4}{
+			{real}{\myMatrix{A}_{\mathit{NS}#3}}
+			{virtual}{\myMatrix{A}_{\mathit{NS}#3}^v}
+		}
+	}
+	{noValue}{\myMatrix{A}}
+	}}
+}
+}
+
 \NewDocumentCommand{\Pos}{O{vec} O{noValue} O{}  D<>{real}}{ % vec/mat, NS/WFS/micro/nothing, subindex
 \IfStrEqCase{#1}{
     {vec}{\IfStrEqCase{#2}{
