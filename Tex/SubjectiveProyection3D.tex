@@ -1,0 +1,84 @@
+\chapter{Projection of 3D objects in subjective observation plane}
+
+Let's say there are objects in 3D that are perfectly described by the points that constitute them. Let's say we want to take a 2D image of the 3D situation, and for doing that we project the 3D points onto a plane. This subjective observation plane is perfectly described by 3 vectors:
+
+\begin{description}
+	\item[$\hat{n}$] Unit ortogormal vector to the plane.
+	\item[$\vec{u}$] Vector that belongs to the plane and indicates the direction that subjectively is interpreted as \textit{up} and its magnitude is what subjectively will be considered as a unit.
+	\item[$\vec{r}_o$] 3D point that establishes the reference point of the plane and that will be taken as subjective position $[0 0]^T$.
+\end{description}
+
+We can easily calculate the vector $\vec{l}$ that indicates the subjective direction \textit{left} as $l = \vec{u} \cross \hat{n}$.
+
+The projection of a point $\vec{r}$ onto the subjective plane is
+\begin{equation}
+\vec{r}_s = \left[\frac{\vec{l}}{\norm{\vec{l}}^2}, \frac{\vec{u}}{\norm{\vec{u}}^2}\right]^T (\vec{r} - \vec{r}_o)
+\end{equation}
+
+So, subjectively, the point $\vec{r}$ is viewed as the point $\vec{r}_s$.
+
+There are special cases where we can particularize the expressions and simplify them. For example, an interesting case is when all points we are interested in have a coordinate $z = 0$, this is, they are all contained in the $XY$ plane ($\vec{r} = [x, y, 0]^T$). Then let's define an observation plane of an observer that is looking from above:
+\begin{equation}
+\begin{aligned}
+\vec{r}_{o, 0} &= [0, 0, h]^T \\
+\hat{n}_0 &= [0, 0, -1]^T \\
+\vec{u}_0 &= [0, 1, 0]^T \\
+\vec{l}_0 &= [-1, 0, 0]^T
+\end{aligned}
+\end{equation}
+
+The projections points contained in the $XY$ plane onto this observation plane is actually the $x$ and $y$ components of the real points, so we are just ignoring the z component. Taking in account that $\vec{l}_0$ and $\vec{u}_0$ are orthonormal, and orthogonal to $\vec{r}_{o,0}$:
+\begin{equation}
+\vec{r}_{s,0} = [\vec{l}_0, \vec{u}_0]^T \vec{r} = [-x, y]^T
+\end{equation}
+
+If, from that position, we change the observation perspective by descending an angle $\theta$ in the $\phi$ direction, the new observation plane is described by:
+
+\begin{equation}
+\begin{aligned}
+	\vec{r}'_o &= h[\cos\phi\sin\theta, \sin\phi\sin\theta, \cos\theta]^T \\
+    \hat{n'} &= -[\cos\phi\sin\theta, \sin\phi\sin\theta, \cos\theta]^T \\
+    \vec{u}' &= [-\cos\phi\cos\theta, -\sin\phi\cos\theta, \sin\theta]^T \\
+    \vec{l}' &= [\sin\phi, -\cos\phi, 0]^T
+\end{aligned}
+\end{equation}
+
+Taking in account that $\vec{u}'$ and $\vec{l}'$ have magnitude $1$ and that they are orthogonal to $\vec{r}_{o,0}$, the new projection is
+\begin{equation}
+\vec{r}'_s = [\vec{l}', \vec{u}']^T \vec{r}
+\end{equation}
+
+As the $z$ component of all points we are interested in have value $0$, we can establish that, from now on, all 3D vectors become 2D vectors with the last value removed.
+
+A convenient mathematical relation to establish is one where the projection $\vec{r}'_s$ is equal to a linear transformation of $\vec{r}_{s,0}$:
+
+\begin{equation}
+\vec{r}'_s = [\vec{l}', \vec{u}']^T \vec{r} = \myMatrix{T}_{2x2} [\vec{l}_0, \vec{u}_0]^T \vec{r}
+\end{equation}
+
+One way to solve it is to solve the linear system 
+\begin{equation}
+[\vec{l}', \vec{u}']^T = \myMatrix{T}_{2x2} [\vec{l}_0, \vec{u}_0]^T
+\end{equation}
+This is actually pretty straightforward since projection vectors are orthonormal. The solution is:
+\begin{multline}
+\myMatrix{T} = [\vec{l}', \vec{u}']^T [\vec{l}_0, \vec{u}_0] = \begin{bmatrix}
+-\sin\phi & -\cos\phi \\
+\cos\theta \cos\phi & -\cos\theta \sin\phi
+\end{bmatrix} = \begin{bmatrix}
+1 & 0\\
+0 & \cos\theta
+\end{bmatrix} \begin{bmatrix}
+-\sin\phi & -\cos\phi \\
+\cos\phi & -\sin\phi
+\end{bmatrix} = \\
+= \left\{\alpha = \phi + \pi/2\right\} = \begin{bmatrix}
+	1 & 0\\
+	0 & \cos\theta
+\end{bmatrix} \begin{bmatrix}
+	\cos\alpha & -\sin\alpha \\
+	\sin\alpha & \cos\alpha
+\end{bmatrix}
+\end{multline}
+A way of interpreting it is that a movement from the reference observational perspective to a new one, transforms the projection of points of the $XY$ plane with two transformations, first a rotation of $\alpha$ radians in the counter-clockwise direction, and then a scaling in the vertical dimension by $\cos\theta$.
+
