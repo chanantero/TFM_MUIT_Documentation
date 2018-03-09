@@ -8,7 +8,7 @@ Let's say there are objects in 3D that are perfectly described by the points tha
 	\item[$\vec{r}_o$] 3D point that establishes the reference point of the plane and that will be taken as subjective position $[0 0]^T$.
 \end{description}
 
-We can easily calculate the vector $\vec{l}$ that indicates the subjective direction \textit{left} as $l = \vec{u} \cross \hat{n}$.
+We can easily calculate the vector $\vec{l}$ that indicates the subjective direction \textit{left} as $\vec{l} = \vec{u} \cross \hat{n}$. In the same way, the right direction is $\vec{ri} = \hat{n} \cross \vec{u} = -\vec{l}$.
 
 The projection of a point $\vec{r}$ onto the subjective plane is
 \begin{equation}
@@ -23,7 +23,8 @@ There are special cases where we can particularize the expressions and simplify 
 \vec{r}_{o, 0} &= [0, 0, h]^T \\
 \hat{n}_0 &= [0, 0, -1]^T \\
 \vec{u}_0 &= [0, 1, 0]^T \\
-\vec{l}_0 &= [-1, 0, 0]^T
+\vec{l}_0 &= [-1, 0, 0]^T \\
+\vec{ri}_0 &= [1, 0, 0]^T
 \end{aligned}
 \end{equation}
 
@@ -80,5 +81,16 @@ This is actually pretty straightforward since projection vectors are orthonormal
 	\sin\alpha & \cos\alpha
 \end{bmatrix}
 \end{multline}
-A way of interpreting it is that a movement from the reference observational perspective to a new one, transforms the projection of points of the $XY$ plane with two transformations, first a rotation of $\alpha$ radians in the counter-clockwise direction, and then a scaling in the vertical dimension by $\cos\theta$.
+
+If we used the vector in the right direction $\vec{ri}'$, then the transformation matrix would be
+\begin{equation}
+\myMatrix{T} = [\vec{ri}', \vec{u}']^T [\vec{ri}_0, \vec{u}_0] =  \begin{bmatrix}
+1 & 0\\
+0 & \cos\theta
+\end{bmatrix} \begin{bmatrix}
+\cos\alpha & \sin\alpha \\
+-\sin\alpha & \cos\alpha
+\end{bmatrix}
+\end{equation}
+A way of interpreting it is that a movement from the reference observational perspective to a new one, transforms the projection of points of the $XY$ plane with two transformations, first a rotation of $\alpha$ radians in clockwise direction, and then a scaling in the vertical dimension by $\cos\theta$.
 

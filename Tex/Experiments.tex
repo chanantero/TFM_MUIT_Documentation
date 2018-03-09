@@ -3,7 +3,7 @@ As we've seen before, the loudspeaker array in the laboratory can be modelled as
 
 As an example, \autoref{figTheoCanc} shows the result for a noise source at position $[-1, 2.5, 0]$, and the optimization applied for the points represented by microphone icons. The frequency from now on is $440\si{Hz}$ unless it is explicitly mentioned otherwise.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\reflectbox{\rotatebox[origin=c]{180}{
 			\includegraphics[height=0.3\textheight]{./Img/Experiment1_Example_definitive.pdf}
@@ -35,7 +35,7 @@ To get a sense of what levels of cancellations we can achieve, we test it for di
 
 Respect to the global correction factor $\Psi$ (\autoref{OptScalation}), in \autoref{figGobalScalationScatter} we can see that, although it changes with distance $R$ and angle $\alpha$, the variation is very small. The mean absolute value is around $0.21$ and the mean phase is approximately $-137^\circ$. 
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=0.3\textheight]{./Img/Experiment1_globalCancScaleFactor.eps}
 	\caption[Global correction factor]{Global correction factor}
@@ -52,7 +52,7 @@ C_{\mathit{global}(i,j)} = \frac{\norm{\cmicro[(i,j)]}^2}{\norm{\vec{a}_{\mathit
 
 Different sets of microphone locations have been chosen \autoref{figGrids}. All of them are rectangular grids with dimensions ($2.1$x$3.8$)$\si{m}$, but the number of rows and columns change. The global correction factor has been calculated for all of them for different positions of the noise source and radius $R = 50\si{m}$, and the global cancellation $C_{\mathit{global}(i,j)}$ for the last grid (the most complete one) is shown in \autoref{figDiffMicroGridsCanc}. We can notice that just one microphone situated at the centre of the octagon (grid a) is not enough to calculate a correction factor $\Psi$ that would produce good cancellations. However, a grid of just 9 microphones (grid b) already achieves cancellation levels just $2\si{dB}$ worse than the better case (grid e), which can mean that not many microphones inside the area would be needed to scale correctly the transmitted signals.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
@@ -83,7 +83,7 @@ Different sets of microphone locations have been chosen \autoref{figGrids}. All 
 	\label{figGrids}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=0.4\textwidth]{./Img/Experiment1_diffMicroGrid.eps}
 	\caption[Global cancellation for different number of microphones]{Global cancellation for different number of microphones}
@@ -92,9 +92,28 @@ Different sets of microphone locations have been chosen \autoref{figGrids}. All 
 
 Another question worth studying is what happens when the noise source is not in the same plane as the WFS loudspeaker array, this is, when the $z$ coordinate is not 0. In \autoref{figGlobCancDifNSz} there is represented the global cancellation with respect to the angle $\theta$ between the horizontal plane and the vector that goes from the centre of the array to the noise source (\autoref{figDifNSz}). We can see that the lost in cancellation levels starts getting very big for angles $\theta > 15^\circ$.
 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+	\centering
+	\def\svgwidth{\columnwidth}
+	\graphicspath{{Img/}}
+	\input{Img/Experiment4_diffNSzpos_definitive.pdf_tex}
+	\caption{Scheme}
+	\label{figDifNSz}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+	\centering
+	\includegraphics[width=\columnwidth]{Img/Experiment4_globalCancDifNSz.eps}
+	\caption{Global cancellation for different $z$ positions of the noise source}
+	\label{figGlobCancDifNSz}
+\end{subfigure}
+	\caption{Noise source outside WFS array plane}
+\end{figure}
+
 Finally, it's worth noting that, although previously we have described an type of optimization (\autoref{optNoRestrictions}) that would consist in just solving a linear system without the use of WFS theory, it's actually not a useful method. The reason why it's not is because the solution it finds requires some of the secondary loudspeakers to transmit signals with an amplitude hundreds of times bigger than the amplitude of the noise signal. Moreover, the density of microphone locations needed to achieve good cancellation levels over the whole area is significantly bigger than in the global correction case \autoref{figNoConst}. In conclusion, WFS theory is necessary.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
@@ -117,7 +136,7 @@ GTAC responses are measured for loudspeakers in the WFS array, but of course, no
 
 Results are shown in \autoref{figGTACglobalCancAlltogether}. Different positions have been used. As we can see, the cancellation levels are quite far from the theoretical case.
 
-\begin{figure}
+\begin{figure}[H]
 	\begin{minipage}[b]{0.49\textwidth}
 		\centering
 		\reflectbox{\rotatebox[origin=c]{180}{
@@ -136,7 +155,7 @@ Results are shown in \autoref{figGTACglobalCancAlltogether}. Different positions
 
 The reason for this can be found when we take a look at the impulse response of each individual loudspeaker. For example, let's focus on the loudspeaker number $20$. If we were in the ideal case and feeded the loudspeaker with a signal of amplitude $1$, the amplitude and phase of the signals at each measure point would be the one shown in \autoref{figGTAClouds20idealCaseAbs} and \autoref{figGTAClouds20idealCasePhase} . Instead, what we find in the measured acoustic response is slightly different (\autoref{figGTAClouds20realCaseAbs} and \autoref{figGTAClouds20realCasePhase}).
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.24\textwidth}
 		\centering
@@ -168,7 +187,7 @@ The reason for this can be found when we take a look at the impulse response of 
 
 In order to get a sense of how different the ideal and real cases are, in \autoref{figGTAClouds20Comparison} we have represented in a graph the amplitude and phase shift (measured phase minus the theoretical one) of the field as a function of the distance to the loudspeaker. For the theoretical case, the amplitude is inversely proportional to the distance, and the phase is linear. However, for the measured acoustic paths, there is a cloud of scattered points in both cases, being the scattering bigger as the distance increases. A similar behaviour is found for all the other loudspeakers.
 
-\begin{figure}
+\begin{figure}[H]
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
 		\includegraphics[height=0.8\textwidth]{./Img/Experiment2_loud20_AmpByDist.eps}
@@ -185,7 +204,7 @@ In order to get a sense of how different the ideal and real cases are, in \autor
 
 An upper bound to the global cancellation achievable can be calculated using the optimization without any constraints expressed in \autoref{optNoRestrictions}. Results are shown in \autoref{figGTACmaxGlobCancNoConst}. As we can see, the best cancellation levels we can achieve are not better than $7\si{dB}$ in most cases.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=0.5\textwidth]{./Img/Experiment2_globalCancDifNSposNoConst_definitive.pdf}
 	\caption{Global cancellation for GTAC impulse responses. Optimization without constraints.}
