@@ -108,7 +108,7 @@
 	{WFS}{\vec{c}_{\mathit{WFS}#3}}
 	{NS}{\vec{c}_{\mathit{NS}#3}}
 	{micro}{\vec{c}_{\mathit{micro}#3}}
-	{noValue}{\vec{c}}
+	{noValue}{\vec{A}}
 	}}
     {scalar}{\IfStrEqCase{#2}{
 	{WFS}{c_{\mathit{WFS}#3}}
@@ -119,11 +119,15 @@
 		}
 		}
 	{micro}{c_{\mathit{micro}#3}}
-	{noValue}{c}
+	{noValue}{A}
 	}}
 }
 }
 
+
+\newcommand{\GreenFunc}[1][\vec{x}]{
+\frac{e^{-jk\norm{#1}}}{\norm{#1}}
+}
 
 %% Bibliography, resources, explanations, links
 
