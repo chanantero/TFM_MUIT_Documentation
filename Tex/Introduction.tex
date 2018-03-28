@@ -1,13 +1,20 @@
 Wave Field Synthesis (WFS) is a method that, by means of an array of loudspeakers reproducing the proper audio signals, generates the acoustic wave field that a hypothetical source of sound would produce. For example, in a room where one of this arrays is set up, a person situated in any point of the room could hear the voice of a person moving through the room, as if someone that is not there was actually talking and walking.
 
-WFS takes advantage of a physical principle applied to wave fields (such as acoustic waves) expressed in Kirchhoff's integral. It states that in any source-free wave propagation media delimited by a surface S, the wave field at any point in that space can be calculated if the value and the gradient of the wave field on the surface S are known. In other words, if we want to know the sound that one can hear at any point inside S, we just have to know the acoustic pressure and gradient on S.
+WFS takes advantage of a physical principle applied to wave fields (such as acoustic waves) expressed in Kirchhoff's integral. It states that in a wave propagation media, in any source-free volume $V$ delimited by a surface $S$, the wave field at any point in that space can be calculated if the value and the gradient of the wave field on the surface S are known. In other words, if we want to know the sound that one can hear at any point inside S, we just have to know the acoustic pressure and its gradient on S.
 
 If we want that inside S one can hear the sound of a string quartet playing the Pachelbel's Canon outside S, we have two options. On the one hand, we hire a string quartet, make them play and the problem is solved. On the other hand, we have a more interesting solution. We record the wave field on each point of S when the musicians play, we build some audio reproducing system that can replicate the same values on S, and place a person inside. That system could be a hollow sphere with infinitesimal speakers on its surface.
 
 Of course, we cannot build a surface with trillions of microscopic loudspeakers and place a person inside. Even if we could, it wouldn't have much practical use apart from an impressive virtual reality immersion. But thankfully, even with the truncation, the use of real loudspeakers, the presence of reflective objects, positioning the sources of noise inside S, etc. the final result is still pretty good. The work of engineers consist precisely on creating real systems with practical restrictions (limited budget, inaccuracies, etc.) that meet some performance requirements.
 
+Allows mobility of the listener, no head phones or object trackers are needed \cite{Kuntz2004}
+
 WFS was created in Delft University in 19XX.
 
 Another problem related to sound is the cancelation of noise. 
 
-Active Noise Control refers to 
+Active Noise Control (ANC) refers to a group of techniques that aim at reducing the effect of acoustic noise sources by means of an array of loudspeakers that generate a sound wave that interferes destructively with the noise wave field and, so, cancels it. It past decades it has become a growing field of research, since passive methods are not as effective in cancelling low frequency noise \cite{Lapini2016}.
+
+ANC has had success in cases where the listening area is very small, e.g., inside a head phone, or around a listener with restricted head movement. However, for large spaces where listeners are allowed to move freely, the problem becomes much complicated. Traditional approaches require a huge number of sensors and sources distributed within the area of interest. Moreover, this high number of sensors would constitute a highly overdetermined multiple-input multiple-output system, which causes bad convergence of adaptive algorithms and very large loudspeaker driving signals \cite{Kuntz2004}.
+
+There have been proposals of the use of WFS to perform ANC as a solution to previous problems \cite{Zanolin1999} \cite{Kuntz2004} \cite{Lapini2016} \cite{Morcillo2015}. The use of WFS allows to control the sound field by using a distribution of sources and sensors only on the boundary of the listening space, and listeners are not restricted in their movement and no headphones or object tracking equipment is required \cite{Kuntz2004}.
+

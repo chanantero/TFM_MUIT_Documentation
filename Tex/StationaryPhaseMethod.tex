@@ -1,0 +1,52 @@
+\chapter{Stationary Phase Method}
+The stationary phase method states that
+\begin{equation}
+I = \int_{-\infty}^{+\infty} f(y) e^{j\phi(y)} dy \approx f(y_0) e^{j\phi(y_0)} \sqrt{\frac{j 2\pi}{\phi''(y_0)}}
+\end{equation}
+where $y_0$ is the value of $y$ where the phase gets stationary $\frac{d\phi(y)}{dy} = 0$, and $\phi''(y_0)$ is the second derivative of $\phi$ evaluated at $y_0$. Intuitively it means that the integral of a phase changing function only has a significant contribution in the region where the phase change slows down.
+
+It is based on the fact that
+\begin{equation}
+\int_{-\infty}^{\infty} e^{j k x^2} dx = 2 \int_{0}^{\infty} e^{j k x^2} dx = \sqrt{\frac{j\pi}{k}}
+\end{equation}
+
+That integral is finite because the more the value of $x$ increases, the faster are the changes in phase, and then the positive contributions cancel the negative contributions. The contribution of high values of $x$ to the total integral is very small. Almost all the contribution is centred in the region around $x=0$.
+
+To show this, let's say we are integrating from $a$ to $a + \Delta$, and that the difference in phase from one to other value is $2\pi$:
+\begin{gather}
+\int_{a}^{a + \Delta} e^{j k x^2} dx \\
+k(a + \Delta)^2 = ka^2 + 2\pi \rightarrow \Delta = -a + \sqrt{a^2 + 2\pi/k} \label{DeltaRelation}
+\end{gather}
+For simplification purposes, but without loss of generality, let's assume $k>0$, $a >= 0$ and $\Delta > 0$.
+
+This integral is equivalent as taking an single complex exponential period and stretching it at the beginning and compressing it towards the end.
+
+\begin{multline}
+	\int_{a}^{a + \Delta} e^{j k x^2} dx = \left\{ \int_{a}^{a + \Delta} f(x) dx = \frac{1}{c} \int_{0}^{\Delta c} f(x/c + a) dx \right\}= \frac{\Delta}{2\pi} \int_{0}^{2\pi} e^{j k (\frac{\Delta}{2\pi}x + a)^2} dx = \\
+	= \frac{\Delta}{2\pi} e^{jka^2} \int_{0}^{2\pi} e^{j k \frac{\Delta}{2\pi}x (\frac{\Delta}{2\pi}x + 2a)} dx
+	\label{mainEq}
+\end{multline}
+
+In the interval $[0, 2\pi]$, the phase $\varphi(x) = k \frac{\Delta}{2\pi}x (\frac{\Delta}{2\pi}x + 2a)$ is monotonically increasing, parabolic, $\varphi(0) = 0$ and $\varphi(2\pi) = k(\Delta^2 + 2a\Delta) = 2\pi$ (\autoref{DeltaRelation}).
+
+It will be useful to be aware of the next relationship:
+\begin{equation}
+\int_a^b f(g(x)) dx = \int_{g(a)}^{g(b)} f(x') \frac{g^{-1}(x')}{dx'}\Big\vert_x dx'
+\label{chainIntegral}
+\end{equation}
+In order for $g^{-1}$ to exist, $g(x)$ must be monotonic in the interval $[a, b]$.
+
+In our case, $g(x) = \varphi(x)$, $f(x) = e^{jx}$, $a = 0$, $b = 2\pi$. So, $g^{-1}(x)$ exists:
+\begin{gather}
+g^{-1}(x) = \frac{2\pi}{\Delta} \left(-a + \sqrt{a^2 + x/k}\right) \\
+\frac{d g^{-1}(x)}{dx} = \frac{2\pi}{\Delta 2 k \sqrt{a^2 + x/k}}
+\label{phaseInverseFunction}
+\end{gather}
+
+Applying \autoref{chainIntegral} into \autoref{mainEq} and substituting \autoref{phaseInverseFunction}:
+\begin{equation}
+\int_{0}^{2\pi} e^{j k \frac{\Delta}{2\pi}x (\frac{\Delta}{2\pi}x + 2a)} dx = \int_{0}^{2\pi} e^{j x} \frac{2\pi}{\Delta 2 k \sqrt{a^2 + x/k}} dx
+\end{equation}
+
+
+
