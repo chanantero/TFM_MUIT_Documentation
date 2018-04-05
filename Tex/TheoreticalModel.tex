@@ -72,7 +72,7 @@ According to the stationary phase method \cite{Verheijen},
 \begin{equation}
 I = \int_{-\infty}^{+\infty} f(y) e^{j\phi(y)} dy \approx f(y_0) e^{j\phi(y_0)} \sqrt{\frac{j 2\pi}{\phi''(y_0)}}
 \end{equation}
-where $y_0$ is the value of $y$ where the phase gets stationary $\frac{d\phi(y)}{dy} = 0$, and $\phi''(y_0)$ is the second derivative of $\phi$ evaluated at $y_0$. Intuitively it means that the integral of a phase changing function only has a significant contribution in the region where the phase change slows down.
+where $y_0$ is the value of $y$ where the phase gets stationary $\frac{d\phi(y)}{dy} = 0$, and $\phi''(y_0)$ is the second derivative of $\phi$ evaluated at $y_0$. Intuitively, it means that the integral of a phase changing function only has a significant contribution in the region where the phase change slows down.
 
 Applying it to \autoref{integrateY}, we get that
 \begin{gather}
@@ -85,10 +85,18 @@ where $r_{s0} = \norm{\vec{x} - \vec{x}_s}\Big\vert_{y = 0} = \sqrt{z_s^2 + (x -
 
 Assuming $kr_{s0} >> 1$
 \begin{gather}
-P(\vec{x_0}) = \frac{-1}{2\pi} \int_{-\infty}^{\infty} I(x) dx = \int_{-\infty}^{\infty} Q(x) \frac{e^{-jkr_{00}}}{r_{00}} dx \\ Q(x) = A \Diag(\phi, 0) \cos\phi \frac{e^{-jk r_{s0}}}{\sqrt{r_{s0}}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{r_{00}}{r_{s0} + r_{00}}} dx
+P(\vec{x_0}) = \frac{-1}{2\pi} \int_{-\infty}^{\infty} I(x) dx = \int_{-\infty}^{\infty} Q(x) \frac{e^{-jkr_{00}}}{r_{00}} dx \label{RaileighI2.5}\\ 
+Q(x) = A \Diag(\phi, 0) \cos\phi \frac{e^{-jk r_{s0}}}{\sqrt{r_{s0}}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{r_{00}}{r_{s0} + r_{00}}} dx
 \end{gather}
 
-If we fixate $r_{00}$ to $d$ and $r_{s0}$ to $z_s$, we can make the expression independent from the receiver point, and so, implementable in real WFS systems. However, the pressure will only be rightly scaled at a line of receivers parallel to the secondary source line, and separation $d$.
+Applying the stationary phase method, but now in the x direction, we would find that the main contribution to the pressure at a given point comes from the intersection of the secondary source line and the line that goes from the primary source to the receiver point. Taking advantage of this, we can fixate $r_{00} = d$ and $r_{s0} = z_s$, so $Q(x)$ becomes independent from the receiver point (implementable in real WFS systems) and the pressure will be rightly scaled at a line of receivers parallel to the secondary source line, and separated a distance $d$. For other values of $d$, there will be amplitude errors \cite{Verheijen}.
+
+In practice, a continuous secondary source line is not realistic. An discrete linear secondary source array is a closer model to the practical cases where an array of loudspeakers is used. The issue with discretization is that aliasing effects appear. However, as it is exposed in \cite{Start1997}, the synthesized wavefield will be exactly equal to the one with a continuous line source at those frequencies that respect next relation:
+\begin{equation}
+f < \frac{c}{2\Delta x}
+\end{equation}
+
+This means that, for a sound signal with $f_{max}$ as maximum frequency component, and with $\lambda_{min} = c/f_{max}$ as its corresponding wavelength, aliasing will be avoided as long as the separation between loudspeakers is smaller than half the wavelength: $\Delta x < \frac{\lambda_{min}}{2}$.
 
 \section{Theoretical Propagation Model}
 \label{TheoreticalModelLabel}

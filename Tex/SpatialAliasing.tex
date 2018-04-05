@@ -1,0 +1,111 @@
+\chapter{Spatial Aliasing}
+
+\cite{Start1997}
+
+\section{Spatial Spectrum}
+A scalar wave field is mathematically described by a function of time $t$ and position $\vec{r}$: $p(\vec{r}, t)$. One can perform a conventional Fourier Transform at each point of the spectrum, giving as a result a function of position and temporal frequency:
+\begin{gather}
+P(\vec{r}, \omega) = TF\{p(\vec{r}, t)\} = \int_{-\infty}^{\infty} p(\vec{r}, t) e^{-j \omega t} dt \\
+p(\vec{r}, t) = TF^{-1}\{P(\vec{r}, \omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} P(\vec{r}, \omega) e^{j \omega t} d\omega
+\end{gather}
+
+Now, we can also perform a spatial Fourier Transform over a given one-dimensional subspace, i.e., a line. A line $l$ is defined by a point $\vec{l}_0$ contained in it that serves as reference origin, and by a direction $\hat{\vec{v}}$. Any point in the line can be defined by the distance $d$ that goes from $\vec{l}_0$ to the point in $\hat{\vec{v}}$ direction: $l(d) = \vec{l}_0 + \hat{\vec{v}} d$.
+
+The spatial Fourier Transform is:
+\begin{gather}
+	P(k_v, \omega) = \int_{-\infty}^{\infty} P(l(d), \omega) e^{-j k_v d} dd \\
+	p(l(d), t) = \int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} P(k_v, \omega) e^{j k_v d} dd \right) e^{j \omega t} dt
+\end{gather}
+
+This operation is separable and hence, commutative:
+\begin{equation}
+\int_{a}^{b} \int_{c}^{d} f(x, y) g(x) h(y) dx dy = \int_{c}^{d} h(y) \left(\int_{a}^{b} f(x, y) g(x) dx\right) dy = \int_{a}^{b} g(x) \left(\int_{c}^{d} f(x, y) h(y) dy\right) dx
+\end{equation}
+
+Rearranging equations:
+\begin{gather}
+P(k_v, \omega) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} p(l(d), t) e^{-j \omega t} e^{-j k_v d} dd \, dt \\
+p(l(d), t) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} P(k_v, \omega) e^{j k_v d} e^{j \omega t} dd \, dt
+\end{gather}
+
+Next, we will explain why each point of the spectrum $P(k_v, \omega)$, specified by a temporal frequency and a spatial one, represents a monochromatic plane wave propagating in a given direction. This means that the spatial Fourier transform is a way of decomposing the wave field along a direction $\hat{v}$ in multiple monochromatic plane waves.
+
+A plane wave moving in propagation direction $\hat{u}$ with velocity $c$ can be mathematically described by
+\begin{equation}
+p(\vec{r}, t) = s\left(t - \left<\vec{r}, \frac{\hat{u}}{c}\right>\right)
+\end{equation}
+
+The temporal Fourier transform is:
+\begin{equation}
+P(\vec{r}, w) = S(w) e^{-j w \left<\vec{r}, \frac{\hat{u}}{c}\right>}
+\end{equation}
+
+Now, let's perform a spatial Fourier transform along the $\hat{v}$ direction:
+\begin{equation}
+P(k_v, \omega) = \int_{-\infty}^{\infty} P(l(d), \omega) e^{-j k_v d} dd = S(\omega) e^{-j \omega \left<\vec{r}_0, \frac{\hat{u}}{c}\right>} \delta\left( k_v + \omega\left<\hat{v}, \frac{\hat{u}}{c}\right> \right)
+\end{equation}
+
+As we can see, the spatial Fourier Transform of a plane wave only has, for each $\omega$, a single value of the spatial frequency where it is non-zero, $k_v = -\omega\left<\hat{v}, \frac{\hat{u}}{c}\right>$, which is directly related to the angle between the propagation direction $\hat{\vec{u}}$ and the direction along which the spatial Fourier Transform is calculated $\hat{\vec{v}}$.
+
+If direction $\hat{u}$ is contained in the plane $y=0$ ($\hat{u} = [\sin\theta, 0, \cos\theta]$), then:
+\begin{equation}
+p(x, z, t) = s\left(t - \frac{x}{c_x} - \frac{z}{c_z}\right)
+\end{equation}
+where $c_x = c/\sin\theta$ and $c_z = c/\cos\theta$.
+
+The temporal Fourier transform is ($r_0 = [x_0, 0, z_0]$):
+\begin{equation}
+P(x, z, w) = S(w) e^{-j w \frac{x_0}{c_x}} e^{-j 2 \pi f \frac{z_0}{c_z}}
+\end{equation}
+
+And the spatial Fourier transform along the $\hat{x}$ direction is:
+\begin{equation}
+P(k_x, z, \omega) = S(\omega) e^{-j \omega \frac{z}{c_z}} \delta\left(k_x + \frac{\omega}{c_x}\right)
+\end{equation}
+
+\section{Spatial Spectrum in WFS}
+Observing carefully, it can be seen that Rayleigh I 2.5D integral (\autoref{RaileighI2.5}) along a line parallel to the secondary source line, is just a convolution:
+\begin{equation}
+P(x_R) = \int_{-\infty}^{\infty} Q(x_L) \frac{e^{-jkr_{00}}}{r_{00}} dx = \int_{-\infty}^{\infty} Q(x_L) W(x_L - x_R)
+\end{equation}
+
+Hence, the spatial spectrum is a multiplication:
+\begin{equation}
+\tilde{P}(k_x) = \tilde{Q}(k_x) \tilde{W}(k_x)
+\end{equation}
+
+We use the next Fourier transform pair:
+\begin{gather}
+	F_\alpha(x) = \frac{e^{-j k r}}{r^\alpha} \\
+	\tilde{F}_\alpha(k_x) = \frac{\sqrt{2\pi}}{k^{\alpha - 1}} \frac{k_z^{\alpha - 3/2}}{\left\vert \Delta z \right\vert^{\alpha - 1/2}} e^{-j(k_z\vert\Delta z\vert + \pi/4)}
+\end{gather}
+for $k\Delta z >> 1$, where $r = \sqrt{x^2 + \Delta z^2}$, $k_z = \sqrt{k^2 - k_x^2}$ for $k_x^2 \leq k^2$ and $k_z = -j\sqrt{k_x^2 - k^2}$ for $k_x^2 \geq k^2$.
+
+Then:
+\begin{gather}
+	\tilde{Q}(k_x) = \sqrt{\frac{z_0}{z_0 + z_s}}S(\omega)e^{-j k_z z_s} \\
+	\tilde{W}(k_x) = \sqrt{\frac{2\pi}{j k_z z_0}} e^{-j k_z z_0} \\
+	\tilde{P}(k_x) = \sqrt{\frac{2\pi}{j k_z (z_0 + z_s)}} e^{-j k_z (z_0 + z_s)}
+\end{gather}
+
+For $|k_x| > k$, the resulting value is negligible, so the spectrum has a triangular shape.
+
+\subsection{Discretization of secondary source array}
+Let's assume we don't have a continuous linear array, but a discrete one, with separation $\Delta x$ between monopole sources.
+
+\begin{equation}
+Q(x_L)_\Delta = Q(x_L) \Delta x \sum_{n=-\infty}^{\infty} \delta(x_L - n\Delta x)
+\end{equation}
+
+A discretization in the spatial domain means a convolution by a train of deltas in the spectral domain, i.e., a periodicity of the spectrum with period $T = 2\pi/\Delta x$.
+
+\begin{equation}
+\tilde{Q}(x_L)_\Delta = \sum_{n=-\infty}^{\infty} \tilde{Q}(k_x - n\frac{2\pi}{\Delta x})
+\end{equation}
+
+When calculating the spectrum of the field, $\tilde{W}$ acts as a low-pass filter that eliminates the components above $k$. The resulting field will be the same as the one with a continuous secondary source distribution, unless the separation is bigger than half the wavelength ($\Delta x > \lambda/2$), in which case there will be aliasing. If there signal has more than one frequency, there will be aliasing on those frequencies whose wavelength is smaller than twice the separation ($\lambda < 2\Delta x$).
+Therefore, the condition to avoid aliasing is restricted by the highest frequency component at which we want to avoid it:
+\begin{equation}
+\Delta x < \frac{c}{2 f_{max}} = \frac{1}{2 \lambda_{min}}
+\end{equation}
+
