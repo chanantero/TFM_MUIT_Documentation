@@ -64,23 +64,24 @@ Cancellation must be achieved through the manipulation of transmitted signals by
 \subsection{Wave Field Synthesis in GTAC anechoic chamber} \label{WFSexplanation}
 Cancellation can be achieved by means of using Wave Field Synthesis. This consists in generating the field that an hypothetical noise source (virtual noise source) equal to the real one but with opposite sign would produce. This way, both fields will cancel each other (the sum will be $0$).
 
-WFS uses Kirchhoff integral as its mathematical principle. When Kirchhoff's integral is simplified and particularized to fit the scenario presented in the chamber (a finite number of discrete sources distributed as an octagon on a horizontal plane), some equations are deduced (\autoref{WFScalcEq} and \autoref{WFScalcEqDelay}). They use some of the theoretical parameters (position and coefficient of the noise source, position and orientation of the loudspeakers used for WFS) to calculate the transmitted coefficients ($\vec{c}_\mathit{WFS}$) of the solution. If loudspeakers can be modelled as monopoles and free-space conditions are guaranteed, we will achieve cancellation over the whole area. These calculations were provided by the professors and require much professional knowledge in the physic area, which is not an important section of the project.
+WFS uses Kirchhoff integral as its mathematical principle. When Kirchhoff's integral is modified to work with a finite number of discrete sources distributed on a plane, 2.5D Rayleigh I integral is deduced \cite{Start1997}. Then, it is particularized for the specific GTAC anechoic chamber array parameters ($15 \si{cm}$ of separation between adjacent loudspeakers, distributed as an octagon on a horizontal plane, assumed isotropic directivity for all of them), leading to \autoref{WFScalcEq} and \autoref{WFScalcEqDelay}. They use some of the theoretical parameters (position and coefficient of the noise source, position and orientation of the loudspeakers used for WFS) to calculate the transmitted coefficients ($\vec{c}_\mathit{WFS}$) of the solution. If loudspeakers can be modelled as monopoles and free-space conditions are guaranteed, we will achieve cancellation over the whole area. 
+%These calculations were provided by the professors and require much professional knowledge in the physic area, which is not an important section of the project.
 
-The original noise signal is scaled by an attenuation coefficient and delayed a certain amount of time. The attenuation calculation requires the knowledge of the distance between the source and the loudspeaker $d$ and the angle $\alpha$ between the vector that goes from the source to the loudspeaker and the loudspeaker's broadside direction.
+The original noise signal is scaled by an attenuation coefficient and delayed a certain amount of time. The attenuation calculation requires the knowledge of the distance between the source and the loudspeaker $\distLinePrimSource$ and the angle $\normPrimaryPropAngle$ between the vector that goes from the source to the loudspeaker and the loudspeaker's broadside direction.
 \begin{equation}
 	\begin{aligned}
 		\mu = 
 		&\begin{cases}
-		A\frac{\cos\alpha}{\sqrt{d}} & \alpha \leq 90^\circ \\
-		0 & \alpha > 90^\circ
+		A\frac{\cos\normPrimaryPropAngle}{\sqrt{\distLinePrimSource}} & \normPrimaryPropAngle \leq 90^\circ \\
+		0 & \normPrimaryPropAngle > 90^\circ
 		\end{cases}
 		\\
-		A &= \sqrt{\frac{r_0}{r_0 + d}}\\
-		r_0 &= \frac{1.44}{2} + 1.44 \cos\left( \frac{\pi}{4} \right)
+		A &= \sqrt{\frac{\distLinePoint}{\distLinePoint + \distLinePrimSource}}\\
+		\distLinePoint &= \frac{1.44}{2} + 1.44 \cos\left( \frac{\pi}{4} \right)
 	\end{aligned}
 	\label{WFScalcEq}
 \end{equation}
-Beware there is a condition that must be fulfilled for a loudspeaker to be active: if the angle $\alpha$ is smaller than $90^\circ$ (\autoref{figAngleCondition}), then the loudspeaker is active. In other case, is not enabled.
+Beware there is a condition that must be fulfilled for a loudspeaker to be active: if the angle $\normPrimaryPropAngle$ is smaller than $90^\circ$ (\autoref{figAngleCondition}), then the loudspeaker is active. In other case, is not enabled.
 
 %	\input{./Img/pruebaSVGLatex.pdf_tex}
 \begin{figure}
@@ -92,9 +93,9 @@ Beware there is a condition that must be fulfilled for a loudspeaker to be activ
 	\label{figAngleCondition}
 \end{figure}
 
-The delay time is actually the time it takes for the sound transmitted by the noise source to reach the loudspeaker. It is related to the distance $d$ and the propagation velocity of acoustic waves in air $c = 343 (m/s)$.
+The delay time is actually the time it takes for the sound transmitted by the noise source to reach the loudspeaker. It is related to the distance $\distLinePrimSource$ and the propagation velocity of acoustic waves in air $c = 343 (m/s)$.
 \begin{equation}
-	\tau = \frac{d}{c} \label{WFScalcEqDelay}
+	\tau = \frac{\distLinePrimSource}{c} \label{WFScalcEqDelay}
 \end{equation}
 
 For a given distribution of loudspeakers, the coefficients of the signals that must be transmitted ($\cwfs$) depend only on the assumed characteristics of the virtual noise sources, this is, their position ($\vec{r}_{NS, n}^v,\, n = 1, \ldots, \numNS$) and the coefficients of the signals they transmit ($\cns^v$). If we call $\mu_{m,n}$ and $\tau_{m,n}$ to the attenuation and delay that the $m$-th loudspeaker applies to the $n$-th noise signal, and take into consideration only one frequency $f$:

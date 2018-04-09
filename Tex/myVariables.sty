@@ -130,17 +130,30 @@
 }
 
 % Variables for the theroetical mathematical basis
-\NewDocumentCommand{\PosTheo}{O{noValue}}{ % surface/mirrored/nothing
-    \IfStrEqCase{#1}{
-	{surface}{\vec{x}_s}
-	{mirrored}{\vec{x}_m}
-	{primarySource}{\vec{x}_{\mathit{ps}}}
-	{noValue}{\vec{x}}
-	}
+\NewDocumentCommand{\PosTheo}{O{noValue} O{notParticular}}{ % surface/mirrored/nothing notParticular/x/y/z
+    	\IfStrEqCase{#1}{
+		{surface}{\vec{x}_{\PosTheoSubInd[surface]}}
+		{mirrored}{\vec{x}_{\PosTheoSubInd[mirrored]}}
+		{primarySource}{\vec{x}_{\PosTheoSubInd[primarySource]}}
+		{noValue}{\vec{x}}
+		}
+}
+
+\NewDocumentCommand{\PosTheoSubInd}{O{noValue}}{ % surface/mirrored/nothing
+	\IfStrEqCase{#1}{
+		{surface}{s}
+		{mirrored}{m}
+		{primarySource}{\mathit{ps}}
+		{noValue}{}
+		}
 }
 
 \newcommand{\distLinePrimSource}{r_0}
 \newcommand{\distLinePoint}{\Delta r_0}
+
+%%
+\newcommand{\normSecondPropAngle}{\alpha} % Angle between the inward normal vector and the line that passes through the point inside the volume and the point at the surface
+\newcommand{\normPrimaryPropAngle}{\phi}
 
 %% Bibliography, resources, explanations, links
 
