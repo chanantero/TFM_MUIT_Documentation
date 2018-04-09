@@ -33,62 +33,63 @@ To get a sense of what levels of cancellations we can achieve, we test it for di
 	\end{minipage}
 \end{figure}
 
-Respect to the global correction factor $\Psi$ (\autoref{OptScalation}), in \autoref{figGobalScalationScatter} we can see that, although it changes with distance $R$ and angle $\alpha$, the variation is very small. The mean absolute value is around $0.21$ and the mean phase is approximately $-137^\circ$. 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[height=0.3\textheight]{./Img/Experiment1_globalCancScaleFactor.eps}
-	\caption[Global correction factor]{Global correction factor}
-	\label{figGobalScalationScatter}
-\end{figure}
-
-One question that may arise is how much the election of microphones location can change the value of the optimal global scale factor $\Psi$, and so, the cancellation. In order to evaluate that change, we define a new magnitude. Let $\Psi_{\mathit{opt}, i}$ be the optimal global cancellation factor for a given microphone distribution $\pos[matMicro]{,i}$ (\autoref{corrFacti}). Let's define $\cmicro[(i,j)]$ (\autoref{cmicroDifferentPsi}) as the signals received by a set of microphones located at $\pos[matMicro]{,i}$ and correction factor $\Psi_{\mathit{opt}, j}$ (calculated with a different set of microphone locations $\pos[matMicro]{,j}$). Now, we can define $C_{\mathit{global}(i,j)}$ as the global cancellation achieved with $\cmicro[(i,j)]$ (\autoref{globCancOther}).
-
-\begin{gather}
-\Psi_{\mathit{opt}, i} = \argmin_{\Psi} \norm{\Awfs(\pos[matMicro]{,i})\cwfs \Psi + \vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar} \label{corrFacti} \\
-\cmicro[(i,j)] = \Awfs(\pos[matMicro]{,i})\cwfs \Psi_{\mathit{opt}, j} + \vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar \label{cmicroDifferentPsi} \\
-C_{\mathit{global}(i,j)} = \frac{\norm{\cmicro[(i,j)]}^2}{\norm{\vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar}^2} \label{globCancOther}
-\end{gather}
-
-Different sets of microphone locations have been chosen \autoref{figGrids}. All of them are rectangular grids with dimensions ($2.1$x$3.8$)$\si{m}$, but the number of rows and columns change. The global correction factor has been calculated for all of them for different positions of the noise source and radius $R = 50\si{m}$, and the global cancellation $C_{\mathit{global}(i,j)}$ for the last grid (the most complete one) is shown in \autoref{figDiffMicroGridsCanc}. We can notice that just one microphone situated at the centre of the octagon (grid a) is not enough to calculate a correction factor $\Psi$ that would produce good cancellations. However, a grid of just 9 microphones (grid b) already achieves cancellation levels just $2\si{dB}$ worse than the better case (grid e), which can mean that not many microphones inside the area would be needed to scale correctly the transmitted signals.
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid1.pdf}
-		\caption{1 microphone}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid2.pdf}
-		\caption{(3x3)}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid3.pdf}
-		\caption{(5x5)}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid4.pdf}
-		\caption{(10x10)}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid5.pdf}
-		\caption{20x20}
-	\end{subfigure}
-	\caption{Grids for microphone positions}
-	\label{figGrids}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[height=0.4\textwidth]{./Img/Experiment1_diffMicroGrid.eps}
-	\caption[Global cancellation for different number of microphones]{Global cancellation for different number of microphones}
-	\label{figDiffMicroGridsCanc}
-\end{figure}
+%% Comentado el 9/4/2018 porque creo que ya sabiendo de dónde sale la 2.5D Rayleigh I integral, no tiene sentido seguir evaluando esto.
+%Respect to the global correction factor $\Psi$ (\autoref{OptScalation}), in \autoref{figGobalScalationScatter} we can see that, although it changes with distance $R$ and angle $\alpha$, the variation is very small. The mean absolute value is around $0.21$ and the mean phase is approximately $-137^\circ$. 
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[height=0.3\textheight]{./Img/Experiment1_globalCancScaleFactor.eps}
+%	\caption[Global correction factor]{Global correction factor}
+%	\label{figGobalScalationScatter}
+%\end{figure}
+%
+%One question that may arise is how much the election of microphones location can change the value of the optimal global scale factor $\Psi$, and so, the cancellation. In order to evaluate that change, we define a new magnitude. Let $\Psi_{\mathit{opt}, i}$ be the optimal global cancellation factor for a given microphone distribution $\pos[matMicro]{,i}$ (\autoref{corrFacti}). Let's define $\cmicro[(i,j)]$ (\autoref{cmicroDifferentPsi}) as the signals received by a set of microphones located at $\pos[matMicro]{,i}$ and correction factor $\Psi_{\mathit{opt}, j}$ (calculated with a different set of microphone locations $\pos[matMicro]{,j}$). Now, we can define $C_{\mathit{global}(i,j)}$ as the global cancellation achieved with $\cmicro[(i,j)]$ (\autoref{globCancOther}).
+%
+%\begin{gather}
+%\Psi_{\mathit{opt}, i} = \argmin_{\Psi} \norm{\Awfs(\pos[matMicro]{,i})\cwfs \Psi + \vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar} \label{corrFacti} \\
+%\cmicro[(i,j)] = \Awfs(\pos[matMicro]{,i})\cwfs \Psi_{\mathit{opt}, j} + \vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar \label{cmicroDifferentPsi} \\
+%C_{\mathit{global}(i,j)} = \frac{\norm{\cmicro[(i,j)]}^2}{\norm{\vec{a}_{\mathit{NS}}(\pos[matMicro]{,i}) \cnsScalar}^2} \label{globCancOther}
+%\end{gather}
+%
+%Different sets of microphone locations have been chosen \autoref{figGrids}. All of them are rectangular grids with dimensions ($2.1$x$3.8$)$\si{m}$, but the number of rows and columns change. The global correction factor has been calculated for all of them for different positions of the noise source and radius $R = 50\si{m}$, and the global cancellation $C_{\mathit{global}(i,j)}$ for the last grid (the most complete one) is shown in \autoref{figDiffMicroGridsCanc}. We can notice that just one microphone situated at the centre of the octagon (grid a) is not enough to calculate a correction factor $\Psi$ that would produce good cancellations. However, a grid of just 9 microphones (grid b) already achieves cancellation levels just $2\si{dB}$ worse than the better case (grid e), which can mean that not many microphones inside the area would be needed to scale correctly the transmitted signals.
+%
+%\begin{figure}[H]
+%	\centering
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid1.pdf}
+%		\caption{1 microphone}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid2.pdf}
+%		\caption{(3x3)}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid3.pdf}
+%		\caption{(5x5)}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid4.pdf}
+%		\caption{(10x10)}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=0.75\textwidth]{./Img/Experiment1_imageGrid5.pdf}
+%		\caption{20x20}
+%	\end{subfigure}
+%	\caption{Grids for microphone positions}
+%	\label{figGrids}
+%\end{figure}
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[height=0.4\textwidth]{./Img/Experiment1_diffMicroGrid.eps}
+%	\caption[Global cancellation for different number of microphones]{Global cancellation for different number of microphones}
+%	\label{figDiffMicroGridsCanc}
+%\end{figure}
 
 Another question worth studying is what happens when the noise source is not in the same plane as the WFS loudspeaker array, this is, when the $z$ coordinate is not 0. In \autoref{figGlobCancDifNSz} there is represented the global cancellation with respect to the angle $\theta$ between the horizontal plane and the vector that goes from the centre of the array to the noise source (\autoref{figDifNSz}). We can see that the lost in cancellation levels starts getting very big for angles $\theta > 15^\circ$.
 
@@ -111,7 +112,7 @@ Another question worth studying is what happens when the noise source is not in 
 	\caption{Noise source outside WFS array plane}
 \end{figure}
 
-Finally, it's worth noting that, although previously we have described an type of optimization (\autoref{optNoRestrictions}) that would consist in just solving a linear system without the use of WFS theory, it's actually not a useful method. The reason why it's not is because the solution it finds requires some of the secondary loudspeakers to transmit signals with an amplitude hundreds of times bigger than the amplitude of the noise signal. Moreover, the density of microphone locations needed to achieve good cancellation levels over the whole area is significantly bigger than in the global correction case \autoref{figNoConst}. In conclusion, WFS theory is necessary.
+Finally, it's worth noting that, although previously we have described a type of optimization (\autoref{optNoRestrictions}) that would consist in just solving a linear system without the use of WFS theory, it's actually not a useful method. The reason why it's not is because the solution it finds requires some of the secondary loudspeakers to transmit signals with an amplitude hundreds of times bigger than the amplitude of the noise signal, as it was noted in \cite{Lapini2016}. Moreover, the density of microphone locations needed to achieve good cancellation levels over the whole area is significantly bigger than in the global correction case \autoref{figNoConst}. In conclusion, WFS theory is necessary.
 
 \begin{figure}[H]
 	\centering
@@ -167,13 +168,13 @@ The reason for this can be found when we take a look at the impulse response of 
 		\centering
 		\includegraphics[width=0.75\textwidth]{./Img/Experiment2_loud20_RealAbsMap.pdf}
 		\caption{Real case. Amplitude.}
-		\label{figGTAClouds20idealCasePhase}		
+		\label{figGTAClouds20realCaseAbs}		
 	\end{subfigure}
 	\begin{subfigure}[b]{0.24\textwidth}
 		\centering
 		\includegraphics[width=0.75\textwidth]{./Img/Experiment2_loud20_IdealPhaseMap.pdf}
 		\caption{Ideal case. Phase.}
-		\label{figGTAClouds20realCaseAbs}
+		\label{figGTAClouds20idealCasePhase}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.24\textwidth}
 		\centering
