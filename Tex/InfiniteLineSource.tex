@@ -5,7 +5,7 @@
 An infinite line source situated along the $z$ axes in coordinates $x = y = 0$ will produce a field that doesn't depend on $z$ or the angle $\phi$, only on the radius $r$. The field that it produces at a point situated a distance $r$ from it, the next integral must be solved.
 
 \begin{equation}
-\begin{aligned}
+P(r) = \begin{aligned}
 &\int_{-\infty}^{+\infty} \frac{e^{-j k \sqrt{r^2 + z^2}}}{\sqrt{r^2 + z^2}} \mathrm{d}z = 
 \int_{-\pi/2}^{+\pi/2} \frac{e^{-j k r/cos{\alpha}}}{r/\cos{\alpha}} \mathrm{d}z = \\
 &= \left\{ z = r \tan{\alpha} \rightarrow \dv{z}{\alpha} = r\frac{1}{\cos^2{\alpha}} \right\} = \int_{-\pi/2}^{+\pi/2} \frac{e^{-j k r/cos{\alpha}}}{\cos{\alpha}} \mathrm{d}\alpha \\
@@ -14,6 +14,29 @@ An infinite line source situated along the $z$ axes in coordinates $x = y = 0$ w
 \end{equation}
 
 We see that the solution is a scaled version of the zero-th order of the Hankel function of second type.
+
+In order to appreciate what is the form of this function, we can use the stationary phase method to calculate an approximation for $kr >> 1$. The approximate solution is:
+\begin{equation}
+P_{a}(r) = \frac{e^{-jkr}}{\sqrt{kr}}\sqrt{\frac{2\pi}{j}}
+\end{equation}
+
+So, it is a function which amplitude decreases with the inverse of the square root of the distance, and with a linear phase change.
+
+The approximation converges very rapidly to the real solution when $kr$ increases. \autoref{figAmpError} shows the amplitude error expressed as:
+\begin{equation}
+	10 \log_{10} \left( \frac{\vert P_a \vert^2 - \vert P \vert^2}{\vert P \vert^2} \right)
+\end{equation}
+and the phase error as
+\begin{equation}
+	10 \log_{10} \left( \vert phase\left(\frac{P_a}{P}\right) \vert \right)
+\end{equation}
+where $phase$ indicates the phase of the complex number in degrees.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{Img/statPhaseMethApproxInfiniteLineError.eps}
+\caption{Error of approximation for field produced by an infinite line source}
+\end{figure}
 
 \section{Infinite plane}
 Let's assume that every surface differential in the plane XY ($z = 0$) is a monopole source. The measure point $\vec{p}$ is located at the axis Z ($x = y = 0$), at a distance $z$: $\vec{p} = [0\, 0\, z_p]^T$.
