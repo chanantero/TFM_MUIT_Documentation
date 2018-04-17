@@ -179,6 +179,7 @@
 %\newcommand{\refeq}[1]{Eq.\ref{#1}} % The mathtools package uses a command also named \refeq. Comment this line in order to avoid conflicts
 \newcommand{\reffig}[1]{Fig.\ref{#1}}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\vectorproj}[2][]{\textit{proj}_{\vec{#1}}\vec{#2}}
 
 % 19/01/2018
 % For using the option importing images with latex made by Inkscape
@@ -211,3 +212,6 @@
 % To include all pages of a multiple page pdf
 % https://tex.stackexchange.com/questions/7938/pdflatex-includegraphics-and-multi-page-pdf-files
 %\usepackage{pdfpages}
+
+% For including matlab code with the Matlab Editor appearance
+\usepackage[framed,autolinebreaks,useliterate]{mcode} % https://es.mathworks.com/matlabcentral/fileexchange/8015-m-code-latex-package
