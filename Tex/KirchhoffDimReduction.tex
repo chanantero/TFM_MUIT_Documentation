@@ -30,7 +30,7 @@ We also assume that surface $S$ is like a tube infinitely long in the $\hat{\vec
 
 A given point of $S$ (let's call it $\PosTheo[surface]$) is the result of adding a height $y$ to a point of $S_0$ ($\PosTheo[section]$), which is actually the projection of $\PosTheo[surface]$ onto $y=0$ ($\PosTheo[section] = \vectorproj[y=0]{\PosTheo[surface]}$)
 \begin{equation}
-\PosTheo[surface] = \PosTheo[section] + y
+\PosTheo[surface] = \PosTheo[section] + y\hat{\vec{y}}
 \end{equation}
 
 In order to perform the dimensionality reduction, we calculate the contribution of each of the vertical lines that form $S$ (one for each $\PosTheo[section]$).
@@ -38,10 +38,10 @@ In order to perform the dimensionality reduction, we calculate the contribution 
 \begin{gather}
 	P(\PosTheo) = \frac{1}{4\pi} \int_{S_0} \left( I_{1}(\PosTheo[section]) + I_2(\PosTheo[section]) \right)
 	d\PosTheo[section] \\
-	I_{1}(\PosTheo[section]) = - \int_{-\infty}^{\infty} G(\PosTheo[section] + y \vert \PosTheo) \frac{\partial P(\PosTheo[section] + y)}{\partial \mathbf{n}} dy \qquad 	I_{2}(\PosTheo[section]) = \int_{-\infty}^{\infty} P(\PosTheo[section] + y)\frac{\partial G(\PosTheo[section] + y\vert \PosTheo)}{\partial \mathbf{n}} dy
+	I_{1}(\PosTheo[section]) = - \int_{-\infty}^{\infty} G(\PosTheo[section] + y \vert \PosTheo) \frac{\partial P(\PosTheo[section] + y)}{\partial \mathbf{n}} dy \label{lineIntI} \\	I_{2}(\PosTheo[section]) = \int_{-\infty}^{\infty} P(\PosTheo[section] + y)\frac{\partial G(\PosTheo[section] + y\vert \PosTheo)}{\partial \mathbf{n}} dy \label{lineIntII}
 \end{gather}
 
-Let's focus on the first integral.
+The far field approximation of the field is:
 \begin{equation}
 P = S(\omega) D(\varphi, \theta, \omega) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}]
 \end{equation}
@@ -73,20 +73,49 @@ Along a given vertical line ($\PosTheo[section] + y$), the unitary inward normal
 \begin{equation}
 \vec{n} = [n_x, 0, n_z]^T = [\sin\azimuthNormal, 0, \cos\azimuthNormal]
 \end{equation}
-It remains constant and its component in $\hat{\vec{y}} = 0$.
+which remains constant and its component in $\hat{\vec{y}} = 0$.
 
 Hence,
 \begin{multline}
-\frac{\partial P(\PosTheo)}{\partial \mathbf{n}} = \langle \nabla P(\PosTheo), \vec{n} \rangle = \left\{
+\frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} = \langle \nabla P(\PosTheo[surface]), \vec{n} \rangle = \left\{
 \begin{matrix}
 	\cos\alpha \sin\beta - \sin\alpha \sin\beta = sin(\beta - \alpha) \\ \cos\alpha \cos\beta + \sin\alpha\sin\beta = \cos(\beta - \alpha)
 \end{matrix}  \right\}
-= S(\omega) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}] \\ \left[ D(\azimuth, \elevation, \omega) \left(-jk - \frac{1}{\norm{\PosTheo - \PosTheo[primarySource]}}\right) \cos\elevation \cos(\azimuthNormal - \azimuth) + \frac{\partial D}{\partial \azimuth} \frac{\sin (\azimuthNormal - \azimuth)}{\norm{\PosTheo - \PosTheo[primarySource]} \cos \elevation} + \frac{\partial D}{\partial \elevation} \frac{-\sin\elevation \cos(\azimuthNormal - \azimuth)}{\norm{\PosTheo - \PosTheo[primarySource]}}  \right] 
+= S(\omega) \GreenFunc[{\PosTheo[surface] - \PosTheo[primarySource]}] \\ \left[ D(\azimuth, \elevation, \omega) \left(-jk - \frac{1}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}\right) \cos\elevation \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin \normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]} \cos \elevation} + \frac{\partial D}{\partial \elevation} \frac{-\sin\elevation \cos\normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}  \right]
+\label{directDerivField}
 \end{multline}
+where $\normPrimaryPropAngleSection = \azimuthNormal - \azimuth$.
 
 According to the stationary phase point method,
+\begin{equation}
+	I = \int_{-\infty}^{+\infty} f(y) e^{j\phi(y)} dy \approx f(y_0) e^{j\phi(y_0)} \sqrt{\frac{j 2\pi}{\phi''(y_0)}}
+\end{equation}
+where $y_0$ is the value of $y$ where the phase gets stationary $\frac{d\phi(y)}{dy} = 0$, and $\phi''(y_0)$ is the second derivative of $\phi$ evaluated at $y_0$. Intuitively it means that the integral of a phase changing function only has a significant contribution in the region where the phase change slows down.
 
+Substituting \autoref{directDerivField} in \autoref{lineIntI}, and taking in account that $\PosTheo[surface] = \PosTheo[section] + y\hat{\vec{y}}$ and applying the stationary phase method:
+\begin{align}
+f(y) &= \frac{S(\omega)}{\norm{\PosTheo[surface] - \PosTheo[primarySource]} \norm{\PosTheo[surface] - \PosTheo}} \\ 
+&\left[ D(\azimuth, \elevation, \omega) \left(-jk - \frac{1}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}\right) \cos\elevation \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin\normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]} \cos \elevation} + \frac{\partial D}{\partial \elevation} \frac{-\sin\elevation \cos\normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}  \right] \nonumber \\
+\phi(y) &= -k\left(\norm{\PosTheo[surface] - \PosTheo[primarySource]} + \norm{\PosTheo[surface] - \PosTheo}\right)\\
+y_0 &= 0 \\
+\phi(y_0) &= -k(\distLinePrimSource + \distLinePoint) \\
+f(y_0) &= \left\{ \elevation(y_0) = 0 \right\} = \frac{S(\omega)}{\distLinePrimSource \distLinePoint} \left[ D(\azimuth, 0, \omega) \left(-jk - \frac{1}{\distLinePrimSource}\right) \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin\normPrimaryPropAngleSection}{\distLinePrimSource} \right] \\
+\phi''(y_0) &= \frac{d^2\phi(y)}{dy^2}\rvert_{y = y_0} = -k\frac{\distLinePrimSource + \distLinePoint}{\distLinePrimSource \distLinePoint} \\
+I &\approx \frac{S(\omega)}{\distLinePrimSource \distLinePoint} \left[ D(\azimuth, 0, \omega) \left(-jk - \frac{1}{\distLinePrimSource}\right) \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin\normPrimaryPropAngleSection}{\distLinePrimSource} \right] e^{-jk(\distLinePrimSource + \distLinePoint)} \sqrt{\frac{j 2 \pi}{-k\frac{\distLinePrimSource + \distLinePoint}{\distLinePrimSource \distLinePoint}}}
+\end{align}
 
+where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]} = \sqrt{z_{\PosTheoSubInd[primarySource]}^2 + (x_{\PosTheoSubInd[surface]} - x_{\PosTheoSubInd[primarySource]})^2}$ and $\distLinePoint = \norm{\PosTheo[section] - \PosTheo} = \sqrt{z^2 + (x_{\PosTheoSubInd[surface]} - x)^2}$.
+
+Finally, assuming $k\distLinePrimSource >> 1$:
+\begin{equation}
+I_1(\PosTheo[section]) \approx S(\omega) D(\azimuth, 0, \omega) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{j2\pi k} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+\end{equation} 
+
+The same reasoning can be applied to \autoref{lineIntII}, and the result is \cite[Equation 3.24]{Start1997}:
+\begin{equation}
+I_2(\PosTheo[section]) \approx S(\omega) D(\azimuth, 0, \omega) \cos\normSecondPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{j2\pi k} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+\end{equation}
+where $\cos\normSecondPropAngleSection = \langle \frac{\PosTheo[section] - \PosTheo}{\norm{\PosTheo[section] - \PosTheo}}, \vec{n} \rangle$
 
 
 
