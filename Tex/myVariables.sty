@@ -106,7 +106,12 @@
 \IfStrEqCase{#1}{
     {vec}{\IfStrEqCase{#2}{
 	{WFS}{\vec{c}_{\mathit{WFS}#3}}
-	{NS}{\vec{c}_{\mathit{NS}#3}}
+	{NS}{
+		\IfStrEqCase{#4}{
+			{real}{\vec{c}_{\mathit{NS}#3}}
+			{virtual}{\vec{c}_{\mathit{NS}#3}^v}
+		}
+	}
 	{micro}{\vec{c}_{\mathit{micro}#3}}
 	{noValue}{\vec{A}}
 	}}
@@ -155,13 +160,16 @@
 
 %%
 \newcommand{\normSecondPropAngle}{\alpha} % Angle between the inward normal vector and the line that passes through the point inside the volume and the point at the surface
-\newcommand{\normPrimaryPropAngle}{\alpha_{inc}}
+\newcommand{\normPrimaryPropAngle}{\alpha_{inc}} % Angle between the inward normal vector and the line that passes through the primary source and the point at the surface
 \newcommand{\normSecondPropAngleSection}{\alpha_0}
 \newcommand{\normPrimaryPropAngleSection}{\alpha_{inc,0}}
 \newcommand{\azimuth}{\phi}
 \newcommand{\elevation}{\theta}
 \newcommand{\azimuthNormal}{\phi_n}
 \newcommand{\elevationNormal}{\theta_n}
+
+\newcommand{\correctionFactor}{\Psi}
+
 
 %% Bibliography, resources, explanations, links
 
@@ -179,3 +187,6 @@
 %    {c}{you want me to do c?}}
 %    [nada]
 %}
+
+% Use of xparse to declare macros for variables with more than one optional argument. High-level interface of \newcommand.
+% http://osl.ugr.es/CTAN/macros/latex/contrib/l3packages/xparse.pdf

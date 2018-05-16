@@ -70,13 +70,12 @@ WFS uses Kirchhoff integral as its mathematical principle. When Kirchhoff's inte
 The original noise signal is scaled by an attenuation coefficient and delayed a certain amount of time. The attenuation calculation requires the knowledge of the distance between the source and the loudspeaker $\distLinePrimSource$ and the angle $\normPrimaryPropAngle$ between the vector that goes from the source to the loudspeaker and the loudspeaker's broadside direction.
 \begin{equation}
 	\begin{aligned}
-		\mu = 
-		&\begin{cases}
-		A\frac{\cos\normPrimaryPropAngle}{\sqrt{\distLinePrimSource}} & \normPrimaryPropAngle \leq 90^\circ \\
+		\mu &= 
+		\begin{cases}
+		\frac{\cos\normPrimaryPropAngle}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}} & \normPrimaryPropAngle \leq 90^\circ \\
 		0 & \normPrimaryPropAngle > 90^\circ
 		\end{cases}
 		\\
-		A &= \sqrt{\frac{\distLinePoint}{\distLinePoint + \distLinePrimSource}}\\
 		\distLinePoint &= \frac{1.44}{2} + 1.44 \cos\left( \frac{\pi}{4} \right)
 	\end{aligned}
 	\label{WFScalcEq}
@@ -124,18 +123,18 @@ In order to perform the optimisation, we've followed the usual concept of defini
 
 The simplest form of optimization is the scalation of $\cwfs$, since the coefficients produced by \autoref{defaultWFScoeffGTAC} are not always properly scaled:
 \begin{equation}
-	\vec{c}_{\mathit{WFS}, \mathit{opt}} =
-	\min_{\Psi}
-	\norm{\myMatrix{A}
+\coef[vec][WFS][,opt] = \correctionFactor_{\mathit{opt}} \coef[vec][WFS] , \qquad  \correctionFactor_{\mathit{opt}} =
+	\argmin_{\correctionFactor}
+	\norm{\AcPath[mat]
 		\begin{bmatrix}
-			\Psi \vec{c_\mathit{WFS}}\\
-			\vec{c_\mathit{NS}}\\
+			\correctionFactor \coef[vec][WFS]\\
+				\coef[vec][NS]\\
 		\end{bmatrix}
-	} = \min_{\Psi}
-\norm{\myMatrix{A}
+	} = \argmin_{\correctionFactor}
+\norm{\AcPath[mat]
 \begin{bmatrix}
-	\Psi \wfsNormCoef[mat] \cns^v\\
-	\vec{c_\mathit{NS}}\\
+	\correctionFactor \wfsNormCoef[mat] \coef[vec][NS]<virtual>\\
+	\coef[vec][NS]\\
 \end{bmatrix}
 }\label{OptScalation}
 \end{equation}
