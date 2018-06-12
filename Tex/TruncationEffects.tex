@@ -1,0 +1,65 @@
+\chapter{Truncation in Rayleigh I 2.5D integral}
+
+The field created by a monopole source (primary source) located at $\PosTheo[primarySource]$ at a receiving point $\PosTheo$ is:
+\begin{equation}
+P_{\PosTheoSubInd[primarySource]}(\PosTheo) = S(f)  \frac{e^{-jk\norm{\PosTheo - \PosTheo[primarySource]}}}{\norm{\PosTheo - \PosTheo[primarySource]}}
+\end{equation}
+where $f$ is the frequency, $S(f)$ is the feeding coefficient to the source, and $k = \frac{2\pi}{\lambda}$ is the propagation constant.
+
+Rayleigh I 2.5D integral allows to replicate the field by an infinite line distribution of monopole sources (secondary sources), given the condition that all points where the field is replicated, as well as the primary source location and the secondary source line distribution ($S_0$), are all on the same plane, and that the secondary source line separates the reconstructed field region from the primary source. The expression is:
+\begin{equation}
+\begin{aligned}
+P(\PosTheo) &= \int_{S_0} Q(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}\PosTheo[section]\\
+Q(\PosTheo[section], \PosTheo) &= \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+\end{aligned}
+\end{equation}
+where $Q(\PosTheo[section], \PosTheo)$ is the feeding of the differential secondary monopole source located at $\PosTheo[section]$, $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]}$ is the distance from the primary source to the secondary source and $\distLinePoint = \norm{\PosTheo[section] - \PosTheo}$ is the distance from the secondary source to the reconstruction point. It is valid for values of $k\distLinePrimSource >> 1$ ($\lim_{(k\distLinePrimSource) \to \infty} P(\PosTheo) = P_{\PosTheoSubInd[primarySource]}(\PosTheo)$).
+
+There are three main reasons why Rayleigh I 2.5D integral is still far from practical applications. On the one hand, a continuous differential distribution of sources is not realistic since individual loudspeakers with a realizable size have to be used, and that means that spatial discretization will have to be applied. On the other hand, the feeding of each secondary source depends on the location of the receiving point where we intend to synthesize the field. That will make necessary to choose a point where the field will be replicated exactly, whereas the precision of the reconstruction will degrade as we move away from that sweet-spot. Third, the line distribution of monopoles $S_0$ has an infinite longitude, which is of course unrealistic. At some point the line has to be truncated, and hence the accuracy of the reconstructed field will be affected.
+
+In order to study this third limitation, we can look at a simple scenario where a line of secondary sources of longitude $L$ meters is located at the x axis from from $-L/2$ to $L/2$, a primary source is located on the negative y axis at $\PosTheo[primarySource] = [0, -d_{\PosTheoSubInd[primarySource]}, 0]$ and the receiving point on the positive y axis at $\PosTheo = [0, d, 0]$. Depending on those four parameters, three distances ($L$, $d_{\PosTheoSubInd[primarySource]}$ and $d$) plus the frequency $f$, the accuracy of the synthesized field will vary.
+
+In this scenario, the reconstructed field at point $\PosTheo$ is:
+\begin{equation}
+\begin{aligned}
+P(\PosTheo) &= \int_{-L/2}^{L/2} Q(x_{\PosTheoSubInd[section]}, \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]}\\
+Q(x_{\PosTheoSubInd[section]}, \PosTheo) &= \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+\end{aligned}
+\end{equation}
+where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]} = (d_{\PosTheoSubInd[primarySource]}^2 + x_{\PosTheoSubInd[section]}^2)^{1/2}$ is the distance from the primary source to the secondary source, $\distLinePoint = \norm{\PosTheo[section] - \PosTheo} = (d^2 + x_{\PosTheoSubInd[section]}^2)^{1/2}$ is the distance from the secondary source to the reconstruction point and $\cos\normPrimaryPropAngleSection = d_{\PosTheoSubInd[primarySource]}/\distLinePrimSource$ is the cosine of the angle of incidence.
+
+A way of evaluating the accuracy can be by calculating the relative field, this is, the resulting field divided by the ideal one:
+\begin{equation}
+	P_\mathit{rel}(\PosTheo) = \frac{P(\PosTheo)}{P_{\PosTheoSubInd[primarySource]}(\PosTheo)}
+\end{equation}
+
+The closer $P_\mathit{rel}$ is to $1$, the better the accuracy.
+
+Because of the properties of the integral, the field...
+However, it is convenient to realize the result in any scenario is a function of the previously mentioned distances expressed in wavelengths, thus reducing the number of variables to only three. Therefore, let's redefine the variables relevant as $d^{(n)} = d/L$, $d_{\PosTheoSubInd[primarySource]}^{(n)} = d_{\PosTheoSubInd[primarySource]}/L$, $\lambda$, and $L=1$. It is just another valid and more convenient way of describing any scenario of this kind.
+
+The starting point will be a very simple case, and then we will add some complexity.
+
+\section{Ideal case}
+First, we consider an array of infinite length $L=\infty$ where each monopole secondary source transmits a signal $Q_\mathit{perfect}$:
+\begin{equation}
+Q_\mathit{perfect}(\PosTheo[section], \PosTheo) = \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \left(\sqrt{\frac{j k}{2\pi}} + \frac{1}{\distLinePrimSource \sqrt{j 2 \pi k}}\right) \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+\end{equation}
+Theoretically, any inexactitude must necessarily be produced by the application of the stationary point method in the dimensionality reduction from a plane to a line.
+
+Due to the property of $P_{rel}$, it will only depend on $d^{n} = d/\lambda$ and $d_{\PosTheoSubInd[primarySource]}^{n} = d_{\PosTheoSubInd[primarySource]}/\lambda$.
+
+
+
+\section{Far field assumption}
+
+
+\section{Primary source in the infinite}
+
+\section{Receiving point source in the infinite}
+
+
+
+A deeper theoretical analysis of the truncation artefacts can be found in \cite[Section 4.3]{Start1997}. An analytical approximation is proposed:
+
+
