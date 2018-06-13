@@ -28,26 +28,37 @@ Q(x_{\PosTheoSubInd[section]}, \PosTheo) &= \cos\normPrimaryPropAngleSection \fr
 \end{equation}
 where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]} = (d_{\PosTheoSubInd[primarySource]}^2 + x_{\PosTheoSubInd[section]}^2)^{1/2}$ is the distance from the primary source to the secondary source, $\distLinePoint = \norm{\PosTheo[section] - \PosTheo} = (d^2 + x_{\PosTheoSubInd[section]}^2)^{1/2}$ is the distance from the secondary source to the reconstruction point and $\cos\normPrimaryPropAngleSection = d_{\PosTheoSubInd[primarySource]}/\distLinePrimSource$ is the cosine of the angle of incidence.
 
-A way of evaluating the accuracy can be by calculating the relative field, this is, the resulting field divided by the ideal one:
-\begin{equation}
-	P_\mathit{rel}(\PosTheo) = \frac{P(\PosTheo)}{P_{\PosTheoSubInd[primarySource]}(\PosTheo)}
-\end{equation}
+Two useful measures that allow to evaluate the accuracy are the relative field $P_\mathit{rel}(\PosTheo)$, this is, the resulting field divided by the ideal one produced by the primary source, and the relative error $E_\mathit{rel}(\PosTheo)$, which is the difference between the reconstructed field and the ideal one divided by this last one.
+\begin{gather}
+	P_\mathit{rel}(\PosTheo) = \frac{P(\PosTheo)}{P_{\PosTheoSubInd[primarySource]}(\PosTheo)} \\
+	E_\mathit{rel}(\PosTheo) = \frac{P(\PosTheo) - P_{\PosTheoSubInd[primarySource]}(\PosTheo)}{P_{\PosTheoSubInd[primarySource]}(\PosTheo)}
+\end{gather}
+The closer $P_\mathit{rel}$ is to $1$, and $E_\mathit{rel}(\PosTheo)$ to $0$, the better the accuracy.
 
-The closer $P_\mathit{rel}$ is to $1$, the better the accuracy.
+Both measures depend on the spatial parameters of the scenario (position of primary source $\PosTheo[primarySource]$, shape and location of the second source line distribution $S_0$, location of the receiving point $\PosTheo$) and the wavelength $\lambda$. However, if we scale all parameters by a factor $C$ ($\PosTheo[primarySource]^{(s)} = C \PosTheo[primarySource]$, $\PosTheo^{(s)} = C\PosTheo$, $\PosTheo[section]^{(s)} = C\PosTheo[section]$, $\lambda^{(s)} = C\lambda$) and recalculate the signal of each secondary source, the relative field will be exactly the same due to the properties of the integral.
 
-Because of the properties of the integral, the field...
-However, it is convenient to realize the result in any scenario is a function of the previously mentioned distances expressed in wavelengths, thus reducing the number of variables to only three. Therefore, let's redefine the variables relevant as $d^{(n)} = d/L$, $d_{\PosTheoSubInd[primarySource]}^{(n)} = d_{\PosTheoSubInd[primarySource]}/L$, $\lambda$, and $L=1$. It is just another valid and more convenient way of describing any scenario of this kind.
+This fact is useful because allows to, for example, express all distances in wavelengths ($d^{(s)} = d/\lambda$, $d_{\PosTheoSubInd[primarySource]}^{(s)} = d_{\PosTheoSubInd[primarySource]}/\lambda$, $L^{(s)} = L/\lambda$) and fixate the wavelength to $1$ ($\lambda = 1$), reducing the number of variables from four to three. 
 
 The starting point will be a very simple case, and then we will add some complexity.
 
 \section{Ideal case}
-First, we consider an array of infinite length $L=\infty$ where each monopole secondary source transmits a signal $Q_\mathit{perfect}$:
-\begin{equation}
-Q_\mathit{perfect}(\PosTheo[section], \PosTheo) = \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \left(\sqrt{\frac{j k}{2\pi}} + \frac{1}{\distLinePrimSource \sqrt{j 2 \pi k}}\right) \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
-\end{equation}
-Theoretically, any inexactitude must necessarily be produced by the application of the stationary point method in the dimensionality reduction from a plane to a line.
+First, we consider an array of infinite length $L=\infty$.
+% where each monopole secondary source transmits a signal $Q_\mathit{perfect}$:
+%\begin{equation}
+%Q_\mathit{perfect}(\PosTheo[section], \PosTheo) = \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \left(\sqrt{\frac{j k}{2\pi}} + \frac{1}{\distLinePrimSource \sqrt{j 2 \pi k}}\right) \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+%\end{equation}
+Theoretically, any inexactitude must necessarily be produced by the application of the stationary point method in the dimensionality reduction from a plane to a line, and to the assumption that the primary source is in the far field $k\distLinePrimSource >> 1$.
 
-Due to the property of $P_{rel}$, it will only depend on $d^{n} = d/\lambda$ and $d_{\PosTheoSubInd[primarySource]}^{n} = d_{\PosTheoSubInd[primarySource]}/\lambda$.
+In \autoref{TruncIdealRecFarPSclose} we see how when $d_{\PosTheoSubInd[primarySource]}$ gets smaller, the reconstructed field deteriorates, and so WFS is actually not useful under such conditions.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Img/Experiment10_TruncationIdealCaseA.eps}
+	\caption{Magnitude of the relative field for short distances from primary source to linear array. The receiving point is far ($d^{(s)} >> 1$)}
+	\label{TruncIdealRecFarPSclose}
+\end{figure}
+
+A similar behaviour is found when the primary source is in the far field but the receiving point is very near the secondary source line (\autoref{}).
+
 
 
 
