@@ -15,6 +15,12 @@ Q(\PosTheo[section], \PosTheo) &= \cos\normPrimaryPropAngleSection \frac{e^{-jk\
 \end{equation}
 where $Q(\PosTheo[section], \PosTheo)$ is the feeding of the differential secondary monopole source located at $\PosTheo[section]$, $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]}$ is the distance from the primary source to the secondary source and $\distLinePoint = \norm{\PosTheo[section] - \PosTheo}$ is the distance from the secondary source to the reconstruction point. It is valid for values of $k\distLinePrimSource >> 1$ ($\lim_{(k\distLinePrimSource) \to \infty} P(\PosTheo) = P_{\PosTheoSubInd[primarySource]}(\PosTheo)$).
 
+The signal of secondary sources $Q$ depends on the position of measure $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (closer or further from that line there will be amplitude errors inevitably) if the expression is modified to:
+\begin{equation}
+Q(\PosTheo[section], \PosTheo) = \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}}
+\end{equation}
+where $d_{\PosTheoSubInd[primarySource]}$ is the distance between the primary source and the secondary source line.
+
 There are three main reasons why Rayleigh I 2.5D integral is still far from practical applications. On the one hand, a continuous differential distribution of sources is not realistic since individual loudspeakers with a realizable size have to be used, and that means that spatial discretization will have to be applied. On the other hand, the feeding of each secondary source depends on the location of the receiving point where we intend to synthesize the field. That will make necessary to choose a point where the field will be replicated exactly, whereas the precision of the reconstruction will degrade as we move away from that sweet-spot. Third, the line distribution of monopoles $S_0$ has an infinite longitude, which is of course unrealistic. At some point the line has to be truncated, and hence the accuracy of the reconstructed field will be affected.
 
 In order to study this third limitation, we can look at a simple scenario where a line of secondary sources of longitude $L$ meters is located at the x axis from from $-L/2$ to $L/2$, a primary source is located on the negative y axis at $\PosTheo[primarySource] = [0, -d_{\PosTheoSubInd[primarySource]}, 0]$ and the receiving point on the positive y axis at $\PosTheo = [0, d, 0]$. Depending on those four parameters, three distances ($L$, $d_{\PosTheoSubInd[primarySource]}$ and $d$) plus the frequency $f$, the accuracy of the synthesized field will vary.
@@ -23,8 +29,9 @@ In this scenario, the reconstructed field at point $\PosTheo$ is:
 \begin{equation}
 \begin{aligned}
 P(\PosTheo) &= \int_{-L/2}^{L/2} Q(x_{\PosTheoSubInd[section]}, \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]}\\
-Q(x_{\PosTheoSubInd[section]}, \PosTheo) &= \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+Q(x_{\PosTheoSubInd[section]}, \PosTheo) &= \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}}
 \end{aligned}
+\label{Rayleigh2_5DTruncatedIntegral}
 \end{equation}
 where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]} = (d_{\PosTheoSubInd[primarySource]}^2 + x_{\PosTheoSubInd[section]}^2)^{1/2}$ is the distance from the primary source to the secondary source, $\distLinePoint = \norm{\PosTheo[section] - \PosTheo} = (d^2 + x_{\PosTheoSubInd[section]}^2)^{1/2}$ is the distance from the secondary source to the reconstruction point and $\cos\normPrimaryPropAngleSection = d_{\PosTheoSubInd[primarySource]}/\distLinePrimSource$ is the cosine of the angle of incidence.
 
@@ -49,28 +56,75 @@ First, we consider an array of infinite length $L=\infty$.
 %\end{equation}
 Theoretically, any inexactitude must necessarily be produced by the application of the stationary point method in the dimensionality reduction from a plane to a line, and to the assumption that the primary source is in the far field $k\distLinePrimSource >> 1$.
 
-In \autoref{TruncIdealRecFarPSclose} we see how when $d_{\PosTheoSubInd[primarySource]}$ gets smaller, the reconstructed field deteriorates, and so WFS is actually not useful under such conditions.
+In \autoref{TruncIdealRecFarPSclose} we see how when $d_{\PosTheoSubInd[primarySource]}$ gets smaller, the reconstructed field deteriorates, and so WFS is actually not useful under such conditions. A similar behaviour but much less severe is found when the primary source is in the far field but the receiving point is very near the secondary source line (\autoref{TruncIdealPSFarRecClose}).
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.4\textwidth]{Img/Experiment10_TruncationIdealCaseA.eps}
-	\caption{Magnitude of the relative field for short distances from primary source to linear array. The receiving point is far ($d^{(s)} >> 1$)}
-	\label{TruncIdealRecFarPSclose}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{Img/Experiment10_TruncationIdealCaseA.eps}
+		\caption{$d/\lambda \gg 1$}
+		\label{TruncIdealRecFarPSclose}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{Img/Experiment10_TruncationIdealCaseB.eps}
+		\caption{$d_{\PosTheoSubInd[primarySource]}/\lambda \gg 1$}
+		\label{TruncIdealPSFarRecClose}
+	\end{subfigure}
+	\caption{Magnitude and phase of the relative field for an infinite line array $L = \infty$}
 \end{figure}
-
-A similar behaviour is found when the primary source is in the far field but the receiving point is very near the secondary source line (\autoref{}).
-
-
-
-
-\section{Far field assumption}
-
+In conclusion, as long as both the primary source and the receiving point are not too close to the secondary source line, the precision won't be too distorted.
 
 \section{Primary source in the infinite}
+Now, we will study the precision as a function of $d/L$ and $\lambda/L$. The results are shown in \autoref{TruncPSFar}.
 
 \section{Receiving point source in the infinite}
 
 
 
-A deeper theoretical analysis of the truncation artefacts can be found in \cite[Section 4.3]{Start1997}. An analytical approximation is proposed:
+\section{What is happening?}
+Let's take the case where the primary source is far $d_{\PosTheoSubInd[primarySource]} \gg 1$. Then, $\cos\normPrimaryPropAngleSection \approx 1$, and $\distLinePrimSource \approx d$ for all the segment $[-L/2, L/2]$, so \autoref{Rayleigh2_5DTruncatedIntegral} simplifies to:
+\begin{multline}
+	P(\PosTheo) = \int_{-L/2}^{L/2} Q(x_{\PosTheoSubInd[section]}, \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]} =\\
+	= \left\{Q(x_{\PosTheoSubInd[section]}, \PosTheo) =  \frac{e^{-jkd_{\PosTheoSubInd[primarySource]}}}{\sqrt{d_{\PosTheoSubInd[primarySource]}}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}}\right\} = \\
+	= \frac{e^{-jkd_{\PosTheoSubInd[primarySource]}}}{\sqrt{d_{\PosTheoSubInd[primarySource]}}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}} \int_{-L/2}^{L/2} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]}
+	\label{truncDeductionI}
+\end{multline}
+
+The integral is actually the field generated by a linear source. When we are dealing with an infinite line source ($L \to \infty$), the exact solution is a scaled version of the zero-th order of the Hankel function of second type. Nonetheless it approximates very well to another much more useful expression:
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]} = -\pi j \mathrm{H_0^{(2)}(k d)} \approx \frac{e^{-jkd}}{\sqrt{kd}}\sqrt{\frac{2\pi}{j}}
+\label{fieldLinearSource}
+\end{equation}
+
+Another approximation can be made, since for large $d_{\PosTheoSubInd[primarySource]}$:
+\begin{equation}
+\sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}} \approx \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]}}}, \quad d_{\PosTheoSubInd[primarySource]} \gg d 
+\label{approx_a}
+\end{equation}
+
+Substituting \autoref{fieldLinearSource} and \autoref{approx_a} in \autoref{truncDeductionI}:
+\begin{equation}
+	P(\PosTheo) \approx \frac{e^{-jkd_{\PosTheoSubInd[primarySource]}}}{\sqrt{d_{\PosTheoSubInd[primarySource]}}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]}}} \frac{e^{-jkd}}{\sqrt{kd}}\sqrt{\frac{2\pi}{j}} = \frac{e^{-jk(d_{\PosTheoSubInd[primarySource]} + d)}}{d_{\PosTheoSubInd[primarySource]}} \approx \frac{e^{-jk(d_{\PosTheoSubInd[primarySource]} + d)}}{d_{\PosTheoSubInd[primarySource]} + d} = P_{\PosTheoSubInd[primarySource]}(\PosTheo)
+\end{equation}
+
+So, when $L \to \infty$, the synthesized field is the same as the field from the primary source. What happens when the length of the secondary source line gets shorter? It all comes dowm to the integral:
+\begin{equation}
+I(L, k, d) = \int_{-L/2}^{L/2} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]} = \int_{-1/2}^{1/2} \frac{e^{-j\frac{2\pi}{\lambda/L}\sqrt{(d/L)^2 + \PosTheo[section]^2}}}{\sqrt{(d/L)^2 + \PosTheo[section]^2}} \mathrm{d}x_{\PosTheoSubInd[section]}
+\label{lineSourceIntegralLfinite}
+\end{equation}
+
+\autoref{lineSourceIntegral} shows an example of how the integral evolves when increasing $L$. As we see, the magnitude and the phase oscillate and converges towards the value in \autoref{fieldLinearSource} when $L$ increases. It is pretty obvious that there is a transition period where $L$ is too small to produce accurate enough results.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Img/lineSourceIntegral.eps}
+	\caption{Field generated by a linear source of length $L$ ($d = 10$, $k = 1$)}
+	\label{lineSourceIntegral}
+\end{figure}
+
+As we've seen in \autoref{lineSourceIntegralLfinite}, $I$ depends actually just on $d/L$ and $\lambda/L$. It appears represented \autoref{lineSourceIntegralNorm}:
 
 
+
+A deeper theoretical analysis of the truncation artefacts can be found in \cite[Section 4.3]{Start1997}, where various analytical approximations are proposed.
