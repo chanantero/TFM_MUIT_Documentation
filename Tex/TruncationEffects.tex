@@ -42,9 +42,7 @@ Two useful measures that allow to evaluate the accuracy are the relative field $
 \end{gather}
 The closer $P_\mathit{rel}$ is to $1$, and $E_\mathit{rel}(\PosTheo)$ to $0$, the better the accuracy.
 
-Both measures depend on the spatial parameters of the scenario (position of primary source $\PosTheo[primarySource]$, shape and location of the second source line distribution $S_0$, location of the receiving point $\PosTheo$) and the wavelength $\lambda$. However, if we scale all parameters by a factor $C$ ($\PosTheo[primarySource]^{(s)} = C \PosTheo[primarySource]$, $\PosTheo^{(s)} = C\PosTheo$, $\PosTheo[section]^{(s)} = C\PosTheo[section]$, $\lambda^{(s)} = C\lambda$) and recalculate the signal of each secondary source, the relative field will be exactly the same due to the properties of the integral.
-
-This fact is useful because allows to, for example, express all distances in wavelengths ($d^{(s)} = d/\lambda$, $d_{\PosTheoSubInd[primarySource]}^{(s)} = d_{\PosTheoSubInd[primarySource]}/\lambda$, $L^{(s)} = L/\lambda$) and fixate the wavelength to $1$ ($\lambda = 1$), reducing the number of variables from four to three. 
+Both measures depend on the spatial parameters of the scenario (position of primary source $\PosTheo[primarySource]$, shape and location of the second source line distribution $S_0$, and location of the receiving point $\PosTheo$) and the wavelength $\lambda$. However, if we scale all parameters by a factor $C$ ($\PosTheo[primarySource]^{(s)} = C \PosTheo[primarySource]$, $\PosTheo^{(s)} = C\PosTheo$, $\PosTheo[section]^{(s)} = C\PosTheo[section]$, $\lambda^{(s)} = C\lambda$) and recalculate the signal of each secondary source, the relative field will be exactly the same due to the properties of the integral. This fact is useful because allows to, for example, express all distances in wavelengths ($d^{(s)} = d/\lambda$, $d_{\PosTheoSubInd[primarySource]}^{(s)} = d_{\PosTheoSubInd[primarySource]}/\lambda$, $L^{(s)} = L/\lambda$) and fixate the wavelength to $1$ ($\lambda = 1$), reducing the number of variables from four to three. 
 
 The starting point will be a very simple case, and then we will add some complexity.
 
@@ -76,13 +74,6 @@ In \autoref{TruncIdealRecFarPSclose} we see how when $d_{\PosTheoSubInd[primaryS
 In conclusion, as long as both the primary source and the receiving point are not too close to the secondary source line, the precision won't be too distorted.
 
 \section{Primary source in the infinite}
-Now, we will study the precision as a function of $d/L$ and $\lambda/L$. The results are shown in \autoref{TruncPSFar}.
-
-\section{Receiving point source in the infinite}
-
-
-
-\section{What is happening?}
 Let's take the case where the primary source is far $d_{\PosTheoSubInd[primarySource]} \gg 1$. Then, $\cos\normPrimaryPropAngleSection \approx 1$, and $\distLinePrimSource \approx d$ for all the segment $[-L/2, L/2]$, so \autoref{Rayleigh2_5DTruncatedIntegral} simplifies to:
 \begin{multline}
 	P(\PosTheo) = \int_{-L/2}^{L/2} Q(x_{\PosTheoSubInd[section]}, \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]} =\\
@@ -123,8 +114,23 @@ I(L, k, d) = \int_{-L/2}^{L/2} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mat
 	\label{lineSourceIntegral}
 \end{figure}
 
-As we've seen in \autoref{lineSourceIntegralLfinite}, $I$ depends actually just on $d/L$ and $\lambda/L$. It appears represented \autoref{lineSourceIntegralNorm}:
+As we've seen in \autoref{lineSourceIntegralLfinite}, $I$ depends actually just on $d/L$ and $L/\lambda$. In \autoref{lineSourceIntegralNorm} we've represented the value of $L/\lambda$ where the phase (and also the magnitude) starts to converge.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Img/LnormThreshold.eps}
+	\caption{Minimum value of $L/\lambda$ where the value of $I$ (\autoref{lineSourceIntegralLfinite}) starts to converge}
+	\label{lineSourceIntegralNorm}
+\end{figure}
 
+All this means that there is a lower cutoff frequency below which WFS is not useful. For example, \autoref{linseSourceIntegralGTAC} shows the cutoff frequency for a linear array of length $L = 0.18\cdot23$, as one of the sides of the loudspeaker array in the GTAC anechoic chamber.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Img/freqThresholdGTAC.eps}
+	\caption{Cutoff frequency for a linear array whose length is $L = 0.18\cdot23$, as two of the sides of the loudspeaker array in the GTAC anechoic chamber}
+	\label{linseSourceIntegralGTAC}
+\end{figure}
+
+It's worth noticing that this analysis is done with a geometrically very simple scenario where the primary source is in the infinite, the receiving point is centred with respect to the secondary source line, we don't use complicated geometries as octagons, etc. The more variations we add, the more complex the results are. However, given what we observed in the simulations of the GTAC scenario, the existence of a minimum frequency seems to be maintained even in those more complicated cases.
 
 A deeper theoretical analysis of the truncation artefacts can be found in \cite[Section 4.3]{Start1997}, where various analytical approximations are proposed.
