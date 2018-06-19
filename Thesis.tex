@@ -1,4 +1,4 @@
-\documentclass[10pt]{report}
+\documentclass[10pt,a4paper]{report}
 \usepackage{mystyle}
 \usepackage{Tex/myVariables}
 %% For extracting only equations, use the next package
@@ -9,9 +9,13 @@
 %% Then, to convert the created pdf into images, use in the windows comand line the next command (it uses the program imagemagick):
 % convert -verbose -density 600 -trim equations.pdf -quality 100 -sharpen 0x1.0 Img/Equations/equation.png
 
-
 % Imagínate que quisieses quitar el paquete {hyperref}. Solo con comentar la línea donde se carga ese paquete no sería suficiente. Porque también tendrías que buscar todas las líneas con el comando "\phantomsection" y quitarlas o comentarlas. Hay un truco para evitarlo. Y es añadir la siguiente línea de texto, antes de "\begin{document}". Ahora, aunque no cargues el paquete {hyperref}, LaTeX reconocerá las líneas "\phantomsection" (aunque no hagan nada).
 \providecommand\phantomsection{}
+
+% To generate different versions with the multiaudience package. Use the environment \begin{shownto}{audience1, audience2, ..., audienceN} content \end{shownto}
+\DefCurrentAudience{public}
+\SetNewAudience{private}
+\SetNewAudience{public}
 
 \begin{document}
 \author{
@@ -67,10 +71,6 @@ Abstract
 \chapter{Experiments}
 \input{Tex/Experiments.tex}
 
-\chapter{Experiments in the Lab for Improvement of Previous Results.}
-
-\chapter{Conclusions and Future Work}
-
 %\appendix
 %\appendixpage
 \begin{appendices}
@@ -81,7 +81,7 @@ Abstract
 \input{Tex/SubjectiveProyection3D.tex}
 \input{Tex/StationaryPhaseMethod.tex}
 \input{Tex/SpatialAliasing.tex}
-\input{Tex/KirchhoffDimReduction.tex}
+\input{Tex/KirchhoffDimReduction.tex} % It is commented because the content is already included in the body of the thesis. We don't need it repeated in the appendix
 \input{Tex/TruncationEffects.tex}
 \end{appendices}
 	

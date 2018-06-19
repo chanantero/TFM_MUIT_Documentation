@@ -64,7 +64,10 @@
 
 \usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry} % For margins
 
-\usepackage{xparse,nameref}
+% To declare macros for variables with more than one optional argument. High-level interface of \newcommand.
+% http://osl.ugr.es/CTAN/macros/latex/contrib/l3packages/xparse.pdf
+% https://tex.stackexchange.com/questions/29973/more-than-one-optional-argument-for-newcommand
+\usepackage{xparse,nameref} % The package name is l3­pack­ages. Look for that name in MikTex.
 \NewDocumentCommand{\chapref}{s m}{\emph{Chapter~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}}} % http://tex.stackexchange.com/questions/178720/reference-chapter-number
 
 % List of figures and list of tables as non-numbered sections, not chapters
@@ -204,11 +207,6 @@
 % To make the differential symbol
 \usepackage{physics}
 
-% To declare macros for variables with more than one optional argument. High-level interface of \newcommand.
-% http://osl.ugr.es/CTAN/macros/latex/contrib/l3packages/xparse.pdf
-% https://tex.stackexchange.com/questions/29973/more-than-one-optional-argument-for-newcommand
-% \usepackage{xparse} % Already included previously
-
 % To include all pages of a multiple page pdf
 % https://tex.stackexchange.com/questions/7938/pdflatex-includegraphics-and-multi-page-pdf-files
 %\usepackage{pdfpages}
@@ -219,3 +217,7 @@
 % For creating an environment that can add optional content. This is, to generate two versions of tha same file, one with some aditional contents and the other without them.
 % https://tex.stackexchange.com/questions/327156/two-versions-from-same-tex-file
 \usepackage{etoolbox}
+
+% An alternative to etoolbox
+% http://ctan.math.washington.edu/tex-archive/macros/latex/contrib/multiaudience/multiaudience.pdf
+\usepackage{multiaudience}
