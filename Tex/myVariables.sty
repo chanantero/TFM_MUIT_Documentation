@@ -135,14 +135,35 @@
 }
 
 % Variables for the theroetical mathematical basis
+\NewDocumentCommand{\CoefTheo}{O{noValue}}{ % surface/mirrored/nothing notParticular/x/y/z
+\providecommand{\subind}{}
+\IfStrEqCase{#1}{
+		{surface}{\renewcommand{\subind}{_{\PosTheoSubInd[surface]}}}
+		{mirrored}{\renewcommand{\subind}{_{\PosTheoSubInd[mirrored]}}}
+		{primarySource}{\renewcommand{\subind}{_{\PosTheoSubInd[primarySource]}}}
+		{section}{\renewcommand{\subind}{_{\PosTheoSubInd[section]}}}
+		{noValue}{\renewcommand{\subind}{}}
+}
+S\subind
+}
+
 \NewDocumentCommand{\PosTheo}{O{noValue} O{notParticular}}{ % surface/mirrored/nothing notParticular/x/y/z
-    	\IfStrEqCase{#1}{
-		{surface}{\vec{x}_{\PosTheoSubInd[surface]}}
-		{mirrored}{\vec{x}_{\PosTheoSubInd[mirrored]}}
-		{primarySource}{\vec{x}_{\PosTheoSubInd[primarySource]}}
-		{section}{\vec{x}_{\PosTheoSubInd[section]}}
-		{noValue}{\vec{x}}
-		}
+\providecommand{\principal}{}
+\providecommand{\subind}{}
+\IfStrEqCase{#2}{
+	{notParticular}{\renewcommand{\principal}{\vec{x}}}
+	{x}{\renewcommand{\principal}{x}}
+	{y}{\renewcommand{\principal}{y}}
+	{z}{\renewcommand{\principal}{z}}
+}    	
+\IfStrEqCase{#1}{
+		{surface}{\renewcommand{\subind}{_{\PosTheoSubInd[surface]}}}
+		{mirrored}{\renewcommand{\subind}{_{\PosTheoSubInd[mirrored]}}}
+		{primarySource}{\renewcommand{\subind}{_{\PosTheoSubInd[primarySource]}}}
+		{section}{\renewcommand{\subind}{_{\PosTheoSubInd[section]}}}
+		{noValue}{\renewcommand{\subind}{}}
+}
+\principal\subind
 }
 
 \NewDocumentCommand{\PosTheoSubInd}{O{noValue}}{ % surface/mirrored/nothing
@@ -170,7 +191,7 @@
 
 \newcommand{\correctionFactor}{\Psi}
 
-\newcommand{\dif}[1][]{\mathrm{d}#1}
+\newcommand{\dif}[1][]{\mathrm{d}#1} % Differenta
 
 %% Bibliography, resources, explanations, links
 

@@ -13,7 +13,7 @@
 \providecommand\phantomsection{}
 
 % To generate different versions with the multiaudience package. Use the environment \begin{shownto}{audience1, audience2, ..., audienceN} content \end{shownto}
-\DefCurrentAudience{public}
+\DefCurrentAudience{private}
 \SetNewAudience{private}
 \SetNewAudience{public}
 
@@ -81,7 +81,9 @@ Abstract
 \input{Tex/SubjectiveProyection3D.tex}
 \input{Tex/StationaryPhaseMethod.tex}
 \input{Tex/SpatialAliasing.tex}
-\input{Tex/KirchhoffDimReduction.tex} % It is commented because the content is already included in the body of the thesis. We don't need it repeated in the appendix
+\begin{shownto}{public}
+\input{Tex/KirchhoffDimReduction.tex}
+\end{shownto}
 \input{Tex/TruncationEffects.tex}
 \end{appendices}
 	
