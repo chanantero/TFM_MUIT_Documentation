@@ -9,7 +9,7 @@ P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface])\frac{\partial G
 \label{KirchhoffHelmholtz}
 \end{equation}
 
-It expresses the pressure field $P(\vec{x_0})$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $S$, as a function of the pressure at $S$, and its directional derivative in the direction of $\vec{n}$, which is the inward pointing normal vector of $S$. $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\Delta G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$).
+It expresses the pressure field $P(\vec{x_0})$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $S$, as a function of the pressure at $S$, and its directional derivative in the direction of $\surfaceNormal$, which is the inward pointing normal vector of $S$. $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\Delta G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$).
 
 The general form of $G(\PosTheo \vert \PosTheo_0)$ is:
 \begin{equation}
@@ -29,251 +29,57 @@ It can be interpreted as if the field inside $V$ was the result of the field gen
 \section{Rayleigh I and II Integrals}
 Kirchhoff-Helmholtz integral can be simplified at the cost of a fixed surface geometry and a non-zero field outside the volume, but those limitations are of little importance in practice for WFS. The simplified integrals, known as Rayleigh I and II integrals, are found by choosing a particular surface of integration and a suitable function $F$.
 
-The new volume is a hemisphere. The surface is then constituted by a flat circle $S_1$ with radius $R$ and the spherical surface $S_2$. For mathematical convenience and without loss of generalization, $S_1$ will be located at the plane $z=0$ ($\vec{n} = \hat{z}$), $S_2$ at $z>0$, and all primary sources will be located at $z<0$. When $R\rightarrow\infty$, the Sommerfeld condition is satisfied and the integral over $S_2$ becomes $0$ \cite{Verheijen}. This means $\PosTheo[surface] = [x_s, y_s, 0]$.
+The new volume is a hemisphere. The surface is then constituted by a flat circle $\surfaceTheoRayleighPlane$ with radius $R$ and the spherical surface $\surfaceTheoRayleighSemisphere$. For didactic purposes and without loss of generalization, $\surfaceTheoRayleighPlane$ will be located at the plane $z=0$ ($\vec{n} = \hat{z}$), $\surfaceTheoRayleighSemisphere$ at $z>0$, and all primary sources will be located at $z<0$. When $R\rightarrow\infty$, the Sommerfeld condition is satisfied and the integral over $\surfaceTheoRayleighSemisphere$ becomes $0$ \cite{Verheijen}. This means $\PosTheo[surface] = [x_s, y_s, 0]$.
 
-If $F(\PosTheo[surface] \vert \PosTheo) = \GreenFunc[ {\PosTheo[surface] - \PosTheo[mirrored]} ]$, being $\PosTheo[mirrored]$ the mirrored image of $\PosTheo$ in the plane $S_1$, then the directional derivative of $G$ becomes $0$ at $S_1$, and \autoref{KirchhoffHelmholtz} transforms to:
+If $F(\PosTheo[surface] \vert \PosTheo) = \GreenFunc[ {\PosTheo[surface] - \PosTheo[mirrored]} ]$, being $\PosTheo[mirrored]$ the mirrored image of $\PosTheo$ in the plane $\surfaceTheoRayleighPlane$, then the directional derivative of $G$ becomes $0$ at $\surfaceTheoRayleighPlane$, and \autoref{KirchhoffHelmholtz} transforms to:
 \begin{equation}
-P(\PosTheo) = \frac{-1}{2\pi} \int_{S_1} \GreenFunc[{\PosTheo[surface] - \PosTheo}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} dS
-\label{RaileighI}
+P(\PosTheo) = \frac{-1}{2\pi} \int_{\surfaceTheoRayleighPlane} \GreenFunc[{\PosTheo[surface] - \PosTheo}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} dS
+\label{RayleighI}
 \end{equation}
-Previous equation is called Raileigh I integral and states that a secondary planar monopole source distribution can synthesize on one side of the plane $S_1$ ($z>0$) the field of a primary source distribution located at the other side ($z<0$). The monopole sources are driven by two times the directional derivative of the pressure at the plane, in its perpendicular direction.
+Previous equation is called Raileigh I integral and states that a secondary planar monopole source distribution can synthesize on one side of the plane $\surfaceTheoRayleighPlane$ ($z>0$) the field of a primary source distribution located at the other side ($z<0$). The monopole sources are driven by two times the directional derivative of the pressure at the plane, in its perpendicular direction.
 
 The function $F$ can also be chosen to remove the monopole source distributions: $F = -\GreenFunc[ {\PosTheo[surface] - \PosTheo[mirrored]} ]$. In this case, \autoref{KirchhoffHelmholtz} transforms to the Raileigh II integral:
 \begin{equation}
-P(\PosTheo) = \frac{1}{2\pi} \int_{S_1} P(\PosTheo[surface]) \GreenFunc[{\PosTheo[surface] - \PosTheo}] \left(jk + \frac{1}{\norm{\PosTheo[surface] - \PosTheo}}\right)\cos\normSecondPropAngle dS
+P(\PosTheo) = \frac{1}{2\pi} \int_{\surfaceTheoRayleighPlane} P(\PosTheo[surface]) \GreenFunc[{\PosTheo[surface] - \PosTheo}] \left(jk + \frac{1}{\norm{\PosTheo[surface] - \PosTheo}}\right)\cos\normSecondPropAngle dS
+\label{RayleighII}
 \end{equation}
 
-It presents a similar scenario as Raileigh I integral, but instead of monopole secondary sources, it uses dipole sources driven by two times the pressure at plane $S_1$.
+It presents a similar scenario as Raileigh I integral, but instead of monopole secondary sources, it uses dipole sources driven by two times the pressure at plane $\surfaceTheoRayleighPlane$.
 
-\begin{shownto}{private}
 \section{Dimensionality reduction: Kirchhoff-Helmholtz 2.5D Integral}
-For practical reasons, it is convenient to reduce the surface $S$ to a closed line $L$ on a plane, that would correctly synthesize the field on that plane, as it is proposed in \cite{Vogel} and developed in \cite{Start1997} and, only for the Rayleigh integrals, in \cite{Verheijen}. The way to do it is the next.
+\input{\TexFolder KirchhoffDimReduction.tex}
 
-Let's assume that all primary sources and the positions where we want to synthesize their field are all located in the same plane, for example, and without loss of generalization, $y = 0$. This means that $\PosTheo = [x, 0, z]$ and $\PosTheo[primarySource] = [x_\mathit{ps}, 0, z_\mathit{ps}]$.
-
-We also assume that surface $S$ is like a tube infinitely long in the $\hat{\vec{y}}$ direction. Its section, $S_0$, is a closed 2D curve, resulting from the intersection of $S$ and the plane $y=0$. Other ways of expressing it is that the projection of $S$ onto $y=0$ is equal to their intersection, that $S$ can be built by the extension of $S_0$ along the vertical direction ($\hat{\vec{y}}$), or that at each point of $S_0$, a vertical line is extended.
-
-A given point of $S$ (let's call it $\PosTheo[surface]$) is the result of adding a height $y$ to a point of $S_0$ ($\PosTheo[section]$), which is actually the projection of $\PosTheo[surface]$ onto $y=0$ ($\PosTheo[section] = \vectorproj[y=0]{\PosTheo[surface]}$)
-\begin{equation}
-\PosTheo[surface] = \PosTheo[section] + y\hat{\vec{y}}
-\end{equation}
-
-In order to perform the dimensionality reduction, we calculate the contribution of each of the vertical lines that form $S$ (one for each $\PosTheo[section]$).
-
-\begin{gather}
-	P(\PosTheo) = \frac{1}{4\pi} \int_{S_0} \left( I_{1}(\PosTheo[section], \PosTheo) + I_2(\PosTheo[section], \PosTheo) \right)
-	d\PosTheo[section] \\
-	I_{1}(\PosTheo[section], \PosTheo) = - \int_{-\infty}^{\infty} G(\PosTheo[section] + y \vert \PosTheo) \frac{\partial P(\PosTheo[section] + y)}{\partial \mathbf{n}} dy \label{lineIntI} \\	I_{2}(\PosTheo[section], \PosTheo) = \int_{-\infty}^{\infty} P(\PosTheo[section] + y)\frac{\partial G(\PosTheo[section] + y\vert \PosTheo)}{\partial \mathbf{n}} dy \label{lineIntII}
-\end{gather}
-
-The far field approximation of the field is:
-\begin{equation}
-P = S(\omega) D(\varphi, \theta, \omega) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}]
-\end{equation}
-
-where
-\begin{gather}
-	\frac{\PosTheo - \PosTheo[primarySource]}{\norm{\PosTheo - \PosTheo[primarySource]}} = [\cos{\elevation} \sin\azimuth, \sin\elevation, \cos\elevation \cos\azimuth]^T \\
-	\azimuth = \arctan \frac{x - x_{\PosTheoSubInd[primarySource]}}{z - z_{\PosTheoSubInd[primarySource]}} \qquad \elevation = \arctan{\frac{y - y_{\PosTheoSubInd[primarySource]}}{\sqrt{(x - x_{\PosTheoSubInd[primarySource]})^2 + (z - z_{\PosTheoSubInd[primarySource]})^2}}} 
-\end{gather}
-
-Then,
-\begin{equation}
-\frac{\partial P(\PosTheo)}{\partial \mathbf{n}} = \langle \nabla P(\PosTheo), \vec{n} \rangle
-\end{equation}
-\begin{multline}
-	\nabla P(\PosTheo) = \frac{\partial P(\PosTheo)}{\partial x} \hat{\vec{x}} + \frac{\partial P(\PosTheo)}{\partial y} \hat{\vec{y}} + \frac{\partial P(\PosTheo)}{\partial z} \hat{\vec{z}} =
-	\left\{ \begin{matrix}
-		\nabla \azimuth = \frac{\cos\azimuth}{\norm{\PosTheo - \PosTheo[primarySource]} \cos \elevation} \hat{\vec{x}} +
-		\frac{-\sin \azimuth}{\norm{\PosTheo - \PosTheo[primarySource]} \cos \elevation} \hat{\vec{z}} \\
-		\nabla \elevation = \frac{-\sin \elevation \sin \azimuth}{\norm{\PosTheo - \PosTheo[primarySource]}} \hat{\vec{x}} + \frac{\cos \elevation}{\norm{\PosTheo - \PosTheo[primarySource]}} \hat{\vec{y}} + \frac{-\sin \elevation \cos \azimuth}{\norm{\PosTheo - \PosTheo[primarySource]}} \hat{\vec{z}}
-	\end{matrix} \right\}
-	= S(\omega) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}]
-	\\ \left(D(\azimuth, \elevation, \omega)
-	\left(-jk - \frac{1}{\norm{\PosTheo - \PosTheo[primarySource]}}\right) \frac{\PosTheo - \PosTheo[primarySource]}{\norm{\PosTheo - \PosTheo[primarySource]}} +
-	\frac{\partial D}{\partial \azimuth} \frac{\cos \azimuth \hat{\vec{x}} - \sin \azimuth \hat{\vec{z}}}{\norm{\PosTheo - \PosTheo[primarySource]} \cos \elevation} + \frac{\partial D}{\partial \elevation} \frac{-\sin\elevation \sin\azimuth \hat{\vec{x}} + \cos\elevation \hat{\vec{y}} - \sin\elevation \cos\azimuth \hat{\vec{z}}}{\norm{\PosTheo - \PosTheo[primarySource]}} \right)
-\end{multline}
-
-Along a given vertical line ($\PosTheo[section] + y$), the unitary inward normal pointing vector is:
-\begin{equation}
-\vec{n} = [n_x, 0, n_z]^T = [\sin\azimuthNormal, 0, \cos\azimuthNormal]
-\end{equation}
-which remains constant along that line and its component in $\hat{\vec{y}} = 0$.
-
-Hence,
-\begin{multline}
-	\frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} = \langle \nabla P(\PosTheo[surface]), \vec{n} \rangle = \left\{
-	\begin{matrix}
-		\cos\alpha \sin\beta - \sin\alpha \sin\beta = sin(\beta - \alpha) \\ \cos\alpha \cos\beta + \sin\alpha\sin\beta = \cos(\beta - \alpha)
-	\end{matrix}  \right\}
-	= S(\omega) \GreenFunc[{\PosTheo[surface] - \PosTheo[primarySource]}] \\ \left[ D(\azimuth, \elevation, \omega) \left(-jk - \frac{1}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}\right) \cos\elevation \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin \normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]} \cos \elevation} + \frac{\partial D}{\partial \elevation} \frac{-\sin\elevation \cos\normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}  \right]
-	\label{directDerivField}
-\end{multline}
-where $\normPrimaryPropAngleSection = \azimuthNormal - \azimuth$.
-
-According to the stationary phase point method,
-\begin{equation}
-I = \int_{-\infty}^{+\infty} f(y) e^{j\phi(y)} dy \approx f(y_0) e^{j\phi(y_0)} \sqrt{\frac{j 2\pi}{\phi''(y_0)}}
-\end{equation}
-where $y_0$ is the value of $y$ where the phase gets stationary $\frac{d\phi(y)}{dy} = 0$, and $\phi''(y_0)$ is the second derivative of $\phi$ evaluated at $y_0$. Intuitively it means that the integral of a phase changing function only has a significant contribution in the region where the phase change slows down.
-
-Substituting \autoref{directDerivField} in \autoref{lineIntI}, and taking in account that $\PosTheo[surface] = \PosTheo[section] + y\hat{\vec{y}}$ and applying the stationary phase method:
-\begin{align}
-	f(y) &= \frac{-S(\omega)}{\norm{\PosTheo[surface] - \PosTheo[primarySource]} \norm{\PosTheo[surface] - \PosTheo}} \\ 
-	&\left[ D(\azimuth, \elevation, \omega) \left(-jk - \frac{1}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}\right) \cos\elevation \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin\normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]} \cos \elevation} + \frac{\partial D}{\partial \elevation} \frac{-\sin\elevation \cos\normPrimaryPropAngleSection}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}  \right] \nonumber \\
-	\phi(y) &= -k\left(\norm{\PosTheo[surface] - \PosTheo[primarySource]} + \norm{\PosTheo[surface] - \PosTheo}\right)\\
-	y_0 &= 0 \\
-	\phi(y_0) &= -k(\distLinePrimSource + \distLinePoint) \\
-	f(y_0) &= \left\{ \elevation(y_0) = 0 \right\} = \frac{-S(\omega)}{\distLinePrimSource \distLinePoint} \left[ D(\azimuth, 0, \omega) \left(-jk - \frac{1}{\distLinePrimSource}\right) \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin\normPrimaryPropAngleSection}{\distLinePrimSource} \right] \\
-	\phi''(y_0) &= \frac{d^2\phi(y)}{dy^2}\rvert_{y = y_0} = -k\frac{\distLinePrimSource + \distLinePoint}{\distLinePrimSource \distLinePoint} \\
-	I &\approx \frac{-S(\omega)}{\distLinePrimSource \distLinePoint} \left[ D(\azimuth, 0, \omega) \left(-jk - \frac{1}{\distLinePrimSource}\right) \cos\normPrimaryPropAngleSection + \frac{\partial D}{\partial \azimuth} \frac{\sin\normPrimaryPropAngleSection}{\distLinePrimSource} \right] e^{-jk(\distLinePrimSource + \distLinePoint)} \sqrt{\frac{j 2 \pi}{-k\frac{\distLinePrimSource + \distLinePoint}{\distLinePrimSource \distLinePoint}}}
-\end{align}
-
-where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]} = \sqrt{(z_{\PosTheoSubInd[surface]} -  z_{\PosTheoSubInd[primarySource]})^2 + (x_{\PosTheoSubInd[surface]} - x_{\PosTheoSubInd[primarySource]})^2}$ and $\distLinePoint = \norm{\PosTheo[section] - \PosTheo} = \sqrt{(z - z_{\PosTheoSubInd[surface]})^2 + (x_{\PosTheoSubInd[surface]} - x)^2}$.
-
-Finally, assuming $k\distLinePrimSource >> 1$:
-\begin{equation}
-I_1(\PosTheo[section], \PosTheo) \approx \widetilde{I_1}(\PosTheo[section], \PosTheo) = S(\omega) D(\azimuth, 0, \omega) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{j2\pi k} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
-\label{I1approx}
-\end{equation}
-
-Let's see that in previous equation there is the expression for the propagation of a monopole. So, we can express it as the strength of a secondary monopole source $Q_m(\PosTheo[section], \PosTheo)$ propagated to the receiving point $\PosTheo$:
+\section{Rayleigh 2.5D I and II integrals}
+The application of previous dimensionality reduction to Rayleigh integrals is pretty straightforward. Some variables of the scenario get particularized. The integral over $\surfaceTheo$ gets substituted by an integral over the plane $\surfaceTheoRayleighPlane$, so the curve $\sectionTheo$ is actually an infinite straight line. Continuing with the assumption that $\wfsPlane$ is the $XZ$ plane, and that $\surfaceTheoRayleighPlane$ is the $XY$ plane, the line $\sectionTheo$ is the $x$ axis, $\distLinePrimSource = \sqrt{\PosTheo[primarySource][z]^2 + (\PosTheo[section][x] - \PosTheo[primarySource][x])^2}$ and $\distLinePoint = \sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}$.
+Rayleigh I integral (\autoref{RayleighI}) uses a secondary monopole source distribution driven by the directional derivative of the pressure multiplied by 2, so the signal that feeds each monopole of $\sectionTheo$ is the double of the one calculated for the 2.5D Kirchhoff integral. Rayleigh 2.5D I integral is:
 \begin{equation}
 \begin{aligned}
-\widetilde{I_1}(\PosTheo[section]) &= Q_m(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \\
-Q_m(\PosTheo[section], \PosTheo) &= S(\omega) D(\azimuth, 0, \omega) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}}\sqrt{j 2\pi k} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+P(\PosTheo) = \frac{1}{4\pi} \int_{\sectionTheo} Q_{I}(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \dif[\PosTheo[section]] &= \frac{1}{4\pi} \int_{-\infty}^{\infty} Q_{I}(\PosTheo[section], \PosTheo)
+\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \dif[{\PosTheo[section][x]}]\\ Q_{I}(\PosTheo[section], \PosTheo) &= 2 Q_{m}(\PosTheo[section], \PosTheo)
 \end{aligned}
-\end{equation}
-
-The same reasoning can be applied to \autoref{lineIntII}, and the result is \cite[Equation 3.24]{Start1997}:
-\begin{equation}
-I_2(\PosTheo[section]) \approx \widetilde{I_2}(\PosTheo[section]) = S(\omega) D(\azimuth, 0, \omega) \cos\normSecondPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{j2\pi k} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
-\label{I2approx}
-\end{equation}
-where $\cos\normSecondPropAngleSection = \langle \frac{\PosTheo - \PosTheo[section]}{\norm{\PosTheo - \PosTheo[section]}}, \vec{n} \rangle$
-
-As with \autoref{I1approx}, \autoref{I2approx} can also be expressed as the strength of a secondary source $Q_d(\PosTheo[section], \PosTheo)$ propagated to the receiving point, but this time the secondary source is a dipole:
-\begin{equation}
-\begin{aligned}
-\widetilde{I_2}(\PosTheo[section]) &= Q_d(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \\
-Q_d(\PosTheo[section], \PosTheo) &= S(\omega) D(\azimuth, 0, \omega) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{j2\pi k} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
-\end{aligned}
-\end{equation}
-
-The synthesized field will be then:
-\begin{multline}
-	\widetilde{P}(\PosTheo) = \frac{1}{4\pi} \int_{S_0} \left( \widetilde{I_{1}}(\PosTheo[section], \PosTheo) + \widetilde{I_2}(\PosTheo[section], \PosTheo) \right)
-	\dif[\PosTheo[section]] = \\ \frac{1}{4\pi} \int_{S_0} \left( Q_m(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} + Q_d(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \right)
-	\dif[\PosTheo[section]]
-\end{multline} 
-
-\section*{Normalization of scenario}
-Let's notice something that can actually be very useful when working with these expressions. Whatever the shape of the distribution of secondary sources is chosen to synthesize a field, if we express the distances not in meters but in wavelengths, we will see that the synthesized field can be expressed as an integral over that 'normalized' scenario when $\lambda = 1$, divided by the wavelength.
-
-As $S_0$ is a line of length $L$, any point on that line can be identified by a single parameter $l$: $\PosTheo[section] = \PosTheo[section](l)$. Then, also the quantities that depend on that position can be expressed as a one-dimensional function: $\distLinePrimSource(l)$, $\distLinePoint(l)$, $\Diag(l)$, $\normPrimaryPropAngleSection(l)$. Now, define another scenario that is a spatially scaled version of the original, where distances are expressed in wavelengths and not in meters. That means the positions of sources and receiving points are transformed to normalized versions: $\PosTheo^{n} = \PosTheo/\lambda$, $\PosTheo[primarySource]^{n} = \PosTheo[primarySource]/\lambda$ and $\PosTheo[section](l)^{n} = \PosTheo[section](l\lambda)/\lambda$, $L^{n} = L/\lambda$. The derived parameters will also have a normalized equivalent: $\distLinePrimSource(l)^{n} = \distLinePrimSource(l\lambda)/\lambda$, $\distLinePoint(l)^{n} = \distLinePoint(l\lambda)/\lambda$, $\Diag^{n}(l) = \Diag(l\lambda)$, $\normPrimaryPropAngleSection^{n} = \normPrimaryPropAngleSection(l\lambda)$.
-
-Let's see what happens when we use the monopole distribution:
-\begin{multline}
-	\widetilde{P_1}(\PosTheo) = \frac{1}{4\pi} \int_{S_0} \widetilde{I_1}(\PosTheo[section], \PosTheo) \dif[{\PosTheo[section]}] = \\ \frac{1}{4\pi} \int_{S_0} S(\omega) \Diag(\azimuth, 0, \omega) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{j2\pi k} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}} \dif[{\PosTheo[section]}] = \\
-	\frac{1}{4\pi} S(\omega) \int_{0}^{L} \Diag(l) \cos\normPrimaryPropAngleSection(l) \frac{e^{-jk\distLinePrimSource(l)}}{\sqrt{\distLinePrimSource(l)}} \frac{e^{-jk\distLinePoint(l)}}{\distLinePoint(l)} \sqrt{j2\pi k} \sqrt{\frac{\distLinePoint(l)}{\distLinePrimSource(l) + \distLinePoint(l)}} \dif[l] \\
-	\frac{1}{4\pi} S(\omega) \lambda \int_{0}^{L/\lambda} \Diag(l\lambda) \cos\normPrimaryPropAngleSection(l\lambda) \frac{e^{-j2\pi\distLinePrimSource(l\lambda)/\lambda}}{\sqrt{\distLinePrimSource(l\lambda)/\lambda}\sqrt{\lambda}}\frac{e^{-j2\pi\distLinePoint(l\lambda)/\lambda}}{(\distLinePoint(l\lambda)/\lambda)\lambda} \sqrt{j/\lambda} \sqrt{\frac{\distLinePoint(l\lambda)/\lambda}{\distLinePrimSource(l\lambda)/\lambda + \distLinePoint(l\lambda)/\lambda}} \dif[l]
-	\\
-	= \frac{1}{4\pi} S(\omega) \frac{1}{\lambda} \int_{0}^{L^{n}} \Diag^{n}(l) \cos\normPrimaryPropAngleSection^{n}(l) \frac{e^{-j2\pi\distLinePrimSource^{n}(l)}}{\sqrt{\distLinePrimSource^{n}(l)}} \frac{e^{-j2\pi\distLinePoint^{n}(l)}}{\distLinePoint^{n}(l)} \sqrt{j} \sqrt{\frac{\distLinePoint^{n}(l)}{\distLinePrimSource^{n}(l) + \distLinePoint^{n}(l)}} \dif[l] 
-\end{multline}
-
-Moreover, this property not only works when scaling the scenario by $\lambda^{-1}$, but by any quantity. If the synthesized field in a given point of a scenario is $P(\PosTheo, \lambda)$ and we scale it by $C^{-1}$ (distances divided by $C$, included $\lambda^{n} = \lambda/C$), the resulting field $P_{s}(\PosTheo^{n}, \lambda^{n})$ is:
-\begin{equation}
-P_s(\PosTheo^{n}, \lambda^{n}) = C P(\PosTheo, \lambda)
-\end{equation}
-
-The same deductions can be applied with the secondary dipole distribution.
-\end{shownto}
-
-\section{Dimensionality reduction}
-Given that planar loudspeaker arrays are less convenient than linear arrays in practical situations, a dimensionality reduction from 3D to 2D is desirable, as it is proposed in \cite{Vogel} and developed in \cite{Start1997} and  \cite{Verheijen}.
-% and \cite{stuart1996application}.
-Raileigh I integral (\autoref{RaileighI}) can be transformed from a surface integral of the plane $S_1$ ($z=0$), to a line integral of the $x$ axis. In order to do that, we divide surface $S_1$ in the 
-
-we cut $S_1$ in the $\hat{x}$ direction
-
-as a set of lines that extend in the $\hat{y}$ direction, put one next to the other We perform the dimensionality reduction by calculating the contribution of each of those lines.
-
-Then, the field is expressed not as a surface integral, but as a line integral over
-
-\begin{equation}
-\begin{aligned}
-P(\PosTheo) &= \frac{-1}{2\pi} \int_{S_1} \GreenFunc[{\PosTheo - \PosTheo[surface]}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} dS = \int_{-\infty}^{\infty} I(x_s, \PosTheo) dx_s \\
-I(x_s, \PosTheo) &= \frac{-1}{2\pi} \int_{-\infty}^{\infty} \GreenFunc[{\PosTheo - \PosTheo[surface]}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} dy_s
-%I(x) = \int_{-\infty}^{\infty} \frac{e^{-jk\sqrt{(x - x_0)^2 + y^2 + (z-z_0)^2}}}{\sqrt{(x - x_0)^2 + y^2 + (z-z_0)^2}} \frac{\partial P(\vec{x})}{\partial \mathbf{n}} dy
-\end{aligned}
-\label{LineIntegral}
-\end{equation}
-
-\begin{shownto}{private}
-So, the question is how to calculate $I(x_s, \PosTheo)$. We start by calculating the directional derivative of the pressure field. We assume it is generated by a primary source located at $\PosTheo[primarySource]$, and that the produced field can be modelled as $P(\PosTheo) = \CoefTheo \Diag(\phi, \theta) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}]$, where $\CoefTheo$ is the source coefficient and $\Diag(\phi, \theta)$ is the directivity pattern ($\phi = \arctan(x/z)$, $\theta = \arctan(y/\sqrt{x^2 + z^2})$). The directional derivative is then \cite{Verheijen}:
-\begin{multline}
-\frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} = \frac{\partial \coef \Diag(\phi, \theta) \GreenFunc[{\PosTheo[surface] - \PosTheo[primarySource]}]}{\partial \mathbf{z}} = \\ -A \GreenFunc[{\PosTheo[surface] - \PosTheo[primarySource]}] \left[ \frac{\sin\phi}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}\cos\theta}\frac{\partial\Diag}{\partial\phi} + \frac{\cos\phi \sin\theta}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}} \frac{\partial\Diag}{\partial\theta} + \left(jk + \frac{1}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}\right) \Diag \cos\phi \cos\theta \right]
-\label{derivPressure}
-\end{multline}
-
-%Inserting \autoref{derivPressure} in \autoref{LineIntegral} we get:
-%\begin{multline}
-%I(x_s, \PosTheo) = -A \int_{-\infty}^{\infty} \GreenFunc[{\PosTheo - \PosTheo[surface]}] \GreenFunc[{\PosTheo[surface] - \PosTheo[primarySource]}] \cross
-%\\
-%\cross \left[ \frac{\sin\phi}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}\cos\theta}\frac{\partial\Diag}{\partial\phi} + \frac{\cos\phi \sin\theta}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}} \frac{\partial\Diag}{\partial\theta} + \left(jk + \frac{1}{\norm{\PosTheo[surface] - \PosTheo[primarySource]}}\right) \Diag \cos\phi \cos\theta \right] dy_s
-%\label{integrateY}
-%\end{multline}
-
-Now, since we intend a dimensionality reduction for practical purposes, it's reasonable to set the constraint that all primary sources and the positions where we want to synthesize their field are all located in the same plane, for example, $y = 0$. This means that $\PosTheo = [x, 0, z],\quad z > 0$ and $\PosTheo[primarySource] = [x_\mathit{ps}, 0, z_\mathit{ps}], \quad z_\mathit{ps} < 0$.
-
-According to the stationary phase method \cite{Verheijen},
-\begin{equation}
-I = \int_{-\infty}^{+\infty} f(y) e^{j\phi(y)} dy \approx f(y_0) e^{j\phi(y_0)} \sqrt{\frac{j 2\pi}{\phi''(y_0)}}
-\end{equation}
-where $y_0$ is the value of $y$ where the phase gets stationary $\frac{d\phi(y)}{dy} = 0$, and $\phi''(y_0)$ is the second derivative of $\phi$ evaluated at $y_0$. Intuitively, it means that the integral of a phase changing function only has a significant contribution in the region where the phase change slows down.
-
-Applying this method to the combination of \autoref{derivPressure} and \autoref{LineIntegral}, we get that
-\begin{gather}
-	y_0 = 0 \\
-	\phi(y_0) = -k(\distLinePrimSource + \distLinePoint) \\
-	\phi''(y_0) = -k\frac{\distLinePrimSource + \distLinePoint}{\distLinePrimSource \distLinePoint} \\
-	f(y_0) = -\frac{A}{\distLinePrimSource \distLinePoint}\left[ \frac{\sin\phi}{\distLinePrimSource} \frac{\partial\Diag}{\partial\phi} + \left(jk + \frac{1}{\distLinePrimSource}\right) \Diag(\phi, 0) \cos\phi \right]
-\end{gather}
-where $\distLinePrimSource = \norm{\PosTheo[surface] - \PosTheo[primarySource]}\Big\vert_{y_{\PosTheoSubInd[surface]} = 0} = \sqrt{z_{\PosTheoSubInd[primarySource]}^2 + (x_{\PosTheoSubInd[surface]} - x_{\PosTheoSubInd[primarySource]})^2}$ and $\distLinePoint = \norm{\PosTheo[surface] - \PosTheo}\Big\vert_{y_{\PosTheoSubInd[surface]} = 0} = \sqrt{z^2 + (x_{\PosTheoSubInd[surface]} - x)^2}$.
-
-Assuming $k\distLinePrimSource >> 1$
-\end{shownto}
-\begin{shownto}{public}
-Assuming that the field generated at location $\PosTheo$ by a primary monopole source located at $\PosTheo[primarySource]$ is 
-\begin{equation}
-P(\PosTheo) = S \GreenFunc[{\PosTheo - \PosTheo[primarySource]}]
-\end{equation}
-and employing the stationary phase method and other approximations ($k\distLinePrimSource >> 1$), the result is \cite{Start1997}:
-\end{shownto}
-\begin{equation}
-I(x_{\PosTheoSubInd[surface]}, \PosTheo) \approx \widetilde{I}(x_{\PosTheoSubInd[surface]}, \PosTheo) = S \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normPrimaryPropAngleSection \frac{e^{-jk \distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
-\end{equation}
-\begin{shownto}{public}
-where $\distLinePoint = \norm{\PosTheo[surface] - \PosTheo[primarySource]} = \sqrt{}$ is the distance between the primary source and the point at the line
-\end{shownto}
-
-Let's see that in previous equation there is the expression for the propagation of a monopole. So, we can express it as the strength of a secondary monopole source $Q_m(x_s, \PosTheo)$ propagated to the receiving point $\PosTheo$.
-\begin{equation}
-\begin{aligned}
-\widetilde{I}(x_{\PosTheoSubInd[surface]}, \PosTheo) &= Q_m(x_{\PosTheoSubInd[surface]}, \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \\
-Q_m(x_{\PosTheoSubInd[surface]}, \PosTheo) &= S \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}}\sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
-\end{aligned}
-\end{equation}
-Finally, the field is:
-\begin{equation}
-P(\PosTheo) = \int_{-\infty}^{\infty} Q_m(x_{\PosTheoSubInd[surface]})
-\frac{e^{-jk\distLinePoint}}{\distLinePoint} dx_{\PosTheoSubInd[surface]}
 \label{RayleighI2.5}
 \end{equation}
 
-\autoref{RayleighI2.5} is known as Rayleigh I 2.5D integral, because it aims at synthesizing a wave field on a plane, but using 3D wave propagation equations. However, it has the problem that the amplitude of the secondary monopole sources depends on the receiver position, which is impossible to realize in practice.
-This can be solved by modifying the amplitude factor $g = \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}$.
-Applying the stationary phase method, but now in the x direction, we would find that the main contribution to the pressure at a given point comes from the intersection of the secondary source line and the line that goes from the primary source to the receiver point. Taking advantage of this, we can change $\distLinePoint$ by $d$ and $\distLinePrimSource$ by $\vert z_\mathit{ps} \vert$, so $g = \sqrt{\frac{d}{d+\vert z_{\PosTheoSubInd[primarySource]} \vert}}$. Therefore, $Q(x)$ becomes independent from the receiver point (implementable in real WFS systems) and the pressure will be rightly scaled at a line of receivers parallel to the secondary source line, and separated a distance $d$. For other values of $d$, there will be amplitude errors \cite{Verheijen}. 
+The same happens for Rayleigh II integral (\autoref{RayleighII}) with the dipole distribution. Rayleigh 2.5D II integral is:
+\begin{equation}
+\begin{aligned}
+P(\PosTheo) = \frac{1}{4\pi} \int_{\sectionTheo} Q_{\mathit{II}}(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \dif[\PosTheo[section]] &= \frac{1}{4\pi} \int_{-\infty}^{\infty} Q_{II}(\PosTheo[section], \PosTheo)
+\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \cos\normSecondPropAngleSection \dif[{\PosTheo[section][x]}]\\ Q_{II}(\PosTheo[section], \PosTheo) &= 2 Q_{d}(\PosTheo[section], \PosTheo)
+\end{aligned}
+\label{RayleighII2.5}
+\end{equation}
+
+
+The signal of secondary sources $Q$ depends on the position of measure $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (closer or further from that line there will be amplitude errors inevitably) if the expression is modified to:
+\begin{equation}
+Q(\PosTheo[section], \PosTheo) = \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}}
+\end{equation}
+where $d_{\PosTheoSubInd[primarySource]}$ is the distance between the primary source and the secondary source line.
+
+Both integrals have the problem that the amplitude of signals of the secondary sources depend on the receiver position $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (closer or further from that line there will be amplitude errors inevitably). It can be done by modifying the amplitude factor $g = \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}$.
+Applying the stationary phase method, but now in the $\xdir$ direction, we would find that the main contribution to the pressure at a given point comes from the intersection of the secondary source line and the line that goes from the primary source to the receiver point. Taking advantage of this, we can change $\distLinePoint$ by $d$ and $\distLinePrimSource$ by $\abs{\PosTheo[primarySource][z]}$, so $g = \sqrt{\frac{d}{d + \abs{\PosTheo[primarySource][z]}}}$, making it independent from the receiver point (implementable in real WFS systems) \cite{Verheijen}.
+
+In conclussion, Rayleigh 2.5D integrals allow to replicate the field by an infinite line distribution of monopole or dipole secondary sources, given the condition that all points where the field is replicated, as well as the primary source location and the secondary source line distribution ($\sectionTheo$), are all on the same plane, and that the secondary source line separates the reconstructed field region from the primary source.
 
 \section{Discretization and Spatial Aliasing}
 In practice, a continuous secondary source line is not realistic. An discrete linear secondary source array is a closer model to the practical cases where an array of loudspeakers is used. The issue with discretization is that aliasing effects appear. However, as it is exposed in \cite{Start1997}, the synthesized wavefield will be exactly equal to the one with a continuous line source at those frequencies that respect next relation:

@@ -135,6 +135,13 @@
 }
 
 % Variables for the theroetical mathematical basis
+\newcommand{\surfaceTheo}{S}
+\newcommand{\surfaceTheoRayleighPlane}{\surfaceTheo_1}
+\newcommand{\surfaceTheoRayleighSemisphere}{\surfaceTheo_2}
+\newcommand{\sectionTheo}{L}
+\newcommand{\wfsPlane}{P}
+\newcommand{\wfsPlaneNormal}{\vec{n}_{\wfsPlane}}
+
 \NewDocumentCommand{\CoefTheo}{O{noValue}}{ % surface/mirrored/nothing notParticular/x/y/z
 \providecommand{\subind}{}
 \IfStrEqCase{#1}{
@@ -147,7 +154,7 @@
 S\subind
 }
 
-\NewDocumentCommand{\PosTheo}{O{noValue} O{notParticular}}{ % surface/mirrored/nothing notParticular/x/y/z
+\NewDocumentCommand{\PosTheo}{O{noValue} O{notParticular}}{ % surface/section/primarySource/mirrored/noValue notParticular/x/y/z
 \providecommand{\principal}{}
 \providecommand{\subind}{}
 \IfStrEqCase{#2}{
@@ -178,8 +185,7 @@ S\subind
 
 \newcommand{\distLinePrimSource}{r_0}
 \newcommand{\distLinePoint}{\Delta {r_0}}
-
-%%
+\newcommand{\surfaceNormal}{\vec{n}}
 \newcommand{\normSecondPropAngle}{\alpha} % Angle between the inward normal vector and the line that passes through the point inside the volume and the point at the surface
 \newcommand{\normPrimaryPropAngle}{\alpha_{inc}} % Angle between the inward normal vector and the line that passes through the primary source and the point at the surface
 \newcommand{\normSecondPropAngleSection}{\alpha_0}
@@ -191,7 +197,10 @@ S\subind
 
 \newcommand{\correctionFactor}{\Psi}
 
-\newcommand{\dif}[1][]{\mathrm{d}#1} % Differenta
+\newcommand{\dif}[1][]{\mathrm{d}#1} % Differential symbol
+\newcommand{\xdir}{\hat{\vec{x}}}
+\newcommand{\ydir}{\hat{\vec{y}}}
+\newcommand{\zdir}{\hat{\vec{z}}}
 
 %% Bibliography, resources, explanations, links
 
