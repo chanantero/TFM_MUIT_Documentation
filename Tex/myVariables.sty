@@ -142,35 +142,90 @@
 \newcommand{\wfsPlane}{P}
 \newcommand{\wfsPlaneNormal}{\vec{n}_{\wfsPlane}}
 
-\NewDocumentCommand{\CoefTheo}{O{noValue}}{ % surface/mirrored/nothing notParticular/x/y/z
+\NewDocumentCommand{\Field}{O{noValue}}{
 \providecommand{\subind}{}
 \IfStrEqCase{#1}{
-		{surface}{\renewcommand{\subind}{_{\PosTheoSubInd[surface]}}}
-		{mirrored}{\renewcommand{\subind}{_{\PosTheoSubInd[mirrored]}}}
+		{kirchhoff}{\renewcommand{\subind}{_{\mathit{2.5D}}}}
+		{rayleighI}{\renewcommand{\subind}{_{I}}}
+		{rayleighII}{\renewcommand{\subind}{_{II}}}
 		{primarySource}{\renewcommand{\subind}{_{\PosTheoSubInd[primarySource]}}}
-		{section}{\renewcommand{\subind}{_{\PosTheoSubInd[section]}}}
 		{noValue}{\renewcommand{\subind}{}}
 }
-S\subind
+P\subind
+}
+
+\NewDocumentCommand{\CoefTheo}{O{noValue} O{noValue} O{noValue} O{continuous}}{
+% Input parameters
+% - surface/mirrored/section/primarySource/nothing notParticular/x/y/z
+% - monopole/dipole/noValue
+% - kirchhoff/rayleigh/noValue
+% - continuous/discrete/noValue
+\providecommand{\secondarySourceCoef}{}
+\renewcommand{\secondarySourceCoef}{
+	\IfStrEqCase{#2}{
+		{monopole}{
+			\IfStrEqCase{#3}{
+				{kirchhoff}{
+					\IfStrEqCase{#4}{
+						{continuous}{Q_m}
+						{discrete}{Q_m^{(d)}}
+					}
+				}
+				{rayleigh}{
+					\IfStrEqCase{#4}{
+						{continuous}{Q_I}
+						{discrete}{Q_I^{(d)}}
+					}
+				}	
+				{noValue}{Q_m}
+			}
+		}
+		{dipole}{
+			\IfStrEqCase{#3}{
+				{kirchhoff}{
+					\IfStrEqCase{#4}{
+						{continuous}{Q_d}
+						{discrete}{Q_d^{(d)}}
+					}
+				}
+				{rayleigh}{
+					\IfStrEqCase{#4}{
+						{continuous}{Q_\mathit{II}}
+						{discrete}{Q_\mathit{II}^{(d)}}
+					}
+				}
+				{noValue}{Q_d}
+			}
+		}
+		{noValue}{Q}
+	}
+}
+	\IfStrEqCase{#1}{
+			{surface}{\secondarySourceCoef}
+			{mirrored}{S_{\PosTheoSubInd[mirrored]}}
+			{primarySource}{S}
+			{section}{\secondarySourceCoef}
+			{noValue}{S}
+	}
 }
 
 \NewDocumentCommand{\PosTheo}{O{noValue} O{notParticular}}{ % surface/section/primarySource/mirrored/noValue notParticular/x/y/z
-\providecommand{\principal}{}
-\providecommand{\subind}{}
-\IfStrEqCase{#2}{
-	{notParticular}{\renewcommand{\principal}{\vec{x}}}
-	{x}{\renewcommand{\principal}{x}}
-	{y}{\renewcommand{\principal}{y}}
-	{z}{\renewcommand{\principal}{z}}
-}    	
-\IfStrEqCase{#1}{
-		{surface}{\renewcommand{\subind}{_{\PosTheoSubInd[surface]}}}
-		{mirrored}{\renewcommand{\subind}{_{\PosTheoSubInd[mirrored]}}}
-		{primarySource}{\renewcommand{\subind}{_{\PosTheoSubInd[primarySource]}}}
-		{section}{\renewcommand{\subind}{_{\PosTheoSubInd[section]}}}
-		{noValue}{\renewcommand{\subind}{}}
-}
-\principal\subind
+	\providecommand{\principal}{}
+	\providecommand{\subind}{}
+	\IfStrEqCase{#2}{
+		{notParticular}{\renewcommand{\principal}{\vec{x}}}
+		{x}{\renewcommand{\principal}{x}}
+		{y}{\renewcommand{\principal}{y}}
+		{z}{\renewcommand{\principal}{z}}
+	}    	
+	\IfStrEqCase{#1}{
+			{surface}{\renewcommand{\subind}{_{\PosTheoSubInd[surface]}}}
+			{mirrored}{\renewcommand{\subind}{_{\PosTheoSubInd[mirrored]}}}
+			{primarySource}{\renewcommand{\subind}{_{\PosTheoSubInd[primarySource]}}}
+			{section}{\renewcommand{\subind}{_{\PosTheoSubInd[section]}}}
+			{noValue}{\renewcommand{\subind}{}}
+	}
+	\principal\subind
 }
 
 \NewDocumentCommand{\PosTheoSubInd}{O{noValue}}{ % surface/mirrored/nothing
@@ -194,6 +249,8 @@ S\subind
 \newcommand{\elevation}{\theta}
 \newcommand{\azimuthNormal}{\phi_n}
 \newcommand{\elevationNormal}{\theta_n}
+
+\newcommand{\secondarySourceSeparation}{\Delta x}
 
 \newcommand{\correctionFactor}{\Psi}
 

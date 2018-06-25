@@ -50,45 +50,58 @@ It presents a similar scenario as Raileigh I integral, but instead of monopole s
 \input{\TexFolder KirchhoffDimReduction.tex}
 
 \section{Rayleigh 2.5D I and II integrals}
-The application of previous dimensionality reduction to Rayleigh integrals is pretty straightforward. Some variables of the scenario get particularized. The integral over $\surfaceTheo$ gets substituted by an integral over the plane $\surfaceTheoRayleighPlane$, so the curve $\sectionTheo$ is actually an infinite straight line. Continuing with the assumption that $\wfsPlane$ is the $XZ$ plane, and that $\surfaceTheoRayleighPlane$ is the $XY$ plane, the line $\sectionTheo$ is the $x$ axis, $\distLinePrimSource = \sqrt{\PosTheo[primarySource][z]^2 + (\PosTheo[section][x] - \PosTheo[primarySource][x])^2}$ and $\distLinePoint = \sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}$.
+% More information at Tex/RayleighDimReduction_old.tex
+The application of previous dimensionality reduction to Rayleigh integrals is pretty straightforward. Some variables of the scenario get particularized. The integral over $\surfaceTheo$ gets substituted by an integral over a plane ($\surfaceTheoRayleighPlane$), and we assume that the plane of field synthesis $\wfsPlane$ is orthogonal to $\surfaceTheoRayleighPlane$, so the curve $\sectionTheo$ is actually an infinite straight line. %the line $\sectionTheo$ is the $x$ axis, $\distLinePrimSource = \sqrt{\PosTheo[primarySource][z]^2 + (\PosTheo[section][x] - \PosTheo[primarySource][x])^2}$ and $\distLinePoint = \sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}$.
 Rayleigh I integral (\autoref{RayleighI}) uses a secondary monopole source distribution driven by the directional derivative of the pressure multiplied by 2, so the signal that feeds each monopole of $\sectionTheo$ is the double of the one calculated for the 2.5D Kirchhoff integral. Rayleigh 2.5D I integral is:
 \begin{equation}
-\begin{aligned}
-P(\PosTheo) = \frac{1}{4\pi} \int_{\sectionTheo} Q_{I}(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \dif[\PosTheo[section]] &= \frac{1}{4\pi} \int_{-\infty}^{\infty} Q_{I}(\PosTheo[section], \PosTheo)
-\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \dif[{\PosTheo[section][x]}]\\ Q_{I}(\PosTheo[section], \PosTheo) &= 2 Q_{m}(\PosTheo[section], \PosTheo)
-\end{aligned}
+%\begin{aligned}
+\Field[rayleighI](\PosTheo) = \int_{\sectionTheo} \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \dif[\PosTheo[section]]% = \int_{-\infty}^{\infty} \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo)\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \dif[{\PosTheo[section][x]}]\\
+, \quad \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo) = 2 \CoefTheo[section][monopole][kirchhoff](\PosTheo[section], \PosTheo)
+%\end{aligned}
 \label{RayleighI2.5}
 \end{equation}
 
 The same happens for Rayleigh II integral (\autoref{RayleighII}) with the dipole distribution. Rayleigh 2.5D II integral is:
 \begin{equation}
-\begin{aligned}
-P(\PosTheo) = \frac{1}{4\pi} \int_{\sectionTheo} Q_{\mathit{II}}(\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \dif[\PosTheo[section]] &= \frac{1}{4\pi} \int_{-\infty}^{\infty} Q_{II}(\PosTheo[section], \PosTheo)
-\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \cos\normSecondPropAngleSection \dif[{\PosTheo[section][x]}]\\ Q_{II}(\PosTheo[section], \PosTheo) &= 2 Q_{d}(\PosTheo[section], \PosTheo)
-\end{aligned}
+%\begin{aligned}
+\Field[rayleighII](\PosTheo) = \int_{\sectionTheo} \CoefTheo[section][dipole][rayleigh](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \dif[\PosTheo[section]]% = \int_{-\infty}^{\infty} \CoefTheo[section][dipole][rayleigh](\PosTheo[section], \PosTheo)\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \cos\normSecondPropAngleSection \dif[{\PosTheo[section][x]}]\\
+, \quad
+\CoefTheo[section][dipole][rayleigh](\PosTheo[section], \PosTheo) = 2 \CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo)
+%\end{aligned}
 \label{RayleighII2.5}
 \end{equation}
 
-
-The signal of secondary sources $Q$ depends on the position of measure $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (closer or further from that line there will be amplitude errors inevitably) if the expression is modified to:
-\begin{equation}
-Q(\PosTheo[section], \PosTheo) = \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}}
-\end{equation}
-where $d_{\PosTheoSubInd[primarySource]}$ is the distance between the primary source and the secondary source line.
-
-Both integrals have the problem that the amplitude of signals of the secondary sources depend on the receiver position $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (closer or further from that line there will be amplitude errors inevitably). It can be done by modifying the amplitude factor $g = \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}$.
+Both integrals have the problem that the amplitude of the secondary source signals depends on the receiver position $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (closer or further from that line there will be amplitude errors inevitably). It can be done by modifying the amplitude factor $g = \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}$.
 Applying the stationary phase method, but now in the $\xdir$ direction, we would find that the main contribution to the pressure at a given point comes from the intersection of the secondary source line and the line that goes from the primary source to the receiver point. Taking advantage of this, we can change $\distLinePoint$ by $d$ and $\distLinePrimSource$ by $\abs{\PosTheo[primarySource][z]}$, so $g = \sqrt{\frac{d}{d + \abs{\PosTheo[primarySource][z]}}}$, making it independent from the receiver point (implementable in real WFS systems) \cite{Verheijen}.
 
-In conclussion, Rayleigh 2.5D integrals allow to replicate the field by an infinite line distribution of monopole or dipole secondary sources, given the condition that all points where the field is replicated, as well as the primary source location and the secondary source line distribution ($\sectionTheo$), are all on the same plane, and that the secondary source line separates the reconstructed field region from the primary source.
+\begin{equation}
+\CoefTheo[section][monopole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + \abs{\PosTheo[primarySource][z]}}}
+\label{RayleighI2.5wfs}
+\end{equation}
+
+\begin{equation}
+\CoefTheo[section][dipole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + \abs{\PosTheo[primarySource][z]}}}
+\label{RayleighII2.5wfs}
+\end{equation}
+
+In conclussion, Rayleigh 2.5D I and II integrals (\autoref{RayleighI2.5wfs} and \autoref{RayleighII2.5wfs} respectively) allow to replicate the field by an infinite line distribution of monopole or dipole secondary sources, given the condition that all points where the field is replicated, as well as the primary source location and the secondary source line distribution ($\sectionTheo$), are all on the same plane, and that the secondary source line separates the reconstructed field region from the primary source.
 
 \section{Discretization and Spatial Aliasing}
 In practice, a continuous secondary source line is not realistic. An discrete linear secondary source array is a closer model to the practical cases where an array of loudspeakers is used. The issue with discretization is that aliasing effects appear. However, as it is exposed in \cite{Start1997}, the synthesized wavefield will be exactly equal to the one with a continuous line source at those frequencies that respect next relation:
 \begin{equation}
 f < \frac{c}{2\Delta x}
 \end{equation}
+where $\Delta x$ is the separation between contiguous loudspeakers.
 
 This means that, for a sound signal with $f_{max}$ as maximum frequency component, and with $\lambda_{min} = c/f_{max}$ as its corresponding wavelength, aliasing will be avoided as long as the separation between loudspeakers is smaller than half the wavelength: $\Delta x < \frac{\lambda_{min}}{2}$.
 
+Discretization makes necessary to scale the feeding of sources by $\Delta x$:
+\begin{gather}
+\Field[rayleighI](x) = \Delta x \sum_{n}  \CoefTheo[section][monopole][rayleigh][continuous]({\PosTheo[section]}_n) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \\
+\Field[rayleighII](x) = \Delta x \sum_{n}  \CoefTheo[section][dipole][rayleigh][continuous]({\PosTheo[section]}_n) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection
+\end{gather}
+
+\begin{shownto}{private}
 \section{Theoretical Propagation Model}
 \label{TheoreticalModelLabel}
 
@@ -171,6 +184,5 @@ Previous equation can be expressed as a matrix operation:
  	\item[$\vec{c_\mathit{micro}}$] Column vector of signals received by microphones
 	\item[$\myMatrix{A}$] Acoustic path matrix. The element in the $m$-th row and $l$-th column is $a_{m,l}$
 \end{description}
-
-
+\end{shownto}
 
