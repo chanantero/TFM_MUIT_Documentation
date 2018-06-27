@@ -12,6 +12,7 @@
 \newcommand{\cmicro}[1][]{\vec{c}_{\mathit{micro}#1}} % vector of coefficients of microphone array
 \newcommand{\numNS}{L_\mathit{NS}} % Number of noise sources
 \newcommand{\numWFS}{L_\mathit{WFS}} % Number of WFS array loudspeakers
+\newcommand{\numMeasPoints}{M} % Number of measuring points
 \newcommand{\wfsNormCoef}[1][vec]{ % Scaling coefficient of the virtual noise source signal(s) in standard WFS calculation
 \IfStrEqCase{#1}{{scalar}{\gamma}
     {vec}{\boldsymbol{\gamma}}
@@ -105,7 +106,7 @@
 \NewDocumentCommand{\coef}{O{scalar} O{noValue} O{} D<>{real}}{ % vec/scalar, NS/WFS/micro/nothing, subindex, if NS is virtual as "-v-"
 \IfStrEqCase{#1}{
     {vec}{\IfStrEqCase{#2}{
-	{WFS}{\vec{c}_{\mathit{WFS}#3}}
+	{WFS}{\vec{Q}_{#3}}
 	{NS}{
 		\IfStrEqCase{#4}{
 			{real}{\vec{c}_{\mathit{NS}#3}}
@@ -116,7 +117,7 @@
 	{noValue}{\vec{A}}
 	}}
     {scalar}{\IfStrEqCase{#2}{
-	{WFS}{c_{\mathit{WFS}#3}}
+	{WFS}{Q_{#3}}
 	{NS}{
 		\IfStrEqCase{#4}{
 			{real}{c_{\mathit{NS}#3}}
@@ -129,6 +130,35 @@
 }
 }
 
+% \signal is the same as \CoefTheo, but not for the theoretical analysis, but the real signals in the GTAC model
+\NewDocumentCommand{\signal}{O{noValue} O{time}}{ % ns/nsVirt/wfs/nothing, time/frequency
+	\IfStrEqCase{#1}{
+		{ns}{
+			\IfStrEqCase{#2}{
+				{time}{s}
+				{frequency}{S}
+			}
+		}
+		{nsVirt}{
+			\IfStrEqCase{#2}{
+				{time}{s^v}
+				{frequency}{S^v}
+			}
+		}
+		{wfs}{
+			\IfStrEqCase{#2}{
+				{time}{q}
+				{frequency}{Q}
+			}
+			}
+		{nothing}{s}
+	}
+}
+
+\newcommand{\cancellation}{C}
+\newcommand{\globalCancellation}{C_g}
+\newcommand{\correctionFactor}{\Psi}
+\newcommand{\globalCorrectionFactor}{\Psi_g}
 
 \newcommand{\GreenFunc}[1][\vec{x}]{
 \frac{e^{-jk\norm{#1}}}{\norm{#1}}
@@ -142,17 +172,32 @@
 \newcommand{\wfsPlane}{P}
 \newcommand{\wfsPlaneNormal}{\vec{n}_{\wfsPlane}}
 
-\NewDocumentCommand{\Field}{O{noValue}}{
+% \Field is used for the theoretical analysis but also for the GTAC modelling and simulations
+\NewDocumentCommand{\Field}{O{noValue} O{frequency} O{scalar}  O{noInd}}{
 \providecommand{\subind}{}
+\providecommand{\principal}{}
+\renewcommand{\principal}{P}
+\providecommand{\aux}{}		
 \IfStrEqCase{#1}{
 		{kirchhoff}{\renewcommand{\subind}{_{\mathit{2.5D}}}}
 		{rayleighI}{\renewcommand{\subind}{_{I}}}
 		{rayleighII}{\renewcommand{\subind}{_{II}}}
 		{primarySource}{\renewcommand{\subind}{_{\PosTheoSubInd[primarySource]}}}
+		{wfs}{\renewcommand{\subind}{_\mathit{wfs}}}
+		{ns}{\renewcommand{\subind}{_\mathit{ns}}}
+		{total}{\renewcommand{\subind}{}}
 		{noValue}{\renewcommand{\subind}{}}
 }
-P\subind
+\IfStrEqCase{#2}{
+	{time}{\renewcommand{\principal}{p}}
+	{frequency}{\renewcommand{\principal}{P}}
 }
+\IfStrEqCase{#3}{
+	{scalar}{\IfStrEq{#4}{noInd}{\principal\subind}{{\principal\subind}_{(#4)}}}
+	{vector}{\IfStrEq{#4}{noInd}{\mathbf{\principal}\subind}{{\mathbf{\principal}\subind}_{(#4)}}}	
+}
+}
+
 
 \NewDocumentCommand{\CoefTheo}{O{noValue} O{noValue} O{noValue} O{continuous}}{
 % Input parameters
@@ -251,8 +296,6 @@ P\subind
 \newcommand{\elevationNormal}{\theta_n}
 
 \newcommand{\secondarySourceSeparation}{\Delta x}
-
-\newcommand{\correctionFactor}{\Psi}
 
 \newcommand{\dif}[1][]{\mathrm{d}#1} % Differential symbol
 \newcommand{\xdir}{\hat{\vec{x}}}
