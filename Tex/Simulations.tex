@@ -38,7 +38,6 @@ Traditionally, WFS has been used, not to cancel noise, but as a spatial audio re
 Since human hearing has limitations, there are objective sound characteristics that it cannot perceive. We can take advantage of this, and use compression, downsampling and other techniques (common in mp3 and other compression formats) that lower the requirements of the system without worsening the subjective perception. One thing that humans cannot distinguish is constant phase shift with frequency. So, when implementing WFS, the term $\sqrt{j}$ can be omitted (as done in the real implementations in \cite{Verheijen} and \cite{Vogel}) since it would require the implementation of a FIR filter that wouldn't add anything to the experience of the audience. Depending on the requirements of the system, the frequency dependent coefficient $\sqrt{k}$ can also be omitted, with the disadvantage that it would produce coloration of the sound (\cite{Vogel}).
 
 Without both filters, the signal of a given loudspeaker can be calculated by just applying a delay to the virtual source signal and multiplying it by a scalar.
-
 \begin{gather}
 \signal[wfs][frequency](f) = \signal[nsVirt][frequency](f) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} g
 \\
@@ -56,7 +55,16 @@ where $\signal[nsVirt][time](t) = -\signal[ns][time](t)$ is the signal transmitt
 	\label{figAngleCondition}
 \end{figure}
 
-This is the first approach we used in simulations. As an example, let's consider the situation in \autoref{oneReceiverPureDeltaScheme}. A sinusoidal signals of frequency $440 \si{Hz}$ is transmitted by the noise source in free-space conditions. All loudspeakers transmit signals according to \autoref{wfsSignalTime}. The signal received at the centre of the octagon is shown in \autoref{oneReceiverPureDeltaReceived}. Ideally, the signal received from the noise source $\Field[ns][time]$ and the loudspeaker array $\Field[wfs][time]$ should be opposite, but it is clear they aren't.
+This is the first approach we used in simulations. As an example, let's consider the situation in \autoref{oneReceiverOneNSScheme}. A sinusoidal signals of frequency $440 \si{Hz}$ is transmitted by the noise source in free-space conditions. All loudspeakers transmit signals according to \autoref{wfsSignalTime}. The signal received at the centre of the octagon is shown in \autoref{oneReceiverPureDeltaReceived}. Ideally, the signal received from the noise source $\Field[ns][time]$ and the loudspeaker array $\Field[wfs][time]$ should be opposite, but it is clear they aren't.
+
+\begin{figure}
+	\centering
+	\reflectbox{\rotatebox[origin=c]{180}{
+			\includegraphics[height=0.3\textheight]{./Img/Experiment11_scheme_oneReceiver.pdf}
+	}}
+	\caption[Scheme of basic scenario]{Scheme of basic scenario with one noise source and one point of measure}
+	\label{oneReceiverOneNSScheme}
+\end{figure}
 
 \begin{figure}
 	\centering
@@ -64,7 +72,6 @@ This is the first approach we used in simulations. As an example, let's consider
 	\caption{Signal measured}
 	\label{oneReceiverPureDeltaReceived}
 \end{figure}
-
 
 In order to quantify the performance, we will use the concept of cancellation. It is a frequency dependent parameter, defined as the power of the signal received from the noise source divided by the power of the total signal ($\Field[total][frequency] = \Field[ns][frequency] + \Field[wfs][frequency]$). We will express it usually in dB:
 \begin{equation}
@@ -77,7 +84,7 @@ Another useful parameter is what I call correction factor $\correctionFactor(f)$
 \correctionFactor(f) = -\frac{\Field[ns][frequency](f)}{\Field[wfs][frequency](f)}
 \end{equation}
 
-In the previous case, the cancellation and corrections factors are...
+In the previous case, the cancellation and corrections factors are $\cancellation = 3.6\si{dB}$ and $\correctionFactor = 1.1 e^{j40.3/360}$.
 
 Since the aim of WFS is achieving cancellation over an wide area, it is reasonable to measure the field not in just one location, but in a grid of points, and the cancellation will vary from one to another. In that case, it is convenient come up with some way of describing the overall performance with just one value that takes in account the field at every point of measure. The concept of global cancellation can be used, defined as the overall measured power with the loudspeakers turned off divided by the overall total power:
 \begin{equation}
@@ -90,12 +97,25 @@ In the same way, the correction factor has a global equivalent, the global corre
 \end{equation}
 where $\Field[wfs][frequency][vector] = [\Field[wfs][frequency][scalar][1],...,\Field[wfs][frequency][scalar][\numMeasPoints]]^T$ and $\Field[ns][frequency][vector] = [\Field[ns][frequency][scalar][1],...,\Field[ns][frequency][scalar][\numMeasPoints]]^T$.
 
-So, instead of one point, now let's see what happens at a grid of points (\autoref{}). It seems cancellation is bad at all of them. The global cancellation value is $blabla$. 
+So, instead of one point, now let's see what happens at a grid of points (\autoref{MultipleReceiverOneNSCanc}). It seems cancellation is bad at all of them. The global cancellation value is $\globalCancellation = 4.76 dB$. 
 
-It might be that the bad results have to do with the location of the noise source. Let's then see what happens for different positions.
-...
-Instead of just showing the 2D map of cancellations for each noise source positions, it will be more convenient for farther analysis to visualize it as a histogram of global cancellation values
+\begin{figure}
+	\centering			\includegraphics[height=0.3\textheight]{./Img/Experiment11_multipleReceiverCancel2Dmap.eps}
+	\caption[Cancellation 2D map]{Cancellation 2D map in dB}
+	\label{MultipleReceiverOneNSCanc}
+\end{figure}
+
+It might be that the bad results have to do with the location of the noise source. Let's then see what happens for different positions as shown in \autoref{MultRecMultNSscheme}. Instead of just showing the 2D map of cancellations for each noise source positions, it will be more convenient for farther analysis to visualize it as a histogram of global cancellation values
 \autoref{}.
+
+\begin{figure}
+	\centering
+	\reflectbox{\rotatebox[origin=c]{180}{
+			\includegraphics[height=0.3\textheight]{./Img/Experiment11_scheme_multipleReceiverMultipleNS.pdf}
+	}}
+	\caption[Scheme of multiple points of measure and multiple noise source positions]{Scheme of multiple points of measure and multiple noise source positions}
+	\label{MultRecMultNSscheme}
+\end{figure}
 
 However, all this has been tested just at one frequency. Maybe, the behaviour for the rest of frequencies is different. To check it out, we will make the noise source transmit a chirp signal from $20 \si{Hz}$ to $940 \si{Hz}$ (close to the aliasing spatial frequency) and then calculate the FFT (for more information on how the simulations are carried out, consult appendix \autoref{appendixSimulation}). The global cancellation for the original noise source position is shown in \autoref{}. It is obvious that the values are bad over the whole bandwidth.
 
