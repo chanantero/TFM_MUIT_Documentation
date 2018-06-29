@@ -171,21 +171,6 @@
 
 \usepackage{bm} % For bold fonts in a careful way
 
-\newtheorem{theorem}{Theorem}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\newcommand{\normalized}[1]{\frac{#1}{\norm{#1}}} % Normalized vector or unit vector. #1 must be a vector.
-\newcommand{\myMatrix}[1]{\bm{\mathit{#1}}}
-\newcommand{\norm}[1]{\left\| #1 \right\|}
-\newcommand{\pnorm}[2][1]{\left\| #2 \right\|_{#1}} % p-norm
-\newcommand{\abs}[1]{\left| #1 \right|}
-\newcommand{\variable}[1]{{\fontfamily{pcr}\selectfont #1}}
-\newcommand{\class}[1]{\textit{#1}}
-%\newcommand{\refeq}[1]{Eq.\ref{#1}} % The mathtools package uses a command also named \refeq. Comment this line in order to avoid conflicts
-\newcommand{\reffig}[1]{Fig.\ref{#1}}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\newcommand{\vectorproj}[2][]{\textit{proj}_{\vec{#1}}\vec{#2}}
-\newcommand{\scalarProd}[2]{\left\langle #1 , #2 \right\rangle}
-
 % 19/01/2018
 % For using the option importing images with latex made by Inkscape
 % Explanations: 
@@ -223,3 +208,25 @@
 % An alternative to etoolbox
 % http://ctan.math.washington.edu/tex-archive/macros/latex/contrib/multiaudience/multiaudience.pdf
 \usepackage{multiaudience}
+
+
+\newtheorem{theorem}{Theorem}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\normalized}[1]{\frac{#1}{\norm{#1}}} % Normalized vector or unit vector. #1 must be a vector.
+\newcommand{\myMatrix}[1]{\bm{\mathit{#1}}}
+\renewcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\pnorm}[2][1]{\left\| #2 \right\|_{#1}} % p-norm
+\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\variable}[1]{{\fontfamily{pcr}\selectfont #1}}
+\newcommand{\class}[1]{\textit{#1}}
+%\newcommand{\refeq}[1]{Eq.\ref{#1}} % The mathtools package uses a command also named \refeq. Comment this line in order to avoid conflicts
+\newcommand{\reffig}[1]{Fig.\ref{#1}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\vectorproj}[2][]{\textit{proj}_{\vec{#1}}\vec{#2}}
+\newcommand{\scalarProd}[2]{\left\langle #1 , #2 \right\rangle}
+\NewDocumentCommand{\FourierTransform}{m O{normal}}{
+\IfStrEqCase{#2}{
+	{normal}{\mathcal{F} \left\{ #1 \right\}}
+	{inverse}{\mathcal{F}^{-1} \left\{ #1 \right\}}
+}
+}
