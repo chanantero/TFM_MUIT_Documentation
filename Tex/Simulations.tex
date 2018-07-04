@@ -180,7 +180,7 @@ The reason for this is that, even though that term is expendable when generating
 
 In conclusion, a $\sqrt{jk/2\pi}$ filter must be implemented in WFS when the intention is to perform active cancellation of noise. Theoretically the filter has an anticausal response, but it must be implemented as a FIR digital filter, so inevitably it will introduce some amount of delay that must be compensated \cite{Lapini2018}. That sets a constraint on how close the noise source can be to the loudspeaker array, as we will see in next section.
 
-\section{Compromise between frequency filter length and accuracy}\label{}
+\section{Compromise between frequency filter length and accuracy}
 
 In previous section we've concluded that, in order to produce cancellation inside the area enclosed by the loudspeaker array, a filter with a frequency response $\sqrt{jk/2\pi} = \sqrt{jf/c}$ must be implemented in the form of a FIR digital filter. This has a drawback, and it is that the ideal theoretical filter is anticausal. This means that, in order to calculate the output signal $y$ at a time $t$, it needs to use input values that come after that time: $y(t)$ depends on $x(t+\Delta t)$, being $\Delta t > 0$. This is exactly like knowing the future. Mathematically speaking, that can make sense, and in simulations it isn't a limitation either since we know exactly what the noise source signal is going to be.
 But in real-time systems it is, obviously, impossible to implement.
@@ -201,19 +201,111 @@ When we say that $h(t)$ is anticausal, it is the same as saying that there are n
 \ast h(t - \distLinePrimSource/c)
 \end{equation}
 
-$h(t)$ is anticausal, but the delayed version $h(t - \distLinePrimSource/c)$ might not be as long as the minimum value of $t$ for which $h(t) \neq 0$, is bigger than $-\distLinePrimSource/c$. As the ideal $h(t)$ has an infinite response, the only option of making $h(t - \distLinePrimSource/c)$ causal is to use an approximation $\widetilde{h}$ that satisfies that $h(t) = 0$ for $t < -\distLinePrimSource/c$. An option could be truncating it. 
-\begin{equation}
-\widetilde{h}(t) = \begin{cases}
-0 & ,t < -\distLinePrimSource/c \\
-h(t) & ,-\distLinePrimSource/c \leq t \leq \distLinePrimSource/c \\
-0 & ,t > \distLinePrimSource/c
-\end{cases}
-\end{equation}
+If the filter impulse response $h(t)$ was limited in time ($h(t) = 0, t < -\tau_1$), then, although $h(t)$ would be anticausal, $h(t - \distLinePrimSource/c)$ will be causal as long as $\distLinePrimSource/c > \tau_1$. However, since the ideal $h(t)$ has an infinite response, the only option left is to use an approximation ($\widetilde{h}(t)$) that satisfies that $\widetilde{h}(t) = 0$ for $t < -\distLinePrimSource/c$.
 
-$\widetilde{h}(t - \distLinePrimSource/c)$ is causal, and hence would be implementable as a FIR filter. However, as it works as an approximation, it is reasonable to think that the smaller $\distLinePrimSource/c$ gets, the worse the approximation and the accuracy of WFS will be. So, there is actually a trade-off between performance and the distance between the source and the closest loudspeaker $\distLinePrimSource$.
+$\widetilde{h}(t - \distLinePrimSource/c)$ is causal, and hence could work in a real time system. If, in addition, it has a finite duration, so it would be implementable as a FIR digital filter. This means it must satisfy that $h(t) = 0, t \notin [-\tau_1, \tau_2]$. Matlab has its own internal functions to design FIR filters based on their frequency response, and in general returns impulse responses where $\tau_1 = \tau_2 = \tau$. However, as it works as an approximation, the smaller $\distLinePrimSource/c$ gets, the shorter the duration of the impulse response needs to be, and hence the worse the approximation and the accuracy of WFS will be. So, there is actually a trade-off between performance and the distance between the source and the closest loudspeaker $\distLinePrimSource$. The smaller the distance, the worse the performance. At a given sampling frequency, which is $44100 \si{Hz}$ in our simulations, the duration of the impulse response translates directly to number of coefficients of the digital filter.
 
+We should differentiate between the filter that implements the magnitude of the frequency response $h_1 = \sqrt{f/c}$ and the one that implements the frequency independent phase shift $h_2 = \sqrt{j}$, because they present different requirements. The real implementations will be called $\widetilde{h}_1$ and $\widetilde{h}_2$ respectively.
 
+We have plotted the histograms of attenuation for different lengths of the implementation of $\widetilde{h}_1$ (\autoref{globCancDifMagFilterLength}), keeping $\widetilde{h}_2$ with a high enough length so it resembles the ideal case and so doesn't produce any noticeable distortion. We can see that, below an order of $64$ (the order of a FIR filter is its length minus 1), the performance starts to get worse and worse. Above it, the improvement is not too noticeable.
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenMagnOrder_8.eps}
+		\caption{Order: $8$. $\tau = 0.091 \si{ms}$. ${\distLinePrimSource}_{min} = 3\si{cm}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenMagnOrder_16.eps}
+		\caption{Order: $16$. $\tau = 0.181 \si{ms}$. ${\distLinePrimSource}_{min} = 6\si{cm}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenMagnOrder_32.eps}
+		\caption{Order: $32$. $\tau = 0.363 \si{ms}$. ${\distLinePrimSource}_{min} = 12\si{cm}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenMagnOrder_64.eps}
+		\caption{Order: $64$. $\tau = 0.726 \si{ms}$. ${\distLinePrimSource}_{min} = 25\si{cm}$}
+	\end{subfigure}
+	
+	\caption{Global attenuation for different lengths of $h_1$}
+	\label{globCancDifMagFilterLength}
+\end{figure}
+
+We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must be implemented and, as we see in (\autoref{globCancDifHilFilterLength}), its length has to be much bigger than with the magnitude filter. $\widetilde{h}_1$ order is high enough so produced distortions are negligible. As can be observed, the order of $\widetilde{h}_2$ has to be much bigger than the order of $\widetilde{h}_1$, and it entails a more severe constraint. Orders of $4096$ and above get practically the same levels of attenuation, so it makes no sense to go beyond $4096$. However, such a long filter implies that the distance from the noise source to the closest loudspeaker should be at least $15.79 \si{m}$, a restriction that can't always be met.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenHilbOrder_512.eps}
+		\caption{Order: $512$. $\tau = 5.8 \si{ms}$. ${\distLinePrimSource}_{min} = 1.97\si{m}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenHilbOrder_1024.eps}
+		\caption{Order: $1024$. $\tau = 11.6 \si{ms}$. ${\distLinePrimSource}_{min} = 3.95\si{m}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenHilbOrder_2048.eps}
+		\caption{Order: $2048$. $\tau = 23.2 \si{ms}$. ${\distLinePrimSource}_{min} = 7.89\si{cm}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalAttenHilbOrder_4096.eps}
+		\caption{Order: $4096$. $\tau = 46.4 \si{ms}$. ${\distLinePrimSource}_{min} = 15.79\si{cm}$}
+	\end{subfigure}
+	
+	\caption{Global attenuation for different lengths of $h_2$}
+	\label{globCancDifHilFilterLength}
+\end{figure}
 
 
 
 \subsection{Alternatives}
+
+\section{Performance in non-free-space conditions}
+Every simulation that has been done so far has assumed free-space conditions. However, in a real set-up there are all kinds of reflections, diffraction effects, etc. Simulations of more real conditions are interesting. In order to do so, a Room Impulse Response generator was used. It has been developed by International Audio Laboratories Erlangen \cite{RIRgenerator}. It allows to define the dimensions of a room in the shape of a rectangular box ($[x,y,z]$), the reflection coefficients of each one of the six walls, and calculate, using the image method, the impulse responses between points specified by the user. Those impulse responses have been used instead of the free space ones.
+
+The order of the filters $\widetilde{h}_1$ and $\widetilde{h}_2$ are high enough so they don't cause any relevant inaccuracies. The same reflection coefficient $\reflectCoef$ has been used for every wall. \autoref{globAttenDifReflectCoef} shows the attenuation histogram for different values of $\reflectCoef$. When it goes above $x$, attenuation levels drop down below $x \si{dB}$.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\caption{$\beta = 0$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\caption{$\beta = 0.25$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\caption{$\beta = 0.5$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\caption{$\beta = 0.75$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\caption{$\beta = 1$}
+	\end{subfigure}
+	
+	\caption{Global attenuation for different reflection coefficients $\reflectCoef$}
+	\label{globAttenDifReflectCoef}
+\end{figure}
+
+\section{Truncation and low cut-off frequency}
+
+
+\section{Sampling frequency influence}
