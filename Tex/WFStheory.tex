@@ -71,16 +71,17 @@ The same happens for Rayleigh II integral (\autoref{RayleighII}) with the dipole
 \label{RayleighII2.5}
 \end{equation}
 
-Both integrals have the problem that the amplitude of the secondary source signals depends on the receiver position $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (closer or further from that line there will be amplitude errors inevitably). It can be done by modifying the amplitude factor $g = \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}$.
-Applying the stationary phase method, but now in the $\xdir$ direction, we would find that the main contribution to the pressure at a given point comes from the intersection of the secondary source line and the line that goes from the primary source to the receiver point. Taking advantage of this, we can change $\distLinePoint$ by $d$ and $\distLinePrimSource$ by $\abs{\PosTheo[primarySource][z]}$, so $g = \sqrt{\frac{d}{d + \abs{\PosTheo[primarySource][z]}}}$, making it independent from the receiver point (implementable in real WFS systems) \cite{Verheijen}.
+Both integrals have the problem that the amplitude of the secondary source signals depends on the receiver position $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (the precision of the reconstruction will inevitably degrade as we move away from that line). %(closer or further from that line there will be amplitude errors inevitably).
+It can be done by modifying the amplitude factor $g = \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}$.
+Applying the stationary phase method, but now in the direction of of the secondary source line $\sectionTheo$ we would find that the main contribution to the pressure at a given point comes from the intersection of $\sectionTheo$ and the line that goes from the primary source to the receiver point. Taking advantage of this, we can change $\distLinePoint$ by $d$ and $\distLinePrimSource$ by $d_{\PosTheoSubInd[primarySource]}$ (the distance between $L$ and the primary source location $\PosTheo[primarySource]$), so $g = \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}$, making it independent from the receiver point (implementable in real WFS systems) \cite{Verheijen}.
 
 \begin{equation}
-\CoefTheo[section][monopole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + \abs{\PosTheo[primarySource][z]}}}
+\CoefTheo[section][monopole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}
 \label{RayleighI2.5wfs}
 \end{equation}
 
 \begin{equation}
-\CoefTheo[section][dipole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + \abs{\PosTheo[primarySource][z]}}}
+\CoefTheo[section][dipole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}
 \label{RayleighII2.5wfs}
 \end{equation}
 

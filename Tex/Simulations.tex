@@ -73,10 +73,12 @@ This is the first approach we used in simulations. As an example, let's consider
 	\label{oneReceiverPureDeltaReceived}
 \end{figure}
 
-In order to quantify the performance, we will use the concept of cancellation. It is a frequency dependent parameter, defined as the power of the signal received from the noise source divided by the power of the total signal ($\Field[total][frequency] = \Field[ns][frequency] + \Field[wfs][frequency]$). The inverse of the cancellation is the attenuation. We will express them usually in dB:
+In order to quantify the performance, we will use the concept of attenuation. It is a frequency dependent parameter, defined as the power of the received signal at one point divided by the power of the signal received exclusively from the noise source. The inverse of the attenuation is the cancellation.
+
+We will express them usually in dB:
 \begin{gather}
-\cancellation(f) = 20\log{\left\lvert\frac{\Field[ns][frequency](f)}{\Field[wfs][frequency](f) + \Field[ns][frequency](f)}\right\rvert}\\
-\attenuation(f) = \cancellation^{-1}(f)
+\attenuation(f) = 20\log{\left\lvert\frac{\Field[wfs][frequency](f) + \Field[ns][frequency](f)}{\Field[ns][frequency](f)}\right\rvert}\\
+\cancellation(f) = \attenuation^{-1}(f)
 \end{gather}
 The maximum cancellation will happen when $\Field[ns][frequency] = -\Field[wfs][frequency]$.
 
@@ -271,41 +273,163 @@ We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must b
 \section{Performance in non-free-space conditions}
 Every simulation that has been done so far has assumed free-space conditions. However, in a real set-up there are all kinds of reflections, diffraction effects, etc. Simulations of more real conditions are interesting. In order to do so, a Room Impulse Response generator was used. It has been developed by International Audio Laboratories Erlangen \cite{RIRgenerator}. It allows to define the dimensions of a room in the shape of a rectangular box ($[x,y,z]$), the reflection coefficients of each one of the six walls, and calculate, using the image method, the impulse responses between points specified by the user. Those impulse responses have been used instead of the free space ones.
 
-The order of the filters $\widetilde{h}_1$ and $\widetilde{h}_2$ are high enough so they don't cause any relevant inaccuracies. The same reflection coefficient $\reflectCoef$ has been used for every wall. \autoref{globAttenDifReflectCoef} shows the attenuation histogram for different values of $\reflectCoef$. When it goes above $x$, attenuation levels drop down below $x \si{dB}$.
+The order of the filters $\widetilde{h}_1$ and $\widetilde{h}_2$ are high enough so they don't cause any relevant inaccuracies. The same reflection coefficient $\reflectCoef$ has been used for every wall. \autoref{globAttenDifReflectCoef} shows the attenuation histogram for different values of $\reflectCoef$. When it goes above $0.2$, cancellation levels drop down below $10 \si{dB}$.
 
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_0.eps}
 		\caption{$\beta = 0$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_10.eps}
 		\caption{$\beta = 0.25$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_20.eps}
 		\caption{$\beta = 0.5$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_50.eps}
 		\caption{$\beta = 0.75$}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_.eps}
-		\caption{$\beta = 1$}
 	\end{subfigure}
 	
 	\caption{Global attenuation for different reflection coefficients $\reflectCoef$}
 	\label{globAttenDifReflectCoef}
 \end{figure}
 
-\section{Truncation and low cut-off frequency}
+\subsection{GTAC anechoic chamber}
+The impulse responses from the anechoic chamber were measured...
+From the relation of distance and magnitude of the impulse response, we can suggest that the reflection coefficient is equivalent to...
 
+\section{Truncation and lower cut-off frequency}
+There is a remarkable phenomenon that can be observed through all simulations. If we take a look at any of the previously shown attenuation histograms, we will see that from approximately $200\si{Hz}$ down, the performance gets poorer as the frequency decreases. It is as if the system had a lower cut-off frequency of $200\si{Hz}$ below which it doesn't work properly. That transition region is there due to the fact that in practice, the line of secondary sources (the loudspeaker array) has a finite length, in other words, it is truncated. In order to explain this, it is convenient to recall some of the theoretical expressions of WFS.
+
+As we've already seen, the field created by a monopole source (primary source) located at $\PosTheo[primarySource]$ at a receiving point $\PosTheo$ is:
+\begin{equation}
+\Field[primarySource](\PosTheo) = \CoefTheo[primarySource](f)  \frac{e^{-jk\norm{\PosTheo - \PosTheo[primarySource]}}}{\norm{\PosTheo - \PosTheo[primarySource]}}
+\end{equation}
+where $f$ is the frequency, $\CoefTheo[primarySource](f)$ is the feeding coefficient to the source, and $k = \frac{2\pi}{\lambda}$ is the propagation constant.
+
+Rayleigh I 2.5D integral allows to replicate the field by an infinite line distribution of monopole sources (secondary sources), given the condition that all points where the field is replicated, as well as the primary source location and the secondary source line distribution ($\sectionTheo$), are all on the same plane, and that the secondary source line separates the reconstructed field region from the primary source. The expression is:
+\begin{equation}
+\begin{aligned}
+\Field(\PosTheo) &= \int_{\sectionTheo} \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}\PosTheo[section]\\
+\CoefTheo[section][monopole][rayleigh](\PosTheo[section]) &= \CoefTheo[primarySource] \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}
+\end{aligned}
+\end{equation}
+where $Q(\PosTheo[section], \PosTheo)$ is the feeding of the differential secondary monopole source located at $\PosTheo[section]$, $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]}$ is the distance from the primary source to the secondary source and $\distLinePoint = \norm{\PosTheo[section] - \PosTheo}$ is the distance from the secondary source to the reconstruction point and $d_{\PosTheoSubInd[primarySource]}$ is the distance between the primary source and the secondary source line. It is valid for values of $k\distLinePrimSource >> 1$. The field is replicated with correct amplitude over a line parallel to the secondary source line and separated a distance $d$.
+
+One of the reasons why Rayleigh I 2.5D integral is still far from practical applications is that the line distribution of monopoles $\sectionTheo$ has an infinite longitude, which is of course unrealistic. At some point the line has to be truncated, and hence the accuracy of the reconstructed field will be affected.
+
+In order to study this limitation, we can look at a simple scenario where a line of secondary sources of longitude $\sectionTheoLength$ meters is located at the x axis from from $-\sectionTheoLength/2$ to $\sectionTheoLength/2$, a primary source is located on the negative y axis at $\PosTheo[primarySource] = [0, -d_{\PosTheoSubInd[primarySource]}, 0]$ and the receiving point on the positive y axis at $\PosTheo = [0, d, 0]$. Depending on those four parameters, three distances ($\sectionTheoLength$, $d_{\PosTheoSubInd[primarySource]}$ and $d$) plus the frequency $f$, the accuracy of the synthesized field will vary.
+
+In this scenario, the reconstructed field at point $\PosTheo$ is:
+\begin{equation}
+\Field(\PosTheo) = \int_{-\sectionTheoLength/2}^{\sectionTheoLength/2} \CoefTheo[section][monopole][rayleigh](\PosTheo[section][x], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}\PosTheo[section][x]
+\label{Rayleigh2_5DTruncatedIntegral}
+\end{equation}
+where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]} = (d_{\PosTheoSubInd[primarySource]}^2 + \PosTheo[section][x]^2)^{1/2}$ is the distance from the primary source to the secondary source, $\distLinePoint = \norm{\PosTheo[section] - \PosTheo} = (d^2 + \PosTheo[section][x]^2)^{1/2}$ is the distance from the secondary source to the reconstruction point and $\cos\normPrimaryPropAngleSection = d_{\PosTheoSubInd[primarySource]}/\distLinePrimSource$ is the cosine of the angle of incidence.
+
+Two useful measures that allow to evaluate the accuracy are the relative field $\Field_\mathit{rel}(\PosTheo)$, this is, the resulting field divided by the ideal one produced by the primary source.
+\begin{equation}
+	\Field_\mathit{rel}(\PosTheo) = \frac{\Field(\PosTheo)}{\Field[primarySource](\PosTheo)}
+\end{equation}
+The closer $\Field_\mathit{rel}$ is to $1$ the better the accuracy. The starting point will be a very simple case, and then we will add some complexity.
+
+\begin{shownto}{private}
+Both measures depend on the spatial parameters of the scenario (position of primary source $\PosTheo[primarySource]$, shape and location of the second source line distribution $\sectionTheo$, and location of the receiving point $\PosTheo$) and the wavelength $\lambda$. However, if we scale all parameters by a factor $C$ ($\PosTheo[primarySource]^{(s)} = C \PosTheo[primarySource]$, $\PosTheo^{(s)} = C\PosTheo$, $\PosTheo[section]^{(s)} = C\PosTheo[section]$, $\lambda^{(s)} = C\lambda$) and recalculate the signal of each secondary source, the relative field will be exactly the same due to the properties of the integral. This fact is useful because allows to, for example, express all distances in wavelengths ($d^{(s)} = d/\lambda$, $d_{\PosTheoSubInd[primarySource]}^{(s)} = d_{\PosTheoSubInd[primarySource]}/\lambda$, $L^{(s)} = L/\lambda$) and fixate the wavelength to $1$ ($\lambda = 1$), reducing the number of variables from four to three.
+\end{shownto}
+
+\subsection{Ideal case: $\sectionTheoLength=\infty$}
+First, we consider an array of infinite length $\sectionTheoLength=\infty$.
+% where each monopole secondary source transmits a signal $Q_\mathit{perfect}$:
+%\begin{equation}
+%Q_\mathit{perfect}(\PosTheo[section], \PosTheo) = \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \left(\sqrt{\frac{j k}{2\pi}} + \frac{1}{\distLinePrimSource \sqrt{j 2 \pi k}}\right) \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+%\end{equation}
+Theoretically, any inexactitude must necessarily be produced by the application of the stationary point method in the dimensionality reduction from a plane to a line, and to the assumption that the primary source is in the far field $k\distLinePrimSource >> 1$ (\autoref{chapterWFStheory}).
+
+In numerical calculation of the integral in Matlab (\autoref{TruncIdealRecFarPSclose}) shows that when $d_{\PosTheoSubInd[primarySource]}$ gets smaller, the reconstructed field deteriorates, and so WFS is actually not useful under such conditions. A similar behaviour but much less severe is found when the primary source is in the far field but the receiving point is very near the secondary source line (\autoref{TruncIdealPSFarRecClose}).
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{Img/Experiment10_TruncationIdealCaseA.eps}
+		\caption{$d/\lambda \gg 1$}
+		\label{TruncIdealRecFarPSclose}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{Img/Experiment10_TruncationIdealCaseB.eps}
+		\caption{$d_{\PosTheoSubInd[primarySource]}/\lambda \gg 1$}
+		\label{TruncIdealPSFarRecClose}
+	\end{subfigure}
+	\caption{Magnitude and phase of the relative field for an infinite line array $\sectionTheoLength = \infty$}
+\end{figure}
+In conclusion, as long as both the primary source and the receiving point are not too close to the secondary source line, the precision won't be too distorted.
+
+\subsection{Primary source in the infinite}
+Let's take the case where the primary source is far: $d_{\PosTheoSubInd[primarySource]} \gg 1$. Then,
+\begin{gather*}
+	\cos\normPrimaryPropAngleSection \approx 1 \\ \distLinePrimSource \approx d \\ \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]} + d}} \approx \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]}}}
+\end{gather*}
+for all the segment $\PosTheo[section][x] \in [-\sectionTheoLength/2, \sectionTheoLength/2]$, so \autoref{Rayleigh2_5DTruncatedIntegral} simplifies to:
+\begin{multline}
+	P(\PosTheo) = \int_{-\sectionTheoLength/2}^{\sectionTheoLength/2} Q(x_{\PosTheoSubInd[section]}, \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}\PosTheo[section][x] =\\
+	= \left\{Q(x_{\PosTheoSubInd[section]}, \PosTheo) =  \frac{e^{-jkd_{\PosTheoSubInd[primarySource]}}}{\sqrt{d_{\PosTheoSubInd[primarySource]}}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]}}}\right\} = \\
+	= \frac{e^{-jkd_{\PosTheoSubInd[primarySource]}}}{\sqrt{d_{\PosTheoSubInd[primarySource]}}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]}}} \int_{-\sectionTheoLength/2}^{\sectionTheoLength/2} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}\PosTheo[section][x]
+	\label{truncDeductionI}
+\end{multline}
+
+The integral is actually the field generated by a linear source. When we are dealing with an infinite line source ($\sectionTheoLength \to \infty$), the exact solution is a scaled version of the zero-th order of the Hankel function of second type. Nonetheless it approximates very well to another much more useful expression:
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}x_{\PosTheoSubInd[section]} = -\pi j \mathrm{H_0^{(2)}(k d)} \approx \frac{e^{-jkd}}{\sqrt{kd}}\sqrt{\frac{2\pi}{j}}
+\label{fieldLinearSource}
+\end{equation}
+
+Substituting \autoref{fieldLinearSource} in \autoref{truncDeductionI}:
+\begin{equation}
+P(\PosTheo) \approx \frac{e^{-jkd_{\PosTheoSubInd[primarySource]}}}{\sqrt{d_{\PosTheoSubInd[primarySource]}}} \sqrt{\frac{j k}{2\pi}} \sqrt{\frac{d}{d_{\PosTheoSubInd[primarySource]}}} \frac{e^{-jkd}}{\sqrt{kd}}\sqrt{\frac{2\pi}{j}} = \frac{e^{-jk(d_{\PosTheoSubInd[primarySource]} + d)}}{d_{\PosTheoSubInd[primarySource]}} \approx \frac{e^{-jk(d_{\PosTheoSubInd[primarySource]} + d)}}{d_{\PosTheoSubInd[primarySource]} + d} = P_{\PosTheoSubInd[primarySource]}(\PosTheo)
+\end{equation}
+
+So, when $\sectionTheoLength \to \infty$, the synthesized field is the same as the field from the primary source, as stated by WFS theory. What happens when the length of the secondary source line gets shorter? It all comes dowm to the integral:
+\begin{equation}
+I(\lambda/\sectionTheoLength, d/\sectionTheoLength) = \int_{-\sectionTheoLength/2}^{\sectionTheoLength/2} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \mathrm{d}\PosTheo[section][x] = \int_{-1/2}^{1/2} \frac{e^{-j\frac{2\pi}{\lambda/\sectionTheoLength}\sqrt{(d/\sectionTheoLength)^2 + \PosTheo[section][x]^2}}}{\sqrt{(d/\sectionTheoLength)^2 + \PosTheo[section][x]^2}} \mathrm{d}\PosTheo[section][x]
+\label{lineSourceIntegralLfinite}
+\end{equation}
+
+\autoref{lineSourceIntegral} shows an example of how the integral evolves when increasing $\sectionTheoLength$. As we see, the magnitude and the phase oscillate and converges towards the value in \autoref{fieldLinearSource} when $\sectionTheoLength$ increases. It is pretty obvious that there is a transition period where $\sectionTheoLength$ is too small to produce accurate enough results.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Img/lineSourceIntegral.eps}
+	\caption{Field generated by a linear source of length $L$ ($d = 10$, $k = 1$)}
+	\label{lineSourceIntegral}
+\end{figure}
+
+As we've seen in \autoref{lineSourceIntegralLfinite}, $I$ depends actually just on $d/\sectionTheoLength$ and $\sectionTheoLength/\lambda$. In \autoref{lineSourceIntegralNorm} we've represented the value of $\sectionTheoLength/\lambda$ where the phase (and also the magnitude) starts to converge.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Img/LnormThreshold.eps}
+	\caption{Minimum value of $\sectionTheoLength/\lambda$ where the value of $I$ (\autoref{lineSourceIntegralLfinite}) starts to converge}
+	\label{lineSourceIntegralNorm}
+\end{figure}
+
+All this means that there is a lower cutoff frequency below which WFS is not useful. For example, \autoref{linseSourceIntegralGTAC} shows the cutoff frequency for a linear array of length $\sectionTheoLength = 0.18\cdot23 = 4.14\si{m}$, as one of the sides of the loudspeaker array in the GTAC anechoic chamber.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Img/freqThresholdGTAC.eps}
+	\caption{Cutoff frequency for a linear array whose length is $\sectionTheoLength = 0.18\cdot23$, as two of the sides of the loudspeaker array in the GTAC anechoic chamber}
+	\label{linseSourceIntegralGTAC}
+\end{figure}
+
+It's worth noticing that this analysis is done with a geometrically very simple scenario where the primary source is in the infinite, the receiving point is centred with respect to the secondary source line, we don't use complicated geometries as octagons, etc. The more variations we add, the more complex the results are. However, given what we observed in the simulations of the GTAC scenario, the existence of a lower cut-off frequency seems to be maintained even in those more complicated cases.
+
+A deeper theoretical analysis of the truncation artefacts can be found in \cite[Section 4.3]{Start1997}, where various analytical approximations are proposed.
 
 \section{Sampling frequency influence}
