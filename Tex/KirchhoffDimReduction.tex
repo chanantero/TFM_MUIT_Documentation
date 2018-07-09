@@ -12,6 +12,14 @@ Let's assume that all primary sources and the positions where we want to synthes
 		\item A given point of $\surfaceTheo$ (let's call it $\PosTheo[surface]$) is the result of adding a height $h$ to a point of $\sectionTheo$ ($\PosTheo[section]$), which is actually the projection of $\PosTheo[surface]$ onto $\wfsPlane$ ($\PosTheo[section] = \vectorproj[\wfsPlaneNormal]{\PosTheo[surface]}$): $\PosTheo[surface] = \PosTheo[section] + h\wfsPlaneNormal$
 	\end{itemize}}
 
+\begin{figure}[h]
+	\centering
+	\def\svgwidth{1\columnwidth}
+	\graphicspath{{../TFM/Img/}}
+	\input{../TFM/Img/Kirchoff2_5DTheoScheme.pdf_tex}
+	\caption{Scheme of Kirchhoff integral dimensionality reduction}
+\end{figure}
+
 In order to perform the dimensionality reduction, we calculate the contribution of each of lines that form $\surfaceTheo$, one for each of the points $\PosTheo[section]$ that constitute the curve $\sectionTheo$.
 
 \begin{gather}
@@ -114,7 +122,7 @@ The same reasoning can be applied to \autoref{lineIntII}, and the result is \cit
 I_2(\PosTheo[section]) \approx \widetilde{I_2}(\PosTheo[section]) = \frac{1}{2} \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normSecondPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
 \label{I2approx}
 \end{equation}
-where $\normSecondPropAngleSection$ is the angle between the inward normal vector $\surfaceNormal$ and the propagation direction from the secondary source to the receiving point $\PosTheo - \PosTheo[section]$. Hence, $\cos\normSecondPropAngleSection = \langle \frac{\PosTheo - \PosTheo[section]}{\norm{\PosTheo - \PosTheo[section]}}, \vec{n} \rangle$
+where $\normSecondPropAngleSection$ is the angle between the inward normal vector $\surfaceNormal$ and the propagation direction from the secondary source to the receiving point $\PosTheo - \PosTheo[section]$. Hence, $\cos\normSecondPropAngleSection = \scalarProd{\normalized{\PosTheo - \PosTheo[section]} }{\surfaceNormal}$.
 
 As with \autoref{I1approx}, \autoref{I2approx} can also be expressed as the strength of a secondary source $\CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo)$ propagated to the receiving point, but this time the secondary source is a dipole with the inward normal vector as broadside direction:
 \begin{equation}
