@@ -9,7 +9,16 @@ P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface])\frac{\partial G
 \label{KirchhoffHelmholtz}
 \end{equation}
 
-It expresses the pressure field $P(\vec{x_0})$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $\surfaceTheo$, as a function of the pressure at $\surfaceTheo$, and its directional derivative in the direction of $\surfaceNormal$, which is the inward pointing normal vector of $\surfaceTheo$. $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\Delta G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$).
+It expresses the pressure field $P(\vec{x_0})$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $\surfaceTheo$, as a function of the pressure at $\surfaceTheo$, and its directional derivative in the direction of $\surfaceNormal$, which is the inward pointing normal vector of $\surfaceTheo$ (\autoref{KirchhoffIntegralScheme}). $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\Delta G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$).
+
+\begin{figure}[h]
+	\centering
+	\def\svgwidth{1\columnwidth}
+	\graphicspath{{../TFM/Img/}}
+	\input{../TFM/Img/KirchhoffTheoScheme.pdf_tex}
+	\caption{Scheme of Kirchhoff integral scenario}
+	\label{KirchhoffIntegralScheme}
+\end{figure}
 
 The general form of $G(\PosTheo \vert \PosTheo_0)$ is:
 \begin{equation}
@@ -29,7 +38,15 @@ It can be interpreted as if the field inside $V$ was the result of the field gen
 \section{Rayleigh I and II Integrals}
 Kirchhoff-Helmholtz integral can be simplified at the cost of a fixed surface geometry and a non-zero field outside the volume, but those limitations are of little importance in practice for WFS. The simplified integrals, known as Rayleigh I and II integrals, are found by choosing a particular surface of integration and a suitable function $F$.
 
-The new volume is a hemisphere. The surface is then constituted by a flat circle $\surfaceTheoRayleighPlane$ with radius $R$ and the spherical surface $\surfaceTheoRayleighSemisphere$. All primary sources will be located behind the flat circle. 
+The new volume is a hemisphere. The surface is then constituted by a flat circle $\surfaceTheoRayleighPlane$ with radius $R$ and the spherical surface $\surfaceTheoRayleighSemisphere$. All primary sources will be located behind the flat circle (\autoref{RayleighIntegralScheme}).
+\begin{figure}[h]
+	\centering
+	\def\svgwidth{0.6\columnwidth}
+	\graphicspath{{../TFM/Img/}}
+	\input{../TFM/Img/RayleighTheoScheme.pdf_tex}
+	\caption{Scheme of Rayleigh integral scenario}
+	\label{RayleighIntegralScheme}
+\end{figure}
 %For didactic purposes and without loss of generalization, $\surfaceTheoRayleighPlane$ will be located at the plane $z=0$ ($\vec{n} = \hat{z}$), $\surfaceTheoRayleighSemisphere$ at $z>0$, and all primary sources will be located at $z<0$.
 When $R\rightarrow\infty$, the Sommerfeld condition is satisfied and the integral over $\surfaceTheoRayleighSemisphere$ becomes $0$ \cite{Verheijen}. This means $\PosTheo[surface] = [\PosTheo[surface][x], \PosTheo[surface][y], 0]$.
 

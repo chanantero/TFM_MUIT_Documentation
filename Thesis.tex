@@ -27,7 +27,7 @@
 	Co-tutor: Miguel Ferrer Contreras
 }
 \title{TFM MUIT}
-\newdate{date}{24}{01}{2018}
+\newdate{date}{11}{07}{2018}
 \date{\displaydate{date}}
 \maketitle
 \pagenumbering{Roman}
@@ -51,17 +51,25 @@ Abstract
 
 \newpage
 
+\begin{shownto}{private}
 \phantomsection
 \addcontentsline{toc}{chapter}{List of abbreviations}
 \chapter*{List of Abbreviations}
 %http://tex.stackexchange.com/questions/179631/list-of-symbols-and-abbreviations-just-as-two-columns
 \input{Tex/SymbolsAndAbbreviations.tex}
+\end{shownto}
 
 \newpage
 \setcounter{page}{1}
 \pagenumbering{arabic}
-\chapter[Introduction and State of the Art]{Introduction and State of the Art.\\What is wave field synthesis, active control noise, and why should we care?}
+
+\chapter[Introduction and State of the Art]{Introduction and State of the Art.\\What is wave field synthesis and active control noise?}
+\begin{shownto}{private}
 \input{Tex/Introduction.tex}
+\end{shownto}
+\begin{shownto}{public}
+Completar...
+\end{shownto}
 
 \chapter[Theoretical Basis]{Theoretical Basis.\\From Kirchhoff's Integral to Arrays of Loudspeakers.}\label{chapterWFStheory}
 \input{Tex/WFStheory.tex}
@@ -76,6 +84,10 @@ Abstract
 %\input{Tex/Experiments.tex}
 \input{Tex/Simulations.tex}
 
+\chapter{Conclussions}
+Completar...
+
+\begin{shownto}{private}
 %\appendix
 %\appendixpage
 \begin{appendices}
@@ -84,13 +96,14 @@ Abstract
 %\input{Tex/LinearSystemGrouping.tex}
 %\input{Tex/InfiniteLineSource.tex}
 %\input{Tex/Nomenclature.tex}
-\input{Tex/SubjectiveProyection3D.tex}
+%\input{Tex/SubjectiveProyection3D.tex}
 %\input{Tex/StationaryPhaseMethod.tex}
 %\input{Tex/SpatialAliasing.tex}
 %\input{Tex/TruncationEffects.tex}
 %\end{shownto}
-\input{Tex/SimulationProcess.tex}
+%\input{Tex/SimulationProcess.tex}
 \end{appendices}
+\end{shownto}
 	
 %\nocite{*} % Para que aparezcan sí o sí referencias que no han sido citadas explícitamente en el texto. El asterisco hace que aparezcan todas las referencias.
 \bibliographystyle{unsrt} % Aparecen listados por orden de citación.
