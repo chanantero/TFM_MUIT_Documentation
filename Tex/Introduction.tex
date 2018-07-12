@@ -1,12 +1,60 @@
-Wave Field Synthesis (WFS) is a method that, by means of an array of loudspeakers reproducing the proper audio signals, generates the acoustic wave field that a hypothetical source of sound would produce. For example, in a room where one of this arrays is set up, a person situated in any point of the room could hear the voice of a person moving through the room, as if someone that is not there was actually talking and walking.
+Wave Field Synthesis (WFS) is a method that, by means of an array of loudspeakers (large number of small and closely spaced loudspeakers) reproducing the proper audio signals, generates the acoustic wave field that a hypothetical source of sound would produce. In other words, it is a way of accurately replicating temporal, spectral and spatial properties of a sound field. For example, in a room where one of this arrays is set up, a person situated in any point of the room could hear the voice of a person moving through the room, as if someone that is not there was actually talking and walking.
 
-WFS takes advantage of a physical principle applied to wave fields (such as acoustic waves) expressed in Kirchhoff's integral. It states that in a wave propagation media, in any source-free volume $V$ delimited by a surface $S$, the wave field at any point in that space can be calculated if the value and the gradient of the wave field on the surface S are known. In other words, if we want to know the sound that one can hear at any point inside S, we just have to know the acoustic pressure and its gradient on S.
+WFS takes advantage of a physical principle applied to wave fields (such as acoustic waves) expressed in Kirchhoff's integral. Before getting into the details of mathematical expressions, let's just say that Kirchhoff's integral states that in a wave propagation media, in any source-free volume $\volumeTheo$ (fictive) delimited by a surface $\surfaceTheo$, the wave field at any point in that space can be calculated if the wave field and its gradient on the surface are known. In other words, if we want to know the sound that one can hear at any point inside $\volumeTheo$, we just have to measure the acoustic pressure and its gradient on $\surfaceTheo$.
 
-If we want that inside S one can hear the sound of a string quartet playing the Pachelbel's Canon outside S, we have two options. On the one hand, we hire a string quartet, make them play and the problem is solved. On the other hand, we have a more interesting solution. We record the wave field on each point of S when the musicians play, we build some audio reproducing system that can replicate the same values on S, and place a person inside. That system could be a hollow sphere with infinitesimal speakers on its surface.
+This fact can be turned around so it is useful, not only for knowing the field, but to replicate it.
+If, in another time and place, we manage to generate a surface acoustic field identical to the measured one, the wave field inside the volume will be the same as previous one (\autoref{WFSimageExplanation}).
+For example, if we want that inside $\volumeTheo$ one can hear the sound of a string quartet (located outside $volumeTheo$) playing the Pachelbel's Canon, we have two options. On the one hand, we hire a string quartet, make them play and the problem is solved. On the other hand, we have a more interesting solution. We record the wave field on each point of $\surfaceTheo$ when the musicians play, then we build some audio reproducing system that can replicate it, and place a person inside.
 
-Of course, we cannot build a surface with trillions of microscopic loudspeakers and place a person inside. Even if we could, it wouldn't have much practical use apart from an impressive virtual reality immersion. But thankfully, even with the truncation, the use of real loudspeakers, the presence of reflective objects, positioning the sources of noise inside S, etc. the final result is still pretty good. The work of engineers consist precisely on creating real systems with practical restrictions (limited budget, inaccuracies, etc.) that meet some performance requirements.
+How to build that system is the issue here. Kirchhoff's integral does actually provide some answers. It states that it could be done with a surface continuous distribution of an infinite number of monopole and dipole sources, called secondary sources. This means that if, at each point of $\surfaceTheo$, there was one monopole and one dipole infinitesimal sources driven by the right signals, the replication would be perfect inside $\volumeTheo$, and moreover, the field would be zero outside.
 
-WFS was created in Delft University in 19XX.
+Of course, Kirchhoff-Helmholtz integral can't simply be put into practice by technical means. It is not practical (or even possible) to build a hollow volume with tons of tiny loudspeakers on the surface and place a listener inside.
+% Even if we could, it wouldn't have much practical use apart from an impressive virtual reality immersion.
+But thankfully, in a real scenario where a finite amount of real loudspeakers are used, in realizable spatial distributions, with the presence of reflective objects, diffractions, where the air is not an ideal transport media for sound propagation (which is not, since it presents air damping effects)%\cite{Brandenburg2009}
+, etc., we can still aim for some degree of accuracy.
+A common practical case is one where loudspeakers distributed as a straight line (not a closed surface) are used to synthesize a field only in the horizontal plane, and below a certain frequency that is inversely proportional by the separation between loudspeakers (aliasing frequency). Simplifications such as that, are necessary to implement a feasible practical system. The price to pay is the limitation of the performance in terms of accuracy, bandwidth, spatial range where it works, etc. However, it still can provide good results, depending on the requirements of the system.
+% The work of engineers consist precisely on creating real systems with practical restrictions (limited budget, inaccuracies, etc.) that meet some performance requirements.
+
+Historically, WFS theory was developed in Delft University and first presented to the public in 1989 \cite{berkhout1989acoustic}. Since then, it has come a long way of development.
+
+During the 1990s, it was mainly a topic of research. 
+
+The idea was to simplify and transform Kirchhoff's integral into some other expression that was closer to real cases, and to analyse what inaccuracies  develop a real system that .
+
+The goal was to design simple systems that approximated the ideal case described by Kirchhoff's integral, and to analyse what inaccuracies that derive from it. Kirchhoff's integral 
+
+the goal was to analyse how much Kirchhoff's integral could be simplified before the derived inaccuracies were unacceptable.
+
+The goal was to design the simplest system...
+
+It wasn't until the 21st century when commercial applications were available: in 2003, the first cinema based on WFS started daily operation in Ilmenau (Germany), the first WFS system in a sound stage was installed in 2004 in Studio City (California, US), and in 2008 a large WFS installation is at the Chinese 6 Theatre in Los Angeles (US) \cite{Brandenburg2009}. Most of them where focused in performing high fidelity sound reproduction to create a true immersive sound experience.
+
+High fidelity reproduction systems have been an important topic for many decades. Our auditory system plays a major role in how we experience our environment. It is continuously locating objects in distance and direction. Even in situations where visual cues are dominant, our ears help us analyse the environment and create the feeling of immersion.
+
+All stereo techniques (two-channel stereo, quadraphony, 5.1 and 7.1 surround sound) used in cinema or theatres share the shortcoming that only the listeners located in a very limited area (also called sweet spot) experience good spatial immersion. In general, the more precise the spatial scene is, the smaller the sweet spot becomes. But WFS is able to synthesize a replica of the sound field over the whole listening area, and that is its biggest advantage, and the main motivation for the research \cite{Brandenburg2009}.
+
+In summary, WFS has been used mainly as a true immersive sound system. Application areas include cinema, theme parks and virtual reality installations.
+
+
+
+a complement to 3D video, as virtual reality.
+
+The requirements are usually defined by the human hearing capabilities, since quality subjective experience is the goal in immersive sound reproduction.
+localization in the horizontal plane is much better than the perception of elevation, this does not influence the audio-visual experience \cite{Brandenburg2009}
+
+Even with all existing limitations, WFS has already been used in some cinemas, concerts, etc.
+
+
+
+With psychoacoustic considerations concerning source localization mechanisms and the perception of source width and spaciousness, the necessary number of loudspeakers can be reduced drastically while maintaining spatial listening experience \cite{Musicology}.
+
+
+
+Aim
+Applications
+
+
+
 
 Another problem related to sound is the cancelation of noise. 
 
