@@ -1,5 +1,5 @@
 \section{Wave Field Synthesis}
-Wave Field Synthesis (WFS) is a method that, by means of an array of loudspeakers (large number of small and closely spaced loudspeakers) reproducing the proper audio signals, generates the acoustic wave field that a hypothetical source of sound would produce (virtual source). In other words, it is a way of accurately replicating temporal, spectral and spatial properties of a sound field. For example, in a room where one of this arrays is set up, a person situated in any point of the room could hear the voice of a person moving through the room, as if someone that is not there was actually talking and walking.
+Wave Field Synthesis (WFS) is a method that, by means of an array of loudspeakers (large number of small and closely spaced loudspeakers) reproducing the proper audio signals, generates the acoustic wave field that a hypothetical source of sound would produce (virtual primary source). In other words, it is a way of accurately replicating temporal, spectral and spatial properties of a sound field. For example, in a room where one of this arrays is set up, a person situated in any point of the room could hear the voice of a person moving through the room, as if someone that is not there was actually talking and walking.
 
 \begin{figure}[h]
 	\centering
@@ -11,13 +11,24 @@ Wave Field Synthesis (WFS) is a method that, by means of an array of loudspeaker
 		\centering
 		\includegraphics[width=0.9\columnwidth]{Img/WFSconceptVirtual.pdf}
 	\end{subfigure}
+\caption[WFS explanation]{WFS explanation \cite{icons1}}
+\label{WFSimageExplanation}
 \end{figure}
 
 WFS takes advantage of a physical principle applied to wave fields (such as acoustic waves) expressed in Kirchhoff's integral. Before getting into the details of mathematical expressions, let's just say that Kirchhoff's integral states that in a wave propagation media, in any source-free volume $\volumeTheo$ (fictive) delimited by a surface $\surfaceTheo$, the wave field at any point in that space can be calculated if the wave field and its gradient on the surface are known. In other words, if we want to know the sound that one can hear at any point inside $\volumeTheo$, we just have to measure the acoustic pressure and its gradient on $\surfaceTheo$.
 
+\begin{figure}[h]
+		\centering
+		\def\svgwidth{0.5\columnwidth}
+		\graphicspath{{../TFM/Img/}}
+		\input{../TFM/Img/KirchhoffTheoSchemeIncomplete.pdf_tex}
+	\caption[Kirchhoff integral]{Kirchhoff integral \cite{Brandenburg2009}}
+	\label{KirchhoffScheme}
+\end{figure}
+
 This fact can be turned around so it is useful, not only for knowing the field, but to replicate it.
-If, in another time and place, we manage to generate a surface acoustic field identical to the measured one, the wave field inside the volume will be the same as previous one (\autoref{WFSimageExplanation}).
-For example, if we want that inside $\volumeTheo$ one can hear the sound of a string quartet (located outside $volumeTheo$) playing the Pachelbel's Canon, we have two options. On the one hand, we hire a string quartet, make them play and the problem is solved. On the other hand, we have a more interesting solution. We record the wave field on each point of $\surfaceTheo$ when the musicians play, then we build some audio reproducing system that can replicate it, and place a person inside.
+If, in another time and place, we manage to generate a surface acoustic field identical to the measured one, the wave field inside the volume will be the same as previous one.
+For example, if we want that inside $\volumeTheo$ one can hear the sound of a string quartet (located outside $\volumeTheo$) playing the Pachelbel's Canon, we have two options. On the one hand, we hire a string quartet, make them play and the problem is solved. On the other hand, we have a more interesting solution. We record the wave field on each point of $\surfaceTheo$ when the musicians play, then we build some audio reproducing system that can replicate it, and place a person inside.
 
 How to build that system is the issue here. Kirchhoff's integral does actually provide some answers. It states that it could be done with a surface continuous distribution of an infinite number of monopole and dipole sources, called secondary sources. This means that if, at each point of $\surfaceTheo$, there was one monopole and one dipole infinitesimal sources driven by the right signals, the replication of the virtual source field would be perfect inside $\volumeTheo$, and moreover, the field would be zero outside.
 
@@ -29,7 +40,7 @@ A common practical case is one where loudspeakers distributed as a straight line
 % The work of engineers consist precisely on creating real systems with practical restrictions (limited budget, inaccuracies, etc.) that meet some performance requirements.
 
 Historically, WFS theory was developed in Delft University and first presented to the public in 1989 \cite{berkhout1989acoustic}. Since then, it has come a long way of development. During the 1990s, it was mainly a topic of research. Most of the research was focused in performing high fidelity sound reproduction to create a true immersive sound experience. 
-High fidelity reproduction systems have been an important topic for many decades. Our auditory system plays a major role in how we experience our environment. It is continuously locating objects in distance and direction. Even in situations where visual cues are dominant, our ears help us analyse the environment and create the feeling of immersion. All stereo techniques (two-channel stereo, quadraphony, 5.1 and 7.1 surround sound) used in cinema or theatres share the shortcoming that only the listeners located in a very limited area (also called sweet spot) experience good spatial immersion. In general, the more precise the spatial scene is, the smaller the sweet spot becomes. But WFS is able to synthesize a replica of the sound field over the whole listening area, and that is its biggest advantage, and the main motivation for the research \cite{Brandenburg2009}.
+High fidelity reproduction systems have been an important topic for many decades. Our auditory system plays a major role in how we experience our environment. It is continuously locating objects in distance and direction. Even in situations where visual cues are dominant, our ears help us analyse the environment and create the feeling of immersion. All stereo techniques (two-channel stereo, quadraphony, 5.1 and 7.1 surround sound) used in cinema or theatres share the shortcoming that only the listeners located in a very limited area, usually called sweet spot, experience good spatial immersion. In general, the more precise the spatial scene is, the smaller the sweet spot becomes. But WFS is able to synthesize a replica of the sound field over the whole listening area, and that is its biggest advantage, and the main motivation for the research \cite{Brandenburg2009}.
 Various cases of successful implementation proved that WFS could actually work to some degree at least on simple scenarios \cite{Start1997,Verheijen,Vogel}.
 
 \begin{shownto}{private}
@@ -43,7 +54,14 @@ Various cases of successful implementation proved that WFS could actually work t
 	\end{enumerate}
 \end{shownto}
 
-It wasn't until the 21st century when commercial applications were available \cite{Brandenburg2009}: in 2003, the first cinema based on WFS started daily operation in Ilmenau (Germany), the first WFS system in a sound stage was installed in 2004 in Studio City (California, US), and since 2008 a large WFS installation is at the Chinese 6 Theatre in Los Angeles (US). In living performance, it has been used to improve spatial coherence between audio and the visual part (Bregenz Festival, Austria), or to improve speech intelligibility (auditorium of the Technical University in Berlin \cite{Musicology}). Other application areas are theme parks, virtual reality, and even the music reproduction system of the car Audi Q7. Potential applications not fully implemented yet are adjustment of multi-purpose hall room acoustics and elimination of noise disturbance and unwanted echoes.
+It wasn't until the 21st century when commercial applications were available \cite{Brandenburg2009}: in 2003, the first cinema based on WFS started daily operation in Ilmenau (Germany), the first WFS system in a sound stage was installed in 2004 in Studio City (California, US), and since 2008 a large WFS installation is at the Chinese Theatre in Los Angeles (US) (\autoref{chineseTheatre}). In living performance, it has been used to improve spatial coherence between audio and the visual part (Bregenz Festival, Austria), or to improve speech intelligibility (auditorium of the Technical University in Berlin \cite{Musicology}). Other application areas are theme parks, virtual reality, and even the music reproduction system of the car Audi Q7. Potential applications not fully implemented yet are adjustment of multi-purpose hall room acoustics and elimination of noise disturbance and unwanted echoes.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Img/"Mann Chinese theatre 380 channel".jpg}
+	\caption{Chinese Theatre WFS installation by \emph{IOSONO} (Los Angeles, US)}
+	\label{chineseTheatre}
+\end{figure}
 
 Some of the implementations are really complex and use hundreds of loudspeakers, especially in big installations, but usually they are simpler and very far from the ideal scenario that Kirchhoff's integral describes. This has the drawback that performance gets deteriorated. Despite that, since quality subjective experience is the goal in immersive sound reproduction, the criteria to evaluate whether the performance is actually good or bad are psychoacoustics. If the listener's experience is good, then it is considered a good system and there's no point in aiming at a better performance that wouldn't be appreciated by the listener.
 When psychoacoustic mechanisms for perceiving source position and width and spaciousness are considered, the necessary number of loudspeakers can be reduced drastically while maintaining good spatial listening experience and reducing computational demands. The precision of the physical replication and thus the amount of data to be processed can be reduced without audible effects \cite{Musicology}. For example, localization in the horizontal plane is much better than the perception of elevation, so using just a horizontal line array of loudspeakers does not influence that much the audio-visual experience \cite{Brandenburg2009}. Another approach is directional audio coding (DirAC): signals are separated into directional and diffuse components \cite{Musicology}.

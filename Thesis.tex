@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper]{report}
 \usepackage{mystyle}
 \usepackage{Tex/myVariables}
+
 %% For extracting only equations, use the next package
 %\usepackage[active,generate=equations2,extract-env={equation,align}]{extract}
 %% In the new edocument created, called equations.tex, use the next package
@@ -13,7 +14,7 @@
 \providecommand\phantomsection{}
 
 % To generate different versions with the multiaudience package. Use the environment \begin{shownto}{audience1, audience2, ..., audienceN} content \end{shownto}
-\DefCurrentAudience{public}
+\DefCurrentAudience{private}
 \SetNewAudience{private}
 \SetNewAudience{public}
 
@@ -77,7 +78,7 @@ Abstract
 %%\input{Tex/Program.tex}
 
 \chapter{Simulations}
-%\input{Tex/Experiments.tex}
+\input{Tex/Experiments.tex}
 \input{Tex/Simulations.tex}
 
 \chapter{Conclussions}
@@ -103,6 +104,12 @@ Completar...
 	
 %\nocite{*} % Para que aparezcan sí o sí referencias que no han sido citadas explícitamente en el texto. El asterisco hace que aparezcan todas las referencias.
 \bibliographystyle{unsrt} % Aparecen listados por orden de citación.
+\AtEndEnvironment{thebibliography}{
+	% In case of error, add an empty line or a \par token at the ent of each bibitem: http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/hyperref/backref.pdf
+	% all your extra bibitems go here
+	\bibitem{icons1} Icons made by Pixel perfect from www.flaticon.com, and www.hooley.ie
+	
+}
 \bibliography{Tex/bibliography}
 
 \end{document}          
