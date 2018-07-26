@@ -18,6 +18,7 @@ Let's assume that all primary sources and the positions where we want to synthes
 	\graphicspath{{../TFM/Img/}}
 	\input{../TFM/Img/Kirchoff2_5DTheoScheme.pdf_tex}
 	\caption{Scheme of Kirchhoff integral dimensionality reduction}
+	\label{figCylindricalSurface}
 \end{figure}
 
 In order to perform the dimensionality reduction, we calculate the contribution of each of lines that form $\surfaceTheo$, one for each of the points $\PosTheo[section]$ that constitute the curve $\sectionTheo$.
@@ -25,14 +26,14 @@ In order to perform the dimensionality reduction, we calculate the contribution 
 \begin{gather}
 	\Field(\PosTheo) = \int_{\sectionTheo} \left( I_{1}(\PosTheo[section], \PosTheo) + I_2(\PosTheo[section], \PosTheo) \right)
 	d\PosTheo[section] \\
-	I_{1}(\PosTheo[section], \PosTheo) = \frac{-1}{4\pi}  \int_{-\infty}^{\infty} G(\PosTheo[section] + h\wfsPlaneNormal  \vert \PosTheo) \frac{\partial P(\PosTheo[section] + h\wfsPlaneNormal)}{\partial \mathbf{n}} dh \label{lineIntI} \\	I_{2}(\PosTheo[section], \PosTheo) = \frac{1}{4\pi} \int_{-\infty}^{\infty} P(\PosTheo[section] + h\wfsPlaneNormal)\frac{\partial G(\PosTheo[section] + h\wfsPlaneNormal\vert \PosTheo)}{\partial \mathbf{n}} dh \label{lineIntII}
+	I_{1}(\PosTheo[section], \PosTheo) = \frac{-1}{4\pi}  \int_{-\infty}^{\infty} G\left(\PosTheo[section] + h\wfsPlaneNormal \, \Big\vert \, \PosTheo \right) \frac{\partial P(\PosTheo[section] + h\wfsPlaneNormal)}{\partial \mathbf{n}} dh \label{lineIntI} \\	I_{2}(\PosTheo[section], \PosTheo) = \frac{1}{4\pi} \int_{-\infty}^{\infty} P(\PosTheo[section] + h\wfsPlaneNormal)\frac{\partial G\left(\PosTheo[section] + h\wfsPlaneNormal \, \Big\vert \, \PosTheo \right)}{\partial \mathbf{n}} dh \label{lineIntII}
 \end{gather}
 
 The field $P$ is assumed to be produced by a punctual source:
 \begin{equation}
 \Field(\PosTheo) = \Field[primarySource](\PosTheo) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo - \PosTheo[primarySource]}\right) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}]
 \end{equation}
-where $\CoefTheo$ is the signal strength of the source (complex scalar) and $\Diag\left(\normalized{\PosTheo - \PosTheo[primarySource]}\right)$ is the directivity pattern ofthe source in the $\normalized{\PosTheo - \PosTheo[primarySource]}$ direction.
+where $\CoefTheo$ is the signal strength of the source (complex scalar) and $\Diag\left(\normalized{\PosTheo - \PosTheo[primarySource]}\right)$ is the directivity pattern of the source in the $\normalized{\PosTheo - \PosTheo[primarySource]}$ direction.
 
 \begin{shownto}{private}
 Without loss of generalization, let's assume that $\wfsPlane$ is the $XZ$ plane ($y = 0$). This means that $\PosTheo = [\PosTheo[noValue][x], 0, \PosTheo[noValue][z]]$, $\PosTheo[primarySource] = [\PosTheo[primarySource][x], 0, \PosTheo[primarySource][z]]$ and $\wfsPlaneNormal = \ydir$. The directivity can be expressed as $\Diag\left(\azimuth, \elevation\right)$, where $\left(\azimuth, \elevation\right)$ expresses the direction $\normalized{\PosTheo - \PosTheo[primarySource]}$ in a spherical coordinate system:

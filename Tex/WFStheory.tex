@@ -9,7 +9,7 @@ P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface])\frac{\partial G
 \label{KirchhoffHelmholtz}
 \end{equation}
 
-It expresses the pressure field $\Field(\PosTheo)$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $\surfaceTheo$, as a function of the pressure at $\surfaceTheo$, and its directional derivative in the direction of $\surfaceNormal$, which is the inward pointing normal vector of $\surfaceTheo$ (\autoref{KirchhoffIntegralScheme}). $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\Delta G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$).
+It expresses the pressure field $\Field(\PosTheo)$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $\surfaceTheo$, as a function of the pressure at $\surfaceTheo$, and its directional derivative in the direction of $\surfaceNormal$, which is the inward pointing normal vector of $\surfaceTheo$ (\autoref{KirchhoffIntegralScheme}). $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\nabla^2 G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$).
 
 \begin{figure}[h]
 	\centering
@@ -29,7 +29,7 @@ where $F(\PosTheo \vert \PosTheo_0)$ is any function that satisfies the Helmholt
 
 If $F = 0$:
 \begin{equation}
-P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface]) G(\PosTheo[surface] \vert \PosTheo)\left(jk + \frac{1}{\norm{\PosTheo - \PosTheo[surface]}}\right)\cos\normSecondPropAngle - G(\PosTheo[surface] \vert \PosTheo) \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} \right) dS
+P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface]) \GreenFunc[{\PosTheo - \PosTheo[surface]}] \left(jk + \frac{1}{\norm{\PosTheo - \PosTheo[surface]}}\right)\cos\normSecondPropAngle - \GreenFunc[{\PosTheo - \PosTheo[surface]}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} \right) dS
 \end{equation}
 where $\normSecondPropAngle = \left\langle \frac{\PosTheo - \PosTheo[surface]}{\norm{\PosTheo - \PosTheo[surface]}} , \vec{n} \right\rangle$ is the angle between the inward normal vector and the vector that passes through the point at the surface $\PosTheo[surface]$ and $\PosTheo$.
 

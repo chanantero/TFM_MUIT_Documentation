@@ -204,6 +204,10 @@ In conclusion, a $\sqrt{jk/2\pi}$ filter must be implemented in WFS when the int
 
 \section{Compromise between frequency filter length and accuracy}
 
+\begin{shownto}{private}
+	Consultar \cite{FrankSchutz2015}
+\end{shownto}
+
 In previous section we've concluded that, in order to produce cancellation inside the area enclosed by the loudspeaker array, a filter with a frequency response $\sqrt{jk/2\pi} = \sqrt{jf/c}$ must be implemented in the form of a FIR digital filter. This has a drawback, and it is that the ideal theoretical filter is anticausal. This means that, in order to calculate the output signal $y$ at a time $t$, it needs to use input values that come after that time: $y(t)$ depends on $x(t+\Delta t)$, being $\Delta t > 0$. This is exactly like knowing the future. Mathematically speaking, that can make sense, and in simulations it isn't a limitation either since we know exactly what the noise source signal is going to be.
 But in real-time systems it is, obviously, impossible to implement.
 
