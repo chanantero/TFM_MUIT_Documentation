@@ -157,10 +157,14 @@
 
 \newcommand{\cancellation}{C}
 \newcommand{\globalCancellation}{C_g}
+\newcommand{\attenuation}{A} % Obsolete
+\newcommand{\globalAttenuation}{A_g} % Obsolete
+\newcommand{\gain}{G}
+\newcommand{\globalGain}{G_g}
+\newcommand{\averageGain}{G_a}
 \newcommand{\correctionFactor}{\Psi}
-\newcommand{\globalCorrectionFactor}{\Psi_g}
-\newcommand{\attenuation}{A}
-\newcommand{\globalAttenuation}{A_g}
+\newcommand{\globalCorrectionFactor}{\Psi_g} % Global correction factor that minimizes the global gain
+\newcommand{\globalCorrectionFactorAverGain}{\Psi^{'}} % Global correction factor that minimizes the average gain
 
 \newcommand{\GreenFunc}[1][\vec{x}]{
 \frac{e^{-jk\norm{#1}}}{\norm{#1}}

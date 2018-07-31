@@ -66,6 +66,7 @@ P(\PosTheo) = \frac{1}{2\pi} \int_{\surfaceTheoRayleighPlane} P(\PosTheo[surface
 It presents a similar scenario as Raileigh I integral, but instead of monopole secondary sources, it uses dipole sources driven by two times the pressure at plane $\surfaceTheoRayleighPlane$.
 
 \section{Dimensionality reduction: Kirchhoff-Helmholtz 2.5D Integral}
+\label{KirchoffDimReduction}
 \input{\TexFolder KirchhoffDimReduction.tex}
 
 \section{Rayleigh 2.5D I and II integrals}
@@ -93,7 +94,7 @@ The same happens for Rayleigh II integral (\autoref{RayleighII}) with the dipole
 Both integrals have the problem that the amplitude of the secondary source signals depends on the receiver position $\PosTheo$, which makes impossible to replicate the field of the primary source over the whole area simultaneously. However, one can replicate the field with high precision over a line parallel to the secondary source line and separated a distance $d$ (the precision of the reconstruction will inevitably degrade as we move away from that line). %(closer or farther from that line there will be amplitude errors inevitably).
 It can be done by modifying the amplitude factor $g = \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}$.
 Applying the stationary phase method, but now in the direction of the secondary source line $\sectionTheo$ we would find that the main contribution to the pressure at a given point comes from the intersection of $\sectionTheo$ and the line that goes from the primary source to the receiver point % (the phase becomes stationary)
-. Taking advantage of this, we can change $\distLinePoint$ by $d$ and $\distLinePrimSource$ by $d_{\PosTheoSubInd[primarySource]}$ (the primary source location $\PosTheo[primarySource]$ and the closest point at $\sectionTheo$, \autoref{figRayleighDimRed}), so $g = \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}$, making it independent from the receiver point (implementable in real WFS systems) \cite{Verheijen}.
+. Taking advantage of this, we can change $\distLinePoint$ by $d$ and $\distLinePrimSource$ by $d_{\PosTheoSubInd[primarySource]}$ (distance between the primary source location $\PosTheo[primarySource]$ and the closest point at $\sectionTheo$, \autoref{figRayleighDimRed}), so $g = \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}$, making it independent from the receiver point (implementable in real WFS systems) \cite{Verheijen}.
 
 \begin{figure}[h]
 	\centering
