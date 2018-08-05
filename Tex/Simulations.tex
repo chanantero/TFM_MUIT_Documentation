@@ -92,10 +92,10 @@ This is the first approach we used in simulations. As an example, let's consider
 	\caption{Simulation in simple scenario with one noise source and one point of measure}
 \end{figure}
 
-In order to quantify the performance, we will use the concept of gain $\gain$. It is a frequency dependent parameter, defined as the power of the received signal at a given point divided by the power of the signal received exclusively from the noise source. The inverse of the gain is the cancellation $\cancellation$. We will express them usually in dB:
+In order to quantify the performance, we will use the concept of gain $\gain$. It is a frequency dependent parameter, defined as the power of the received signal at a given point divided by the power of the signal received exclusively from the noise source. %The inverse of the gain is the cancellation $\cancellation$. We will express them usually in dB:
 \begin{gather}
-\gain(f) = 10\log{\left\lvert\frac{\Field[wfs][frequency](f) + \Field[ns][frequency](f)}{\Field[ns][frequency](f)}\right\rvert^2}\quad\si{dB}\\
-\cancellation(f) = -\gain(f),
+\gain(f) = 10\log{\left\lvert\frac{\Field[wfs][frequency](f) + \Field[ns][frequency](f)}{\Field[ns][frequency](f)}\right\rvert^2}\quad\si{dB}%\\
+%\cancellation(f) = -\gain(f),
 \end{gather}
 where $\Field[ns][frequency](f)$ and $\Field[wfs][frequency](f)$ are the frequency components at $f \si{Hz}$ of the signals received from the noise source and loudspeaker array respectively. From now on, the frequency dependence will not be explicitly indicated: $\gain = \gain(f)$, $\Field[ns][frequency] = \Field[ns][frequency](f)$, etc.
 The maximum cancellation will happen when $\Field[ns][frequency] = -\Field[wfs][frequency]$.
@@ -105,12 +105,12 @@ Another useful parameter is what I call correction factor $\correctionFactor$. I
 \correctionFactor = -\frac{\Field[ns][frequency]}{\Field[wfs][frequency]}
 \end{equation}
 
-In the previous case, the cancellation and corrections factors are $\cancellation = 3.6\si{dB}$ and $\correctionFactor = 1.1 e^{j40.3/360}$.
+In the previous case, the gain and corrections factors are $\gain = 3.6\si{dB}$ and $\correctionFactor = 1.1 e^{j40.3/360}$.
 
 Since the aim of WFS is achieving cancellation over an wide area, it is reasonable to measure the field not in just one location, but in a grid of points, and the cancellation will vary from one to another. In that case, it is convenient come up with some way of describing the overall performance with just one value that takes in account the field at every point of measure.
 The concept of average gain, $\averageGain$, can be used. Assuming there are $\numMeasPoints$ points of measure:
 \begin{equation}
-	\averageGain = \frac{1}{\numMeasPoints} \sum_{m=1}^\numMeasPoints \abs{\frac{\Field[wfs][frequency][scalar][m] + \Field[ns][frequency][scalar][m]}{\Field[ns][frequency][scalar][m]}}^2,
+	\averageGain = 10\log\left(\frac{1}{\numMeasPoints} \sum_{m=1}^\numMeasPoints \abs{\frac{\Field[wfs][frequency][scalar][m] + \Field[ns][frequency][scalar][m]}{\Field[ns][frequency][scalar][m]}}^2\right) \quad \si{dB},
 \end{equation}
 where $\Field[wfs][frequency][scalar][m]$ and $\Field[ns][frequency][scalar][m]$ are the field produced at the $m$-th point of measure by the loudspeaker array and the noise source respectively.
 
@@ -298,7 +298,8 @@ If, in addition, it has a finite duration, it would be implementable as a FIR di
 
 We should differentiate between the filter that implements the magnitude of the frequency response $h_1 = \sqrt{f/c}$ and the one that implements the frequency independent phase shift $h_2 = \sqrt{j}$, because they present different requirements. The real implementations will be called $\widetilde{h}_1$ and $\widetilde{h}_2$ respectively.
 
-We have plotted the histograms of attenuation for different lengths of the implementation of $\widetilde{h}_1$ (\autoref{globCancDifMagFilterLength}), keeping $\widetilde{h}_2$ with a high enough length so it resembles the ideal case and doesn't produce any noticeable distortion. We can see that, below an order of $64$ (the order of a FIR filter is its length minus 1), the performance starts to get worse and worse. Above it, the improvement is not too noticeable.
+We have plotted the histograms of gain for different lengths of the implementation of $\widetilde{h}_1$ (\autoref{gainAverDifMagFilterLength}), keeping $\widetilde{h}_2$ with a high enough length so it resembles the ideal case and doesn't produce any noticeable distortion. We can see that, below an order of $64$ (the order of a FIR filter is its length minus 1), the performance starts to get worse and worse. Above it, the improvement is not too noticeable.
+\begin{shownto}{publicGlobal}
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
@@ -322,12 +323,40 @@ We have plotted the histograms of attenuation for different lengths of the imple
 		\caption{Order: $64$. $\tau = 0.726 \si{ms}$. ${\distLinePrimSource}_{min} = 25\si{cm}$}
 	\end{subfigure}
 	
-	\caption{Global attenuation for different lengths of $h_1$}
+	\caption{Global gain for different lengths of $h_1$}
 	\label{globCancDifMagFilterLength}
 \end{figure}
+\end{shownto}
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalGainAverMagnOrder_8.eps}
+		\caption{Order: $8$. $\tau = 0.091 \si{ms}$. ${\distLinePrimSource}_{min} = 3\si{cm}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalGainAverMagnOrder_16.eps}
+		\caption{Order: $16$. $\tau = 0.181 \si{ms}$. ${\distLinePrimSource}_{min} = 6\si{cm}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalGainAverMagnOrder_32.eps}
+		\caption{Order: $32$. $\tau = 0.363 \si{ms}$. ${\distLinePrimSource}_{min} = 12\si{cm}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_globalGainAverMagnOrder_64.eps}
+		\caption{Order: $64$. $\tau = 0.726 \si{ms}$. ${\distLinePrimSource}_{min} = 25\si{cm}$}
+	\end{subfigure}
+	
+	\caption{Average gain for different lengths of $h_1$}
+	\label{gainAverDifMagFilterLength}
+\end{figure}
 
-We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must be implemented and, as we see in (\autoref{globCancDifHilFilterLength}), its length has to be much bigger than with the magnitude filter. $\widetilde{h}_1$ order is high enough so produced distortions are negligible. As can be observed, the order of $\widetilde{h}_2$ has to be much bigger than the order of $\widetilde{h}_1$, and it entails a more severe constraint. Orders of $4096$ and above get practically the same levels of attenuation, so it makes no sense to go beyond $4096$. However, such a long filter implies that the distance from the noise source to the closest loudspeaker should be at least $15.79 \si{m}$, a restriction that can't always be met.
 
+We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must be implemented and, as we see in (\autoref{gainAverDifHilFilterLength}), its length has to be much bigger than with the magnitude filter. $\widetilde{h}_1$ order is high enough so produced distortions are negligible. As can be observed, the order of $\widetilde{h}_2$ has to be much bigger than the order of $\widetilde{h}_1$, and it entails a more severe constraint. Orders of $4096$ and above get practically the same levels of attenuation, so it makes no sense to go beyond $4096$. However, such a long filter implies that the distance from the noise source to the closest loudspeaker should be at least $15.79 \si{m}$, a restriction that can't always be met.
+\begin{shownto}{publicGlobal}
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
@@ -351,8 +380,36 @@ We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must b
 		\caption{Order: $4096$. $\tau = 46.4 \si{ms}$. ${\distLinePrimSource}_{min} = 15.79\si{m}$}
 	\end{subfigure}
 	
-	\caption{Global attenuation for different lengths of $h_2$}
+	\caption{Global gain for different lengths of $h_2$}
 	\label{globCancDifHilFilterLength}
+\end{figure}
+\end{shownto}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_gainAverHilbOrder_512.eps}
+		\caption{Order: $512$. $\tau = 5.8 \si{ms}$. ${\distLinePrimSource}_{min} = 1.97\si{m}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_gainAverHilbOrder_1024.eps}
+		\caption{Order: $1024$. $\tau = 11.6 \si{ms}$. ${\distLinePrimSource}_{min} = 3.95\si{m}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_gainAverHilbOrder_2048.eps}
+		\caption{Order: $2048$. $\tau = 23.2 \si{ms}$. ${\distLinePrimSource}_{min} = 7.89\si{m}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment12_gainAverHilbOrder_4096.eps}
+		\caption{Order: $4096$. $\tau = 46.4 \si{ms}$. ${\distLinePrimSource}_{min} = 15.79\si{m}$}
+	\end{subfigure}
+	
+	\caption{Average gain for different lengths of $h_2$}
+	\label{gainAverDifHilFilterLength}
 \end{figure}
 
 \showto{private}{
@@ -362,7 +419,7 @@ We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must b
 \section{Performance in non-free-space conditions}
 Every simulation that has been done so far has assumed free-space conditions. However, in a real set-up there are all kinds of reflections, diffraction effects, etc. Simulations of more real conditions are interesting. In order to do so, a Room Impulse Response generator was used. It has been developed by International Audio Laboratories Erlangen \cite{RIRgenerator}. It allows to define the dimensions of a room in the shape of a rectangular box ($[x,y,z]$), the reflection coefficients of each one of the six walls, and calculate, using the image method, the impulse responses between points specified by the user. Those impulse responses have been used instead of the free space ones.
 
-The order of the filters $\widetilde{h}_1$ and $\widetilde{h}_2$ are high enough so they don't cause any relevant inaccuracies. The same reflection coefficient $\reflectCoef$ has been used for every wall. The room dimensions have been choosen to fit in every noise source: $[8, 11.2, 4]\si{m}$, and all sources, loudspeakers and receiving points have a height of $1.65\si{m}$ (\autoref{roomDimFig}).
+The order of the filters $\widetilde{h}_1$ and $\widetilde{h}_2$ are high enough so they don't cause any relevant inaccuracies. The same reflection coefficient $\reflectCoef$ has been used for every wall. Room dimensions have been chosen to resemble the actual listening room dimensions: $[4.48, 9.13, 2.64]\si{m}$, and all sources, loudspeakers and receiving points are located at a height of $1.65\si{m}$ (\autoref{roomDimFig}).
 
 \begin{figure}
 	\centering
@@ -375,38 +432,82 @@ The order of the filters $\widetilde{h}_1$ and $\widetilde{h}_2$ are high enough
 \label{roomDimFig}
 \end{figure}
 
-\autoref{globAttenDifReflectCoef} shows the attenuation histogram for different values of $\reflectCoef$. When it goes above $0.2$, cancellation levels drop down below $10 \si{dB}$.
+\autoref{gainAverDifReflectCoef} shows the average gain histogram for different values of $\reflectCoef$. When it goes above $0.2$, the average gain reaches levels above $-10 \si{dB}$.
 
+\begin{shownto}{private,publicGlobal}
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_0.eps}
-		\caption{$\beta = 0$}
+		\caption{$\reflectCoef = 0$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_10.eps}
-		\caption{$\beta = 0.25$}
+		\caption{$\reflectCoef = 0.1$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_20.eps}
-		\caption{$\beta = 0.5$}
+		\caption{$\reflectCoef = 0.2$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_globalAttenReflCoef_50.eps}
-		\caption{$\beta = 0.75$}
+		\caption{$\reflectCoef = 0.5$}
 	\end{subfigure}
 	
 	\caption{Global attenuation for different reflection coefficients $\reflectCoef$}
 	\label{globAttenDifReflectCoef}
 \end{figure}
+\end{shownto}
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_gainAverReflCoef_0.eps}
+		\caption{$\reflectCoef = 0$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_gainAverReflCoef_10.eps}
+		\caption{$\reflectCoef = 0.1$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_gainAverReflCoef_20.eps}
+		\caption{$\reflectCoef = 0.2$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{../TFM/Img/Experiment13_gainAverReflCoef_50.eps}
+		\caption{$\reflectCoef = 0.5$}
+	\end{subfigure}
+	
+	\caption{Average gain for different reflection coefficients $\reflectCoef$}
+	\label{gainAverDifReflectCoef}
+\end{figure}
 
-\subsection{GTAC anechoic chamber}
-The impulse responses from the anechoic chamber were measured...
-From the relation of distance and magnitude of the impulse response, we can suggest that the reflection coefficient is equivalent to...
+\subsection{GTAC listening room}
+The real impulse responses in the listening room are available in the research group website \cite{GTACroom}. They were measured with high precision for a rectangular grid of points of size $24$x$15$ separated a distance of $20\si{cm}$ between adjacent nodes \cite{Czy2011}. We could use those responses in calculations instead of the simulated ones. However, we found the limitation that
+this measures were done only for the loudspeaker array, but not for loudspeakers outside the array in arbitrary positions. So, responses for potential noise sources are not available.
+
+Nonetheless, there is an approach that can help us estimate what the performance in the real set up would be. We have seen that the existence of reflective surfaces worsens performance. The impulse response $h(t)$ from a source to a measuring point does not follow any more the ideal monopole free-space propagation equation in which the whole WFS theory is based.
+
+In the time domain, the propagation in free-space conditions of a signal $\signal[ns][time](t)$ emitted by a monopole source to a given measure point separated a distance $d$, consists just of a delay equal to the time it takes to the signal to arrive at the measure point ($\tau = d/c$, where $c$ is the speed of sound) and an amplitude reduction proportional to the distance between the source and the measure point ($1/d$):
+\begin{equation}
+\Field[noValue][time](t) = \signal[ns][time](t) \ast h(t) = \signal[ns][time](t) \ast \frac{1}{d}\delta(t - \tau).
+\end{equation}
+
+In the frequency domain, this translates to
+\begin{equation}
+\Field[noValue][frequency](f) = \signal[ns][frequency](f) \ast H(f,d) = \signal[ns][frequency](f) \ast \frac{e^{-j\frac{2\pi f}{c}d}}{d}
+\end{equation}
+
+A way of visualizing the deterioration is comparing the magnitude of the ideal response for a given distance, with the magnitude of the actual one. In \autoref{acPathRespRealComp} the ideal response is represented by a line and the real one is represented with dots, where each dot represents a measure point. The $x$ value is the distance between source and receiver, and the $y$ value is the magnitude of the frequency response $\abs{H}$.
+
+The difference is evident. Ideally, all dots would lie on the line, but they don't. And the further away they are from the source, the more scattered they appear. But, how would this affect performance? We can make a rough estimate by comparing it with the deterioration produced in simulated scenarios. \autoref{acPathRespSimulComp} uses the same type of representation, but in this case, the impulse responses have not been measured in the real set up, but calculated with the Room Impulse Response generator using the listening room dimensions. A visual comparison suggests that the reflection coefficient $\reflectCoef$ that generates a most similar scenario to \autoref{acPathRespRealComp} is $\reflectCoef = X$. The average gain histogram simulated with that value, for the noise source configuration already used in previous subsection (\autoref{roomDimFig}) is shown in \autoref{gainAverSimilarReflectCoef}.
 \end{shownto}
 
 \section{Truncation and lower cut-off frequency} % Experiment10.m
