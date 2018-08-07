@@ -14,7 +14,7 @@
 \providecommand\phantomsection{}
 
 % To generate different versions with the multiaudience package. Use the environment \begin{shownto}{audience1, audience2, ..., audienceN} content \end{shownto}
-\DefCurrentAudience{private}
+\DefCurrentAudience{public}
 \SetNewAudience{private}
 \SetNewAudience{public}
 \SetNewAudience{publicGlobal}
@@ -43,7 +43,7 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Abstract}
 \chapter*{Abstract}
-Abstract
+Completar
 
 \newpage
 
@@ -66,8 +66,7 @@ Abstract
 \pagenumbering{arabic}
 
 \chapter[Introduction and State of the Art]{Introduction and State of the Art.\\What is wave field synthesis and active control noise?}
-\input{Tex/Introduction.tex}
-
+\input{\TexFolder/Introduction.tex}
 
 \chapter[Theoretical Basis]{Theoretical Basis.\\From Kirchhoff's Integral to Arrays of Loudspeakers.}\label{chapterWFStheory}
 \input{Tex/WFStheory.tex}
@@ -78,12 +77,12 @@ Abstract
 %\input{Tex/FunctioningTool.tex}
 %%\input{Tex/Program.tex}
 
-\chapter{Preliminary analysis of potential sources of error}
-\input{Tex/Experiments.tex}
+\chapter{Analysis of potential sources of error}
+%\input{Tex/Experiments.tex}
 \input{Tex/Simulations.tex}
 
 \chapter{Experimental measures}
-
+Completar
 
 \chapter{Conclussions}
 Completar...
@@ -108,12 +107,13 @@ Completar...
 	
 %\nocite{*} % Para que aparezcan sí o sí referencias que no han sido citadas explícitamente en el texto. El asterisco hace que aparezcan todas las referencias.
 \bibliographystyle{unsrt} % Aparecen listados por orden de citación.
-\AtEndEnvironment{thebibliography}{
-	% In case of error, add an empty line or a \par token at the ent of each bibitem: http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/hyperref/backref.pdf
-	% all your extra bibitems go here
-	\bibitem{icons1} Icons made by Pixel perfect from www.flaticon.com, and www.hooley.ie
-	
-}
+% First solution. Now I just created a @misc bibtex entry.
+%\AtEndEnvironment{thebibliography}{
+%	% In case of error, add an empty line or a \par token at the ent of each bibitem: http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/hyperref/backref.pdf
+%	% all your extra bibitems go here
+%	\bibitem{icons1} Icons made by Pixel perfect from www.flaticon.com, and www.hooley.ie
+%	
+%}
 \bibliography{Tex/bibliography}
 
 \end{document}          

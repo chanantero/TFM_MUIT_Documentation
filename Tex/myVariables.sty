@@ -318,6 +318,29 @@
 \newcommand{\ydir}{\hat{\vec{y}}}
 \newcommand{\zdir}{\hat{\vec{z}}}
 
+\NewDocumentCommand{\freqFilter}{O{time} O{noValue}}{ % magnitude/phase/noValue, time/frequency
+	\IfStrEqCase{#2}{
+		{magnitude}{
+			\IfStrEqCase{#1}{
+				{time}{h_1}
+				{frequency}{H_1}
+			}
+		}
+		{phase}{
+			\IfStrEqCase{#1}{
+				{time}{h_2}
+				{frequency}{H_2}
+			}
+		}
+		{noValue}{
+			\IfStrEqCase{#1}{
+				{time}{h}
+				{frequency}{H}
+			}
+		}
+	}
+}
+
 % Variables for simulations
 \newcommand{\reflectCoef}{\beta}
 

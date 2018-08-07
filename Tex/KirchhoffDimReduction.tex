@@ -26,12 +26,12 @@ In order to perform the dimensionality reduction, we calculate the contribution 
 \begin{gather}
 	\Field(\PosTheo) = \int_{\sectionTheo} \left( I_{1}(\PosTheo[section], \PosTheo) + I_2(\PosTheo[section], \PosTheo) \right)
 	d\PosTheo[section] \\
-	I_{1}(\PosTheo[section], \PosTheo) = \frac{-1}{4\pi}  \int_{-\infty}^{\infty} G\left(\PosTheo[section] + h\wfsPlaneNormal \, \Big\vert \, \PosTheo \right) \frac{\partial P(\PosTheo[section] + h\wfsPlaneNormal)}{\partial \mathbf{n}} dh \label{lineIntI} \\	I_{2}(\PosTheo[section], \PosTheo) = \frac{1}{4\pi} \int_{-\infty}^{\infty} P(\PosTheo[section] + h\wfsPlaneNormal)\frac{\partial G\left(\PosTheo[section] + h\wfsPlaneNormal \, \Big\vert \, \PosTheo \right)}{\partial \mathbf{n}} dh \label{lineIntII}
+	I_{1}(\PosTheo[section], \PosTheo) = \frac{-1}{4\pi}  \int_{-\infty}^{\infty} G\left(\PosTheo[section] + h\wfsPlaneNormal \, \Big\vert \, \PosTheo \right) \frac{\partial P(\PosTheo[section] + h\wfsPlaneNormal)}{\partial \mathbf{n}} dh \label{lineIntI} \\	I_{2}(\PosTheo[section], \PosTheo) = \frac{1}{4\pi} \int_{-\infty}^{\infty} P(\PosTheo[section] + h\wfsPlaneNormal)\frac{\partial G\left(\PosTheo[section] + h\wfsPlaneNormal \, \Big\vert \, \PosTheo \right)}{\partial \mathbf{n}} dh. \label{lineIntII}
 \end{gather}
 
 The field $P$ is assumed to be produced by a punctual source:
 \begin{equation}
-\Field(\PosTheo) = \Field[primarySource](\PosTheo) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo - \PosTheo[primarySource]}\right) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}]
+\Field(\PosTheo) = \Field[primarySource](\PosTheo) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo - \PosTheo[primarySource]}\right) \GreenFunc[{\PosTheo - \PosTheo[primarySource]}],
 \end{equation}
 where $\CoefTheo$ is the signal strength of the source (complex scalar) and $\Diag\left(\normalized{\PosTheo - \PosTheo[primarySource]}\right)$ is the directivity pattern of the source in the $\normalized{\PosTheo - \PosTheo[primarySource]}$ direction.
 
@@ -104,7 +104,7 @@ where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]} 
 Finally, assuming $k\distLinePrimSource >> 1$ and changing $D(\azimuth, 0, \omega)$ by its equivalent expression in Cartesian coordinates $\Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right)$:
 \end{shownto}
 \begin{equation}
-I_1(\PosTheo[section], \PosTheo) \approx \widetilde{I_1}(\PosTheo[section], \PosTheo) = \frac{1}{2} \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+I_1(\PosTheo[section], \PosTheo) \approx \widetilde{I_1}(\PosTheo[section], \PosTheo) = \frac{1}{2} \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}},
 \label{I1approx}
 \end{equation}
 \showto{public}{where $\distLinePrimSource = \norm{\PosTheo[section] - \PosTheo[primarySource]}$ is the distance between the primary source and the secondary source and $\distLinePoint = \norm{\PosTheo - \PosTheo[section]}$ is the distance between the secondary source and the receiving point, and $\normPrimaryPropAngleSection$ is the angle between the inward normal vector $\surfaceNormal$ and the propagation direction from the primary to the source $\PosTheo[section] - \PosTheo[primarySource]$. The result is valid for $k\distLinePrimSource >> 1$.
@@ -114,13 +114,13 @@ Let's see that in previous equation there is the expression for the propagation 
 \begin{equation}
 \begin{aligned}
 \widetilde{I_1}(\PosTheo[section], \PosTheo) &= \CoefTheo[section][monopole][kirchhoff](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \\
-\CoefTheo[section][monopole][kirchhoff](\PosTheo[section], \PosTheo) &= \frac{1}{2}\CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}}\sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+\CoefTheo[section][monopole][kirchhoff](\PosTheo[section], \PosTheo) &= \frac{1}{2}\CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}}\sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}.
 \end{aligned}
 \end{equation}
 
 The same reasoning can be applied to \autoref{lineIntII}, and the result is \cite[Equation 3.24]{Start1997}:
 \begin{equation}
-I_2(\PosTheo[section]) \approx \widetilde{I_2}(\PosTheo[section]) = \frac{1}{2} \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normSecondPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+I_2(\PosTheo[section]) \approx \widetilde{I_2}(\PosTheo[section]) = \frac{1}{2} \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normSecondPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \frac{e^{-jk\distLinePoint}}{\distLinePoint} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}},
 \label{I2approx}
 \end{equation}
 where $\normSecondPropAngleSection$ is the angle between the inward normal vector $\surfaceNormal$ and the propagation direction from the secondary source to the receiving point $\PosTheo - \PosTheo[section]$. Hence, $\cos\normSecondPropAngleSection = \scalarProd{\normalized{\PosTheo - \PosTheo[section]} }{\surfaceNormal}$.
@@ -129,7 +129,7 @@ As with \autoref{I1approx}, \autoref{I2approx} can also be expressed as the stre
 \begin{equation}
 \begin{aligned}
 \widetilde{I_2}(\PosTheo[section]) &= \CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \\
-\CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo) &= \frac{1}{2} \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}
+\CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo) &= \frac{1}{2} \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{\distLinePoint}{\distLinePrimSource + \distLinePoint}}.
 \end{aligned}
 \end{equation}
 
@@ -137,7 +137,7 @@ The synthesized field will be then:
 \begin{multline}
 	\Field[kirchhoff](\PosTheo) = \int_{S_0} \left( \widetilde{I_{1}}(\PosTheo[section], \PosTheo) + \widetilde{I_2}(\PosTheo[section], \PosTheo) \right)
 	\dif[\PosTheo[section]] = \\ \int_{S_0} \left( \CoefTheo[section][monopole][kirchhoff](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} + \CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \right)
-	\dif[\PosTheo[section]]
+	\dif[\PosTheo[section]].
 	\label{Kirchhoff2.5D}
 \end{multline} 
 

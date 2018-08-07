@@ -5,11 +5,11 @@ The main idea of WFS is to use loudspeakers to generate a surface acoustic wave 
 \section{Kirchhoff-Helmholtz Integral}
 From three-dimensional wave equation and Green's Theorem, the Kirchhoff-Helmholtz Integral is deduced \cite{BerkhoutSeismic} \cite{Verheijen}:
 \begin{equation}
-P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface])\frac{\partial G(\PosTheo[surface]\vert \PosTheo)}{\partial \mathbf{n}} - G(\PosTheo[surface]\vert \PosTheo) \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} \right) dS
+P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface])\frac{\partial G(\PosTheo[surface]\vert \PosTheo)}{\partial \mathbf{n}} - G(\PosTheo[surface]\vert \PosTheo) \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} \right) dS.
 \label{KirchhoffHelmholtz}
 \end{equation}
 
-It expresses the pressure field $\Field(\PosTheo)$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $\surfaceTheo$, as a function of the pressure at $\surfaceTheo$, and its directional derivative in the direction of $\surfaceNormal$, which is the inward pointing normal vector of $\surfaceTheo$ (\autoref{KirchhoffIntegralScheme}). $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\nabla^2 G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$).
+It expresses the pressure field $\Field(\PosTheo)$ (particularized for a given frequency) inside a free-source volume $V$ bounded by the surface $\surfaceTheo$, as a function of the pressure at $\surfaceTheo$, and its directional derivative in the direction of $\surfaceNormal$, which is the inward pointing normal vector of $\surfaceTheo$ (\autoref{KirchhoffIntegralScheme}). $G(\PosTheo \vert \PosTheo_0)$ is called Green's function, and should obey the inhomogeneous wave equation for a source at position $\PosTheo_0$ ($\nabla^2 G - k^2 G = -4\pi\delta(\PosTheo - \PosTheo_0)$, where $\nabla^2 G = \frac{\partial^2 G}{\partial x^2} + \frac{\partial^2 G}{\partial y^2} + \frac{\partial^2 G}{\partial z^2}$ is the laplacian of $G$).
 
 \begin{figure}[h]
 	\centering
@@ -22,14 +22,14 @@ It expresses the pressure field $\Field(\PosTheo)$ (particularized for a given f
 
 The general form of $G(\PosTheo \vert \PosTheo_0)$ is:
 \begin{equation}
-G(\PosTheo \vert \PosTheo_0) = \GreenFunc[\PosTheo - \PosTheo_0] + F(\PosTheo \vert \PosTheo_0)
+G(\PosTheo \vert \PosTheo_0) = \GreenFunc[\PosTheo - \PosTheo_0] + F(\PosTheo \vert \PosTheo_0),
 \label{GreensFunction}
 \end{equation}
 where $F(\PosTheo \vert \PosTheo_0)$ is any function that satisfies the Helmholtz equation $\Delta F - k^2 F = 0$.
 
 If $F = 0$:
 \begin{equation}
-P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface]) \GreenFunc[{\PosTheo - \PosTheo[surface]}] \left(jk + \frac{1}{\norm{\PosTheo - \PosTheo[surface]}}\right)\cos\normSecondPropAngle - \GreenFunc[{\PosTheo - \PosTheo[surface]}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} \right) dS
+P(\PosTheo) = \frac{1}{4\pi} \int_{S} \left(P(\PosTheo[surface]) \GreenFunc[{\PosTheo - \PosTheo[surface]}] \left(jk + \frac{1}{\norm{\PosTheo - \PosTheo[surface]}}\right)\cos\normSecondPropAngle - \GreenFunc[{\PosTheo - \PosTheo[surface]}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} \right) dS,
 \end{equation}
 where $\normSecondPropAngle = \left\langle \frac{\PosTheo - \PosTheo[surface]}{\norm{\PosTheo - \PosTheo[surface]}} , \vec{n} \right\rangle$ is the angle between the inward normal vector and the vector that passes through the point at the surface $\PosTheo[surface]$ and $\PosTheo$.
 
@@ -52,14 +52,14 @@ When $R\rightarrow\infty$, the Sommerfeld condition is satisfied and the integra
 
 If $F(\PosTheo[surface] \vert \PosTheo) = \GreenFunc[ {\PosTheo[surface] - \PosTheo[mirrored]} ]$, being $\PosTheo[mirrored]$ the mirrored image of $\PosTheo$ in the plane $\surfaceTheoRayleighPlane$, then the directional derivative of $G$ becomes $0$ at $\surfaceTheoRayleighPlane$, and \autoref{KirchhoffHelmholtz} transforms to:
 \begin{equation}
-P(\PosTheo) = \frac{-1}{2\pi} \int_{\surfaceTheoRayleighPlane} \GreenFunc[{\PosTheo[surface] - \PosTheo}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} dS
+P(\PosTheo) = \frac{-1}{2\pi} \int_{\surfaceTheoRayleighPlane} \GreenFunc[{\PosTheo[surface] - \PosTheo}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} dS.
 \label{RayleighI}
 \end{equation}
 Previous equation is called Raileigh I integral and states that a secondary planar monopole source distribution can synthesize on one side of the plane $\surfaceTheoRayleighPlane$ ($z>0$) the field of a primary source distribution located at the other side ($z<0$). The monopole sources are driven by two times the directional derivative of the pressure at the plane, in its perpendicular direction.
 
 The function $F$ can also be chosen to remove the monopole source distributions: $F = -\GreenFunc[ {\PosTheo[surface] - \PosTheo[mirrored]} ]$. In this case, \autoref{KirchhoffHelmholtz} transforms to the Raileigh II integral:
 \begin{equation}
-P(\PosTheo) = \frac{1}{2\pi} \int_{\surfaceTheoRayleighPlane} P(\PosTheo[surface]) \GreenFunc[{\PosTheo[surface] - \PosTheo}] \left(jk + \frac{1}{\norm{\PosTheo[surface] - \PosTheo}}\right)\cos\normSecondPropAngle dS
+P(\PosTheo) = \frac{1}{2\pi} \int_{\surfaceTheoRayleighPlane} P(\PosTheo[surface]) \GreenFunc[{\PosTheo[surface] - \PosTheo}] \left(jk + \frac{1}{\norm{\PosTheo[surface] - \PosTheo}}\right)\cos\normSecondPropAngle dS.
 \label{RayleighII}
 \end{equation}
 
@@ -76,7 +76,7 @@ Rayleigh I integral (\autoref{RayleighI}) uses a secondary monopole source distr
 \begin{equation}
 %\begin{aligned}
 \Field[rayleighI](\PosTheo) = \int_{\sectionTheo} \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \dif[\PosTheo[section]]% = \int_{-\infty}^{\infty} \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo)\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \dif[{\PosTheo[section][x]}]\\
-, \quad \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo) = 2 \CoefTheo[section][monopole][kirchhoff](\PosTheo[section], \PosTheo)
+, \quad \CoefTheo[section][monopole][rayleigh](\PosTheo[section], \PosTheo) = 2 \CoefTheo[section][monopole][kirchhoff](\PosTheo[section], \PosTheo).
 %\end{aligned}
 \label{RayleighI2.5}
 \end{equation}
@@ -86,7 +86,7 @@ The same happens for Rayleigh II integral (\autoref{RayleighII}) with the dipole
 %\begin{aligned}
 \Field[rayleighII](\PosTheo) = \int_{\sectionTheo} \CoefTheo[section][dipole][rayleigh](\PosTheo[section], \PosTheo) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection \dif[\PosTheo[section]]% = \int_{-\infty}^{\infty} \CoefTheo[section][dipole][rayleigh](\PosTheo[section], \PosTheo)\frac{e^{-jk\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}}}{\sqrt{\PosTheo[noValue][z]^2 + (\PosTheo[noValue][x] - \PosTheo[section][x])^2}} \cos\normSecondPropAngleSection \dif[{\PosTheo[section][x]}]\\
 , \quad
-\CoefTheo[section][dipole][rayleigh](\PosTheo[section], \PosTheo) = 2 \CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo)
+\CoefTheo[section][dipole][rayleigh](\PosTheo[section], \PosTheo) = 2 \CoefTheo[section][dipole][kirchhoff](\PosTheo[section], \PosTheo).
 %\end{aligned}
 \label{RayleighII2.5}
 \end{equation}
@@ -107,12 +107,12 @@ Applying the stationary phase method, but now in the direction of the secondary 
 
 
 \begin{equation}
-\CoefTheo[section][monopole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}
+\CoefTheo[section][monopole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \cos\normPrimaryPropAngleSection \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}},
 \label{RayleighI2.5wfs}
 \end{equation}
 
 \begin{equation}
-\CoefTheo[section][dipole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}
+\CoefTheo[section][dipole][rayleigh](\PosTheo[section]) = \CoefTheo[primarySource] \Diag\left(\normalized{\PosTheo[section] - \PosTheo[primarySource]}\right) \frac{e^{-jk\distLinePrimSource}}{\sqrt{\distLinePrimSource}} \sqrt{\frac{jk}{2\pi}} \sqrt{\frac{d}{d + d_{\PosTheoSubInd[primarySource]}}}.
 \label{RayleighII2.5wfs}
 \end{equation}
 
@@ -121,7 +121,7 @@ In conclussion, Rayleigh 2.5D I and II integrals (\autoref{RayleighI2.5wfs} and 
 \section{Discretization and Spatial Aliasing}
 In practice, a continuous secondary source line is not realistic. An discrete linear secondary source array is a closer model to the practical cases where an array of loudspeakers is used. The issue with discretization is that aliasing effects appear. However, as it is exposed in \cite{Start1997}, the synthesized wavefield will be exactly equal to the one with a continuous line source at those frequencies that respect next relation:
 \begin{equation}
-f < \frac{c}{2\Delta x}
+f < \frac{c}{2\Delta x},
 \end{equation}
 where $\Delta x$ is the separation between contiguous loudspeakers.
 
@@ -130,5 +130,5 @@ This means that, for a sound signal with $f_{max}$ as maximum frequency componen
 Discretization makes necessary to scale the feeding of sources by $\Delta x$:
 \begin{gather}
 \Field[rayleighI](x) = \Delta x \sum_{n}  \CoefTheo[section][monopole][rayleigh][continuous]({\PosTheo[section]}_n) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \\
-\Field[rayleighII](x) = \Delta x \sum_{n}  \CoefTheo[section][dipole][rayleigh][continuous]({\PosTheo[section]}_n) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection
+\Field[rayleighII](x) = \Delta x \sum_{n}  \CoefTheo[section][dipole][rayleigh][continuous]({\PosTheo[section]}_n) \frac{e^{-jk\distLinePoint}}{\distLinePoint} \cos\normSecondPropAngleSection.
 \end{gather}
