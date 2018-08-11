@@ -1,0 +1,63 @@
+\chapter{Reproduction and Recording signal model}
+
+A discretized signal is a sequence of complex values. In the digital domain, only finite signals are possible. If we have a digital signal with $N$ coefficients (assume $N$ is even) and a sampling frequency of $F_s$, then, it can be interpreted as if they were deltas in time:
+\begin{equation}
+x(t) = \sum_{n = 0}^{N-1} x_n \delta(t - \frac{n}{F_s})
+\end{equation}
+
+It can be proven that a sequence like that, can be expressed as a sum of N tones:
+\begin{equation}
+x(t) = \sum_{m= -N/2}^{N/2 - 1} X_m \sum_{n = 0}^{N - 1} e^{j 2 \pi f_m \frac{n}{F_s}} \delta\left(t - \frac{n}{F_s}\right), \quad f_m = \frac{m}{N}F_s
+\end{equation}
+
+When the signal is real:
+\begin{multline}
+x(t) = \sum_{m = 1}^{N/2 - 1} X_m \sum_{n = 0}^{N - 1} \left(e^{j 2 \pi f_m \frac{n}{F_s}} + e^{-j 2 \pi f_m \frac{n}{F_s}}\right)
+\delta\left(t - \frac{n}{F_s}\right) \\ + X_0 \sum_{n = 0}^{N - 1}
+\delta\left(t - \frac{n}{F_s}\right) + X_{-N/2} \sum_{n = 0}^{N - 1} e^{j 2 \pi f_{-N/2} \frac{n}{F_s}}
+\delta\left(t - \frac{n}{F_s}\right)
+\end{multline}
+
+Let's take just one of those frequencies and see what would happen during a reproduction and recording session if only that frequency was transmitted. Let's imagine a discrete signal with just one frequency $x^{(1)}$.
+\begin{gather}
+	x^{(1)} = X_m \sum_{n = -\infty}^{\infty} e^{j 2 \pi f_m \frac{n}{F_s}}
+	\delta\left(t - \frac{n}{F_s}\right)
+	\\
+	X^{(1)}(f) = \FourierTransform{x^{(1)}(t)} = X_m\delta(f - f_m) \ast \sum_{n = -\infty}^{\infty} \delta(f - n F_s) = X_m \sum_{n = -\infty}^{\infty} \delta(f - (f_m + n F_s))
+\end{gather}
+
+In order to crop it and have the original digital signal, we must multiply it by a rectangle window:
+\begin{equation}
+	x^{(2)} = x^{(1)} \Pi\left(\frac{t - N/(2 F_s)}{N/F_s}\right) = X_m \sum_{n = 0}^{N - 1} e^{j 2 \pi f_m \frac{n}{F_s}}
+	\delta\left(t - \frac{n}{F_s}\right)
+\end{equation}
+
+\begin{multline}
+	X^{(2)}(f) = X^{(1)}(f) \ast \FourierTransform{\Pi\left(\frac{t - N/(2 F_s)}{N/F_s}\right)} = X^{(1)}(f) \ast \mathrm{sinc}\left(f\frac{N}{F_s}\right) \frac{N}{F_s} e^{-j 2 \pi f \frac{N}{2 F_s}} \\
+	= X_m \sum_{n = -\infty}^{\infty} \delta(f - (f_m + n F_s)) \ast \mathrm{sinc}\left(f\frac{N}{F_s}\right) \frac{N}{F_s} e^{-j 2 \pi f \frac{N}{2 F_s}} \\
+	= X_m \sum_{n = -\infty}^{\infty} \mathrm{sinc}\left((f - (f_m + n F_s)) \frac{N}{F_s} \right) \frac{N}{F_s} e^{-j 2 \pi (f - (f_m + n F_s)) \frac{N}{2F_s}}
+\end{multline}
+
+Then, because of the effect of loudspeakers (ideal loudspeakers), the signal is low-pass filtered:
+\begin{equation}
+X^{(3)} = X^{(2)} \Pi\left(\frac{f}{F_s}\right)
+\end{equation}
+
+\begin{equation}
+x^{(3)} = x^{(2)} \ast F_s \mathrm{sinc} \left(F_s t\right) = X_m F_s \sum_{n = 0}^{N - 1} e^{j 2 \pi f_m \frac{n}{F_s}}
+\mathrm{sinc}\left(F_s\left(t - \frac{n}{F_s}\right)\right)
+\end{equation}
+
+The signal gets transmitted through air, so it gets delayed and modified because of multipath, diffraction, etc. When it gets to the microphones, we apply a window like the one used in reproduction.
+
+\begin{equation}
+x^{(4)}(t) = (x^{(3)}(t) \ast h(t)) \Pi\left(\frac{t - N/(2 F_s)}{N/F_s}\right)
+\end{equation}
+
+\begin{equation}
+X^{(4)}(f) = (X^{(3)}(f) H(f)) \ast \mathrm{sinc}\left(f\frac{N}{F_s}\right) \frac{N}{F_s} e^{-j 2 \pi f \frac{N}{2 F_s}}
+\end{equation}
+
+What we want to know is $H(f)$. It would be easy (a simple division) if it was not for the last windowing.
+
+Before continuing, let's look at an interesting case. Let's assume $h(t)$ is just a temporal delay.

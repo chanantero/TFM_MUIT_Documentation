@@ -54,68 +54,12 @@ Completar
 
 \newpage
 
-\begin{shownto}{private}
-\phantomsection
-\addcontentsline{toc}{chapter}{List of abbreviations}
-\chapter*{List of Abbreviations}
-%http://tex.stackexchange.com/questions/179631/list-of-symbols-and-abbreviations-just-as-two-columns
-\input{Tex/SymbolsAndAbbreviations.tex}
-\end{shownto}
-
 \newpage
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-\chapter[Introduction and State of the Art]{Introduction and State of the Art.\\What is wave field synthesis and active control noise?}
-\input{\TexFolder/Introduction.tex}
-
-\chapter[Theoretical Basis]{Theoretical Basis.\\From Kirchhoff's Integral to Arrays of Loudspeakers.}\label{chapterWFStheory}
-\input{Tex/WFStheory.tex}
-\input{Tex/TheoreticalModel.tex}
-%\input{Tex/ExperimentModelling.tex}
-
-%\chapter{Real system in UPV iTEAM Lab and How It Works.}
-%\input{Tex/FunctioningTool.tex}
-%%\input{Tex/Program.tex}
-
-\chapter{Analysis of potential sources of error}
-%\input{Tex/Experiments.tex}
-\input{Tex/Simulations.tex}
-
-\chapter{Experimental measures}
-\input{\TexFolder/ExperimentalMeasures.tex}
-
-\chapter{Conclussions}
-Completar...
-
-\begin{shownto}{private}
-%\appendix
-%\appendixpage
 \begin{appendices}
-%\begin{shownto}{private}
-%\input{Tex/Kirchhoff.tex}
-%\input{Tex/LinearSystemGrouping.tex}
-%\input{Tex/InfiniteLineSource.tex}
-%\input{Tex/Nomenclature.tex}
-%\input{Tex/SubjectiveProyection3D.tex}
-%\input{Tex/StationaryPhaseMethod.tex}
-%\input{Tex/SpatialAliasing.tex}
-%\input{Tex/TruncationEffects.tex}
 \input{Tex/ReproductionRecordingSignalModel.tex}
-%\end{shownto}
-%\input{Tex/SimulationProcess.tex}
 \end{appendices}
-\end{shownto}
-	
-%\nocite{*} % Para que aparezcan sí o sí referencias que no han sido citadas explícitamente en el texto. El asterisco hace que aparezcan todas las referencias.
-\bibliographystyle{unsrt} % Aparecen listados por orden de citación.
-% First solution. Now I just created a @misc bibtex entry.
-%\AtEndEnvironment{thebibliography}{
-%	% In case of error, add an empty line or a \par token at the ent of each bibitem: http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/hyperref/backref.pdf
-%	% all your extra bibitems go here
-%	\bibitem{icons1} Icons made by Pixel perfect from www.flaticon.com, and www.hooley.ie
-%	
-%}
-\bibliography{Tex/bibliography}
 
 \end{document}          
