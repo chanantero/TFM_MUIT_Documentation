@@ -10,9 +10,10 @@
 \newcommand{\cns}{\vec{c}_{\mathit{NS}}} % vector of coefficients of noise sources
 \newcommand{\cwfs}{\vec{c}_{\mathit{WFS}}} % vector of coefficients of WFS array loudspeakers
 \newcommand{\cmicro}[1][]{\vec{c}_{\mathit{micro}#1}} % vector of coefficients of microphone array
-\newcommand{\numNS}{L_\mathit{NS}} % Number of noise sources
-\newcommand{\numWFS}{L_\mathit{WFS}} % Number of WFS array loudspeakers
+\newcommand{\numNS}{N_\mathit{NS}} % Number of noise sources
+\newcommand{\numWFS}{N_\mathit{WFS}} % Number of WFS array loudspeakers
 \newcommand{\numMeasPoints}{M} % Number of measuring points
+\newcommand{\numSources}{N} % Number of sources in general
 \newcommand{\wfsNormCoef}[1][vec]{ % Scaling coefficient of the virtual noise source signal(s) in standard WFS calculation
 \IfStrEqCase{#1}{{scalar}{\gamma}
     {vec}{\boldsymbol{\gamma}}
@@ -131,27 +132,32 @@
 }
 
 % \signal is the same as \CoefTheo, but not for the theoretical analysis, but the real signals in the GTAC model
-\NewDocumentCommand{\signal}{O{noValue} O{time}}{ % ns/nsVirt/wfs/nothing, time/frequency
+\NewDocumentCommand{\signal}{O{nothing} O{time}}{ % ns/nsVirt/wfs/nothing, time/frequency
 	\IfStrEqCase{#1}{
 		{ns}{
+			\IfStrEqCase{#2}{
+				{time}{s^{(\mathit{ns})}}
+				{frequency}{S^{(\mathit{ns})}}
+			}
+		}
+		{nsVirt}{
+			\IfStrEqCase{#2}{
+				{time}{s^{(\mathit{ns},v)}}
+				{frequency}{S^{(\mathit{ns},v)}}
+			}
+		}
+		{wfs}{
+			\IfStrEqCase{#2}{
+				{time}{s^{(\mathit{wfs})}}
+				{frequency}{S^{(\mathit{wfs})}}
+			}
+			}
+		{nothing}{
 			\IfStrEqCase{#2}{
 				{time}{s}
 				{frequency}{S}
 			}
 		}
-		{nsVirt}{
-			\IfStrEqCase{#2}{
-				{time}{s^v}
-				{frequency}{S^v}
-			}
-		}
-		{wfs}{
-			\IfStrEqCase{#2}{
-				{time}{q}
-				{frequency}{Q}
-			}
-			}
-		{nothing}{s}
 	}
 }
 
@@ -339,6 +345,16 @@
 			}
 		}
 	}
+}
+
+\NewDocumentCommand{\soundVolume}{O{nothing}}{
+% Input arguments:
+% - nothing/ns/wfs
+\IfStrEqCase{#1}{
+		{nothing}{\beta}
+		{ns}{\beta_{ns}}
+		{wfs}{\beta_{wfs}}
+}
 }
 
 % Variables for simulations

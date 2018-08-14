@@ -130,7 +130,7 @@ In the same way, the correction factor has a global equivalent, the global corre
 \end{equation}
 where $^*$ is the complex conjugate symbol.
 
-\begin{shownto}{publicGlobal}	
+\begin{shownto}{publicGlobal,private}	
 A variant of the global correction factor, $\globalCorrectionFactor$, can also be used. It is the same as $\globalCorrectionFactorAverGain$, but designed to minimize the overall measured power instead of the average gain.
 % It is defined as the number that must be multiplied by the loudspeaker signals $\signal[wfs][frequency]$ in order to minimize the overall measured power.
 	\begin{equation}
@@ -189,7 +189,7 @@ It is obvious that the values are bad over the whole bandwidth.
 	\label{averGainOneNSchirp}
 \end{figure}
 
-\showto{publicGlobal}{
+\showto{publicGlobal,private}{
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\textwidth]{./Img/Experiment11_globalCancOneNSChirp.eps}
@@ -287,21 +287,22 @@ However, there is a nuance that can allow us to implement this filter in real-ti
 \begin{equation}
 \begin{aligned}
 \signal[wfs][time](t) &= \signal[nsVirt][time](t) \frac{g \cos\normPrimaryPropAngleSection}{\sqrt{\distLinePrimSource}}
-\ast\delta(t - \distLinePrimSource/c)\ast h(t) = \signal[nsVirt][time](t) \frac{g \cos\normPrimaryPropAngleSection}{\sqrt{\distLinePrimSource}}
-\ast h(t - \distLinePrimSource/c)\\
-h(t) &= \FourierTransform{\sqrt{\frac{jk}{2\pi}}}[inverse].
+\ast\delta(t - \distLinePrimSource/c)\ast \freqFilter(t) = \signal[nsVirt][time](t) \frac{g \cos\normPrimaryPropAngleSection}{\sqrt{\distLinePrimSource}}
+\ast \freqFilter(t - \distLinePrimSource/c)\\
+\freqFilter(t) &= \FourierTransform{\sqrt{\frac{jk}{2\pi}}}[inverse].
 \end{aligned}
+\label{rayleigh2_5Dsignal}
 \end{equation}
 
-When we say that $h(t)$ is anticausal, it is the same as saying that there are negative values of $t$ for which $h(t) \neq 0$. As long at this does not change, the practical implementation of this filter will not be possible. Nonetheless, let's notice that the loudspeaker signal $\signal[wfs][time](t)$ does not depend directly on $\signal[nsVirt][time](t)$ filtered by $h(t)$, but on a delayed version of it: $h(t - \distLinePrimSource/c)$.
+When we say that $\freqFilter(t)$ is anticausal, it is the same as saying that there are negative values of $t$ for which $\freqFilter(t) \neq 0$. As long at this does not change, the practical implementation of this filter will not be possible. Nonetheless, let's notice that the loudspeaker signal $\signal[wfs][time](t)$ does not depend directly on $\signal[nsVirt][time](t)$ filtered by $\freqFilter(t)$, but on a delayed version of it: $\freqFilter(t - \distLinePrimSource/c)$.
 
-If the filter impulse response $h(t)$ was limited in time ($h(t) = 0, t < -\tau_1$), then, although $h(t)$ would be anticausal, $h(t - \distLinePrimSource/c)$ will be causal as long as $\distLinePrimSource/c > \tau_1$. However, since the ideal $h(t)$ has an infinite response, the only option left is to use an approximation ($\widetilde{h}(t)$) that satisfies that $\widetilde{h}(t) = 0$ for $t < -\tau_1$, where $\tau_1 < \distLinePrimSource/c$. The delayed filter $\widetilde{h}(t - \distLinePrimSource/c)$ is causal, and hence could work in a real time system.
+If the filter impulse response $\freqFilter(t)$ was limited in time ($\freqFilter(t) = 0, t < -\tau_1$), then, although $\freqFilter(t)$ would be anticausal, $\freqFilter(t - \distLinePrimSource/c)$ will be causal as long as $\distLinePrimSource/c > \tau_1$. However, since the ideal $\freqFilter(t)$ has an infinite response, the only option left is to use an approximation ($\widetilde{\freqFilter}(t)$) that satisfies that $\widetilde{\freqFilter}(t) = 0$ for $t < -\tau_1$, where $\tau_1 < \distLinePrimSource/c$. The delayed filter $\widetilde{\freqFilter}(t - \distLinePrimSource/c)$ is causal, and hence could work in a real time system.
 
-If, in addition, it has a finite duration, it would be implementable as a FIR digital filter. This means it must satisfy that $h(t) = 0, t \notin [-\tau_1, \tau_2]$. Matlab has its own internal functions to design FIR filters based on their frequency response, and in general returns impulse responses where $\tau_1 = \tau_2 = \tau$. However, as it works as an approximation, the smaller $\distLinePrimSource/c$ gets, the shorter the duration of the impulse response needs to be, and hence the worse the approximation and the accuracy of WFS will be. So, there is actually a trade-off between performance and the distance between the source and the closest loudspeaker $\distLinePrimSource$. The smaller the distance, the worse the performance. At a given sampling frequency, which is $44100 \si{Hz}$ in our simulations, the duration of the impulse response translates directly to number of coefficients of the digital filter.
+If, in addition, it has a finite duration, it would be implementable as a FIR digital filter. This means it must satisfy that $\freqFilter(t) = 0, t \notin [-\tau_1, \tau_2]$. Matlab has its own internal functions to design FIR filters based on their frequency response, and in general returns impulse responses where $\tau_1 = \tau_2 = \tau$. However, as it works as an approximation, the smaller $\distLinePrimSource/c$ gets, the shorter the duration of the impulse response needs to be, and hence the worse the approximation and the accuracy of WFS will be. So, there is actually a trade-off between performance and the distance between the source and the closest loudspeaker $\distLinePrimSource$. The smaller the distance, the worse the performance. At a given sampling frequency, which is $44100 \si{Hz}$ in our simulations, the duration of the impulse response translates directly to number of coefficients of the digital filter.
 
-We should differentiate between the filter that implements the magnitude of the frequency response $h_1 = \sqrt{f/c}$ and the one that implements the frequency independent phase shift $h_2 = \sqrt{j}$, because they present different requirements. The real implementations will be called $\widetilde{h}_1$ and $\widetilde{h}_2$ respectively.
+We should differentiate between the filter that implements the magnitude of the frequency response $\freqFilter[time][magnitude] = \FourierTransform{\sqrt{f/c}}[inverse]$ and the one that implements the frequency independent phase shift $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$, because they present different requirements. The real implementations will be called $\widetilde{\freqFilter[time][magnitude]}$ and $\widetilde{\freqFilter[time][phase]}$ respectively.
 
-We have plotted the histograms of gain for different lengths of the implementation of $\widetilde{h}_1$ (\autoref{gainAverDifMagFilterLength}), keeping $\widetilde{h}_2$ with a high enough length so it resembles the ideal case and does not produce any noticeable distortion. We can see that, below an order of $64$ (the order of a FIR filter is its length minus 1), the performance starts to get worse and worse. Above it, the improvement is not too noticeable.
+We have plotted the histograms of gain for different lengths of the implementation of $\widetilde{\freqFilter[time][magnitude]}$ (\autoref{gainAverDifMagFilterLength}), keeping $\widetilde{\freqFilter[time][phase]}$ with a high enough length so it resembles the ideal case and does not produce any noticeable distortion. We can see that, below an order of $64$ (the order of a FIR filter is its length minus 1), the performance starts to get worse and worse. Above it, the improvement is not too noticeable.
 \begin{shownto}{publicGlobal}
 \begin{figure}[h]
 	\centering
@@ -326,7 +327,7 @@ We have plotted the histograms of gain for different lengths of the implementati
 		\caption{Order: $64$. $\tau = 0.726 \si{ms}$. ${\distLinePrimSource}_{min} = 25\si{cm}$}
 	\end{subfigure}
 	
-	\caption{Global gain for different lengths of $h_1$}
+	\caption{Global gain for different lengths of $\freqFilter[time][magnitude]$}
 	\label{globCancDifMagFilterLength}
 \end{figure}
 \end{shownto}
@@ -353,12 +354,12 @@ We have plotted the histograms of gain for different lengths of the implementati
 		\caption{Order: $64$. $\tau = 0.726 \si{ms}$. ${\distLinePrimSource}_{min} = 25\si{cm}$}
 	\end{subfigure}
 	
-	\caption{Average gain for different lengths of $h_1$}
+	\caption{Average gain for different lengths of $\freqFilter[time][magnitude]$}
 	\label{gainAverDifMagFilterLength}
 \end{figure}
 
 
-We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must be implemented and, as we see in (\autoref{gainAverDifHilFilterLength}), its length has to be much bigger than with the magnitude filter length. It entails a more severe constraint. $\widetilde{h}_1$ order is high enough so produced distortions are negligible. Orders of $4096$ and above get practically the same levels of attenuation, so it makes no sense to go beyond $4096$. However, such a long filter implies that the distance from the noise source to the closest loudspeaker should be at least $15.79 \si{m}$, a restriction that can not always be met.
+We've done the same with $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$. In this case, a Hilbert filter must be implemented and, as we see in (\autoref{gainAverDifHilFilterLength}), its length has to be much bigger than with the magnitude filter length. It entails a more severe constraint. $\widetilde{\freqFilter[time][magnitude]}$ order is high enough so produced distortions are negligible. Orders of $4096$ and above get practically the same levels of attenuation, so it makes no sense to go beyond $4096$. However, such a long filter implies that the distance from the noise source to the closest loudspeaker should be at least $15.79 \si{m}$, a restriction that can not always be met.
 \begin{shownto}{publicGlobal}
 \begin{figure}[h]
 	\centering
@@ -383,7 +384,7 @@ We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must b
 		\caption{Order: $4096$. $\tau = 46.4 \si{ms}$. ${\distLinePrimSource}_{min} = 15.79\si{m}$}
 	\end{subfigure}
 	
-	\caption{Global gain for different lengths of $h_2$}
+	\caption{Global gain for different lengths of $\freqFilter[time][phase]$}
 	\label{globCancDifHilFilterLength}
 \end{figure}
 \end{shownto}
@@ -411,7 +412,7 @@ We've done the same with $h_2 = \sqrt{j}$. In this case, a Hilbert filter must b
 		\caption{Order: $4096$. $\tau = 46.4 \si{ms}$. ${\distLinePrimSource}_{min} = 15.79\si{m}$}
 	\end{subfigure}
 	
-	\caption{Average gain for different lengths of $h_2$}
+	\caption{Average gain for different lengths of $\freqFilter[time][phase]$}
 	\label{gainAverDifHilFilterLength}
 \end{figure}
 
@@ -420,7 +421,7 @@ In case the noise source is located close to the array, an alternative solution 
 
 Another option is available if we know what the sound is, and it's limited in time (sound pulse), but we don't know when it happens. For example, in \cite{Lapini2016} the cancellation of gun shots was simulated. In a shooting range, it's an unknown when a gun will be fired, but the sound of every gun shot shares a lot of similarities. It was found that, when using one gun shot standard signal to cancel the sound of a different gun shot (similar but not equal), even though the sound cancellation performance is significantly lower than if the same sound was used, it's still consistently better than if no WFS was used. The fact that the signal used for WFS cancellation is not the actual noise signal but a known model that resembles the actual signal, allows us to compute the filtered signal in advance. The performance then depends on the similarity between pulse sounds (the model and the real), and the precision at calculating the time the signal starts, which is the actual unknown. This can be used for sounds produced by gun shots, mechanical machines that produce repetitive pulse sounds that are similar to one another, etc.
 
-If this condition is not met, there is still a last option: not using this filter at all ($h_2$). By means of a delay, we can apply the right phase shift for a certain frequency $f_0$, ideally located in the centre of the bandwidth of interest. The idea is to substitute $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$ by a simple delay $\freqFilter[time][phase]' = \delta(t - \tau)$, and so $\freqFilter[frequency][phase] = \sqrt{j} = e^{j\pi/4}$ by a linear phase shift $\freqFilter[frequency][phase]' = e^{-j2\pi f \tau}$. The value of $\tau$ must be the smallest positive delay that causes a phase shift of $\pi/4$ or equivalent ($\pi/4 + n2\pi$, $n \in \mathbb{Z}$) at $f_0$:
+If this condition is not met, there is still a last option: not using this filter at all ($\freqFilter[time][phase]$). By means of a delay, we can apply the right phase shift for a certain frequency $f_0$, ideally located in the centre of the bandwidth of interest. The idea is to substitute $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$ by a simple delay $\freqFilter[time][phase]' = \delta(t - \tau)$, and so $\freqFilter[frequency][phase] = \sqrt{j} = e^{j\pi/4}$ by a linear phase shift $\freqFilter[frequency][phase]' = e^{-j2\pi f \tau}$. The value of $\tau$ must be the smallest positive delay that causes a phase shift of $\pi/4$ or equivalent ($\pi/4 + n2\pi$, $n \in \mathbb{Z}$) at $f_0$:
 \begin{equation}
 	-2\pi f_0 \tau = \pi/4 + n2\pi \rightarrow \tau = \frac{1}{f_0}\frac{8n - 1}{8} = \left\{n = 1\right\} = \frac{7}{8f_0}.
 \end{equation}
