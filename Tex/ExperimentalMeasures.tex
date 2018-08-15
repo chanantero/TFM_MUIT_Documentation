@@ -51,7 +51,7 @@ a(f) = \frac{e^{-j k d}}{d}.
 \end{equation}
 This allows us to construct $\AcPath[mat]'(f)$, the acoustic path response matrix for ideal conditions. The $(m,n)$-th element would be 
 \begin{equation}
-a_{m,n}(f) = \frac{e^{-j k d_{m,n}}}{d_{m,n}},
+a_{m,n}'(f) = \frac{e^{-j k d_{m,n}}}{d_{m,n}},
 \end{equation}
 where $d_{m,n}$ is the distance between the $n$-th loudspeaker and the $m$-th point of measure.
 
@@ -68,11 +68,28 @@ In order to perform cancellation, we must compensate for this volume difference 
 \begin{equation}
 \globalCorrectionFactor = \min_\correctionFactor \norm{\Field[wfs][frequency][vector]\correctionFactor + \Field[ns][frequency][vector]}^2 = \min_\correctionFactor \norm{(\AcPath[mat][NS] + \AcPath[mat][WFS]\myMatrix{H}\correctionFactor)\vec{\signal[ns][frequency]}}^2 = -\frac{\Re\left(\scalarProd{\Field[wfs][frequency][vector]^*}{\Field[ns][frequency][vector]}\right)}{\norm{\Field[wfs][frequency][vector]}^2}
 \end{equation}
+In a way, this is like finding the virtual noise source signal $\vec{\signal[nsVirt][frequency]}$ that maximizes cancellation, with the restriction that it must be a scaled version of of $\vec{\signal[ns][frequency]}$.
 It is not the only way we can experimentally estimate this number, but it is a simple and useful way. By compensating the volume difference, at least we can measure WFS performance as if no volume difference was present.
 
+\section{Acoustic path frequency response estimation}
+In order to measure the acoustic path frequency response, we have used a simple algorithm that can easily be implemented in Matlab.
+
+If we were only to calculate the acoustic path between a source and one or multiple microphones, it would be actually pretty easy.
+
+...
+
+However, the number of sources in the listening room is 96. It is a large number, and it would be convenient to find a better, fastest way of calculating it. The technique we have used is based on orthogonal frequency division multiplexing, this is, in the fact that each loudspeaker transmits different, orthogonal frequencies that can be easily separated in the received signal.
+
+\section{Measures}
 Measures...
 
 The cancellation when the optimum amplitude escalation has be found is:
 
-Reflection about the models paradigm I just thought about in the kitchen.
-What variables to inlcude depend on what we consider cheating or true WFS. Achieving silence on a microphone is easy by solving the linear system, but it's not WFS. That is cheating. What are we willing to consider as WFS or not?
+Cancellation for the optimized position is:
+
+\section{Justification for optimization}
+The extent of the optimization depends on what we want to test. If we only wanted to test how much unpredictable variables affect performance, counting volume disparity as one of those variables, it would not make sense to perform an optimization, because it would be falsifying the results. However, if we consider the volume disparity as a problem inherent to the listening room situation and not a general one, or that in a more real situation it can be solved, or optimized in real-time, then it makes sense to optimize. Hence, it is important to define what we want to test.
+
+We have considered that, in order to fairly assess WFS performance, the volume disparity shouldn't be something the WFS technique must solve. We want to know its possibilities given that the strength of the noise source is known, this is, that the system of microphones that measure noise strength, no matter they are situated close to the secondary sources or to the noise source (depending on the architecture of the actual setup), provides the WFS algorithm with a good estimation of signal strength. So it is fair, and even necessary, to correct for volume disparity in the laboratory, since we assume that in the real situation it would be a solved problem. Even if it is not, in a real situation we can also optimize a posteriori based on measures in the sound cancellation area. Anyway one wants to describe a real situation, the point is that WFS technique is not responsible for wrong estimations of primary source signal strength; that is a problem that must be solved with other techniques available. The described optimization is, indeed, one of those techniques.
+
+Other variables as reflections, diffractions, etc., shouldn't be compensated because there is actually where we can see the effectiveness of WFS in front of real situations where acoustic paths are unpredictable. For example, achieving silence on a small number of microphones is easy by solving the linear system, but it's not WFS, it's a completely different technique that does not guarantee sound cancellation over the whole area.
