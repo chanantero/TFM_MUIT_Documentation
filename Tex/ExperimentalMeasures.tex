@@ -83,9 +83,85 @@ However, the number of sources in the listening room is 96. It is a large number
 \section{Measures}
 Measures...
 
-The cancellation when the optimum amplitude escalation has be found is:
+In order to perform a simple experiment, a loudspeaker will act as a noise source that transmits a known signal. Specifically, it is a chirp signal of duration $4$ seconds. The frequency increases linearly from $20 \si{Hz}$ to $950\si{Hz}$ (\autoref{NSsignal}). We have chosen to work at a sample rate of $11025$.
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.49\textwidth}
+	\centering
+	\def\svgwidth{0.9\columnwidth}
+	\graphicspath{{Img/}}
+	{\fontsize{5}{12}\selectfont
+		\input{Img/Experiment16_NSsignalTime.pdf_tex}
+	}
+	\caption{Time}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+	\centering
+	\def\svgwidth{0.9\columnwidth}
+	\graphicspath{{Img/}}
+	{\fontsize{5}{12}\selectfont
+		\input{Img/Experiment16_NSsignalFreq.pdf_tex}
+	}
+	\caption{Frequency}
+\end{subfigure}
+	\caption{Noise source signal}
+	\label{NSsignal}
+\end{figure}
+%The received signal from that noise loudspeaker is shown in \autoref{recNS}
+%\begin{figure}
+%	\begin{subfigure}[b]{0.49\textwidth}
+%		\centering
+%		\def\svgwidth{0.9\columnwidth}
+%		\graphicspath{{Img/}}
+%		{\fontsize{5}{12}\selectfont
+%			\input{Img/Experiment16_recNSTime.pdf_tex}
+%		}
+%		\caption{Time}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.49\textwidth}
+%		\centering
+%		\def\svgwidth{0.9\columnwidth}
+%		\graphicspath{{Img/}}
+%		{\fontsize{5}{12}\selectfont
+%			\input{Img/Experiment16_recNSFreq.pdf_tex}
+%		}
+%		\caption{Frequency}
+%	\end{subfigure}
+%	\caption{Received signal from noise source}
+%	\label{recNS}
+%\end{figure}
 
-Cancellation for the optimized position is:
+The signal transmitted by the WFS array loudspeakers $\vec{\signal[wfs][time]} = [\signal[wfs][time]_1, \signal[wfs][time]_2, ..., \signal[wfs][time]_{\numWFS}]^T$ are calculated using \autoref{rayleigh2_5Dsignal}, where the filter $\freqFilter(t) = \FourierTransform{\sqrt{\frac{jk}{2\pi}}}[inverse]$ has been implemented using a magnitude filter $\freqFilter[time][magnitude] = \FourierTransform{\sqrt{f/c}}[inverse]$ of order $1024$, and a phase filter $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$ of order $4096$. The estimated noise source position (the positions that is used to calculate WFS signals) is $\Position[ns] = [\Position[ns][x], \Position[ns][y], \Position[ns][z]] = [3.5, -0.2, 1.65]$ (remember all loudspeakers are situated $1.65\si{m}$ above the floor). 
+When playing the noise source and WFS signals simultaneously, the received signals (in comparison with the ones received only from the noise source) are shown in \autoref{recSign}.
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\def\svgwidth{0.9\columnwidth}
+		\graphicspath{{Img/}}
+		{\fontsize{5}{12}\selectfont
+			\input{Img/Experiment16_recAndrecNStime_1.pdf_tex}
+		}
+		\caption{Microphone 1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\def\svgwidth{0.9\columnwidth}
+		\graphicspath{{Img/}}
+		{\fontsize{5}{12}\selectfont
+			\input{Img/Experiment16_recAndrecNStime_2.pdf_tex}
+		}
+		\caption{Microphone 2}
+	\end{subfigure}
+	\caption{Received signal}
+	\label{recSign}
+\end{figure}
+
+The average gain with and without volume correction is shown in \autoref{averGain}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Img/Experiment16_averGainComparison.eps}
+	\caption{Average gain comparison}
+	\label{averGain}
+\end{figure}
 
 \section{Justification for optimization}
 The extent of the optimization depends on what we want to test. If we only wanted to test how much unpredictable variables affect performance, counting volume disparity as one of those variables, it would not make sense to perform an optimization, because it would be falsifying the results. However, if we consider the volume disparity as a problem inherent to the listening room situation and not a general one, or that in a more real situation it can be solved, or optimized in real-time, then it makes sense to optimize. Hence, it is important to define what we want to test.
