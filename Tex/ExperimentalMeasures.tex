@@ -80,9 +80,89 @@ If we were only to calculate the acoustic path between a source and one or multi
 
 However, the number of sources in the listening room is 96. It is a large number, and it would be convenient to find a better, fastest way of calculating it. The technique we have used is based on orthogonal frequency division multiplexing, this is, in the fact that each loudspeaker transmits different, orthogonal frequencies that can be easily separated in the received signal.
 
-\section{Measures}
-Measures...
+In a communication system, a signal $x(t)$ gets transmitted through a channel with impulse response $h(t)$, and the received signal $y(t)$ is the convolution of the previous two:
+\begin{equation}
+y(t) = x(t)\ast h(t)
+\end{equation}
 
+Generally, in practical situations we can consider that $h(t)$ is causal and limited in time, with a duration $T_h$:
+\begin{equation}
+h(t) = h(t) \Pi\left(\frac{t - T_h/2}{T_h}\right)
+\end{equation}
+where $\Pi(t)$ is the rectangular function
+\begin{equation}
+\Pi(t) = \mathit{rect}(t) = \begin{cases}
+0, & t < -1/2 \\
+1, & -1/2 < t < 1/2 \\
+0, & 1/2 < t
+\end{cases}
+\end{equation}
+
+This implies that if we are only interested in knowing $y(t)$ in an interval $t \in [t_\mathit{ini}, t_\mathit{end}]$, then we just need to know $x(t)$ in the interval $t \in [t_\mathit{ini} - T_h, t_\mathit{end}]$:
+\begin{equation}
+y(t) = \Pi\left(\frac{t - (t_\mathit{end} + t_\mathit{ini} - T_h)/2}{t_\mathit{end} - (t_\mathit{ini} - T_h)}\right) x(t) \ast h(t), \quad t_\mathit{ini} <= t <= t_\mathit{end}.
+\end{equation}
+
+The spectrum of that interval of the received signal will be
+\begin{multline}
+Y'(f) = \FourierTransform{y'(t)} = \FourierTransform{y(t) \Pi\left(\frac{t - (t_\mathit{end} + t_\mathit{end})/2}{t_\mathit{end} - t_\mathit{ini}}\right)} = \\ Y(f) \ast (t_\mathit{end} - t_\mathit{ini}) \mathit{sinc}\left((t_\mathit{end} - t_\mathit{ini}) f \right) e^{-j 2 \pi f \frac{(t_\mathit{end} + t_\mathit{ini})}{2}},
+\end{multline}
+where $\mathit{sinc}$ is the function:
+\begin{equation}
+\mathit{sinc}(x) = \frac{\sin(\pi x)}{\pi x}
+\end{equation}
+
+Let's assume that we are transmitting some tones with equispaced frequencies $f_k = k \Delta f$, where $k = -N - 1, ..., 0, ..., N-1$ ($x(t)$ is real). As a consequence, if the duration of the selected interval of $y(t)$ is multiple of $1/\Delta f$, this is, $T = t_\mathit{end} - t_\mathit{ini} = n/\Delta f$ where $n = 1, 2, ...$, then the zeroes of the $\mathit{sinc}$ function fall on multiples of $1/T = \Delta f / n$, meaning that 
+\begin{equation}
+Y'(f_k) = Y(f_k), \quad f = k \Delta f.
+\end{equation}
+
+The values of $H(f)$ can be known with precision at those frequencies ($f = k \Delta f$) by dividing the received spectrum by the sent one:
+\begin{equation}
+H(f_k) = \frac{Y'(f_k)}{X(f_k)}, f_k = k \Delta f
+\label{Hestimate1}
+\end{equation}
+
+The value of $H(f)$ at the rest of frequencies is unknown. Nonetheless, it can be deduced if some additional conditions are satisfied. Let's notice that discretizing a spectrum with a base separation $\Delta f_0$ is equivalent to adding a periodicity in the time domain:
+\begin{equation}
+H_\delta(f) = H(f) \Delta f \sum_{k = -\infty}^{\infty} \delta(f - k \Delta f) = \FourierTransform{h(t) \ast \sum_{n = -\infty}^{\infty} \delta\left(t - \frac{n}{\Delta f}\right)}[inverse] = \FourierTransform{h_\delta(t)}[inverse],
+\end{equation}
+where $H_\delta(f)$ is the discretized channel frequency response.
+
+If the period is bigger than the duration of the impulse response ($1/\Delta f >= T_h$), then the frequency discretization will not produce any interference, and so, no information will be lost. In that case, the spectrum of the impulse response can be calculated by just convolution a $\mathit{sinc}$ function by the known frequencies:
+\begin{equation}
+h(t) = h_\delta(t) \Pi\left( \frac{t - \frac{1}{2\Delta f}}{1/\Delta f} \right) \leftrightarrow
+H(f) = H_\delta(f) \ast \frac{1}{\Delta f} \mathit{sinc}\left( \frac{1}{\Delta f} f \right) e^{-j 2 \pi f \frac{1}{2 \Delta f}}
+\end{equation}
+
+However, there is still the question of calculating $H_\delta(f)$. One could say that, just using \autoref{Hestimate1} is enough. However, let's notice that, in order to known the value of the channel response at frequency $f_k$, the transmitted signal should have a tone at that frequency. But, realistically $x(t)$ is limited in frequency ($f_k = k\Delta f$ and $k_{max} = N - 1$, so $f_\mathit{max} = (N-1)\Delta f$. So, we can't actually know $H_\delta(t)$ but a frequency limited version:
+\begin{equation}
+H_\delta^{'}(f) = H_\delta(f) \Pi\left(\frac{f}{2 f_\mathit{max}}\right) \leftrightarrow h_\delta^{'}(t) = h_\delta \ast 2f_\mathit{max} \mathit{sinc}\left(  2f_\mathit{max} t \right)
+\label{frequencyCut}
+\end{equation}
+
+The estimated channel response will become
+\begin{equation}
+h_e(f) = h_\delta^{'} \Pi\left( \frac{t - \frac{1}{2\Delta f}}{1/\Delta f} \right) \leftrightarrow
+H_e(f) = H_\delta^{'}(f) \ast \frac{1}{\Delta f} \mathit{sinc}\left( \frac{1}{\Delta f} f \right) e^{-j 2 \pi f \frac{1}{2 \Delta f}}
+\end{equation}
+
+The estimated channel response will only be equal to the real one if, in addition to the conditions already mentioned ($1/\Delta f \geq T_h$ and $T = n/\Delta f$, $n = 1, 2, ...$), the maximum frequency of the impulse response $f_{h,max}$ is smaller than the maximum transmitted frequency: $f_{h,max} \leq f_{max}$.
+
+If previous condition is not satisfied, equality cannot be guaranteed. The estimation will get better as $\Delta f$ decreases. It can be understood intuitively as making the period of the repetition of $h(t)$ bigger, so the convolution of other periods with the $\mathit{sinc}$ (\autoref{frequencyCut}) does not influence a lot the main one because the distance is very big ($1/\Delta f$) and the contribution "arrives" attenuated.
+
+A question that may arise is how can we transmit pure tones if we can only generate discretized finite tones that are converted to continuous signal by the digital to analogue converter of the loudspeaker.
+...
+
+In summary, the process I propose is:
+\begin{itemize}
+	\item Transmit signals and record them
+	\item Select an interval with the right duration
+	\item Calculate discretized spectrum: Calculate response at key frequencies
+	\item Convolute by adequate sincs in order to calculate the full estimated spectrum
+\end{itemize}
+
+\section{Measures}
 In order to perform a simple experiment, a loudspeaker will act as a noise source that transmits a known signal. Specifically, it is a chirp signal of duration $4$ seconds. The frequency increases linearly from $20 \si{Hz}$ to $950\si{Hz}$ (\autoref{NSsignal}). We have chosen to work at a sample rate of $11025$.
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.49\textwidth}
