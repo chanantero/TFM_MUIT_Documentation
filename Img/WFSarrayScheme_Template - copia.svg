@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="[viewPortHeight]"
+   width="[viewPortWidth]"
+   version="1.1"
+   viewBox="[viewBox]"
+   sodipodi:docname="WFSarrayScheme.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <defs>
+  </defs>
+
+<!-- Include the background image -->
+<!-- <image xlink:href="[backgroundName]" x="[x]" y="[y]" height="[height]" width="[width]" preserveAspectRatio="none"/> -->
+
+<!-- Draw the radiationPatterns -->
+<!-- <use xlink:href="#diagramDipole" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+<!-- <use xlink:href="#diagramMonopoleNoise" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+[RadDiag]
+
+  <!-- Draw the loudspeakers -->
+  <!-- <use xlink:href="#loudspeaker" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_sound" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_silence" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+
+
+[WFSarray]
+[NoiseLouds]
+
+  <!-- Draw the microphones -->
+  <!-- <use xlink:href="#microphone" x="[x]" y="[y]"/> -->
+[MicrophoneArray]
+
+
+
+</svg>

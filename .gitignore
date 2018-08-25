@@ -12,5 +12,4 @@ Thesis.synctex.gz
 *.lof
 *.toc
 
-!/Img/symbolLibrary.svg
-!/Img/WFSarrayScheme_Template.svg
+!/Img/*.svg

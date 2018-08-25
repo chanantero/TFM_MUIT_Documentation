@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="788.202"
+   width="514.5172"
+   version="1.1"
+   viewBox="-1.2515    -0.76278      5.1452       7.882"
+   sodipodi:docname="WFSarrayScheme.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <defs>
+  </defs>
+
+<!-- Include the background image -->
+<!-- <image xlink:href="[backgroundName]" x="[x]" y="[y]" height="[height]" width="[width]" preserveAspectRatio="none"/> -->
+<image xlink:href="Experiment1_Example_Field.png" x="-1.25153" y="-0.762776" width="5.14517" height="7.88202" preserveAspectRatio="none"/>
+
+<!-- Draw the radiationPatterns -->
+<!-- <use xlink:href="#diagramDipole" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+<!-- <use xlink:href="#diagramMonopoleNoise" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+
+
+<!-- Draw the loudspeakers -->
+  <!-- <use xlink:href="#loudspeaker" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_sound" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_silence" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+
+<!-- WFS array loudspeakers -->
+<g>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.954594" y="0.0636396" transform="rotate(45 0.954594 0.0636396)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.827315" y="0.190919" transform="rotate(45 0.827315 0.190919)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.700036" y="0.318198" transform="rotate(45 0.700036 0.318198)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.572756" y="0.445477" transform="rotate(45 0.572756 0.445477)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.445477" y="0.572756" transform="rotate(45 0.445477 0.572756)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.318198" y="0.700036" transform="rotate(45 0.318198 0.700036)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.190919" y="0.827315" transform="rotate(45 0.190919 0.827315)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.0636396" y="0.954594" transform="rotate(45 0.0636396 0.954594)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.10823" transform="rotate(0 0 1.10823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.28823" transform="rotate(0 0 1.28823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.46823" transform="rotate(0 0 1.46823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.64823" transform="rotate(0 0 1.64823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.82823" transform="rotate(0 0 1.82823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.00823" transform="rotate(0 0 2.00823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.18823" transform="rotate(0 0 2.18823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.36823" transform="rotate(0 0 2.36823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.54823" transform="rotate(0 0 2.54823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.72823" transform="rotate(0 0 2.72823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.90823" transform="rotate(0 0 2.90823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.08823" transform="rotate(0 0 3.08823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.26823" transform="rotate(0 0 3.26823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.44823" transform="rotate(0 0 3.44823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.62823" transform="rotate(0 0 3.62823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.80823" transform="rotate(0 0 3.80823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.98823" transform="rotate(0 0 3.98823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.16823" transform="rotate(0 0 4.16823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.34823" transform="rotate(0 0 4.34823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.52823" transform="rotate(0 0 4.52823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.70823" transform="rotate(0 0 4.70823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.88823" transform="rotate(0 0 4.88823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="5.06823" transform="rotate(0 0 5.06823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="5.24823" transform="rotate(0 0 5.24823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.0636396" y="5.40187" transform="rotate(-45 0.0636396 5.40187)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.190919" y="5.52915" transform="rotate(-45 0.190919 5.52915)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.318198" y="5.65643" transform="rotate(-45 0.318198 5.65643)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.445477" y="5.78371" transform="rotate(-45 0.445477 5.78371)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.572756" y="5.91099" transform="rotate(-45 0.572756 5.91099)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.700036" y="6.03827" transform="rotate(-45 0.700036 6.03827)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.827315" y="6.16555" transform="rotate(-45 0.827315 6.16555)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.954594" y="6.29283" transform="rotate(-45 0.954594 6.29283)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.10823" y="6.35647" transform="rotate(-90 1.10823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.28823" y="6.35647" transform="rotate(-90 1.28823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.46823" y="6.35647" transform="rotate(-90 1.46823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.64823" y="6.35647" transform="rotate(-90 1.64823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.82823" y="6.35647" transform="rotate(-90 1.82823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.00823" y="6.35647" transform="rotate(-90 2.00823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.18823" y="6.35647" transform="rotate(-90 2.18823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.36823" y="6.35647" transform="rotate(-90 2.36823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.52187" y="6.29283" transform="rotate(-135 2.52187 6.29283)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.64915" y="6.16555" transform="rotate(-135 2.64915 6.16555)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.77643" y="6.03827" transform="rotate(-135 2.77643 6.03827)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.90371" y="5.91099" transform="rotate(-135 2.90371 5.91099)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.03099" y="5.78371" transform="rotate(-135 3.03099 5.78371)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.15827" y="5.65643" transform="rotate(-135 3.15827 5.65643)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.28555" y="5.52915" transform="rotate(-135 3.28555 5.52915)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.41283" y="5.40187" transform="rotate(-135 3.41283 5.40187)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="5.24823" transform="rotate(180 3.47647 5.24823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="5.06823" transform="rotate(180 3.47647 5.06823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.88823" transform="rotate(180 3.47647 4.88823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.70823" transform="rotate(180 3.47647 4.70823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.52823" transform="rotate(180 3.47647 4.52823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.34823" transform="rotate(180 3.47647 4.34823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.16823" transform="rotate(180 3.47647 4.16823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.98823" transform="rotate(180 3.47647 3.98823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.80823" transform="rotate(180 3.47647 3.80823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.62823" transform="rotate(180 3.47647 3.62823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.44823" transform="rotate(180 3.47647 3.44823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.26823" transform="rotate(180 3.47647 3.26823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.08823" transform="rotate(180 3.47647 3.08823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.90823" transform="rotate(180 3.47647 2.90823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.72823" transform="rotate(180 3.47647 2.72823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.54823" transform="rotate(180 3.47647 2.54823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.36823" transform="rotate(180 3.47647 2.36823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.18823" transform="rotate(180 3.47647 2.18823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.00823" transform="rotate(180 3.47647 2.00823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.82823" transform="rotate(180 3.47647 1.82823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.64823" transform="rotate(180 3.47647 1.64823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.46823" transform="rotate(180 3.47647 1.46823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.28823" transform="rotate(180 3.47647 1.28823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.10823" transform="rotate(180 3.47647 1.10823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.41283" y="0.954594" transform="rotate(135 3.41283 0.954594)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.28555" y="0.827315" transform="rotate(135 3.28555 0.827315)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.15827" y="0.700036" transform="rotate(135 3.15827 0.700036)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.03099" y="0.572756" transform="rotate(135 3.03099 0.572756)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.90371" y="0.445477" transform="rotate(135 2.90371 0.445477)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.77643" y="0.318198" transform="rotate(135 2.77643 0.318198)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.64915" y="0.190919" transform="rotate(135 2.64915 0.190919)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.52187" y="0.0636396" transform="rotate(135 2.52187 0.0636396)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.36823" y="0" transform="rotate(90 2.36823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.18823" y="0" transform="rotate(90 2.18823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.00823" y="0" transform="rotate(90 2.00823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.82823" y="0" transform="rotate(90 1.82823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.64823" y="0" transform="rotate(90 1.64823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.46823" y="0" transform="rotate(90 1.46823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.28823" y="0" transform="rotate(90 1.28823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.10823" y="0" transform="rotate(90 1.10823 0)"/>
+</g>
+
+<!-- Noise loudspeakers -->
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-1" y="2.5" transform="rotate(0 -1 2.5)"/>
+
+
+  <!-- Draw the microphones -->
+  <!-- <use xlink:href="#microphone" x="[x]" y="[y]"/> -->
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 1.27129) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 1.47202) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 1.67275) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 1.87349) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 2.07422) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 2.27495) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 2.47568) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 2.67641) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 2.87714) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 3.07787) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 3.2786) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 3.47933) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 3.68006) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 3.88079) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 4.08152) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 4.28225) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 4.48298) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 4.68371) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 4.88444) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.695294 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.805077 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(0.91486 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.02464 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.13443 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.24421 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.35399 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.46378 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.57356 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.68334 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.79313 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(1.90291 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.01269 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.12247 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.23226 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.34204 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.45182 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.56161 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.67139 5.08517) scale(0.8)"/>
+<use xlink:href="symbolLibrary.svg#microphone" transform="translate(2.78117 5.08517) scale(0.8)"/>
+
+
+<!-- Other things -->
+[Other]
+
+</svg>

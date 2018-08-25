@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="1200"
+   width="1200"
+   version="1.1"
+   viewBox="-4.26177     -2.82177           12           12"
+   sodipodi:docname="WFSarrayScheme.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <defs>
+  </defs>
+
+<!-- Include the background image -->
+<!-- <image xlink:href="[backgroundName]" x="[x]" y="[y]" height="[height]" width="[width]" preserveAspectRatio="none"/> -->
+
+
+<!-- Draw the radiationPatterns -->
+<!-- <use xlink:href="#diagramDipole" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+<!-- <use xlink:href="#diagramMonopoleNoise" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+
+
+<!-- Draw the loudspeakers -->
+  <!-- <use xlink:href="#loudspeaker" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_sound" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_silence" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+
+<!-- WFS array loudspeakers -->
+<g>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.954594" y="0.0636396" transform="rotate(45 0.954594 0.0636396)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.827315" y="0.190919" transform="rotate(45 0.827315 0.190919)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.700036" y="0.318198" transform="rotate(45 0.700036 0.318198)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.572756" y="0.445477" transform="rotate(45 0.572756 0.445477)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.445477" y="0.572756" transform="rotate(45 0.445477 0.572756)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.318198" y="0.700036" transform="rotate(45 0.318198 0.700036)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.190919" y="0.827315" transform="rotate(45 0.190919 0.827315)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.0636396" y="0.954594" transform="rotate(45 0.0636396 0.954594)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.10823" transform="rotate(0 0 1.10823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.28823" transform="rotate(0 0 1.28823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.46823" transform="rotate(0 0 1.46823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.64823" transform="rotate(0 0 1.64823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.82823" transform="rotate(0 0 1.82823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.00823" transform="rotate(0 0 2.00823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.18823" transform="rotate(0 0 2.18823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.36823" transform="rotate(0 0 2.36823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.54823" transform="rotate(0 0 2.54823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.72823" transform="rotate(0 0 2.72823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.90823" transform="rotate(0 0 2.90823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.08823" transform="rotate(0 0 3.08823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.26823" transform="rotate(0 0 3.26823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.44823" transform="rotate(0 0 3.44823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.62823" transform="rotate(0 0 3.62823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.80823" transform="rotate(0 0 3.80823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.98823" transform="rotate(0 0 3.98823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.16823" transform="rotate(0 0 4.16823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.34823" transform="rotate(0 0 4.34823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.52823" transform="rotate(0 0 4.52823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.70823" transform="rotate(0 0 4.70823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.88823" transform="rotate(0 0 4.88823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="5.06823" transform="rotate(0 0 5.06823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="5.24823" transform="rotate(0 0 5.24823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.0636396" y="5.40187" transform="rotate(-45 0.0636396 5.40187)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.190919" y="5.52915" transform="rotate(-45 0.190919 5.52915)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.318198" y="5.65643" transform="rotate(-45 0.318198 5.65643)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.445477" y="5.78371" transform="rotate(-45 0.445477 5.78371)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.572756" y="5.91099" transform="rotate(-45 0.572756 5.91099)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.700036" y="6.03827" transform="rotate(-45 0.700036 6.03827)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.827315" y="6.16555" transform="rotate(-45 0.827315 6.16555)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.954594" y="6.29283" transform="rotate(-45 0.954594 6.29283)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.10823" y="6.35647" transform="rotate(-90 1.10823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.28823" y="6.35647" transform="rotate(-90 1.28823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.46823" y="6.35647" transform="rotate(-90 1.46823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.64823" y="6.35647" transform="rotate(-90 1.64823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.82823" y="6.35647" transform="rotate(-90 1.82823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.00823" y="6.35647" transform="rotate(-90 2.00823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.18823" y="6.35647" transform="rotate(-90 2.18823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.36823" y="6.35647" transform="rotate(-90 2.36823 6.35647)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.52187" y="6.29283" transform="rotate(-135 2.52187 6.29283)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.64915" y="6.16555" transform="rotate(-135 2.64915 6.16555)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.77643" y="6.03827" transform="rotate(-135 2.77643 6.03827)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.90371" y="5.91099" transform="rotate(-135 2.90371 5.91099)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.03099" y="5.78371" transform="rotate(-135 3.03099 5.78371)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.15827" y="5.65643" transform="rotate(-135 3.15827 5.65643)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.28555" y="5.52915" transform="rotate(-135 3.28555 5.52915)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.41283" y="5.40187" transform="rotate(-135 3.41283 5.40187)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="5.24823" transform="rotate(180 3.47647 5.24823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="5.06823" transform="rotate(180 3.47647 5.06823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.88823" transform="rotate(180 3.47647 4.88823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.70823" transform="rotate(180 3.47647 4.70823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.52823" transform="rotate(180 3.47647 4.52823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.34823" transform="rotate(180 3.47647 4.34823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.16823" transform="rotate(180 3.47647 4.16823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.98823" transform="rotate(180 3.47647 3.98823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.80823" transform="rotate(180 3.47647 3.80823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.62823" transform="rotate(180 3.47647 3.62823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.44823" transform="rotate(180 3.47647 3.44823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.26823" transform="rotate(180 3.47647 3.26823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.08823" transform="rotate(180 3.47647 3.08823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.90823" transform="rotate(180 3.47647 2.90823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.72823" transform="rotate(180 3.47647 2.72823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.54823" transform="rotate(180 3.47647 2.54823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.36823" transform="rotate(180 3.47647 2.36823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.18823" transform="rotate(180 3.47647 2.18823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.00823" transform="rotate(180 3.47647 2.00823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.82823" transform="rotate(180 3.47647 1.82823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.64823" transform="rotate(180 3.47647 1.64823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.46823" transform="rotate(180 3.47647 1.46823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.28823" transform="rotate(180 3.47647 1.28823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.10823" transform="rotate(180 3.47647 1.10823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.41283" y="0.954594" transform="rotate(135 3.41283 0.954594)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.28555" y="0.827315" transform="rotate(135 3.28555 0.827315)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.15827" y="0.700036" transform="rotate(135 3.15827 0.700036)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="3.03099" y="0.572756" transform="rotate(135 3.03099 0.572756)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.90371" y="0.445477" transform="rotate(135 2.90371 0.445477)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.77643" y="0.318198" transform="rotate(135 2.77643 0.318198)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.64915" y="0.190919" transform="rotate(135 2.64915 0.190919)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.52187" y="0.0636396" transform="rotate(135 2.52187 0.0636396)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.36823" y="0" transform="rotate(90 2.36823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.18823" y="0" transform="rotate(90 2.18823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="2.00823" y="0" transform="rotate(90 2.00823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.82823" y="0" transform="rotate(90 1.82823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.64823" y="0" transform="rotate(90 1.64823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.46823" y="0" transform="rotate(90 1.46823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.28823" y="0" transform="rotate(90 1.28823 0)"/>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="1.10823" y="0" transform="rotate(90 1.10823 0)"/>
+</g>
+
+<!-- Noise loudspeakers -->
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="6.73823" y="3.17823" transform="rotate(180 6.73823 3.17823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="6.49352" y="4.72332" transform="rotate(-162 6.49352 4.72332)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="5.78332" y="6.11716" transform="rotate(-144 5.78332 6.11716)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="4.67716" y="7.22332" transform="rotate(-126 4.67716 7.22332)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="3.28332" y="7.93352" transform="rotate(-108 3.28332 7.93352)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="1.73823" y="8.17823" transform="rotate(-90 1.73823 8.17823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="0.193149" y="7.93352" transform="rotate(-72 0.193149 7.93352)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-1.20069" y="7.22332" transform="rotate(-54 -1.20069 7.22332)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-2.30685" y="6.11716" transform="rotate(-36 -2.30685 6.11716)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-3.01705" y="4.72332" transform="rotate(-18 -3.01705 4.72332)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-3.26177" y="3.17823" transform="rotate(-5.08889e-15 -3.26177 3.17823)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-3.01705" y="1.63315" transform="rotate(18 -3.01705 1.63315)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-2.30685" y="0.239308" transform="rotate(36 -2.30685 0.239308)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="-1.20069" y="-0.866851" transform="rotate(54 -1.20069 -0.866851)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="0.193149" y="-1.57705" transform="rotate(72 0.193149 -1.57705)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="1.73823" y="-1.82177" transform="rotate(90 1.73823 -1.82177)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="3.28332" y="-1.57705" transform="rotate(108 3.28332 -1.57705)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="4.67716" y="-0.866851" transform="rotate(126 4.67716 -0.866851)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="5.78332" y="0.239308" transform="rotate(144 5.78332 0.239308)"/>
+<use xlink:href="symbolLibrary.svg#loudspeakerSound" x="6.49352" y="1.63315" transform="rotate(162 6.49352 1.63315)"/>
+
+
+  <!-- Draw the microphones -->
+  <!-- <use xlink:href="#microphone" x="[x]" y="[y]"/> -->
+
+
+<!-- Other things -->
+<path
+  style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.010000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+d="M1.738234 3.178234 L6.493516 4.723319"
+  id="line" />
+<path
+  style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.010000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+d="M1.738234 3.178234 L4.238234 3.178234"
+  id="line" />
+<path style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.010000;stroke-opacity:1"
+d="M2.738234 3.178234 A 1.000000 1.000000, 0.000000, 0, 1, 2.689290 3.487251" />
+<text
+    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:0.100000;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+     x="2.738234"
+    y="3.578234"
+   id="distanceSymbol"><tspan>$\alpha$</tspan></text>
+
+<text
+    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:0.100000;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+     x="5.304696"
+    y="4.337047"
+   id="distanceSymbol"><tspan>$R$</tspan></text>
+
+
+</svg>

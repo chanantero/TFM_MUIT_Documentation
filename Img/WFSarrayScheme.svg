@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="800"
+   width="600"
+   version="1.1"
+   viewBox="-1.2618    -0.82177           6           8"
+   sodipodi:docname="WFSarrayScheme.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata490">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     id="namedview488"
+     showgrid="false"
+     inkscape:zoom="0.64"
+     inkscape:cx="175.97248"
+     inkscape:cy="515.28983"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs2" />
+  <!-- Include the background image -->
+  <!-- <image xlink:href="[backgroundName]" x="[x]" y="[y]" height="[height]" width="[width]" preserveAspectRatio="none"/> -->
+  <!-- Draw the radiationPatterns -->
+  <!-- <use xlink:href="#diagramDipole" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+  <!-- <use xlink:href="#diagramMonopoleNoise" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+  <use
+     xlink:href="symbolLibrary.svg#diagramDipole"
+     id="use210"
+     transform="rotate(45 0.318198 0.700036)"
+     y="0.700036"
+     x="0.318198" />
+  <use
+     xlink:href="symbolLibrary.svg#diagramMonopoleNoise"
+     id="use254"
+     transform="rotate(0 2 5)"
+     y="5"
+     x="2" />
+  <!-- Draw the loudspeakers -->
+  <!-- <use xlink:href="#loudspeaker" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_sound" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_silence" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <g
+     id="g454">
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use262"
+       transform="rotate(45 0.954594 0.0636396)"
+       y="0.0636396"
+       x="0.954594" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use264"
+       transform="rotate(45 0.827315 0.190919)"
+       y="0.190919"
+       x="0.827315" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use266"
+       transform="rotate(45 0.700036 0.318198)"
+       y="0.318198"
+       x="0.700036" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use268"
+       transform="rotate(45 0.572756 0.445477)"
+       y="0.445477"
+       x="0.572756" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use270"
+       transform="rotate(45 0.445477 0.572756)"
+       y="0.572756"
+       x="0.445477" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use272"
+       transform="rotate(45 0.318198 0.700036)"
+       y="0.700036"
+       x="0.318198" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use274"
+       transform="rotate(45 0.190919 0.827315)"
+       y="0.827315"
+       x="0.190919" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use276"
+       transform="rotate(45 0.0636396 0.954594)"
+       y="0.954594"
+       x="0.0636396" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use278"
+       transform="rotate(0 0 1.10823)"
+       y="1.10823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use280"
+       transform="rotate(0 0 1.28823)"
+       y="1.28823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use282"
+       transform="rotate(0 0 1.46823)"
+       y="1.46823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use284"
+       transform="rotate(0 0 1.64823)"
+       y="1.64823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use286"
+       transform="rotate(0 0 1.82823)"
+       y="1.82823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use288"
+       transform="rotate(0 0 2.00823)"
+       y="2.00823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use290"
+       transform="rotate(0 0 2.18823)"
+       y="2.18823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use292"
+       transform="rotate(0 0 2.36823)"
+       y="2.36823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use294"
+       transform="rotate(0 0 2.54823)"
+       y="2.54823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use296"
+       transform="rotate(0 0 2.72823)"
+       y="2.72823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use298"
+       transform="rotate(0 0 2.90823)"
+       y="2.90823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use300"
+       transform="rotate(0 0 3.08823)"
+       y="3.08823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use302"
+       transform="rotate(0 0 3.26823)"
+       y="3.26823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use304"
+       transform="rotate(0 0 3.44823)"
+       y="3.44823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use306"
+       transform="rotate(0 0 3.62823)"
+       y="3.62823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use308"
+       transform="rotate(0 0 3.80823)"
+       y="3.80823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use310"
+       transform="rotate(0 0 3.98823)"
+       y="3.98823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use312"
+       transform="rotate(0 0 4.16823)"
+       y="4.16823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use314"
+       transform="rotate(0 0 4.34823)"
+       y="4.34823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use316"
+       transform="rotate(0 0 4.52823)"
+       y="4.52823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use318"
+       transform="rotate(0 0 4.70823)"
+       y="4.70823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use320"
+       transform="rotate(0 0 4.88823)"
+       y="4.88823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use322"
+       transform="rotate(0 0 5.06823)"
+       y="5.06823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use324"
+       transform="rotate(0 0 5.24823)"
+       y="5.24823"
+       x="0" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use326"
+       transform="rotate(-45 0.0636396 5.40187)"
+       y="5.40187"
+       x="0.0636396" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use328"
+       transform="rotate(-45 0.190919 5.52915)"
+       y="5.52915"
+       x="0.190919" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use330"
+       transform="rotate(-45 0.318198 5.65643)"
+       y="5.65643"
+       x="0.318198" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use332"
+       transform="rotate(-45 0.445477 5.78371)"
+       y="5.78371"
+       x="0.445477" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use334"
+       transform="rotate(-45 0.572756 5.91099)"
+       y="5.91099"
+       x="0.572756" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use336"
+       transform="rotate(-45 0.700036 6.03827)"
+       y="6.03827"
+       x="0.700036" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use338"
+       transform="rotate(-45 0.827315 6.16555)"
+       y="6.16555"
+       x="0.827315" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use340"
+       transform="rotate(-45 0.954594 6.29283)"
+       y="6.29283"
+       x="0.954594" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use342"
+       transform="rotate(-90 1.10823 6.35647)"
+       y="6.35647"
+       x="1.10823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use344"
+       transform="rotate(-90 1.28823 6.35647)"
+       y="6.35647"
+       x="1.28823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use346"
+       transform="rotate(-90 1.46823 6.35647)"
+       y="6.35647"
+       x="1.46823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use348"
+       transform="rotate(-90 1.64823 6.35647)"
+       y="6.35647"
+       x="1.64823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use350"
+       transform="rotate(-90 1.82823 6.35647)"
+       y="6.35647"
+       x="1.82823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use352"
+       transform="rotate(-90 2.00823 6.35647)"
+       y="6.35647"
+       x="2.00823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use354"
+       transform="rotate(-90 2.18823 6.35647)"
+       y="6.35647"
+       x="2.18823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use356"
+       transform="rotate(-90 2.36823 6.35647)"
+       y="6.35647"
+       x="2.36823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use358"
+       transform="rotate(-135 2.52187 6.29283)"
+       y="6.29283"
+       x="2.52187" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use360"
+       transform="rotate(-135 2.64915 6.16555)"
+       y="6.16555"
+       x="2.64915" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use362"
+       transform="rotate(-135 2.77643 6.03827)"
+       y="6.03827"
+       x="2.77643" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use364"
+       transform="rotate(-135 2.90371 5.91099)"
+       y="5.91099"
+       x="2.90371" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use366"
+       transform="rotate(-135 3.03099 5.78371)"
+       y="5.78371"
+       x="3.03099" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use368"
+       transform="rotate(-135 3.15827 5.65643)"
+       y="5.65643"
+       x="3.15827" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use370"
+       transform="rotate(-135 3.28555 5.52915)"
+       y="5.52915"
+       x="3.28555" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use372"
+       transform="rotate(-135 3.41283 5.40187)"
+       y="5.40187"
+       x="3.41283" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use374"
+       transform="rotate(180 3.47647 5.24823)"
+       y="5.24823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use376"
+       transform="rotate(180 3.47647 5.06823)"
+       y="5.06823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use378"
+       transform="rotate(180 3.47647 4.88823)"
+       y="4.88823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use380"
+       transform="rotate(180 3.47647 4.70823)"
+       y="4.70823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use382"
+       transform="rotate(180 3.47647 4.52823)"
+       y="4.52823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use384"
+       transform="rotate(180 3.47647 4.34823)"
+       y="4.34823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use386"
+       transform="rotate(180 3.47647 4.16823)"
+       y="4.16823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use388"
+       transform="rotate(180 3.47647 3.98823)"
+       y="3.98823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use390"
+       transform="rotate(180 3.47647 3.80823)"
+       y="3.80823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use392"
+       transform="rotate(180 3.47647 3.62823)"
+       y="3.62823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use394"
+       transform="rotate(180 3.47647 3.44823)"
+       y="3.44823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use396"
+       transform="rotate(180 3.47647 3.26823)"
+       y="3.26823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use398"
+       transform="rotate(180 3.47647 3.08823)"
+       y="3.08823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use400"
+       transform="rotate(180 3.47647 2.90823)"
+       y="2.90823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use402"
+       transform="rotate(180 3.47647 2.72823)"
+       y="2.72823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use404"
+       transform="rotate(180 3.47647 2.54823)"
+       y="2.54823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use406"
+       transform="rotate(180 3.47647 2.36823)"
+       y="2.36823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use408"
+       transform="rotate(180 3.47647 2.18823)"
+       y="2.18823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use410"
+       transform="rotate(180 3.47647 2.00823)"
+       y="2.00823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use412"
+       transform="rotate(180 3.47647 1.82823)"
+       y="1.82823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use414"
+       transform="rotate(180 3.47647 1.64823)"
+       y="1.64823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use416"
+       transform="rotate(180 3.47647 1.46823)"
+       y="1.46823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use418"
+       transform="rotate(180 3.47647 1.28823)"
+       y="1.28823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use420"
+       transform="rotate(180 3.47647 1.10823)"
+       y="1.10823"
+       x="3.47647" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use422"
+       transform="rotate(135 3.41283 0.954594)"
+       y="0.954594"
+       x="3.41283" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use424"
+       transform="rotate(135 3.28555 0.827315)"
+       y="0.827315"
+       x="3.28555" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use426"
+       transform="rotate(135 3.15827 0.700036)"
+       y="0.700036"
+       x="3.15827" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use428"
+       transform="rotate(135 3.03099 0.572756)"
+       y="0.572756"
+       x="3.03099" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use430"
+       transform="rotate(135 2.90371 0.445477)"
+       y="0.445477"
+       x="2.90371" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use432"
+       transform="rotate(135 2.77643 0.318198)"
+       y="0.318198"
+       x="2.77643" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use434"
+       transform="rotate(135 2.64915 0.190919)"
+       y="0.190919"
+       x="2.64915" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use436"
+       transform="rotate(135 2.52187 0.0636396)"
+       y="0.0636396"
+       x="2.52187" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use438"
+       transform="rotate(90 2.36823 0)"
+       y="0"
+       x="2.36823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use440"
+       transform="rotate(90 2.18823 0)"
+       y="0"
+       x="2.18823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use442"
+       transform="rotate(90 2.00823 0)"
+       y="0"
+       x="2.00823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use444"
+       transform="rotate(90 1.82823 0)"
+       y="0"
+       x="1.82823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use446"
+       transform="rotate(90 1.64823 0)"
+       y="0"
+       x="1.64823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use448"
+       transform="rotate(90 1.46823 0)"
+       y="0"
+       x="1.46823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use450"
+       transform="rotate(90 1.28823 0)"
+       y="0"
+       x="1.28823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       id="use452"
+       transform="rotate(90 1.10823 0)"
+       y="0"
+       x="1.10823" />
+  </g>
+  <use
+     xlink:href="symbolLibrary.svg#loudspeakerSound"
+     id="use465"
+     transform="rotate(0 -1 2)"
+     y="2"
+     x="-1" />
+  <!-- Draw the microphones -->
+  <!-- <use xlink:href="#microphone" x="[x]" y="[y]"/> -->
+  <use
+     xlink:href="symbolLibrary.svg#microphone"
+     id="use483"
+     y="1"
+     x="2" />
+  <use
+     xlink:href="symbolLibrary.svg#microphone"
+     id="use485"
+     y="5"
+     x="2" />
+</svg>

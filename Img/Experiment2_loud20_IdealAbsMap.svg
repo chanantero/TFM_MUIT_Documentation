@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="685.6468"
+   width="397.6468"
+   version="1.1"
+   viewBox="-0.25       -0.25      3.9765      6.8565"
+   sodipodi:docname="WFSarrayScheme.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <defs>
+  </defs>
+
+<!-- Include the background image -->
+<!-- <image xlink:href="[backgroundName]" x="[x]" y="[y]" height="[height]" width="[width]" preserveAspectRatio="none"/> -->
+
+
+<!-- Draw the radiationPatterns -->
+<!-- <use xlink:href="#diagramDipole" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+<!-- <use xlink:href="#diagramMonopoleNoise" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+
+
+<!-- Draw the loudspeakers -->
+  <!-- <use xlink:href="#loudspeaker" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_sound" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_silence" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+
+<!-- WFS array loudspeakers -->
+<g>
+<use xlink:href="symbolLibrary.svg#loudspeaker" x="0.954594" y="0.0636396" transform="rotate(45 0.954594 0.0636396)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.827315" y="0.190919" transform="rotate(45 0.827315 0.190919)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.700036" y="0.318198" transform="rotate(45 0.700036 0.318198)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.572756" y="0.445477" transform="rotate(45 0.572756 0.445477)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.445477" y="0.572756" transform="rotate(45 0.445477 0.572756)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.318198" y="0.700036" transform="rotate(45 0.318198 0.700036)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.190919" y="0.827315" transform="rotate(45 0.190919 0.827315)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.0636396" y="0.954594" transform="rotate(45 0.0636396 0.954594)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.10823" transform="rotate(0 0 1.10823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.28823" transform="rotate(0 0 1.28823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.46823" transform="rotate(0 0 1.46823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.64823" transform="rotate(0 0 1.64823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="1.82823" transform="rotate(0 0 1.82823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.00823" transform="rotate(0 0 2.00823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.18823" transform="rotate(0 0 2.18823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.36823" transform="rotate(0 0 2.36823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.54823" transform="rotate(0 0 2.54823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.72823" transform="rotate(0 0 2.72823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="2.90823" transform="rotate(0 0 2.90823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.08823" transform="rotate(0 0 3.08823)" style="fill:#AA0000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.26823" transform="rotate(0 0 3.26823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.44823" transform="rotate(0 0 3.44823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.62823" transform="rotate(0 0 3.62823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.80823" transform="rotate(0 0 3.80823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="3.98823" transform="rotate(0 0 3.98823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.16823" transform="rotate(0 0 4.16823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.34823" transform="rotate(0 0 4.34823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.52823" transform="rotate(0 0 4.52823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.70823" transform="rotate(0 0 4.70823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="4.88823" transform="rotate(0 0 4.88823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="5.06823" transform="rotate(0 0 5.06823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0" y="5.24823" transform="rotate(0 0 5.24823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.0636396" y="5.40187" transform="rotate(-45 0.0636396 5.40187)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.190919" y="5.52915" transform="rotate(-45 0.190919 5.52915)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.318198" y="5.65643" transform="rotate(-45 0.318198 5.65643)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.445477" y="5.78371" transform="rotate(-45 0.445477 5.78371)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.572756" y="5.91099" transform="rotate(-45 0.572756 5.91099)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.700036" y="6.03827" transform="rotate(-45 0.700036 6.03827)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.827315" y="6.16555" transform="rotate(-45 0.827315 6.16555)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="0.954594" y="6.29283" transform="rotate(-45 0.954594 6.29283)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.10823" y="6.35647" transform="rotate(-90 1.10823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.28823" y="6.35647" transform="rotate(-90 1.28823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.46823" y="6.35647" transform="rotate(-90 1.46823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.64823" y="6.35647" transform="rotate(-90 1.64823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.82823" y="6.35647" transform="rotate(-90 1.82823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.00823" y="6.35647" transform="rotate(-90 2.00823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.18823" y="6.35647" transform="rotate(-90 2.18823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.36823" y="6.35647" transform="rotate(-90 2.36823 6.35647)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.52187" y="6.29283" transform="rotate(-135 2.52187 6.29283)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.64915" y="6.16555" transform="rotate(-135 2.64915 6.16555)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.77643" y="6.03827" transform="rotate(-135 2.77643 6.03827)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.90371" y="5.91099" transform="rotate(-135 2.90371 5.91099)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.03099" y="5.78371" transform="rotate(-135 3.03099 5.78371)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.15827" y="5.65643" transform="rotate(-135 3.15827 5.65643)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.28555" y="5.52915" transform="rotate(-135 3.28555 5.52915)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.41283" y="5.40187" transform="rotate(-135 3.41283 5.40187)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="5.24823" transform="rotate(180 3.47647 5.24823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="5.06823" transform="rotate(180 3.47647 5.06823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.88823" transform="rotate(180 3.47647 4.88823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.70823" transform="rotate(180 3.47647 4.70823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.52823" transform="rotate(180 3.47647 4.52823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.34823" transform="rotate(180 3.47647 4.34823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="4.16823" transform="rotate(180 3.47647 4.16823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.98823" transform="rotate(180 3.47647 3.98823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.80823" transform="rotate(180 3.47647 3.80823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.62823" transform="rotate(180 3.47647 3.62823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.44823" transform="rotate(180 3.47647 3.44823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.26823" transform="rotate(180 3.47647 3.26823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="3.08823" transform="rotate(180 3.47647 3.08823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.90823" transform="rotate(180 3.47647 2.90823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.72823" transform="rotate(180 3.47647 2.72823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.54823" transform="rotate(180 3.47647 2.54823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.36823" transform="rotate(180 3.47647 2.36823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.18823" transform="rotate(180 3.47647 2.18823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="2.00823" transform="rotate(180 3.47647 2.00823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.82823" transform="rotate(180 3.47647 1.82823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.64823" transform="rotate(180 3.47647 1.64823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.46823" transform="rotate(180 3.47647 1.46823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.28823" transform="rotate(180 3.47647 1.28823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.47647" y="1.10823" transform="rotate(180 3.47647 1.10823)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.41283" y="0.954594" transform="rotate(135 3.41283 0.954594)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.28555" y="0.827315" transform="rotate(135 3.28555 0.827315)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.15827" y="0.700036" transform="rotate(135 3.15827 0.700036)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="3.03099" y="0.572756" transform="rotate(135 3.03099 0.572756)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.90371" y="0.445477" transform="rotate(135 2.90371 0.445477)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.77643" y="0.318198" transform="rotate(135 2.77643 0.318198)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.64915" y="0.190919" transform="rotate(135 2.64915 0.190919)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.52187" y="0.0636396" transform="rotate(135 2.52187 0.0636396)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.36823" y="0" transform="rotate(90 2.36823 0)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.18823" y="0" transform="rotate(90 2.18823 0)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="2.00823" y="0" transform="rotate(90 2.00823 0)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.82823" y="0" transform="rotate(90 1.82823 0)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.64823" y="0" transform="rotate(90 1.64823 0)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.46823" y="0" transform="rotate(90 1.46823 0)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.28823" y="0" transform="rotate(90 1.28823 0)" style="fill:#000000"/>
+ <use xlink:href="symbolLibrary.svg#loudspeaker" x="1.10823" y="0" transform="rotate(90 1.10823 0)" style="fill:#000000"/>
+</g>
+
+<!-- Noise loudspeakers -->
+
+
+  <!-- Draw the microphones -->
+  <!-- <use xlink:href="#microphone" x="[x]" y="[y]"/> -->
+<use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 5.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 5.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 5.07823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 4.87823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 4.67823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 4.47823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 4.27823) scale(0.1)" style="fill:#009FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 4.07823) scale(0.1)" style="fill:#00CFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 3.87823) scale(0.1)" style="fill:#10FFEF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 3.67823) scale(0.1)" style="fill:#80FF80"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 3.47823) scale(0.1)" style="fill:#FFDF00"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 3.27823) scale(0.1)" style="fill:#FF1000"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 3.07823) scale(0.1)" style="fill:#800000"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 2.87823) scale(0.1)" style="fill:#FF2000"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 2.67823) scale(0.1)" style="fill:#FFEF00"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 2.47823) scale(0.1)" style="fill:#70FF8F"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 2.27823) scale(0.1)" style="fill:#10FFEF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 2.07823) scale(0.1)" style="fill:#00CFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 1.87823) scale(0.1)" style="fill:#008FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 1.67823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 1.47823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 1.27823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 1.07823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.338234 0.878234) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 5.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 5.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 5.07823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 4.87823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 4.67823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 4.47823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 4.27823) scale(0.1)" style="fill:#008FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 4.07823) scale(0.1)" style="fill:#00AFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 3.87823) scale(0.1)" style="fill:#00EFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 3.67823) scale(0.1)" style="fill:#30FFCF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 3.47823) scale(0.1)" style="fill:#8FFF70"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 3.27823) scale(0.1)" style="fill:#DFFF20"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 3.07823) scale(0.1)" style="fill:#FFFF00"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 2.87823) scale(0.1)" style="fill:#CFFF30"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 2.67823) scale(0.1)" style="fill:#80FF80"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 2.47823) scale(0.1)" style="fill:#30FFCF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 2.27823) scale(0.1)" style="fill:#00DFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 2.07823) scale(0.1)" style="fill:#00AFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 1.87823) scale(0.1)" style="fill:#008FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 1.67823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 1.47823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 1.27823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 1.07823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.538234 0.878234) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 5.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 5.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 5.07823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 4.87823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 4.67823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 4.47823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 4.27823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 4.07823) scale(0.1)" style="fill:#009FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 3.87823) scale(0.1)" style="fill:#00BFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 3.67823) scale(0.1)" style="fill:#00EFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 3.47823) scale(0.1)" style="fill:#20FFDF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 3.27823) scale(0.1)" style="fill:#40FFBF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 3.07823) scale(0.1)" style="fill:#50FFAF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 2.87823) scale(0.1)" style="fill:#40FFBF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 2.67823) scale(0.1)" style="fill:#20FFDF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 2.47823) scale(0.1)" style="fill:#00EFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 2.27823) scale(0.1)" style="fill:#00BFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 2.07823) scale(0.1)" style="fill:#009FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 1.87823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 1.67823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 1.47823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 1.27823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 1.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.738234 0.878234) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 5.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 5.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 5.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 4.87823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 4.67823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 4.47823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 4.27823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 4.07823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 3.87823) scale(0.1)" style="fill:#009FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 3.67823) scale(0.1)" style="fill:#00BFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 3.47823) scale(0.1)" style="fill:#00CFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 3.27823) scale(0.1)" style="fill:#00EFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 3.07823) scale(0.1)" style="fill:#00EFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 2.87823) scale(0.1)" style="fill:#00EFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 2.67823) scale(0.1)" style="fill:#00CFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 2.47823) scale(0.1)" style="fill:#00BFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 2.27823) scale(0.1)" style="fill:#009FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 2.07823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 1.87823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 1.67823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 1.47823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 1.27823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 1.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(0.938234 0.878234) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 5.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 5.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 5.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 4.87823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 4.67823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 4.47823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 4.27823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 4.07823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 3.87823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 3.67823) scale(0.1)" style="fill:#008FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 3.47823) scale(0.1)" style="fill:#009FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 3.27823) scale(0.1)" style="fill:#00AFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 3.07823) scale(0.1)" style="fill:#00AFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 2.87823) scale(0.1)" style="fill:#00AFFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 2.67823) scale(0.1)" style="fill:#009FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 2.47823) scale(0.1)" style="fill:#008FFF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 2.27823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 2.07823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 1.87823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 1.67823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 1.47823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 1.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 1.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.13823 0.878234) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 5.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 5.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 5.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 4.87823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 4.67823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 4.47823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 4.27823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 4.07823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 3.87823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 3.67823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 3.47823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 3.27823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 3.07823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 2.87823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 2.67823) scale(0.1)" style="fill:#0080FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 2.47823) scale(0.1)" style="fill:#0070FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 2.27823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 2.07823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 1.87823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 1.67823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 1.47823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 1.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 1.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.33823 0.878234) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 5.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 5.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 5.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 4.87823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 4.67823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 4.47823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 4.27823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 4.07823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 3.87823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 3.67823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 3.47823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 3.27823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 3.07823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 2.87823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 2.67823) scale(0.1)" style="fill:#0060FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 2.47823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 2.27823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 2.07823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 1.87823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 1.67823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 1.47823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 1.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 1.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.53823 0.878234) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 5.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 5.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 5.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 4.87823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 4.67823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 4.47823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 4.27823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 4.07823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 3.87823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 3.67823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 3.47823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 3.27823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 3.07823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 2.87823) scale(0.1)" style="fill:#0050FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 2.67823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 2.47823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 2.27823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 2.07823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 1.87823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 1.67823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 1.47823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 1.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 1.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.73823 0.878234) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 5.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 5.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 5.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 4.87823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 4.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 4.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 4.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 4.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 3.87823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 3.67823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 3.47823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 3.27823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 3.07823) scale(0.1)" style="fill:#0040FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 2.87823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 2.67823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 2.47823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 2.27823) scale(0.1)" style="fill:#0030FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 2.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 1.87823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 1.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 1.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 1.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 1.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(1.93823 0.878234) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 5.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 5.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 5.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 4.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 4.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 4.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 4.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 4.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 3.87823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 3.67823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 3.47823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 3.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 3.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 2.87823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 2.67823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 2.47823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 2.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 2.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 1.87823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 1.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 1.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 1.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 1.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.13823 0.878234) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 5.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 5.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 5.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 4.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 4.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 4.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 4.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 4.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 3.87823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 3.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 3.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 3.27823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 3.07823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 2.87823) scale(0.1)" style="fill:#0020FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 2.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 2.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 2.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 2.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 1.87823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 1.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 1.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 1.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 1.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.33823 0.878234) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 5.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 5.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 5.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 4.87823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 4.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 4.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 4.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 4.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 3.87823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 3.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 3.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 3.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 3.07823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 2.87823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 2.67823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 2.47823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 2.27823) scale(0.1)" style="fill:#0010FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 2.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 1.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 1.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 1.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 1.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 1.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.53823 0.878234) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 5.47823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 5.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 5.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 4.87823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 4.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 4.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 4.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 4.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 3.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 3.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 3.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 3.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 3.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 2.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 2.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 2.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 2.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 2.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 1.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 1.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 1.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 1.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 1.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.73823 0.878234) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 5.47823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 5.27823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 5.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 4.87823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 4.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 4.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 4.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 4.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 3.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 3.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 3.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 3.27823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 3.07823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 2.87823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 2.67823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 2.47823) scale(0.1)" style="fill:#0000FF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 2.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 2.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 1.87823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 1.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 1.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 1.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 1.07823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(2.93823 0.878234) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 5.47823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 5.27823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 5.07823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 4.87823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 4.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 4.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 4.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 4.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 3.87823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 3.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 3.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 3.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 3.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 2.87823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 2.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 2.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 2.27823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 2.07823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 1.87823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 1.67823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 1.47823) scale(0.1)" style="fill:#0000EF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 1.27823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 1.07823) scale(0.1)" style="fill:#0000DF"/>
+ <use xlink:href="symbolLibrary.svg#dot" transform="translate(3.13823 0.878234) scale(0.1)" style="fill:#0000DF"/>
+
+
+<!-- Other things -->
+[Other]
+
+</svg>

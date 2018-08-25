@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="500" width="1000" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 1000 500" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="metadata7">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+    <path id="rectangle" d="m0 0h225v180h-225v-180z" fill-rule="evenodd" fill="#e7e6e6"/>
+
+    <g id="imageFrames">
+      <title>Image Frames</title>
+       <desc>Frames for 6 images</desc>
+       <use xlink:href="#rectangle" x="12.5" y="10" />
+       <use xlink:href="#rectangle" x="262.5" y="10" />
+       <use xlink:href="#rectangle" x="512.5" y="10" />
+       <use xlink:href="#rectangle" x="12.5" y="210" />
+       <use xlink:href="#rectangle" x="262.5" y="210" />
+       <use xlink:href="#rectangle" x="512.5" y="210" />
+    </g>
+
+ </defs>
+
+<!-- Draw the rectangles -->
+<use xlink:href="#imageFrames" x="0" y="0" />
+
+<!-- Insert figures -->
+<!--
+<image preserveAspectRatio="none" x="23.75" y="19" width="202.5" height="162" xlink:href="pulseSignal.svg" />
+<image preserveAspectRatio="none" x="273.75" y="19" width="202.5" height="162" xlink:href="DFT_channel2.svg" />
+<image preserveAspectRatio="none" x="523.75" y="19" width="202.5" height="162" xlink:href="DFT_channel2_filter.svg" />
+<image preserveAspectRatio="none" x="23.75" y="219" width="202.5" height="162" xlink:href="IQ.svg" />
+<image preserveAspectRatio="none" x="273.75" y="219" width="202.5" height="162" xlink:href="correlation.svg" />
+<image preserveAspectRatio="none" x="523.75" y="219" width="202.5" height="162" xlink:href="correlation.svg" />
+-->
+
+<!-- Embed SVGs -->
+<use xlink:href="pulseSignal.svg#global" transform="rotate(30 23.75 19) translate(23.75 19) scale(0.36161 0.38571)" />
+<use xlink:href="DFT_channel2.svg#global" transform="translate(273.75 19) scale(0.36161 0.38571)" />
+<use xlink:href="DFT_channel2_filter.svg#global" transform="translate(523.75 19) scale(0.36161 0.38571)" />
+<use xlink:href="IQ.svg#global" transform="translate(23.75 219) scale(0.36161 0.38571)" />
+<use xlink:href="correlation.svg#global" transform="translate(273.75 219) scale(0.36161 0.38571)" />
+<use xlink:href="correlation.svg#global" transform="translate(523.75 219) scale(0.36161 0.38571)" />
+</svg>
+
+ 

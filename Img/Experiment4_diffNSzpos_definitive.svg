@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="381.90399"
+   width="511.36987"
+   version="1.1"
+   viewBox="-3 -3 5.1136999 3.8190497"
+   sodipodi:docname="Experiment4_diffNSzpos_definitive.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata306">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     id="namedview304"
+     showgrid="false"
+     inkscape:zoom="0.76397231"
+     inkscape:cx="171.05663"
+     inkscape:cy="284.38017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2" />
+  <!-- Include the background image -->
+  <!-- <image xlink:href="[backgroundName]" x="[x]" y="[y]" height="[height]" width="[width]" preserveAspectRatio="none"/> -->
+  <!-- Draw the radiationPatterns -->
+  <!-- <use xlink:href="#diagramDipole" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+  <!-- <use xlink:href="#diagramMonopoleNoise" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+  <!-- Draw the loudspeakers -->
+  <!-- <use xlink:href="#loudspeaker" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_sound" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- <use xlink:href="#loudspeakerIcon_silence" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+  <!-- WFS array loudspeakers -->
+  <g
+     id="WFSarray"
+     transform="matrix(0.98480775,0.08682409,0.17364818,-0.49240388,-3.0738879,0.55414754)">
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_1"
+       x="0.95459402"
+       y="0.063639604"
+       transform="rotate(45,0.954594,0.0636396)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_2"
+       x="0.82731497"
+       y="0.190919"
+       transform="rotate(45,0.827315,0.190919)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_3"
+       x="0.70003599"
+       y="0.318198"
+       transform="rotate(45,0.700036,0.318198)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_4"
+       x="0.57275599"
+       y="0.44547701"
+       transform="rotate(45,0.572756,0.445477)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_5"
+       x="0.44547701"
+       y="0.57275599"
+       transform="rotate(45,0.445477,0.572756)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_6"
+       x="0.318198"
+       y="0.70003599"
+       transform="rotate(45,0.318198,0.700036)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_7"
+       x="0.190919"
+       y="0.82731497"
+       transform="rotate(45,0.190919,0.827315)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_8"
+       x="0.063639604"
+       y="0.95459402"
+       transform="rotate(45,0.0636396,0.954594)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_9"
+       x="0"
+       y="1.10823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_10"
+       x="0"
+       y="1.2882299" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_11"
+       x="0"
+       y="1.46823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_12"
+       x="0"
+       y="1.64823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_13"
+       x="0"
+       y="1.82823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_14"
+       x="0"
+       y="2.00823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_15"
+       x="0"
+       y="2.18823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_16"
+       x="0"
+       y="2.3682301" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_17"
+       x="0"
+       y="2.5482299" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_18"
+       x="0"
+       y="2.72823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_19"
+       x="0"
+       y="2.9082301" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_20"
+       x="0"
+       y="3.0882299" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_21"
+       x="0"
+       y="3.26823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_22"
+       x="0"
+       y="3.44823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_23"
+       x="0"
+       y="3.6282301" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_24"
+       x="0"
+       y="3.8082299" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_25"
+       x="0"
+       y="3.98823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_26"
+       x="0"
+       y="4.1682301" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_27"
+       x="0"
+       y="4.3482299" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_28"
+       x="0"
+       y="4.5282302" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_29"
+       x="0"
+       y="4.70823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_30"
+       x="0"
+       y="4.8882298" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_31"
+       x="0"
+       y="5.0682302" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_32"
+       x="0"
+       y="5.24823" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_33"
+       x="0.063639604"
+       y="5.4018698"
+       transform="rotate(-45,0.0636396,5.40187)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_34"
+       x="0.190919"
+       y="5.52915"
+       transform="rotate(-45,0.190919,5.52915)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_35"
+       x="0.318198"
+       y="5.6564298"
+       transform="rotate(-45,0.318198,5.65643)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_36"
+       x="0.44547701"
+       y="5.78371"
+       transform="rotate(-45,0.445477,5.78371)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_37"
+       x="0.57275599"
+       y="5.9109902"
+       transform="rotate(-45,0.572756,5.91099)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_38"
+       x="0.70003599"
+       y="6.03827"
+       transform="rotate(-45,0.700036,6.03827)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_39"
+       x="0.82731497"
+       y="6.1655502"
+       transform="rotate(-45,0.827315,6.16555)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_40"
+       x="0.95459402"
+       y="6.29283"
+       transform="rotate(-45,0.954594,6.29283)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_41"
+       x="1.10823"
+       y="6.3564701"
+       transform="rotate(-90,1.10823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_42"
+       x="1.2882299"
+       y="6.3564701"
+       transform="rotate(-90,1.28823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_43"
+       x="1.46823"
+       y="6.3564701"
+       transform="rotate(-90,1.46823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_44"
+       x="1.64823"
+       y="6.3564701"
+       transform="rotate(-90,1.64823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_45"
+       x="1.82823"
+       y="6.3564701"
+       transform="rotate(-90,1.82823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_46"
+       x="2.00823"
+       y="6.3564701"
+       transform="rotate(-90,2.00823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_47"
+       x="2.18823"
+       y="6.3564701"
+       transform="rotate(-90,2.18823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_48"
+       x="2.3682301"
+       y="6.3564701"
+       transform="rotate(-90,2.36823,6.35647)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_49"
+       x="2.5218699"
+       y="6.29283"
+       transform="rotate(-135,2.52187,6.29283)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_50"
+       x="2.6491499"
+       y="6.1655502"
+       transform="rotate(-135,2.64915,6.16555)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_51"
+       x="2.7764299"
+       y="6.03827"
+       transform="rotate(-135,2.77643,6.03827)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_52"
+       x="2.9037099"
+       y="5.9109902"
+       transform="rotate(-135,2.90371,5.91099)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_53"
+       x="3.0309899"
+       y="5.78371"
+       transform="rotate(-135,3.03099,5.78371)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_54"
+       x="3.1582699"
+       y="5.6564298"
+       transform="rotate(-135,3.15827,5.65643)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_55"
+       x="3.2855501"
+       y="5.52915"
+       transform="rotate(-135,3.28555,5.52915)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_56"
+       x="3.4128301"
+       y="5.4018698"
+       transform="rotate(-135,3.41283,5.40187)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_57"
+       x="3.47647"
+       y="5.24823"
+       transform="rotate(180,3.47647,5.24823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_58"
+       x="3.47647"
+       y="5.0682302"
+       transform="rotate(180,3.47647,5.06823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_59"
+       x="3.47647"
+       y="4.8882298"
+       transform="rotate(180,3.47647,4.88823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_60"
+       x="3.47647"
+       y="4.70823"
+       transform="rotate(180,3.47647,4.70823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_61"
+       x="3.47647"
+       y="4.5282302"
+       transform="rotate(180,3.47647,4.52823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_62"
+       x="3.47647"
+       y="4.3482299"
+       transform="rotate(180,3.47647,4.34823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_63"
+       x="3.47647"
+       y="4.1682301"
+       transform="rotate(180,3.47647,4.16823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_64"
+       x="3.47647"
+       y="3.98823"
+       transform="rotate(180,3.47647,3.98823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_65"
+       x="3.47647"
+       y="3.8082299"
+       transform="rotate(180,3.47647,3.80823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_66"
+       x="3.47647"
+       y="3.6282301"
+       transform="rotate(180,3.47647,3.62823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_67"
+       x="3.47647"
+       y="3.44823"
+       transform="rotate(180,3.47647,3.44823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_68"
+       x="3.47647"
+       y="3.26823"
+       transform="rotate(180,3.47647,3.26823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_69"
+       x="3.47647"
+       y="3.0882299"
+       transform="rotate(180,3.47647,3.08823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_70"
+       x="3.47647"
+       y="2.9082301"
+       transform="rotate(180,3.47647,2.90823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_71"
+       x="3.47647"
+       y="2.72823"
+       transform="rotate(180,3.47647,2.72823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_72"
+       x="3.47647"
+       y="2.5482299"
+       transform="rotate(180,3.47647,2.54823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_73"
+       x="3.47647"
+       y="2.3682301"
+       transform="rotate(180,3.47647,2.36823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_74"
+       x="3.47647"
+       y="2.18823"
+       transform="rotate(180,3.47647,2.18823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_75"
+       x="3.47647"
+       y="2.00823"
+       transform="rotate(180,3.47647,2.00823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_76"
+       x="3.47647"
+       y="1.82823"
+       transform="rotate(180,3.47647,1.82823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_77"
+       x="3.47647"
+       y="1.64823"
+       transform="rotate(180,3.47647,1.64823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_78"
+       x="3.47647"
+       y="1.46823"
+       transform="rotate(180,3.47647,1.46823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_79"
+       x="3.47647"
+       y="1.2882299"
+       transform="rotate(180,3.47647,1.28823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_80"
+       x="3.47647"
+       y="1.10823"
+       transform="rotate(180,3.47647,1.10823)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_81"
+       x="3.4128301"
+       y="0.95459402"
+       transform="rotate(135,3.41283,0.954594)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_82"
+       x="3.2855501"
+       y="0.82731497"
+       transform="rotate(135,3.28555,0.827315)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_83"
+       x="3.1582699"
+       y="0.70003599"
+       transform="rotate(135,3.15827,0.700036)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_84"
+       x="3.0309899"
+       y="0.57275599"
+       transform="rotate(135,3.03099,0.572756)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_85"
+       x="2.9037099"
+       y="0.44547701"
+       transform="rotate(135,2.90371,0.445477)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_86"
+       x="2.7764299"
+       y="0.318198"
+       transform="rotate(135,2.77643,0.318198)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_87"
+       x="2.6491499"
+       y="0.190919"
+       transform="rotate(135,2.64915,0.190919)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_88"
+       x="2.5218699"
+       y="0.063639604"
+       transform="rotate(135,2.52187,0.0636396)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_89"
+       x="2.3682301"
+       y="0"
+       transform="rotate(90,2.36823,0)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_90"
+       x="2.18823"
+       y="0"
+       transform="rotate(90,2.18823,0)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_91"
+       x="2.00823"
+       y="0"
+       transform="rotate(90,2.00823,0)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_92"
+       x="1.82823"
+       y="0"
+       transform="rotate(90,1.82823,0)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_93"
+       x="1.64823"
+       y="0"
+       transform="rotate(90,1.64823,0)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_94"
+       x="1.46823"
+       y="0"
+       transform="rotate(90,1.46823,0)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_95"
+       x="1.2882299"
+       y="0"
+       transform="rotate(90,1.28823,0)" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       height="100%"
+       width="100%"
+       id="WFSloudspeaker_96"
+       x="1.10823"
+       y="0"
+       transform="rotate(90,1.10823,0)" />
+  </g>
+  <!-- Noise loudspeakers -->
+  <use
+     xlink:href="symbolLibrary.svg#loudspeakerSound"
+     height="100%"
+     width="100%"
+     id="NS_1"
+     x="4.4556298"
+     y="5.23733"
+     transform="matrix(-1,0,0,1,6.3628583,-8.15633)" />
+  <!-- Draw the microphones -->
+  <!-- <use xlink:href="#microphone" x="[x]" y="[y]"/> -->
+  <!-- Other things -->
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.01;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M -0.8101677,-0.85990396 1.9072313,-2.052977"
+     id="line"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.01;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M -0.8101677,-0.85990396 1.9072313,-2.919002"
+     id="path298"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.01;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 1.9072313,-2.052977 V -2.919002"
+     id="path300"
+     inkscape:connector-curvature="0" />
+  <path
+     id="arc"
+     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.00773442;stroke-opacity:1"
+     d="m -0.1194147,-1.38331 a 0.690757,0.866025 0 0 1 -0.024985,0.230813"
+     inkscape:connector-curvature="0" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:0.4000012px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.01000003"
+     x="0.97684658"
+     y="1.7068995"
+     id="text310"
+     transform="scale(1,-1)"><tspan
+       sodipodi:role="line"
+       id="tspan308"
+       x="0.97684658"
+       y="1.7068995"
+       style="stroke-width:0.01000003">R</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:0.4000012px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.01000003"
+     x="1.9209267"
+     y="2.4473541"
+     id="text314"
+     transform="scale(1,-1)"><tspan
+       sodipodi:role="line"
+       id="tspan312"
+       x="1.9209267"
+       y="2.4473541"
+       style="stroke-width:0.01000003">z</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:0.4000012px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.01000003"
+     x="-0.13846336"
+     y="1.1932091"
+     id="text318"
+     transform="scale(1,-1)"><tspan
+       sodipodi:role="line"
+       id="tspan316"
+       x="-0.13846336"
+       y="1.1932091"
+       style="stroke-width:0.01000003">$\theta$</tspan></text>
+</svg>
