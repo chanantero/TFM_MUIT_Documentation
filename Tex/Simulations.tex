@@ -272,7 +272,10 @@ What is happening? The answer can be found if we represent the global correction
 
 The reason for this is that, even though that term is expendable when generating wave fields that are going to be heard by humans, it is required when the aim is to interference destructively with another existing wave field. For example, for a noise field $\Field[ns][frequency] = 1$, the secondary source field should be $\Field[wfs][frequency] = -1$ for perfect cancellation $\attenuation = -\infty \si{dB}$. But if the phase is shifted $-\pi/4$ ($1/\sqrt{j} = e^{-j\pi/4}$), the amplitude of the field is $|\Field[ns][frequency] + \Field[wfs][frequency]| = |1 - e^{-j\pi/4}| = 0.77$, which corresponds to a cancellation of $\cancellation = 2.32\si{dB}$. Amplitude variations of course also worsen the cancellation levels. So, the term $\sqrt{jk/2\pi}$ might irrelevant when for the human ear when listening to a signal, but are of vital importance if we are going to make a cancelling wave physically interfere with another. We can't get away with just ignoring it.
 
-In conclusion, a $\sqrt{jk/2\pi}$ filter must be implemented in WFS when the intention is to perform active cancellation of noise. Theoretically the filter has an anticausal response, but it must be implemented as a FIR digital filter, so inevitably it will introduce some amount of delay that must be compensated \cite{Lapini2018}. That sets a constraint on how close the noise source can be to the loudspeaker array, as we will see in next section.
+In conclusion, %before the delay and amplitude modification, the noise source signal must be filtered by a "prefilter" with response $\sqrt{jk/2\pi}$ if the intention is to perform active cancellation of noise.
+a $\sqrt{jk/2\pi}$ filter must be implemented in WFS when the intention is to perform active cancellation of noise.
+This is not a major problem in terms of computational efficiency because this filtering is common to all secondary loudspeakers, so it can be carried out just once on the primary source signal, and then apply the delay and amplitude modification corresponding to each secondary source independently. That is why we talk about "prefiltering".
+Nevertheless, it presents the problem that, theoretically, the prefilter has an anticausal response, but it must be implemented as a FIR digital filter, so inevitably it will introduce some amount of delay that must be compensated \cite{Lapini2018}. That sets a constraint on how close the noise source can be to the loudspeaker array, as we will see in next section.
 
 \section{Compromise between frequency filter length and accuracy}
 
@@ -280,7 +283,7 @@ In conclusion, a $\sqrt{jk/2\pi}$ filter must be implemented in WFS when the int
 	%Consultar \cite{FrankSchutz2015}
 \end{shownto}
 
-In previous section we've concluded that, in order to produce cancellation inside the area enclosed by the loudspeaker array, a filter with a frequency response $\sqrt{jk/2\pi} = \sqrt{jf/c}$ must be implemented in the form of a FIR digital filter. This has a drawback, and it is that the ideal theoretical filter is anticausal. This means that, in order to calculate the output signal $y$ at a time $t$, it needs to use input values that come after that time: $y(t)$ depends on $x(t+\Delta t)$, being $\Delta t > 0$. This is exactly like knowing the future. Mathematically speaking, that can make sense, and in simulations it is not a limitation either since we know exactly what the noise source signal is going to be.
+In previous section we've concluded that, in order to produce cancellation inside the area enclosed by the loudspeaker array, a filter with a frequency response $\sqrt{jk/2\pi} = \sqrt{jf/c}$ must be implemented, traditionally in the form of a FIR digital filter. This has a drawback, and it is that the ideal theoretical filter is anticausal. This means that, in order to calculate the output signal $y$ at a time $t$, it needs to use input values that come after that time: $y(t)$ depends on $x(t+\Delta t)$, being $\Delta t > 0$. This is exactly like knowing the future. Mathematically speaking, that can make sense, and in simulations it is not a limitation either since we know exactly what the noise source signal is going to be.
 But in real-time systems it is, obviously, impossible to implement.
 
 However, there is a nuance that can allow us to implement this filter in real-time. Let's complete \autoref{wfsSignalTime} with the new filter:
@@ -416,6 +419,35 @@ We've done the same with $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}
 	\label{gainAverDifHilFilterLength}
 \end{figure}
 
+Another way of generating this filters is by using the analytical discrete impulse responses that were provided in \cite{FrankSchutz2015}[Equation 2.192 and 2.194] for the phase and magnitude filters respectively:
+\begin{gather}
+{h_{mag}}[n] = \begin{cases}
+	-\frac{S(\sqrt{2n})}{\sqrt{2\pi}n^{3/2}}, & n \neq 0 \\
+	\frac{2}{3}\sqrt{\pi}, & n = 0
+	\end{cases} \\
+{h_{pha}}[n] = \begin{cases}
+	0, & \text{if $n$ is even and $n \neq 0$} \\
+		\frac{-\sqrt{2}}{\pi n}, & \text{if $n$ is odd} \\
+		\frac{1}{\sqrt{2}}, & n = 0
+	\end{cases}
+\end{gather}
+where $S$ is the fresnel sine integral function (fresnels in Matlab).
+
+The response of the magnitude filter $h_{mag}$ when the number of coefficients is infinite is:
+\begin{equation}
+H_{mag}(f) = \frac{2}{5}\sqrt{\frac{f}{f_s}}
+\end{equation}
+
+As the ideal filter we want to get has a magnitude response $\sqrt{f/c}$ at a sampling frequency $f_s$, the magnitude filter that must be used is:
+\begin{equation}
+\freqFilter[frequency][magnitude] = H_{mag}\frac{5}{2}\sqrt{\frac{f_s}{c}} \rightarrow \freqFilter[time][magnitude] = \frac{5}{2}\sqrt{\frac{f_s}{c}}h_{mag}
+\end{equation}
+
+The magnitude filter needs to be scaled in order to satisfy our purposes:
+\begin{equation}
+\freqFilter[time][magnitude] = \frac{5}{2}\sqrt{\frac{f_s}{c}}h_{mag}
+\end{equation}
+
 \subsection{Alternatives}
 In case the noise source is located close to the array, an alternative solution must be seek. On the one hand, one could just reduce the length of the filter as long as the system requirements allow such a reduction in performance.
 
@@ -435,6 +467,7 @@ In \autoref{linearPhaseDelay}, a frequency of $f_0 = 500\si{Hz}$ has been chosen
 	\label{linearPhaseDelay}
 \end{figure}
 
+As a side-note, recently a IIR filter design was proposed \cite{FrankSchutz2015}, but the response was shown to be poor at low frequencies and no other example of IIR implementation has been found in literature. However, we did not tested the actual performance and it can be an interesting line of research.
 
 \section{Performance in non-free-space conditions}
 Every simulation that has been done so far has assumed free-space conditions. However, in a real set-up there are all kinds of reflections, diffraction effects, etc. Simulations of more real conditions are interesting. In order to do so, a Room Impulse Response generator was used. It has been developed by International Audio Laboratories Erlangen. It allows to define the dimensions of a room in the shape of a rectangular box ($[x,y,z]$), the reflection coefficients of each one of the six walls, and calculate, using the image method, the impulse responses between points specified by the user \cite{RIRgenerator2}. Those impulse responses have been used instead of the free space ones.
@@ -702,7 +735,7 @@ All this means that there is a lower cutoff frequency below which WFS is not use
 
 It's worth noticing that this analysis is done with a geometrically very simple scenario where the primary source is in the infinite, the receiving point is centred with respect to the secondary source line, we don't use complicated geometries as octagons, etc. The more variations we add, the more complex the results are. However, given what we observed in the simulations of the GTAC scenario, the existence of a lower cut-off frequency seems to be maintained even in those more complicated cases.
 
-A deeper theoretical analysis of the truncation artefacts can be found in \cite[Section 4.3]{Start1997}, where various analytical approximations are proposed.
+A deeper theoretical analysis of the truncation artefacts can be found in \cite[Section 4.3]{Start1997}, where various analytical approximations are proposed. Some techniques, as tapering, are proposed to reduce the effects of truncation, although they have only shown to work in mid and high frequencies.
 
 \begin{shownto}{private}
 \section{Sampling frequency influence}

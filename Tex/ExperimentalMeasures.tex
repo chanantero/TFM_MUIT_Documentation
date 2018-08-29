@@ -55,7 +55,7 @@ a_{m,n}'(f) = \frac{e^{-j k d_{m,n}}}{d_{m,n}},
 \end{equation}
 where $d_{m,n}$ is the distance between the $n$-th loudspeaker and the $m$-th point of measure.
 
-Under these conditions, good cancellation levels can be achieved. The actual $\AcPath[mat]$ includes all sorts of variations, as we saw, so one could expect the experimental result be much worse than what theory predicts. However, a way of making this model more realistic is by adding a variable that accounts for the possible sound volume difference between the noise source and the secondary loudspeaker array. This is useful because in the listening room we generate the noise signal with a loudspeaker. Unlike the secondary array loudspeakers, which were all adjusted to have similar behaviour, the noise loudspeaker volume can be independently adjusted manually. If we change it for another loudspeaker, the volume might be actually very different. This introduces an unknown variable that definitely affects cancellation, but it's really easy to model and compensate.
+Under these conditions, good cancellation levels can be achieved. The actual $\AcPath[mat]$ includes all sorts of variations, as we saw, so one could expect the experimental result to be much worse than what theory predicts. However, a way of making this model more realistic is by adding a variable that accounts for the possible sound volume difference between the noise source and the secondary loudspeaker array. This is useful because in the listening room we generate the noise signal with a loudspeaker. Unlike the secondary array loudspeakers, which were all adjusted to have similar behaviour, the noise loudspeaker volume can be independently adjusted manually. If we change it for another loudspeaker, the volume might be actually very different. This introduces an unknown variable that definitely affects cancellation, but it's really easy to model and compensate.
 
 Basically, regarding the volume of the source as a separate variable when dealing with real loudspeakers, force us to differentiate between the digital signal in arbitrary units $\signal[nothing][frequency]$, and the real signal in acoustic pressure units (for example, Pascals) $\soundVolume \signal[nothing][frequency]$, where $\soundVolume$ is the sound volume of the loudspeaker that transforms arbitrary units in pressure units. This term goes then included in the acoustic path matrix $\AcPath[mat]$, where the $n$-th column is multiplied by the volume associated to the $n$-th loudspeaker. Since we consider that all loudspeakers of the secondary array are well calibrated and, for simplification purposes, also considering all noise loudspeakers have the same volume:
 \begin{equation}
@@ -78,7 +78,7 @@ If we were only to calculate the acoustic path between a source and one or multi
 
 ...
 
-However, the number of sources in the listening room is 96. It is a large number, and it would be convenient to find a better, fastest way of calculating it. The technique we have used is based on orthogonal frequency division multiplexing, this is, in the fact that each loudspeaker transmits different, orthogonal frequencies that can be easily separated in the received signal.
+However, the number of sources in the listening room is 96. It is a large number, and it would be convenient to find a better, fastest way of calculating it. The technique we have used is based on orthogonal frequency division multiplexing, this is, the fact that each loudspeaker transmits different, orthogonal frequencies that can be easily separated in the received signal.
 
 In a communication system, a signal $x(t)$ gets transmitted through a channel with impulse response $h(t)$, and the received signal $y(t)$ is the convolution of the previous two:
 \begin{equation}
@@ -105,11 +105,11 @@ y(t) = \Pi\left(\frac{t - (t_\mathit{end} + t_\mathit{ini} - T_h)/2}{t_\mathit{e
 
 The spectrum of that interval of the received signal will be
 \begin{multline}
-Y'(f) = \FourierTransform{y'(t)} = \FourierTransform{y(t) \Pi\left(\frac{t - (t_\mathit{end} + t_\mathit{end})/2}{t_\mathit{end} - t_\mathit{ini}}\right)} = \\ Y(f) \ast (t_\mathit{end} - t_\mathit{ini}) \mathit{sinc}\left((t_\mathit{end} - t_\mathit{ini}) f \right) e^{-j 2 \pi f \frac{(t_\mathit{end} + t_\mathit{ini})}{2}},
+Y'(f) = \FourierTransform{y'(t)} = \FourierTransform{y(t) \Pi\left(\frac{t - (t_\mathit{end} + t_\mathit{end})/2}{t_\mathit{end} - t_\mathit{ini}}\right)} = \\ Y(f) \ast (t_\mathit{end} - t_\mathit{ini}) \sinc\left((t_\mathit{end} - t_\mathit{ini}) f \right) e^{-j 2 \pi f \frac{(t_\mathit{end} + t_\mathit{ini})}{2}},
 \end{multline}
 where $\mathit{sinc}$ is the function:
 \begin{equation}
-\mathit{sinc}(x) = \frac{\sin(\pi x)}{\pi x}
+\sinc(x) = \frac{\sin(\pi x)}{\pi x}
 \end{equation}
 
 Let's assume that we are transmitting some tones with equispaced frequencies $f_k = k \Delta f$, where $k = -N - 1, ..., 0, ..., N-1$ ($x(t)$ is real). As a consequence, if the duration of the selected interval of $y(t)$ is multiple of $1/\Delta f$, this is, $T = t_\mathit{end} - t_\mathit{ini} = n/\Delta f$ where $n = 1, 2, ...$, then the zeroes of the $\mathit{sinc}$ function fall on multiples of $1/T = \Delta f / n$, meaning that 
@@ -135,7 +135,7 @@ h(t) = h_\delta(t) \Pi\left( \frac{t - \frac{1}{2\Delta f}}{1/\Delta f} \right) 
 H(f) = H_\delta(f) \ast \frac{1}{\Delta f} \mathit{sinc}\left( \frac{1}{\Delta f} f \right) e^{-j 2 \pi f \frac{1}{2 \Delta f}}
 \end{equation}
 
-However, there is still the question of calculating $H_\delta(f)$. One could say that, just using \autoref{Hestimate1} is enough. However, let's notice that, in order to known the value of the channel response at frequency $f_k$, the transmitted signal should have a tone at that frequency. But, realistically $x(t)$ is limited in frequency ($f_k = k\Delta f$ and $k_{max} = N - 1$, so $f_\mathit{max} = (N-1)\Delta f$. So, we can't actually know $H_\delta(t)$ but a frequency limited version:
+However, there is still the question of calculating $H_\delta(f)$. One could say that, just using \autoref{Hestimate1} is enough. However, let's notice that, in order to known the value of the channel response at frequency $f_k$, the transmitted signal should have a tone at that frequency. But, realistically $x(t)$ is limited in frequency: $f_k = k\Delta f$ and $k_{max} = N - 1$, so $f_\mathit{max} = (N-1)\Delta f$. So, we can't actually know $H_\delta(t)$ but a frequency limited version:
 \begin{equation}
 H_\delta^{'}(f) = H_\delta(f) \Pi\left(\frac{f}{2 f_\mathit{max}}\right) \leftrightarrow h_\delta^{'}(t) = h_\delta \ast 2f_\mathit{max} \mathit{sinc}\left(  2f_\mathit{max} t \right)
 \label{frequencyCut}
