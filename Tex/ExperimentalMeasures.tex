@@ -55,7 +55,11 @@ where $\Field[ns][frequency][vector] = [\Field[ns][frequency][scalar][1], \Field
 	= \Field[ns][frequency][vector](f) + \Field[wfs][frequency][vector](f),
 	\label{acPathModel}
 \end{multline}
-where $\Field[ns][frequency][vector] = [\Field[ns][frequency][scalar][1], \Field[ns][frequency][scalar][2], ..., \Field[ns][frequency][scalar][\numMeasPoints]]^T$ and $\Field[wfs][frequency][vector] = [\Field[wfs][frequency][scalar][1], \Field[wfs][frequency][scalar][2], ..., \Field[wfs][frequency][scalar][\numMeasPoints]]^T$ are the acoustic pressure vectors ($\numMeasPoints$ is the number of points of measure), $\vec{\signal[ns][frequency]} = [\signal[ns][frequency]_1, \signal[ns][frequency]_2, ..., \signal[ns][frequency]_{\numNS}]^T$ ($\numNS$ is the number of noise sources) and $\vec{\signal[wfs][frequency]} = [\signal[wfs][frequency]_1, \signal[wfs][frequency]_2, ..., \signal[wfs][frequency]_{\numWFS}]^T$ ($\numWFS$ is the number of secondary sources) are the transmitted signal vectors, and ${\AcPath[mat][NS]}_{(\numMeasPoints \times \numNS)}$ and ${\AcPath[mat][WFS]}_{(\numMeasPoints \times \numWFS)}$ are matrices whose $(m,n)$-th element is the frequency response of the acoustic path between the $n$-th loudspeaker and the $m$-th point of measure. If the cancellation is successful, $\Field[ns][frequency][vector](f) \approx -\Field[wfs][frequency][vector](f)$ and so, $\Field[noValue][frequency][vector]$ becomes really small.
+where $\Field[ns][frequency][vector] = [\Field[ns][frequency][scalar][1], \Field[ns][frequency][scalar][2], ..., \Field[ns][frequency][scalar][\numMeasPoints]]^T$ and $\Field[wfs][frequency][vector] = [\Field[wfs][frequency][scalar][1], \Field[wfs][frequency][scalar][2], ..., \Field[wfs][frequency][scalar][\numMeasPoints]]^T$ are the acoustic pressure vectors ($\numMeasPoints$ is the number of points of measure), $\vec{\signal[ns][frequency]} = [\signal[ns][frequency]_1, \signal[ns][frequency]_2, ..., \signal[ns][frequency]_{\numNS}]^T$ ($\numNS$ is the number of noise sources) and $\vec{\signal[wfs][frequency]} = [\signal[wfs][frequency]_1, \signal[wfs][frequency]_2, ..., \signal[wfs][frequency]_{\numWFS}]^T$ ($\numWFS$ is the number of secondary sources) are the transmitted signal vectors, and ${\AcPath[mat][NS]}_{(\numMeasPoints \times \numNS)}$ and ${\AcPath[mat][WFS]}_{(\numMeasPoints \times \numWFS)}$ are matrices whose $(m,n)$-th element is the frequency response of the acoustic path between the $n$-th loudspeaker and the $m$-th point of measure. If the cancellation is successful, $\Field[ns][frequency][vector](f) \approx -\Field[wfs][frequency][vector](f)$ and so, $\Field[noValue][frequency][vector]$ becomes really small. Cancellation will be successful as long as the acoustic paths are the same or very similar to the ideal ones. In the ideal case, the $(m,n)$-th element of $\AcPath$ would apply a simple delay and an amplitude attenuation:
+\begin{equation}
+a_{m,n}(f) = \frac{e^{-j k d_{m,n}}}{d_{m,n}},
+\end{equation}
+where $d_{m,n}$ is the distance between the $n$-th loudspeaker and the $m$-th point of measure.
 \end{shownto}
 
 \begin{shownto}{private}
@@ -282,6 +286,24 @@ When playing the noise source and WFS signals simultaneously, the received signa
 		}
 		\caption{Microphone 2}
 	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\def\svgwidth{0.9\columnwidth}
+		\graphicspath{{Img/}}
+		{\fontsize{5}{12}\selectfont
+			\input{Img/Experiment16_recAndrecNSfreq_1.pdf_tex}
+		}
+		\caption{Frequency. Microphone 1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\def\svgwidth{0.9\columnwidth}
+		\graphicspath{{Img/}}
+		{\fontsize{5}{12}\selectfont
+			\input{Img/Experiment16_recAndrecNSfreq_2.pdf_tex}
+		}
+		\caption{Frequency. Microphones 2}
+	\end{subfigure}
 	\caption{Received signal}
 	\label{recSign}
 \end{figure}
@@ -306,16 +328,29 @@ In order to perform cancellation, we must compensate for this volume difference 
 In reality, this signals are actually discrete vectors with as many elements as recorded samples (${\Field[wfs][time][vector]} [n]$ and ${\Field[ns][time][vector]} [n]$, where $n$ is the index of the sample). Hence, previous optimization becomes a simple vector operation.
 \begin{equation}
 \globalCorrectionFactor = \min_{\correctionFactor} \norm{\Field[wfs][time][vector]\correctionFactor + \Field[ns][time][vector]}^2 = -\frac{\scalarProd{\Field[wfs][time][vector]}{\Field[ns][time][vector]}}
-{\norm{\Field[wfs][time][vector]}^2},
+{\norm{\Field[wfs][time][vector]}^2}.
 \end{equation}
-
 Let's notice that this estimation get's a value for each microphone.
+In \autoref{corrVol} there is the resulting signal after volume correction (the result is similar for the other microphone). What seems to have happened is that the correlation between $\Field[wfs][time][vector]$ and $\Field[ns][time][vector]$ is too small. In the ideal scenario, the correlation coefficient would be very close to one, so the estimated value would actually very close to $\soundVolume[ns]/\soundVolume[wfs]$. However, both variables are so uncorrelated that the best way of minimizing the total power of the sum of both is making the secondary signals very small. This means that the cause of the low cancellation levels is not the volume mismatch, but probable a combination of previously mentioned phenomena.
 
-
-The average gain with and without volume correction is shown in \autoref{averGain}.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\columnwidth]{Img/Experiment16_averGainComparison.eps}
-	\caption{Average gain comparison}
-	\label{averGain}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\def\svgwidth{0.9\columnwidth}
+		\graphicspath{{Img/}}
+		{\fontsize{5}{12}\selectfont
+			\input{Img/Experiment16_recAndrecNStimeCorrVol_1.pdf_tex}
+		}
+		\caption{Time}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\def\svgwidth{0.9\columnwidth}
+		\graphicspath{{Img/}}
+		{\fontsize{5}{12}\selectfont
+			\input{Img/Experiment16_recAndrecNSfreqCorrVol_1.pdf_tex}
+		}
+	\caption{Frequency}	
+	\end{subfigure}
+\caption{Received signal after volume correction. Microphone 1. $\globalCorrectionFactor = -0.0835$.}
+	\label{corrVol}
 \end{figure}
