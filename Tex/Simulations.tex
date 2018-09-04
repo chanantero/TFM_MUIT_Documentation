@@ -301,9 +301,36 @@ When we say that $\freqFilter(t)$ is anticausal, it is the same as saying that t
 
 If the filter impulse response $\freqFilter(t)$ was limited in time ($\freqFilter(t) = 0, t < -\tau_1$), then, although $\freqFilter(t)$ would be anticausal, $\freqFilter(t - \distLinePrimSource/c)$ will be causal as long as $\distLinePrimSource/c > \tau_1$. However, since the ideal $\freqFilter(t)$ has an infinite response, the only option left is to use an approximation ($\widetilde{\freqFilter}(t)$) that satisfies that $\widetilde{\freqFilter}(t) = 0$ for $t < -\tau_1$, where $\tau_1 < \distLinePrimSource/c$. The delayed filter $\widetilde{\freqFilter}(t - \distLinePrimSource/c)$ is causal, and hence could work in a real time system.
 
-If, in addition, it has a finite duration, it would be implementable as a FIR digital filter. This means it must satisfy that $\freqFilter(t) = 0, t \notin [-\tau_1, \tau_2]$. Matlab has its own internal functions to design FIR filters based on their frequency response, and in general returns impulse responses where $\tau_1 = \tau_2 = \tau$. However, as it works as an approximation, the smaller $\distLinePrimSource/c$ gets, the shorter the duration of the impulse response needs to be, and hence the worse the approximation and the accuracy of WFS will be. So, there is actually a trade-off between performance and the distance between the source and the closest loudspeaker $\distLinePrimSource$. The smaller the distance, the worse the performance. At a given sampling frequency, which is $44100 \si{Hz}$ in our simulations, the duration of the impulse response translates directly to number of coefficients of the digital filter.
+If, in addition, it has a finite duration, it would be implementable as a FIR digital filter. This means it must satisfy that $\freqFilter(t) = 0, t \notin [-\tau_1, \tau_2]$. However, as it works as an approximation, the smaller $\distLinePrimSource/c$ gets, the shorter the duration of the impulse response needs to be, and hence the worse the approximation and the accuracy of WFS will be. So, there is actually a trade-off between performance and the distance between the source and the closest loudspeaker $\distLinePrimSource$. The smaller the distance, the worse the performance. At a given sampling frequency, which is $44100 \si{Hz}$ in our simulations, the duration of the impulse response translates directly to number of coefficients of the digital filter.
 
 We should differentiate between the filter that implements the magnitude of the frequency response $\freqFilter[time][magnitude] = \FourierTransform{\sqrt{f/c}}[inverse]$ and the one that implements the frequency independent phase shift $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$, because they present different requirements. The real implementations will be called $\widetilde{\freqFilter[time][magnitude]}$ and $\widetilde{\freqFilter[time][phase]}$ respectively.
+
+A way of generating this filters is by using the analytical discrete impulse responses that were provided in \cite{FrankSchutz2015}[Equation 2.192 and 2.194] for the phase and magnitude filters respectively:
+\begin{gather}
+	{h_{mag}}[n] = \begin{cases}
+		-\frac{S(\sqrt{2n})}{\sqrt{2\pi}n^{3/2}}, & n \neq 0 \\
+		\frac{2}{3}\sqrt{\pi}, & n = 0
+	\end{cases} \\
+	{h_{pha}}[n] = \begin{cases}
+		0, & \text{if $n$ is even and $n \neq 0$} \\
+		\frac{-\sqrt{2}}{\pi n}, & \text{if $n$ is odd} \\
+		\frac{1}{\sqrt{2}}, & n = 0
+	\end{cases}
+\end{gather}
+where $S$ is the fresnel sine integral function (fresnels in Matlab).
+
+The response of the magnitude filter $h_{mag}$ when the number of coefficients is infinite is:
+\begin{equation}
+H_{mag}(f) = \frac{2}{5}\sqrt{\frac{f}{f_s}}.
+\end{equation}
+
+As the ideal filter we want to get has a magnitude response $\sqrt{f/c}$ at a sampling frequency $f_s$, the magnitude filter must be scaled in order to fit our purposes:
+\begin{equation}
+\freqFilter[frequency][magnitude] = H_{mag}\frac{5}{2}\sqrt{\frac{f_s}{c}}. %\rightarrow \freqFilter[time][magnitude] = \frac{5}{2}\sqrt{\frac{f_s}{c}}h_{mag}
+\end{equation}
+Finally, we must choose a window function in order to make it finite.
+
+Matlab also has its own internal functions to design FIR filters based on their frequency response and the number of coefficients, and in the case of these filters, it also returns symmetrical impulse responses ($\tau_1 = \tau_2 = \tau$). Using anyone of both ways (Matlab built-in function or analytical equations with rectangular window or Kaiser-Bessel window as proposed in \cite{FrankSchutz2015}), results are pretty similar. Using other window functions may improve filter response. Next simulations use the Matlab functions because, as they use optimization algorithms to find the most accurate response possible for a given number of coefficients, it is very likely that the generated filter it's close to the best possible configuration. But, as said before, results are actually pretty similar anyway.
 
 We have plotted the histograms of gain for different lengths of the implementation of $\widetilde{\freqFilter[time][magnitude]}$ (\autoref{gainAverDifMagFilterLength}), keeping $\widetilde{\freqFilter[time][phase]}$ with a high enough length so it resembles the ideal case and does not produce any noticeable distortion. We can see that, below an order of $64$ (the order of a FIR filter is its length minus 1), the performance starts to get worse and worse. Above it, the improvement is not too noticeable.
 \begin{shownto}{publicGlobal}
@@ -419,35 +446,6 @@ We've done the same with $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}
 	\label{gainAverDifHilFilterLength}
 \end{figure}
 
-Another way of generating this filters is by using the analytical discrete impulse responses that were provided in \cite{FrankSchutz2015}[Equation 2.192 and 2.194] for the phase and magnitude filters respectively:
-\begin{gather}
-{h_{mag}}[n] = \begin{cases}
-	-\frac{S(\sqrt{2n})}{\sqrt{2\pi}n^{3/2}}, & n \neq 0 \\
-	\frac{2}{3}\sqrt{\pi}, & n = 0
-	\end{cases} \\
-{h_{pha}}[n] = \begin{cases}
-	0, & \text{if $n$ is even and $n \neq 0$} \\
-		\frac{-\sqrt{2}}{\pi n}, & \text{if $n$ is odd} \\
-		\frac{1}{\sqrt{2}}, & n = 0
-	\end{cases}
-\end{gather}
-where $S$ is the fresnel sine integral function (fresnels in Matlab).
-
-The response of the magnitude filter $h_{mag}$ when the number of coefficients is infinite is:
-\begin{equation}
-H_{mag}(f) = \frac{2}{5}\sqrt{\frac{f}{f_s}}
-\end{equation}
-
-As the ideal filter we want to get has a magnitude response $\sqrt{f/c}$ at a sampling frequency $f_s$, the magnitude filter that must be used is:
-\begin{equation}
-\freqFilter[frequency][magnitude] = H_{mag}\frac{5}{2}\sqrt{\frac{f_s}{c}} \rightarrow \freqFilter[time][magnitude] = \frac{5}{2}\sqrt{\frac{f_s}{c}}h_{mag}
-\end{equation}
-
-The magnitude filter needs to be scaled in order to satisfy our purposes:
-\begin{equation}
-\freqFilter[time][magnitude] = \frac{5}{2}\sqrt{\frac{f_s}{c}}h_{mag}
-\end{equation}
-
 \subsection{Alternatives}
 In case the noise source is located close to the array, an alternative solution must be seek. On the one hand, one could just reduce the length of the filter as long as the system requirements allow such a reduction in performance.
 
@@ -467,7 +465,7 @@ In \autoref{linearPhaseDelay}, a frequency of $f_0 = 500\si{Hz}$ has been chosen
 	\label{linearPhaseDelay}
 \end{figure}
 
-As a side-note, recently a IIR filter design was proposed \cite{FrankSchutz2015}, but the response was shown to be poor at low frequencies and no other example of IIR implementation has been found in literature. However, we did not tested the actual performance and it can be an interesting line of research.
+As a side-note, a IIR filter design was proposed \cite{FrankSchutz2015}, but the response was shown to be poor at low frequencies (the few more examples of IIR implementations found in literature are already taken in account in the mentioned paper). However, we did not tested the actual performance in our system and and it can be an interesting line of research.
 
 \section{Performance in non-free-space conditions}
 Every simulation that has been done so far has assumed free-space conditions. However, in a real set-up there are all kinds of reflections, diffraction effects, etc. Simulations of more real conditions are interesting. In order to do so, a Room Impulse Response generator was used. It has been developed by International Audio Laboratories Erlangen. It allows to define the dimensions of a room in the shape of a rectangular box ($[x,y,z]$), the reflection coefficients of each one of the six walls, and calculate, using the image method, the impulse responses between points specified by the user \cite{RIRgenerator2}. Those impulse responses have been used instead of the free space ones.
