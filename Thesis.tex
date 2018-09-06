@@ -1,4 +1,5 @@
-\documentclass[11pt,a4paper]{report}
+\documentclass[11pt,a4paper,notitlepage]{report}
+\usepackage[catalan,spanish,english]{babel}
 \usepackage{mystyle}
 \usepackage{Tex/myVariables}
 
@@ -23,16 +24,18 @@
 \newcommand{\TexFolder}{Tex/}
 
 \begin{document}
-\author{
-	Rub\'{e}n Chuli\'{a} Mena \\
-	Tutor: Mar\'ia de Diego Ant\'on \\
-	Co-tutor: Miguel Ferrer Contreras
-}
-\title{TFM MUIT}
-%\newdate{date}{08}{08}{2018}
-%\date{\displaydate{date}}
-\date{\today}
-\maketitle
+%\author{
+%	Rub\'{e}n Chuli\'{a} Mena \\
+%	Tutor: Mar\'ia de Diego Ant\'on \\
+%	Co-tutor: Miguel Ferrer Contreras
+%}
+%\title{Performing active noise control with wave field synthesis}
+%%\newdate{date}{08}{08}{2018}
+%%\date{\displaydate{date}}
+%\date{\today}
+%\maketitle
+\input{Tex/Portada.tex}
+
 \pagenumbering{Roman}
 
 \phantomsection % So hyperlinks (hyperref package) work properly
@@ -43,8 +46,20 @@
 
 \phantomsection
 \addcontentsline{toc}{chapter}{Abstract}
-\chapter*{Abstract}
-Completar
+\selectlanguage{catalan} 
+\begin{abstract}
+	Resum
+\end{abstract}
+\selectlanguage{spanish} 
+\begin{abstract}
+	Resumen
+\end{abstract}
+\selectlanguage{english} 
+\begin{abstract}
+Wave Field Synthesis (WFS) was first proposed in the 1990s as a method that, by means of an array of loudspeakers, allows to generate the acoustic field that some hypothetical sound source would produce. The main advantage over other multichannel sound reproduction techniques is that WFS works over a wider area, whereas the rest are limited to a small area, often called sweetspot.  One of the recently studied applications is Active Noise Cancellation (ANC). The idea is to identify the position and characteristics of a noise source and use that information to synthesize an acoustic field that will interfere destructively with the original one.
+
+We focus on the viability of performing WFS based ANC with an octagon shaped 96-element loudspeaker array set up in a reverberant room. A series of Matlab simulations are done to study the possible sources of errors. Idealized conditions are first assumed, and then some parameters are changed to test how they influence performance. Then, some measures are carried out in a real environment. We conclude that non free-space conditions are the main limitation to the feasibility of this systems.
+\end{abstract}
 
 \newpage
 

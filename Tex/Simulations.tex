@@ -125,10 +125,19 @@ where $\Field[wfs][frequency][scalar][m]$ and $\Field[ns][frequency][scalar][m]$
 
 In the same way, the correction factor has a global equivalent, the global correction factor $\globalCorrectionFactorAverGain$, defined as the number that must be multiplied by the loudspeaker signals $\signal[wfs][frequency]$ in order to minimize the average gain.
 \begin{equation}
-\globalCorrectionFactorAverGain(f) = \argmin_{\psi} \sum_{m=1}^\numMeasPoints \abs{\frac{\psi \Field[wfs][frequency][scalar][m] + \Field[ns][frequency][scalar][m]}{\Field[ns][frequency][scalar][m]}}^2 =
--\frac{\left(\sum_{m=1}^\numMeasPoints \Field[wfs][frequency][scalar][m]/\Field[ns][frequency][scalar][m]\right)^*}{\sum_{m=1}^\numMeasPoints \abs{\Field[wfs][frequency][scalar][m]/\Field[ns][frequency][scalar][m]}^2},
+\globalCorrectionFactorAverGain(f) = \argmin_{\psi} \sum_{m=1}^\numMeasPoints \abs{\frac{\psi \Field[wfs][frequency][scalar][m] + \Field[ns][frequency][scalar][m]}{\Field[ns][frequency][scalar][m]}}^2 
+= -\frac{\left(\sum_{m=1}^\numMeasPoints \Field[wfs][frequency][scalar][m]/\Field[ns][frequency][scalar][m]\right)^*}{\sum_{m=1}^\numMeasPoints \abs{\Field[wfs][frequency][scalar][m]/\Field[ns][frequency][scalar][m]}^2},
 \end{equation}
 where $^*$ is the complex conjugate symbol.
+
+Justification:
+\begin{multline}
+\sum_{m=1}^\numMeasPoints \abs{\frac{\psi \Field[wfs][frequency][scalar][m] + \Field[ns][frequency][scalar][m]}{\Field[ns][frequency][scalar][m]}}^2 
+= \sum_{m=1}^\numMeasPoints \abs{\psi\frac{ \Field[wfs][frequency][scalar][m]}{\Field[ns][frequency][scalar][m]} + 1}^2
+= \sum_{m=1}^\numMeasPoints \psi\vec{P_{rel(m)} + 1}^2 = \norm{\psi \vec{P_{rel}} + \vec{1}}^2 \\
+\left\{\text{Least squares solution: } \argmin_{\Psi} \norm{\vec{a}\psi + \vec{b}}^2 = (\vec{a}^H \vec{a})^{-1} \vec{a}^H \vec{b} = -\frac{\scalarProd{\vec{a}^{*}}{\vec{b}}}{\norm{\vec{a}}^2}\right\} \\
+\text{so: } \argmin_{\psi} \norm{\psi \vec{P_{rel}} + \vec{1}}^2 = -\frac{\scalarProd{\vec{\vec{P_{rel}}}^{*}}{\vec{1}}}{\norm{\vec{P_{rel}}}^2} = -\frac{\sum_{m=1}^\numMeasPoints P_{rel(m)}^*}{\sum_{m=1}^\numMeasPoints \abs{P_{rel(m)}}^2} = -\frac{\left(\sum_{m=1}^\numMeasPoints \Field[wfs][frequency][scalar][m]/\Field[ns][frequency][scalar][m]\right)^*}{\sum_{m=1}^\numMeasPoints \abs{\Field[wfs][frequency][scalar][m]/\Field[ns][frequency][scalar][m]}^2}.
+\end{multline}
 
 \begin{shownto}{publicGlobal,private}	
 A variant of the global correction factor, $\globalCorrectionFactor$, can also be used. It is the same as $\globalCorrectionFactorAverGain$, but designed to minimize the overall measured power instead of the average gain.
@@ -319,14 +328,15 @@ A way of generating this filters is by using the analytical discrete impulse res
 \end{gather}
 where $S$ is the fresnel sine integral function (fresnels in Matlab).
 
-The response of the magnitude filter $h_{mag}$ when the number of coefficients is infinite is:
+The frequency response of the magnitude filter $h_{mag}$ when the number of coefficients is infinite is:
 \begin{equation}
-H_{mag}(f) = \frac{2}{5}\sqrt{\frac{f}{f_s}}.
+H_{mag}(f_{norm}) = \frac{2}{5}\sqrt{f_{norm}}, \quad f_{norm} \in [-0.5, 0.5],
 \end{equation}
+where $f_{norm}$ is the normalized frequency in periods per sample.
 
 As the ideal filter we want to get has a magnitude response $\sqrt{f/c}$ at a sampling frequency $f_s$, the magnitude filter must be scaled in order to fit our purposes:
 \begin{equation}
-\freqFilter[frequency][magnitude] = H_{mag}\frac{5}{2}\sqrt{\frac{f_s}{c}}. %\rightarrow \freqFilter[time][magnitude] = \frac{5}{2}\sqrt{\frac{f_s}{c}}h_{mag}
+\freqFilter[time][magnitude] = h_{mag}\frac{5}{2}\sqrt{\frac{f_s}{c}}. %\rightarrow \freqFilter[time][magnitude] = \frac{5}{2}\sqrt{\frac{f_s}{c}}h_{mag}
 \end{equation}
 Finally, we must choose a window function in order to make it finite.
 
@@ -465,7 +475,7 @@ In \autoref{linearPhaseDelay}, a frequency of $f_0 = 500\si{Hz}$ has been chosen
 	\label{linearPhaseDelay}
 \end{figure}
 
-As a side-note, a IIR filter design was proposed \cite{FrankSchutz2015}, but the response was shown to be poor at low frequencies (the few more examples of IIR implementations found in literature are already taken in account in the mentioned paper). However, we did not tested the actual performance in our system and and it can be an interesting line of research.
+As a side-note, a IIR filter design was proposed \cite{FrankSchutz2015}, but the response was shown to be poor at low frequencies (the few more examples of IIR implementations found in literature are already taken in account in the mentioned thesis). However, we did not tested the actual performance in our system and and it can be an interesting line of research.
 
 \section{Performance in non-free-space conditions}
 Every simulation that has been done so far has assumed free-space conditions. However, in a real set-up there are all kinds of reflections, diffraction effects, etc. Simulations of more real conditions are interesting. In order to do so, a Room Impulse Response generator was used. It has been developed by International Audio Laboratories Erlangen. It allows to define the dimensions of a room in the shape of a rectangular box ($[x,y,z]$), the reflection coefficients of each one of the six walls, and calculate, using the image method, the impulse responses between points specified by the user \cite{RIRgenerator2}. Those impulse responses have been used instead of the free space ones.
@@ -553,10 +563,10 @@ In the time domain, the propagation in free-space conditions of a signal $\signa
 
 In the frequency domain, this translates to
 \begin{equation}
-\Field[noValue][frequency](f) = \signal[ns][frequency](f) \ast H(f,d) = \signal[ns][frequency](f) \ast \frac{e^{-j\frac{2\pi f}{c}d}}{d}.
+\Field[noValue][frequency](f) = \signal[ns][frequency](f) H(f,d) = \signal[ns][frequency](f) \frac{e^{-j\frac{2\pi f}{c}d}}{d}.
 \end{equation}
 
-A way of visualizing the deterioration is comparing the magnitude of the ideal response for a given distance, with the magnitude of the actual one. In \autoref{acPathRespRealCompDots} the ideal response is represented for $450 \si{Hz}$ by a line and the real one is represented with dots, where each dot represents a pair loudspeaker-measure point ($96$ loudspeakers, $360$ measure points, $96\cdot 360 = 34560$ dots). The $x$ value is the distance between source and measure point, and the $y$ value is the magnitude of the frequency response $\abs{H}$. A clearer way of visualizing it is a composed histogram as the ones used for the gain (\autoref{acPathRespRealCompHist}). 
+A way of visualizing the deterioration is comparing the magnitude of the ideal response for a given distance, with the magnitude of the actual one. In \autoref{acPathRespRealCompDots} the ideal response is represented by a line and the real one, particularized for $450 \si{Hz}$, is represented with dots, where each dot represents a pair loudspeaker-measure point ($96$ loudspeakers, $360$ measure points, $96\cdot 360 = 34560$ dots). The $x$ value is the distance between source and measure point, and the $y$ value is the magnitude of the frequency response $\abs{H}$. A clearer way of visualizing it is a composed histogram as the ones used for the gain (\autoref{acPathRespRealCompHist}). 
 Each coloured rectangle is delimited horizontally by two distance values ($x$ axis), and vertically by two magnitude values ($y$ axis). The colour represents the proportion of points that lie in that distance and magnitude interval with respect to the total amount of points for that given distance interval. In other words, each column is an independent probability histogram.
 
 \begin{figure}[h]

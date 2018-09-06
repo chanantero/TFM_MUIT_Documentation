@@ -25,7 +25,7 @@ The general form of $G(\PosTheo \vert \PosTheo_0)$ is:
 G(\PosTheo \vert \PosTheo_0) = \GreenFunc[\PosTheo - \PosTheo_0] + F(\PosTheo \vert \PosTheo_0),
 \label{GreensFunction}
 \end{equation}
-where $F(\PosTheo \vert \PosTheo_0)$ is any function that satisfies the Helmholtz equation $\Delta F - k^2 F = 0$.
+where $F(\PosTheo \vert \PosTheo_0)$ is any function that satisfies the Helmholtz equation $\nabla^2 F - k^2 F = 0$.
 
 If $F = 0$:
 \begin{equation}
@@ -48,14 +48,14 @@ The new volume is a hemisphere. The surface is then constituted by a flat circle
 	\label{RayleighIntegralScheme}
 \end{figure}
 %For didactic purposes and without loss of generalization, $\surfaceTheoRayleighPlane$ will be located at the plane $z=0$ ($\vec{n} = \hat{z}$), $\surfaceTheoRayleighSemisphere$ at $z>0$, and all primary sources will be located at $z<0$.
-When $R\rightarrow\infty$, the Sommerfeld condition is satisfied and the integral over $\surfaceTheoRayleighSemisphere$ becomes $0$ \cite{Verheijen}. This means $\PosTheo[surface] = [\PosTheo[surface][x], \PosTheo[surface][y], 0]$.
+When $R\rightarrow\infty$, the Sommerfeld condition is satisfied, which means that the integral over $\surfaceTheoRayleighSemisphere$ becomes $0$ \cite{Verheijen}.% This means $\PosTheo[surface] = [\PosTheo[surface][x], \PosTheo[surface][y], 0]$.
 
 If $F(\PosTheo[surface] \vert \PosTheo) = \GreenFunc[ {\PosTheo[surface] - \PosTheo[mirrored]} ]$, being $\PosTheo[mirrored]$ the mirrored image of $\PosTheo$ in the plane $\surfaceTheoRayleighPlane$, then the directional derivative of $G$ becomes $0$ at $\surfaceTheoRayleighPlane$, and \autoref{KirchhoffHelmholtz} transforms to:
 \begin{equation}
 P(\PosTheo) = \frac{-1}{2\pi} \int_{\surfaceTheoRayleighPlane} \GreenFunc[{\PosTheo[surface] - \PosTheo}] \frac{\partial P(\PosTheo[surface])}{\partial \mathbf{n}} dS.
 \label{RayleighI}
 \end{equation}
-Previous equation is called Raileigh I integral and states that a secondary planar monopole source distribution can synthesize on one side of the plane $\surfaceTheoRayleighPlane$ ($z>0$) the field of a primary source distribution located at the other side ($z<0$). The monopole sources are driven by two times the directional derivative of the pressure at the plane, in its perpendicular direction.
+Previous equation is called Raileigh I integral and states that a secondary planar monopole source distribution can synthesize on one side of the plane $\surfaceTheoRayleighPlane$ the field of a primary source distribution located at the other side. The monopole sources are driven by two times the directional derivative of the pressure at the plane, in its perpendicular direction.
 
 The function $F$ can also be chosen to remove the monopole source distributions: $F = -\GreenFunc[ {\PosTheo[surface] - \PosTheo[mirrored]} ]$. In this case, \autoref{KirchhoffHelmholtz} transforms to the Raileigh II integral:
 \begin{equation}

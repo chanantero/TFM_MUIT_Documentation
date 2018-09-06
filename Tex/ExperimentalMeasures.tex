@@ -216,30 +216,18 @@ In summary, the process I propose is:
 \showto{private}{\section{Measures}}
 In order to perform a simple experiment, a loudspeaker will act as a noise source that transmits a known signal. Specifically, it is a chirp signal of duration $4$ seconds. The frequency increases linearly from $20 \si{Hz}$ to $950\si{Hz}$ (\autoref{NSsignal}). We have chosen to work at a sample rate of $44100$.
 \begin{figure}[h]
-	\begin{subfigure}[b]{0.49\textwidth}
-	\centering
-	\def\svgwidth{0.9\columnwidth}
-	\graphicspath{{Img/}}
-	{\fontsize{5}{12}\selectfont
-		\input{Img/Experiment16_NSsignalTime.pdf_tex}
-	}
-	\caption{Time}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\textwidth}
 	\centering
 	\def\svgwidth{0.9\columnwidth}
 	\graphicspath{{Img/}}
 	{\fontsize{5}{12}\selectfont
 		\input{Img/Experiment16_NSsignalFreq.pdf_tex}
 	}
-	\caption{Frequency}
-\end{subfigure}
-	\caption{Noise source signal}
+	\caption{Noise source signal spectrum}
 	\label{NSsignal}
 \end{figure}
 %The received signal from that noise loudspeaker is shown in \autoref{recNS}
 
-The signal transmitted by the WFS array loudspeakers $\vec{\signal[wfs][time]} = [\signal[wfs][time]_1, \signal[wfs][time]_2, ..., \signal[wfs][time]_{\numWFS}]^T$ are calculated using \autoref{rayleigh2_5Dsignal}, where the filter $\freqFilter(t) = \FourierTransform{\sqrt{\frac{jk}{2\pi}}}[inverse]$ has been implemented using a magnitude filter $\freqFilter[time][magnitude] = \FourierTransform{\sqrt{f/c}}[inverse]$ of order $1024$, and a phase filter $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$ of order $4096$. The estimated noise source position (the positions that is used to calculate WFS signals) is $\Position[ns] = [\Position[ns][x], \Position[ns][y], \Position[ns][z]] = [3.5, -0.2, 1.65]$ (remember all loudspeakers are situated $1.65\si{m}$ above the floor).
+The signal transmitted by the WFS array loudspeakers $\vec{\signal[wfs][time]} = [\signal[wfs][time]_1, \signal[wfs][time]_2, ..., \signal[wfs][time]_{\numWFS}]^T$ are calculated using \autoref{rayleigh2_5Dsignal}, where the filter $\freqFilter(t) = \FourierTransform{\sqrt{\frac{jk}{2\pi}}}[inverse]$ has been implemented using a magnitude filter $\freqFilter[time][magnitude] = \FourierTransform{\sqrt{f/c}}[inverse]$ of order $1024$, and a phase filter $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$ of order $4096$. The estimated noise source position (the positions that is used to calculate WFS signals) is $\Position[ns] = [\Position[ns][x], \Position[ns][y], \Position[ns][z]] = [3.5, -0.8, 1.65]$ (remember all loudspeakers are situated $1.65\si{m}$ above the floor).
 
 When playing the noise source signal only, the received signals at two different locations inside the octagon are shown in \autoref{recNS}. An ideal response would present the same amplitude during the whole pulse. The real one presents significant variations due to the fact that the acoustic path response between loudspeaker and microphones is frequency selective. This is an indicator of the present multiple path phenomenon, diffractions, etc. The same type of variations are found in the received signal from the other loudspeakers. %(\autoref{recWFSexamp}).
 
@@ -330,7 +318,7 @@ In reality, this signals are actually discrete vectors with as many elements as 
 \globalCorrectionFactor = \min_{\correctionFactor} \norm{\Field[wfs][time][vector]\correctionFactor + \Field[ns][time][vector]}^2 = -\frac{\scalarProd{\Field[wfs][time][vector]}{\Field[ns][time][vector]}}
 {\norm{\Field[wfs][time][vector]}^2}.
 \end{equation}
-Let's notice that this estimation get's a value for each microphone.
+Let's notice that this estimation get's a value for each microphone. As we already know that for low frequencies cancellation is not good even in simulated scenarios, and that above the spatial aliasing frequency the synthesis is not correct, we have optimized considering just the interval that transmits frequencies between $500\si{Hz}$ and $850\si{Hz}$.
 In \autoref{corrVol} there is the resulting signal after volume correction (the result is similar for the other microphone). What seems to have happened is that the correlation between $\Field[wfs][time][vector]$ and $\Field[ns][time][vector]$ is too small. In the ideal scenario, the correlation coefficient would be very close to one, so the estimated value would actually very close to $\soundVolume[ns]/\soundVolume[wfs]$. However, both variables are so uncorrelated that the best way of minimizing the total power of the sum of both is making the secondary signals very small. This means that the cause of the low cancellation levels is not the volume mismatch, but probably a combination of previously mentioned phenomena.
 
 \begin{figure}[h]
@@ -351,6 +339,6 @@ In \autoref{corrVol} there is the resulting signal after volume correction (the 
 		}
 	\caption{Frequency}	
 	\end{subfigure}
-\caption{Received signal after volume correction. Microphone 1. $\globalCorrectionFactor = -0.0835$.}
+\caption{Received signal after volume correction. Microphone 1. $\globalCorrectionFactor = -0.1769$.}
 	\label{corrVol}
 \end{figure}
