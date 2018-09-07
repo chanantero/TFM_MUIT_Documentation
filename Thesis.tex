@@ -1,5 +1,4 @@
 \documentclass[11pt,a4paper,notitlepage]{report}
-\usepackage[catalan,spanish,english]{babel}
 \usepackage{mystyle}
 \usepackage{Tex/myVariables}
 
@@ -46,21 +45,23 @@
 
 \phantomsection
 \addcontentsline{toc}{chapter}{Abstract}
+\begin{minipage}{14cm}%\newgeometry{hoffset=-2cm}
 \selectlanguage{catalan} 
 \begin{abstract}
-	Resum
+	Wave Field Synthesis (WFS) es un mètode proposat per primera vegada en la dècada dels 90 que, mitjançant una agrupació d’altaveus, permet replicar el camp acústic que una hipotètica font de soroll produiria. El principal avantatge enfront d’altres tècniques de reproducció multicanal de so es que WFS funciona en una àrea mes ampla, mentres que la resta estan limitades a un àrea més menuda, també denominada “sweetspot”. Una de les aplicacions de WFS estudiades recentment es el Control Actiu de Soroll o Active Noise Control (ANC). El plantejament es identificar la posició y característiques d’una font de so y usar eixa informació per a sintetitzar un camp acústic que interfereixi destructivament amb el camp acústic original.
+	Ens centrem en la viabilitat de realitzar ANC basat en WFS amb una agrupació de 96 altaveus distribuïts en forma d’octàgon en una sala reverberant. Estudiem diferents fonts d’error mitjançant simulació en Matlab. Partim de condicions ideals y després canviem alguns paràmetres amb l’objectiu d comprovar com influencien el funcionament del sistema. També realitzem mesuraments experimentals. Concloem que l’absència de condicions de propagació en espai lliure suposa la limitació principal per a aquest sistema.
 \end{abstract}
 \selectlanguage{spanish} 
 \begin{abstract}
-	Resumen
+Wave Field Synthesis (WFS) es un método propuesto por primera vez en la década 90 que, mediante una agrupación de altavoces, permite replicar el campo acústico que una fuente de sonido hipotética produciría. La principal ventaja sobre otras técnicas de reproducción multicanal de sonido es que WFS funciona en un área más amplia, mientras que el resto están limitados a un área pequeña, también llamada “sweetspot”. Una de las aplicaciones de WFS estudiadas recientemente es el Control Activo de Ruido o Active Noise Control (ANC). El planteamiento es identificar la posición y características de una fuente de ruido y usar esa información para sintetizar un campo acústico que interfiera destructivamente con el campo original.
+Nos centramos en la viabilidad de realizar ANC basado en WFS con una agrupación de 96 altavoces distribuidos en forma de octágono en una sala reverberante. Estudiamos diferentes fuentes de error mediante simulaciones en Matlab. Partimos de condiciones ideales, y luego algunos parámetros son cambiados con el objetivo de comprobar cómo influencian el funcionamiento del sistema. También realizamos mediciones experimentales. Concluimos que la ausencia de condiciones de propagación en espacio libre supone la limitación principal para este sistema.
 \end{abstract}
 \selectlanguage{english} 
 \begin{abstract}
-Wave Field Synthesis (WFS) was first proposed in the 1990s as a method that, by means of an array of loudspeakers, allows to generate the acoustic field that some hypothetical sound source would produce. The main advantage over other multichannel sound reproduction techniques is that WFS works over a wider area, whereas the rest are limited to a small area, often called sweetspot.  One of the recently studied applications is Active Noise Cancellation (ANC). The idea is to identify the position and characteristics of a noise source and use that information to synthesize an acoustic field that will interfere destructively with the original one.
-
-We focus on the viability of performing WFS based ANC with an octagon shaped 96-element loudspeaker array set up in a reverberant room. A series of Matlab simulations are done to study the possible sources of errors. Idealized conditions are first assumed, and then some parameters are changed to test how they influence performance. Then, some measures are carried out in a real environment. We conclude that non free-space conditions are the main limitation to the feasibility of this systems.
+Wave Field Synthesis (WFS) was first proposed in the 1990s as a method that, by means of an array of loudspeakers, allows to generate the acoustic field that some hypothetical sound source would produce. The main advantage over other multichannel sound reproduction techniques is that WFS works over a wider area, whereas the rest are limited to a small area, often called sweetspot.  One of the recently studied applications is Active Noise Control (ANC). The idea is to identify the position and characteristics of a noise source and use that information to synthesize an acoustic field that will interfere destructively with the original one.
+We focus on the viability of performing WFS based ANC with an octagon shaped 96-element loudspeaker array set up in a reverberant room. A series of Matlab simulations are done to study the possible sources of errors. Idealized conditions are first assumed, and then some parameters are changed to test how they influence performance. Then, some measures are carried out in a real environment. We conclude that non free-space conditions are the main limitation to the feasibility of this system.
 \end{abstract}
-
+\end{minipage}
 \newpage
 
 \phantomsection

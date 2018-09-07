@@ -9,7 +9,7 @@ In order to find a connection between the real and ideal situation, let's use a 
 \end{shownto}
 In a real situation, all we can certainly know is that, if we transmit a signal through a loudspeaker and we measure at some point with a microphone, we receive a modified version of the signal. That modification depends on all the conditions previously mentioned (multiple reflections, etc.), and together they form what is often called acoustic path. An acoustic path between a loudspeaker and a point of measure acts as a filter characterized by an impulse response (time domain) or frequency response (frequency domain).
 
-The relation between the transmitted signals and the received ones in the frequency domain is:
+When we use $\numWFS$ secondary loudspeakers, $\numNS$ noise sources and $\numMeasPoints$ points of measure, the relation between transmitted signals and received ones in the frequency domain is:
 \begin{shownto}{private}
 \begin{equation}
 \Field[noValue][frequency][vector](f) = \AcPath[mat](f) \vec{\signal[nothing][frequency]}(f) ,
@@ -55,7 +55,7 @@ where $\Field[ns][frequency][vector] = [\Field[ns][frequency][scalar][1], \Field
 	= \Field[ns][frequency][vector](f) + \Field[wfs][frequency][vector](f),
 	\label{acPathModel}
 \end{multline}
-where $\Field[ns][frequency][vector] = [\Field[ns][frequency][scalar][1], \Field[ns][frequency][scalar][2], ..., \Field[ns][frequency][scalar][\numMeasPoints]]^T$ and $\Field[wfs][frequency][vector] = [\Field[wfs][frequency][scalar][1], \Field[wfs][frequency][scalar][2], ..., \Field[wfs][frequency][scalar][\numMeasPoints]]^T$ are the acoustic pressure vectors ($\numMeasPoints$ is the number of points of measure), $\vec{\signal[ns][frequency]} = [\signal[ns][frequency]_1, \signal[ns][frequency]_2, ..., \signal[ns][frequency]_{\numNS}]^T$ ($\numNS$ is the number of noise sources) and $\vec{\signal[wfs][frequency]} = [\signal[wfs][frequency]_1, \signal[wfs][frequency]_2, ..., \signal[wfs][frequency]_{\numWFS}]^T$ ($\numWFS$ is the number of secondary sources) are the transmitted signal vectors, and ${\AcPath[mat][NS]}_{(\numMeasPoints \times \numNS)}$ and ${\AcPath[mat][WFS]}_{(\numMeasPoints \times \numWFS)}$ are matrices whose $(m,n)$-th element is the frequency response of the acoustic path between the $n$-th loudspeaker and the $m$-th point of measure. If the cancellation is successful, $\Field[ns][frequency][vector](f) \approx -\Field[wfs][frequency][vector](f)$ and so, $\Field[noValue][frequency][vector]$ becomes really small. Cancellation will be successful as long as the acoustic paths are the same or very similar to the ideal ones. In the ideal case, the $(m,n)$-th element of $\AcPath$ would apply a simple delay and an amplitude attenuation:
+where $\Field[ns][frequency][vector] = [\Field[ns][frequency][scalar][1], \Field[ns][frequency][scalar][2], ..., \Field[ns][frequency][scalar][\numMeasPoints]]^T$ and $\Field[wfs][frequency][vector] = [\Field[wfs][frequency][scalar][1], \Field[wfs][frequency][scalar][2], ..., \Field[wfs][frequency][scalar][\numMeasPoints]]^T$ are the acoustic pressure vectors ($\numMeasPoints$ is the number of points of measure), $\vec{\signal[ns][frequency]} = [\signal[ns][frequency]_1, \signal[ns][frequency]_2, ..., \signal[ns][frequency]_{\numNS}]^T$ ($\numNS$ is the number of noise sources) and $\vec{\signal[wfs][frequency]} = [\signal[wfs][frequency]_1, \signal[wfs][frequency]_2, ..., \signal[wfs][frequency]_{\numWFS}]^T$ ($\numWFS$ is the number of secondary sources) are the transmitted signal vectors, and ${\AcPath[mat][NS]}_{(\numMeasPoints \times \numNS)}$ and ${\AcPath[mat][WFS]}_{(\numMeasPoints \times \numWFS)}$ are matrices whose $(m,n)$-th element is the frequency response of the acoustic path between the $n$-th loudspeaker and the $m$-th point of measure. If the cancellation is successful, $\Field[ns][frequency][vector](f) \approx -\Field[wfs][frequency][vector](f)$ and so, the elements of $\Field[noValue][frequency][vector]$ become really small. Cancellation will be successful as long as the acoustic paths are the same or very similar to the ideal ones. In the ideal case, the $(m,n)$-th element of $\AcPath$ would apply a simple delay and an amplitude attenuation:
 \begin{equation}
 a_{m,n}(f) = \frac{e^{-j k d_{m,n}}}{d_{m,n}},
 \end{equation}
@@ -214,7 +214,7 @@ In summary, the process I propose is:
 \end{shownto}
 
 \showto{private}{\section{Measures}}
-In order to perform a simple experiment, a loudspeaker will act as a noise source that transmits a known signal. Specifically, it is a chirp signal of duration $4$ seconds. The frequency increases linearly from $20 \si{Hz}$ to $950\si{Hz}$ (\autoref{NSsignal}). We have chosen to work at a sample rate of $44100$.
+In order to perform a simple experiment, a loudspeaker will act as a noise source that transmits a known signal. Specifically, it is a chirp signal of duration $40$ seconds. The frequency increases linearly from $20 \si{Hz}$ to $1200\si{Hz}$ (\autoref{NSsignal}). We have chosen to work at a sample rate of $44100$.
 \begin{figure}[h]
 	\centering
 	\def\svgwidth{0.9\columnwidth}
@@ -227,7 +227,16 @@ In order to perform a simple experiment, a loudspeaker will act as a noise sourc
 \end{figure}
 %The received signal from that noise loudspeaker is shown in \autoref{recNS}
 
-The signal transmitted by the WFS array loudspeakers $\vec{\signal[wfs][time]} = [\signal[wfs][time]_1, \signal[wfs][time]_2, ..., \signal[wfs][time]_{\numWFS}]^T$ are calculated using \autoref{rayleigh2_5Dsignal}, where the filter $\freqFilter(t) = \FourierTransform{\sqrt{\frac{jk}{2\pi}}}[inverse]$ has been implemented using a magnitude filter $\freqFilter[time][magnitude] = \FourierTransform{\sqrt{f/c}}[inverse]$ of order $1024$, and a phase filter $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$ of order $4096$. The estimated noise source position (the positions that is used to calculate WFS signals) is $\Position[ns] = [\Position[ns][x], \Position[ns][y], \Position[ns][z]] = [3.5, -0.8, 1.65]$ (remember all loudspeakers are situated $1.65\si{m}$ above the floor).
+The signal transmitted by the WFS array loudspeakers $\vec{\signal[wfs][time]} = [\signal[wfs][time]_1, \signal[wfs][time]_2, ..., \signal[wfs][time]_{\numWFS}]^T$ are calculated using \autoref{rayleigh2_5Dsignal}, where the filter $\freqFilter(t) = \FourierTransform{\sqrt{\frac{jk}{2\pi}}}[inverse]$ has been implemented using a magnitude filter $\freqFilter[time][magnitude] = \FourierTransform{\sqrt{f/c}}[inverse]$ of order $1024$, and a phase filter $\freqFilter[time][phase] = \FourierTransform{\sqrt{j}}[inverse]$ of order $4096$. The estimated noise source position (the positions that is used to calculate WFS signals) is $\Position[ns] = [\Position[ns][x], \Position[ns][y], \Position[ns][z]] = [3.83, 1.40, 1.65] \si{m}$ (remember all loudspeakers are situated $1.65\si{m}$ above the floor). Two microphones are located at $[1.97, 3.69, 1.65] \si{m}$ and $[1.44, 5.42, 1.65] \si{m}$ (\autoref{measureScheme}).
+
+\begin{figure}[h]
+	\centering
+	\reflectbox{\rotatebox[origin=c]{180}{
+	\includegraphics[width=0.3\textwidth]{Img/Experiment16_schemePlusAx.pdf}
+}}
+	\caption{Scheme of the measure scenario}
+	\label{measureScheme}
+\end{figure}
 
 When playing the noise source signal only, the received signals at two different locations inside the octagon are shown in \autoref{recNS}. An ideal response would present the same amplitude during the whole pulse. The real one presents significant variations due to the fact that the acoustic path response between loudspeaker and microphones is frequency selective. This is an indicator of the present multiple path phenomenon, diffractions, etc. The same type of variations are found in the received signal from the other loudspeakers. %(\autoref{recWFSexamp}).
 
