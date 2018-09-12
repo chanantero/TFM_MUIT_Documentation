@@ -206,7 +206,7 @@
     >
 <g transform="translate(35.5185,202.4998) rotate(-90)" style="font-size:14.6667px; fill:rgb(38,38,38); text-rendering:geometricPrecision; image-rendering:optimizeQuality; color-rendering:optimizeQuality; font-family:'SansSerif'; stroke:rgb(38,38,38); color-interpolation:linearRGB; text-align:center; text-anchor:middle"
     ><text x="0" xml:space="preserve" y="-3.2" style="stroke:none;"
-      >$\Field[ns][time]$</text
+      >$\Field[ns][time]$ (arbitrary units)</text
     ></g
     ></g
 ></svg

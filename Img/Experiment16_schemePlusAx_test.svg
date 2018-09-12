@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   height="913"
+   width="448"
+   version="1.1"
+   viewBox="-0.46       -2.21        4.48        9.13"
+   sodipodi:docname="Experiment16_schemePlusAx_test.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"><metadata
+   id="metadata309">
+  <rdf:RDF>
+    <cc:Work
+       rdf:about="">
+      <dc:format>image/svg+xml</dc:format>
+      <dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      <dc:title></dc:title>
+    </cc:Work>
+  </rdf:RDF>
+</metadata>
+<sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1366"
+   inkscape:window-height="705"
+   id="namedview307"
+   showgrid="false"
+   inkscape:zoom="0.36555794"
+   inkscape:cx="-554.62172"
+   inkscape:cy="532.95116"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg2" />
+<defs
+   id="defs2" />
+<!-- Include the background image -->
+<!-- <image xlink:href="[backgroundName]" x="[x]" y="[y]" height="[height]" width="[width]" preserveAspectRatio="none"/> -->
+<!-- Draw the radiationPatterns -->
+<!-- <use xlink:href="#diagramDipole" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+<!-- <use xlink:href="#diagramMonopoleNoise" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])" />  -->
+<!-- Draw the loudspeakers -->
+<!-- <use xlink:href="#loudspeaker" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+<!-- <use xlink:href="#loudspeakerIcon_sound" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+<!-- <use xlink:href="#loudspeakerIcon_silence" x="[x]" y="[y]" transform="rotate([rotationAngle] [x] [y])"/> -->
+<!-- WFS array loudspeakers -->
+<!-- Noise loudspeakers -->
+<!-- Draw the microphones -->
+<!-- <use xlink:href="#microphone" x="[x]" y="[y]"/> -->
+<g
+   id="g19967">
+  <g
+     id="WFSarray">
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.954594 0.0636396)"
+       y="0.0636396"
+       x="0.954594"
+       id="WFSloudspeaker_1" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.827315 0.190919)"
+       y="0.190919"
+       x="0.827315"
+       id="WFSloudspeaker_2" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.700036 0.318198)"
+       y="0.318198"
+       x="0.700036"
+       id="WFSloudspeaker_3" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.572756 0.445477)"
+       y="0.445477"
+       x="0.572756"
+       id="WFSloudspeaker_4" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.445477 0.572756)"
+       y="0.572756"
+       x="0.445477"
+       id="WFSloudspeaker_5" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.318198 0.700036)"
+       y="0.700036"
+       x="0.318198"
+       id="WFSloudspeaker_6" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.190919 0.827315)"
+       y="0.827315"
+       x="0.190919"
+       id="WFSloudspeaker_7" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(45 0.0636396 0.954594)"
+       y="0.954594"
+       x="0.0636396"
+       id="WFSloudspeaker_8" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 1.10823)"
+       y="1.10823"
+       x="0"
+       id="WFSloudspeaker_9" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 1.28823)"
+       y="1.28823"
+       x="0"
+       id="WFSloudspeaker_10" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 1.46823)"
+       y="1.46823"
+       x="0"
+       id="WFSloudspeaker_11" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 1.64823)"
+       y="1.64823"
+       x="0"
+       id="WFSloudspeaker_12" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 1.82823)"
+       y="1.82823"
+       x="0"
+       id="WFSloudspeaker_13" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 2.00823)"
+       y="2.00823"
+       x="0"
+       id="WFSloudspeaker_14" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 2.18823)"
+       y="2.18823"
+       x="0"
+       id="WFSloudspeaker_15" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 2.36823)"
+       y="2.36823"
+       x="0"
+       id="WFSloudspeaker_16" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 2.54823)"
+       y="2.54823"
+       x="0"
+       id="WFSloudspeaker_17" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 2.72823)"
+       y="2.72823"
+       x="0"
+       id="WFSloudspeaker_18" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 2.90823)"
+       y="2.90823"
+       x="0"
+       id="WFSloudspeaker_19" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 3.08823)"
+       y="3.08823"
+       x="0"
+       id="WFSloudspeaker_20" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 3.26823)"
+       y="3.26823"
+       x="0"
+       id="WFSloudspeaker_21" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 3.44823)"
+       y="3.44823"
+       x="0"
+       id="WFSloudspeaker_22" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 3.62823)"
+       y="3.62823"
+       x="0"
+       id="WFSloudspeaker_23" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 3.80823)"
+       y="3.80823"
+       x="0"
+       id="WFSloudspeaker_24" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 3.98823)"
+       y="3.98823"
+       x="0"
+       id="WFSloudspeaker_25" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 4.16823)"
+       y="4.16823"
+       x="0"
+       id="WFSloudspeaker_26" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 4.34823)"
+       y="4.34823"
+       x="0"
+       id="WFSloudspeaker_27" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 4.52823)"
+       y="4.52823"
+       x="0"
+       id="WFSloudspeaker_28" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 4.70823)"
+       y="4.70823"
+       x="0"
+       id="WFSloudspeaker_29" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 4.88823)"
+       y="4.88823"
+       x="0"
+       id="WFSloudspeaker_30" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 5.06823)"
+       y="5.06823"
+       x="0"
+       id="WFSloudspeaker_31" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(0 0 5.24823)"
+       y="5.24823"
+       x="0"
+       id="WFSloudspeaker_32" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.0636396 5.40187)"
+       y="5.40187"
+       x="0.0636396"
+       id="WFSloudspeaker_33" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.190919 5.52915)"
+       y="5.52915"
+       x="0.190919"
+       id="WFSloudspeaker_34" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.318198 5.65643)"
+       y="5.65643"
+       x="0.318198"
+       id="WFSloudspeaker_35" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.445477 5.78371)"
+       y="5.78371"
+       x="0.445477"
+       id="WFSloudspeaker_36" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.572756 5.91099)"
+       y="5.91099"
+       x="0.572756"
+       id="WFSloudspeaker_37" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.700036 6.03827)"
+       y="6.03827"
+       x="0.700036"
+       id="WFSloudspeaker_38" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.827315 6.16555)"
+       y="6.16555"
+       x="0.827315"
+       id="WFSloudspeaker_39" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-45 0.954594 6.29283)"
+       y="6.29283"
+       x="0.954594"
+       id="WFSloudspeaker_40" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 1.10823 6.35647)"
+       y="6.35647"
+       x="1.10823"
+       id="WFSloudspeaker_41" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 1.28823 6.35647)"
+       y="6.35647"
+       x="1.28823"
+       id="WFSloudspeaker_42" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 1.46823 6.35647)"
+       y="6.35647"
+       x="1.46823"
+       id="WFSloudspeaker_43" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 1.64823 6.35647)"
+       y="6.35647"
+       x="1.64823"
+       id="WFSloudspeaker_44" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 1.82823 6.35647)"
+       y="6.35647"
+       x="1.82823"
+       id="WFSloudspeaker_45" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 2.00823 6.35647)"
+       y="6.35647"
+       x="2.00823"
+       id="WFSloudspeaker_46" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 2.18823 6.35647)"
+       y="6.35647"
+       x="2.18823"
+       id="WFSloudspeaker_47" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-90 2.36823 6.35647)"
+       y="6.35647"
+       x="2.36823"
+       id="WFSloudspeaker_48" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 2.52187 6.29283)"
+       y="6.29283"
+       x="2.52187"
+       id="WFSloudspeaker_49" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 2.64915 6.16555)"
+       y="6.16555"
+       x="2.64915"
+       id="WFSloudspeaker_50" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 2.77643 6.03827)"
+       y="6.03827"
+       x="2.77643"
+       id="WFSloudspeaker_51" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 2.90371 5.91099)"
+       y="5.91099"
+       x="2.90371"
+       id="WFSloudspeaker_52" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 3.03099 5.78371)"
+       y="5.78371"
+       x="3.03099"
+       id="WFSloudspeaker_53" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 3.15827 5.65643)"
+       y="5.65643"
+       x="3.15827"
+       id="WFSloudspeaker_54" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 3.28555 5.52915)"
+       y="5.52915"
+       x="3.28555"
+       id="WFSloudspeaker_55" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(-135 3.41283 5.40187)"
+       y="5.40187"
+       x="3.41283"
+       id="WFSloudspeaker_56" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 5.24823)"
+       y="5.24823"
+       x="3.47647"
+       id="WFSloudspeaker_57" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 5.06823)"
+       y="5.06823"
+       x="3.47647"
+       id="WFSloudspeaker_58" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 4.88823)"
+       y="4.88823"
+       x="3.47647"
+       id="WFSloudspeaker_59" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 4.70823)"
+       y="4.70823"
+       x="3.47647"
+       id="WFSloudspeaker_60" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 4.52823)"
+       y="4.52823"
+       x="3.47647"
+       id="WFSloudspeaker_61" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 4.34823)"
+       y="4.34823"
+       x="3.47647"
+       id="WFSloudspeaker_62" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 4.16823)"
+       y="4.16823"
+       x="3.47647"
+       id="WFSloudspeaker_63" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 3.98823)"
+       y="3.98823"
+       x="3.47647"
+       id="WFSloudspeaker_64" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 3.80823)"
+       y="3.80823"
+       x="3.47647"
+       id="WFSloudspeaker_65" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 3.62823)"
+       y="3.62823"
+       x="3.47647"
+       id="WFSloudspeaker_66" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 3.44823)"
+       y="3.44823"
+       x="3.47647"
+       id="WFSloudspeaker_67" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 3.26823)"
+       y="3.26823"
+       x="3.47647"
+       id="WFSloudspeaker_68" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 3.08823)"
+       y="3.08823"
+       x="3.47647"
+       id="WFSloudspeaker_69" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 2.90823)"
+       y="2.90823"
+       x="3.47647"
+       id="WFSloudspeaker_70" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 2.72823)"
+       y="2.72823"
+       x="3.47647"
+       id="WFSloudspeaker_71" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 2.54823)"
+       y="2.54823"
+       x="3.47647"
+       id="WFSloudspeaker_72" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 2.36823)"
+       y="2.36823"
+       x="3.47647"
+       id="WFSloudspeaker_73" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 2.18823)"
+       y="2.18823"
+       x="3.47647"
+       id="WFSloudspeaker_74" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 2.00823)"
+       y="2.00823"
+       x="3.47647"
+       id="WFSloudspeaker_75" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 1.82823)"
+       y="1.82823"
+       x="3.47647"
+       id="WFSloudspeaker_76" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 1.64823)"
+       y="1.64823"
+       x="3.47647"
+       id="WFSloudspeaker_77" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 1.46823)"
+       y="1.46823"
+       x="3.47647"
+       id="WFSloudspeaker_78" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 1.28823)"
+       y="1.28823"
+       x="3.47647"
+       id="WFSloudspeaker_79" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeaker"
+       style="fill:#000000"
+       transform="rotate(180 3.47647 1.10823)"
+       y="1.10823"
+       x="3.47647"
+       id="WFSloudspeaker_80" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 3.41283 0.954594)"
+       y="0.954594"
+       x="3.41283"
+       id="WFSloudspeaker_81" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 3.28555 0.827315)"
+       y="0.827315"
+       x="3.28555"
+       id="WFSloudspeaker_82" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 3.15827 0.700036)"
+       y="0.700036"
+       x="3.15827"
+       id="WFSloudspeaker_83" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 3.03099 0.572756)"
+       y="0.572756"
+       x="3.03099"
+       id="WFSloudspeaker_84" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 2.90371 0.445477)"
+       y="0.445477"
+       x="2.90371"
+       id="WFSloudspeaker_85" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 2.77643 0.318198)"
+       y="0.318198"
+       x="2.77643"
+       id="WFSloudspeaker_86" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 2.64915 0.190919)"
+       y="0.190919"
+       x="2.64915"
+       id="WFSloudspeaker_87" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(135 2.52187 0.0636396)"
+       y="0.0636396"
+       x="2.52187"
+       id="WFSloudspeaker_88" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 2.36823 0)"
+       y="0"
+       x="2.36823"
+       id="WFSloudspeaker_89" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 2.18823 0)"
+       y="0"
+       x="2.18823"
+       id="WFSloudspeaker_90" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 2.00823 0)"
+       y="0"
+       x="2.00823"
+       id="WFSloudspeaker_91" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 1.82823 0)"
+       y="0"
+       x="1.82823"
+       id="WFSloudspeaker_92" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 1.64823 0)"
+       y="0"
+       x="1.64823"
+       id="WFSloudspeaker_93" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 1.46823 0)"
+       y="0"
+       x="1.46823"
+       id="WFSloudspeaker_94" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 1.28823 0)"
+       y="0"
+       x="1.28823"
+       id="WFSloudspeaker_95" />
+    <use
+       xlink:href="symbolLibrary.svg#loudspeakerSound"
+       style="fill:#0000FF"
+       transform="rotate(90 1.10823 0)"
+       y="0"
+       x="1.10823"
+       id="WFSloudspeaker_96" />
+  </g>
+  <use
+     xlink:href="symbolLibrary.svg#loudspeakerSound"
+     style="fill:#000000"
+     transform="rotate(112.252 3.37 -0.81)"
+     y="-0.81"
+     x="3.37"
+     id="NS_1" />
+  <use
+     xlink:href="symbolLibrary.svg#microphone"
+     id="use302"
+     style="fill:#000000"
+     transform="translate(1.51 1.48) scale(1)" />
+  <use
+     xlink:href="symbolLibrary.svg#microphone"
+     id="use304"
+     style="fill:#000000"
+     transform="translate(0.98 3.21) scale(1)" />
+</g>
+<!-- Other things -->
+
+
+[Other]
+
+<g
+   transform="matrix(0.02659227,0,0,-0.02657939,-5.9311418,7.7376907)"
+   style="font-style:normal;font-weight:normal;font-size:12px;font-family:Dialog;color-interpolation:auto;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"
+   id="g1097">
+  <g
+     style="color-interpolation:linearRGB;fill:#262626;stroke:#262626;stroke-width:0.66670001;stroke-linejoin:round;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g60">
+    <line
+       y2="374"
+       style="fill:none"
+       x1="205.84669"
+       x2="374.15341"
+       y1="374"
+       id="line48" />
+    <line
+       y2="370.57001"
+       style="fill:none"
+       x1="205.84669"
+       x2="205.84669"
+       y1="374"
+       id="line50-9" />
+    <line
+       y2="370.57001"
+       style="fill:none"
+       x1="243.4151"
+       x2="243.4151"
+       y1="374"
+       id="line52-8" />
+    <line
+       y2="370.57001"
+       style="fill:none"
+       x1="280.98361"
+       x2="280.98361"
+       y1="374"
+       id="line54" />
+    <line
+       y2="370.57001"
+       style="fill:none"
+       x1="318.552"
+       x2="318.552"
+       y1="374"
+       id="line56" />
+    <line
+       y2="370.57001"
+       style="fill:none"
+       x1="356.12051"
+       x2="356.12051"
+       y1="374"
+       id="line58" />
+  </g>
+  <g
+     transform="translate(205.8467,379.3333)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g64">
+    <text
+       x="-4"
+       xml:space="preserve"
+       y="14"
+       style="stroke:none"
+       id="text62">0</text>
+  </g>
+  <g
+     transform="translate(243.4151,379.3333)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g68">
+    <text
+       x="-4"
+       xml:space="preserve"
+       y="14"
+       style="stroke:none"
+       id="text66">1</text>
+  </g>
+  <g
+     transform="translate(280.9836,379.3333)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g72">
+    <text
+       x="-4"
+       xml:space="preserve"
+       y="14"
+       style="stroke:none"
+       id="text70">2</text>
+  </g>
+  <g
+     transform="translate(318.552,379.3333)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g76">
+    <text
+       x="-4"
+       xml:space="preserve"
+       y="14"
+       style="stroke:none"
+       id="text74">3</text>
+  </g>
+  <g
+     transform="translate(356.1205,379.3333)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g80">
+    <text
+       x="-4"
+       xml:space="preserve"
+       y="14"
+       style="stroke:none"
+       id="text78">4</text>
+  </g>
+  <g
+     transform="translate(290.0001,397.6667)"
+     style="font-size:14.66670036px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g84">
+    <text
+       x="-11"
+       xml:space="preserve"
+       y="15"
+       style="stroke:none"
+       id="text82">(m)</text>
+  </g>
+  <g
+     style="color-interpolation:linearRGB;fill:#262626;stroke:#262626;stroke-width:0.66670001;stroke-linejoin:round;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g108">
+    <line
+       y2="31"
+       style="fill:none"
+       x1="205.84669"
+       x2="205.84669"
+       y1="374"
+       id="line86" />
+    <line
+       y2="374"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="374"
+       id="line88" />
+    <line
+       y2="336.43149"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="336.43149"
+       id="line90" />
+    <line
+       y2="298.8631"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="298.8631"
+       id="line92-8" />
+    <line
+       y2="261.29459"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="261.29459"
+       id="line94-8" />
+    <line
+       y2="223.7262"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="223.7262"
+       id="line96-6" />
+    <line
+       y2="186.1577"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="186.1577"
+       id="line98" />
+    <line
+       y2="148.58929"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="148.58929"
+       id="line100" />
+    <line
+       y2="111.0208"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="111.0208"
+       id="line102" />
+    <line
+       y2="73.4524"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="73.4524"
+       id="line104" />
+    <line
+       y2="35.8839"
+       style="fill:none"
+       x1="205.84669"
+       x2="209.2767"
+       y1="35.8839"
+       id="line106" />
+  </g>
+  <g
+     transform="translate(200.5133,374)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g112">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text110">0</text>
+  </g>
+  <g
+     transform="translate(200.5133,336.4315)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g116">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text114">1</text>
+  </g>
+  <g
+     transform="translate(200.5133,298.8631)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g120">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text118">2</text>
+  </g>
+  <g
+     transform="translate(200.5133,261.2946)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g124">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text122">3</text>
+  </g>
+  <g
+     transform="translate(200.5133,223.7262)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g128">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text126">4</text>
+  </g>
+  <g
+     transform="translate(200.5133,186.1577)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g132">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text130">5</text>
+  </g>
+  <g
+     transform="translate(200.5133,148.5893)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g136">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text134">6</text>
+  </g>
+  <g
+     transform="translate(200.5133,111.0208)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g140">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text138">7</text>
+  </g>
+  <g
+     transform="translate(200.5133,73.4524)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g144">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text142">8</text>
+  </g>
+  <g
+     transform="translate(200.5133,35.8839)"
+     style="font-size:13.33329964px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g148">
+    <text
+       x="-8"
+       xml:space="preserve"
+       y="5.5"
+       style="stroke:none"
+       id="text146">9</text>
+  </g>
+  <g
+     transform="rotate(-90,195.50655,6.99325)"
+     style="font-size:14.66670036px;font-family:SansSerif;color-interpolation:linearRGB;fill:#262626;stroke:#262626;color-rendering:optimizeQuality;image-rendering:optimizeQuality;text-rendering:geometricPrecision"
+     id="g152">
+    <text
+       x="-11"
+       xml:space="preserve"
+       y="-4"
+       style="stroke:none"
+       id="text150">(m)</text>
+  </g>
+</g>
+</svg>
